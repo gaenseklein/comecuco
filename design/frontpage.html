@@ -108,6 +108,12 @@ asi tenemos maximo flexibilidad para ser responsive/mobil
         </li>
       </ul>
     </div>
+    <!-- actualidad:
+      todos elementos de actualidad contienen toda informacion
+      necesaria para pagina principal. el css elige cual informacion
+      se muenstra con n-th-child
+      asi logramos maximo flexibilidad para responsive/mobil
+    -->
     <div class="actualidad">
       <h2>ACTUALIDAD</h2>
       <ul>
@@ -130,15 +136,16 @@ asi tenemos maximo flexibilidad para ser responsive/mobil
     </div>
     <div class="produccionesColectivas">
       <h2>PRODUCCIONES COLECTIVAS</h2>
+      <!-- entra video o audio al elemento -->
       <ul>
         <li>
           <!--video-->
-          <video src="videofile.ogg" autoplay poster="posterimage.jpg">
+          <video src="videofile.ogg" controls poster="posterimage.jpg">
 
           </video>
           <!--audio-->
           <img src="" alt="">
-          <audio src="">
+          <audio src="" controls>
 
           </audio>
           <h3><a href="#">
