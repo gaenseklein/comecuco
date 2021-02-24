@@ -1,0 +1,73 @@
+body{
+  display: grid;
+  /*widescreen size:*/
+  grid-template-areas:
+    "logo logo topMenu topMenu"
+    "clima clima buscador buscador"
+    "loMasLeido calecita calecita mediosEnVivo"
+    "loMasLeido calecita calecita video"
+    "loMasLeido calecita calecita resumenSemanal"
+    "loMasLeido mediosMenu mediosMenu mediosMenu"
+    "actualidad actualidad actualidad actualidad"
+    "produccionesColectivas produccionesColectivas produccionesColectivas produccionesColectivas"
+    "columnas columnas columnas columnas"
+    "footer footer footer footer";
+}
+
+.logo,
+.topMenu,
+h2,
+.mediosEnVivo,
+.resumenSemanal  {
+  background: #e93e1f;
+  color:white;
+}
+
+.logo{
+  grid-area:logo;
+  width: 100%;
+}
+.topMenu{
+  grid-area:topMenu;
+  width: 100%;
+}
+
+.clima{
+  grid-area: clima;
+}
+.buscador{
+  grid-area:buscador;
+}
+.clima, .buscador{
+  background:#808384;
+}
+.loMasLeido{
+  grid-area:loMasLeido;
+}
+.calecita{
+  grid-area: calecita;
+}
+.mediosEnVivo{
+  grid-area: mediosEnVivo;
+}
+.video{
+  grid-area:video;
+}
+.resumenSemanal{
+  grid-area: resumenSemanal;
+}
+.mediosMenu{
+  grid-area:mediosMenu;
+}
+.actualidad{
+  grid-area: actualidad;
+}
+.produccionesColectivas{
+  grid-area: produccionesColectivas;
+}
+.columnas{
+  grid-area: columnas;
+}
+.footer{
+  grid-area:footer;
+}

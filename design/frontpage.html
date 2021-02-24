@@ -1,0 +1,157 @@
+<!--
+esceleto del html de la frontpage - sirve para construir un template de eso
+esta hecho con el diseño pensado usar grid para posicionar elementos
+asi tenemos maximo flexibilidad para ser responsive/mobil
+-->
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>COMECUCO</title>
+    <link rel="stylesheet" href="../public/static/layout.css">
+  </head>
+  <body>
+    <div class="logo">
+      <h1>
+        COMECUCO
+      </h1>
+      <div class="subtitle">
+        somos el colectivo de medios comunitarios de cuyo
+      </div>
+    </div>
+    <div class="topMenu">
+        <ul>
+          <li><a href="#">Todas las noticias</a></li>
+          <li><a href="#">Resumen Semanal</a></li>
+          <li><a href="#">Quienes Somos</a></li>
+          <li><a href="#">Comunidad</a></li>
+        </ul>
+    </div>
+    <div class="clima">
+
+    </div>
+    <div class="buscador">
+      <form class="buscador" action="/search" method="post">
+        <input id="search" type="text" name="txt" value="">
+        <input type="submit" id="searchSubmit" name="" value="">
+        <label for="searchSubmit">
+          <img src="" alt="search">
+        </label>
+      </form>
+    </div>
+    <div class="loMasLeido">
+      <h2>lo más leido</h2>
+      <ul>
+        <li>
+          <a href="#">
+            <img src="" alt="titleimage">
+            <div class="title">
+            </div>
+            <div class="fecha">
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="calecita">
+      <ul>
+        <li>
+          <div class="subtitle">
+
+          </div>
+          <h3>
+            <a href="#">
+
+            </a>
+          </h3>
+          <div class="autor">
+
+          </div>
+          <a href="#"><img src="" alt=""></a>
+        </li>
+      </ul>
+    </div>
+    <div class="blockRight mediosEnVivo">
+      <h2>MEDIOS EN VIVO</h2>
+      <ul>
+        <li>
+          <audio src="http://comecuco.org:8000/stream" controls="">
+          </audio>
+          <div class="nombre">
+
+          </div>
+        </li>
+      </ul>
+      <a href="#" class="arrowLeft">&lt;</a>
+      <a href="#" class="arrowRight">&gt;</a>
+    </div>
+    <div class="blockRight video">
+      <a href="#" class="videolink">
+        <img src="" alt="">
+        <div class="duration">
+
+        </div>
+      </a>
+    </div>
+    <div class="blockRight resumenSemanal">
+      <h2>RESUMEN SEMANAL</h2>
+      <audio src="" controls>
+
+      </audio>
+      <img src="../public/static/resumensemanal.gif" alt="">
+    </div>
+    <div class="mediosMenu">
+      <h2>MEDIOS</h2>
+      <ul>
+        <li>
+          <a href="#"><img src="/public/files/userUID.png" alt=""></a>
+        </li>
+      </ul>
+    </div>
+    <div class="actualidad">
+      <h2>ACTUALIDAD</h2>
+      <ul>
+        <li>
+          <img src="" alt="">
+          <h3><a href="#">
+
+          </a></h3>
+          <div class="resumen">
+
+          </div>
+          <div class="tag">
+
+          </div>
+          <div class="fecha">
+
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="produccionesColectivas">
+      <h2>PRODUCCIONES COLECTIVAS</h2>
+      <ul>
+        <li>
+          <!--video-->
+          <video src="videofile.ogg" autoplay poster="posterimage.jpg">
+
+          </video>
+          <!--audio-->
+          <img src="" alt="">
+          <audio src="">
+
+          </audio>
+          <h3><a href="#">
+
+          </a></h3>
+        </li>
+      </ul>
+    </div>
+    <div class="columnas">
+      <h2>COLUMNAS</h2>
+    </div>
+    <div class="footer">
+
+    </div>
+  </body>
+</html>
