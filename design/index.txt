@@ -1,0 +1,68 @@
+#header
+izquierda: 
+    - grande: comecuco 
+    - chiquito: subtitulo
+derecha: links a
+    - todas las noticias - otra pagina dinamica 
+    - resumen semanal - otra pagina dinamica
+    - quienes somos - otra pagina estatica
+    - comunidad - otra pagina ???
+
+# break
+ - el clima actual (dinamica, external)
+ - busqueador
+
+# lo mas leido
+- titulo 
+- lista con 6 elementos
+ - imagen
+ - titulo 
+ - fecha 
+
+# carusel
+4 elementos 
+ - corte descripcion
+ - titulo
+ - autor
+ - imagen
+ - puntos del carusel
+
+# carusel medios en vivo
+# video ??? (video embedeado)
+# resumen semanal dinamico player ultimo resumen
+
+# medios
+7 links a otra pagina dentro del comecuco
+- imagen del medio
+
+#actualidad
+- todos de la misma lista?
+- resumen semanales - aparecen en la lista?
+
+bloque de 2 noticias
+- imagen
+- titulo
+- introduccion
+
+bloque de 3 noticias
+- imagen
+- titulo
+- introduccion
+- etiqueta 'sociedad' (columna)
+
+bloque de 3 noticias
+- imagen
+- titulo
+- fecha
+
+#producciones colectivas
+2 elementos 
+- imagen
+- titulo
+- audio
+
+#columnas
+- lista de etiquetas (columna) con link a pagina de etiqueta
+
+
+
