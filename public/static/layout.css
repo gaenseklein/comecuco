@@ -71,6 +71,22 @@ h2,
 .mediosMenu{
   grid-area:mediosMenu;
 }
+
+.mediosMenu h2{
+  width: max-content;
+  padding-right: 8ch;
+}
+
+.mediosMenu li{
+  height:6em;
+  display: inline-block;
+  margin-right: 2ch;
+}
+
+.mediosMenu img{
+  height:100%;
+}
+
 .actualidad{
   grid-area: actualidad;
 }
