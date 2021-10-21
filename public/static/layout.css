@@ -106,13 +106,13 @@ h2,
 .loMasLeido a {
     display: grid;
     grid-template-columns: auto 1fr;
-    text-decoration: none;
-    color: black;
+    grid-template-rows: auto 1fr;
+    grid-column-gap: 1ch;
     grid-template-areas:
         "img title"
         "img fecha";
-    grid-column-gap: 1ch;
-    grid-template-rows: auto 1fr;
+    text-decoration: none;
+    color: black;
 }
 
 
