@@ -189,14 +189,14 @@ h2,
 }
 
 form.buscador {
-    width: max-content;
-    background: #e93e20;
-    padding: 6px;
-    border-radius: 14px;
-    margin-top: 2px;
-    margin-bottom: auto;
-    display: inline-grid;
-    grid-template-columns: auto auto;
+	width: max-content;
+	background: #e93e20;
+	padding: 1px 10px 1px 5px;
+	border-radius: 25px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	display: inline-grid;
+	grid-template-columns: auto auto;
 }
 
 input#searchSubmit {
@@ -204,6 +204,9 @@ input#searchSubmit {
 }
 
 input#search {
-    border-radius: 15px;
-    border: 1px solid gray;
+	border-radius: 15px;
+	border: 1px solid gray;
+	width: 40ch;
+	height: 1.5em;
+	margin: auto auto;
 }
