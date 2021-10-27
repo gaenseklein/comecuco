@@ -22,6 +22,7 @@ body{
     "produccionesColectivas produccionesColectivas produccionesColectivas produccionesColectivas"
     "columnas columnas columnas columnas"
     "footer footer footer footer";
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
 .logo,
@@ -152,6 +153,10 @@ h2,
     font-size: small;
 }
 
+/*carusel*/
+.caruselpreviewimage{
+  width:90%;
+}
 /*unsorted*/
 
 .clima {
@@ -186,6 +191,70 @@ h2,
 
 .blockRight {
     text-align: center;
+    width:90%;
+    justify-self: center;
+}
+
+.blockRight.video img{
+  width:100%;
+}
+
+.blockRight audio{
+  width:90%;
+}
+
+.blockRight.mediosEnVivo{
+  display: grid;
+  grid-template-areas:
+  "titulo titulo titulo"
+  "prev medio prox";
+  grid-template-columns: auto 1fr auto;
+  grid-gap: 5px;
+  padding:5px;
+  align-items:center;
+}
+
+.blockRight.mediosEnVivo h2{
+  grid-area:titulo;
+  margin:0;
+}
+.blockRight.mediosEnVivo ul{
+  grid-area:medio;
+  margin:0;
+  padding: 0;
+}
+.blockRight.mediosEnVivo .arrowLeft{
+  grid-area:prev;
+}
+.blockRight.mediosEnVivo .arrowRight{
+  grid-area:prox;
+}
+
+.blockRight audio{
+  display:none;
+}
+
+.arrowLeft,
+.arrowRight{
+  background: rgba(255,255,255,0.2);
+  color: rgb(233, 62, 31);
+  font-size: xx-large;
+  border-radius: 5px;
+  border:none;
+  display: block;
+  height:1.2em;
+  text-decoration: none;
+  font-weight:bold;
+}
+
+.playbutton{
+  background: rgba(255,255,255,0.5);
+  border-radius:50%;
+  width:1.6em;
+  height:1.6em;
+  border:none;
+  font-size: xxx-large;
+  color: rgb(233, 62, 31);
 }
 
 form.buscador {
@@ -209,4 +278,5 @@ input#search {
 	width: 40ch;
 	height: 1.5em;
 	margin: auto auto;
+  padding-left: 1ch;
 }
