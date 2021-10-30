@@ -9,8 +9,31 @@ asi tenemos maximo flexibilidad para ser responsive/mobil
     <meta charset="utf-8">
     <title>COMECUCO</title>
     <link rel="stylesheet" href="../public/static/layout.css">
+    <script type="text/javascript">
+      function startTime()
+      {
+        var today=new Date();
+        var h=today.getHours();
+        var m=today.getMinutes();
+        var s=today.getSeconds();
+    // add a zero in front of numbers<10
+        h=checkTime(h);
+        m=checkTime(m);
+        s=checkTime(s);
+        document.getElementById('hora').innerHTML=h+":"+m+":"+s;
+        t=setTimeout('startTime()',500);
+      }
+      function checkTime(i)
+      {
+        if (i<10)
+        {
+          i="0" + i;
+        }
+        return i;
+      }
+    </script>
   </head>
-  <body>
+  <body onload="startTime()">
     <div class="logo">
       <h1>
         COMECUCO
@@ -28,7 +51,8 @@ asi tenemos maximo flexibilidad para ser responsive/mobil
         </ul>
     </div>
     <div class="clima">
-        EL CLIMA EN MENDOZA 13° HORA 20:06
+        EL CLIMA EN MENDOZA 13° HORA
+        <div id="hora"></div>
     </div>
     <div class="buscador">
       <form class="buscador" action="/search" method="post">
