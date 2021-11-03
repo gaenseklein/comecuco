@@ -8,6 +8,11 @@ ul {
   src:url(PatagoniaPatagonian-Titles.ttf);
 }
 
+@font-face {
+  font-family: KeepCalm;
+  src:url(KeepCalm-Medium.ttf);
+}
+
 body{
   display: grid;
   /*widescreen size:*/
@@ -37,6 +42,13 @@ h2,
 h2 {
     font-family: patagonian;
     font-size: large;
+}
+
+h3 a {
+    font-family: KeepCalm;
+    color: #000;
+    font-size: xx-large;
+    text-decoration: none;
 }
 
 .logo{
@@ -261,7 +273,7 @@ h2 {
 .blockRight.resumenSemanal {
 	display: grid;
 	grid-template-areas: "titulo titulo" "play logo";
-	grid-template-columns: 50% 50%;
+	grid-template-columns: auto 55%;
 	grid-gap: 5px;
 	align-items: center;
 }
@@ -297,9 +309,8 @@ h2 {
 }
 
 .nombre{
-  font-family: monospace;
-  font-size: large;
-  font-weight: bold;
+  font-family: KeepCalm;
+  font-size: Medium;
   margin: 0.5em 0;
 }
 
