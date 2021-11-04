@@ -3,6 +3,10 @@ ul {
     list-style-type: none;
 }
 
+button {
+  cursor: pointer;
+}
+
 @font-face {
   font-family:patagonian;
   src:url(PatagoniaPatagonian-Titles.ttf);
@@ -12,6 +16,7 @@ ul {
   font-family: KeepCalm;
   src:url(KeepCalm-Medium.ttf);
 }
+
 
 body{
   display: grid;
@@ -185,6 +190,29 @@ h3 a {
 .caruselpreviewimage{
   width:90%;
 }
+
+.puntito{
+  width:1.5ch;
+  height:1.5ch;
+  border-radius: 50%;
+  border:1px solid black;
+  background:white;
+  display: inline-block;
+  margin-left: 1px;
+}
+
+.puntito.activo{
+  background: red;
+}
+.puntitos{
+  position:absolute;
+  bottom:8%;
+  left:42%;
+}
+.calecita{
+  position:relative;
+}
+
 /*unsorted*/
 
 .clima {
@@ -268,6 +296,22 @@ h3 a {
 
 .blockRight audio{
   display:none;
+}
+
+
+a.videolink {
+    position: relative;
+}
+
+.duration {
+    position: absolute;
+    right: 0;
+    bottom: 10px;
+    background: black;
+    color: white;
+    font-size: large;
+    font-weight: bold;
+    padding-left: 1ch;
 }
 
 .blockRight.resumenSemanal {
