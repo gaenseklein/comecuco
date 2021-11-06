@@ -28,7 +28,7 @@ body{
     "loMasLeido calecita calecita video"
     "loMasLeido calecita calecita resumenSemanal"
     "loMasLeido mediosMenu mediosMenu mediosMenu"
-    "actualidad actualidad actualidad actualidad"
+    "destacadas destacadas destacadas destacadas"
     "produccionesColectivas produccionesColectivas produccionesColectivas produccionesColectivas"
     "columnas columnas columnas columnas"
     "footer footer footer footer";
@@ -97,7 +97,7 @@ h3 a {
   grid-area:mediosMenu;
 }
 
-.mediosMenu h2{
+.mediosMenu h2, .destacadas h2{
   width: max-content;
   padding-right: 8ch;
 }
@@ -112,8 +112,8 @@ h3 a {
   height:100%;
 }
 
-.actualidad{
-  grid-area: actualidad;
+.destacadas{
+  grid-area: destacadas;
 }
 .produccionesColectivas{
   grid-area: produccionesColectivas;
@@ -145,22 +145,20 @@ h3 a {
 
 /*lo mas leido */
 
-.loMasLeido h2 {
-    padding-left: 10%;
-    padding-bottom:1em;
+.loMasLeido h2, .mediosMenu h2, .destacadas h2 {
+    padding-left: 3ch;
     padding-bottom: 0.5em;
-    font-size: large;
     padding-top: 0.5em;
 }
 
 .loMasLeido a {
     display: grid;
-    grid-template-columns: auto 1fr;
-    grid-template-rows: auto 1fr;
-    grid-column-gap: 1ch;
     grid-template-areas:
         "img title"
         "img fecha";
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto 1fr;
+    grid-column-gap: 1ch;
     text-decoration: none;
     color: black;
 }
@@ -242,14 +240,12 @@ h3 a {
 .topMenu a {
     text-decoration: none;
     color: white;
-    font-family: monospace;
-    font-weight: bold;
-	  font-size: x-large;
+    font-family: KeepCalm;
+	  font-size: Medium;
 }
 
 .topMenu li {
     display: inline-block;
-    font-size: large;
     margin-right: 2ch;
 }
 
@@ -428,4 +424,23 @@ input#search {
 	margin: auto auto;
   padding-left: 1ch;
   padding-right: 1ch;
+}
+
+/*destacadas */
+
+.destacadas li{
+	display: inline-block;
+  width: 30%;
+  margin: auto 2ch auto 0;
+}
+
+.destacadas img{
+	display: inline-block;
+  width: 100%;
+}
+
+.destacadas li .resumen{
+	font-family: KeepCalm;
+  font-size: medium;
+  font-style: italic;
 }
