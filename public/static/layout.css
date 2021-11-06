@@ -428,12 +428,19 @@ input#search {
 
 /*destacadas */
 
-.destacadas li{
-	display: inline-block;
-  width: 30%;
-  margin: auto 2ch auto 0;
+.destacadas .grandes{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap:10ch;
+  margin-bottom:5em;
 }
-
+.destacadas .por-tags,
+.destacadas .chiquitas{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap:8ch;
+  margin-bottom: 5em;
+}
 .destacadas img{
 	display: inline-block;
   width: 100%;
