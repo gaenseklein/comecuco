@@ -298,6 +298,20 @@ h3 a {
   display:none;
 }
 
+.blockRight.mediosEnVivo .playing audio{
+  display:block;
+}
+.blockRight.mediosEnVivo .playing .playbutton{
+  display:none;
+}
+
+.blockRight.mediosEnVivo li{
+  display: none;
+  height: 8em;
+}
+.blockRight.mediosEnVivo li.activo{
+  display: block;
+}
 
 a.videolink {
     position: relative;
