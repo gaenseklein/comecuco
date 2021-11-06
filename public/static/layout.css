@@ -209,8 +209,13 @@ h3 a {
   bottom:8%;
   left:42%;
 }
-.calecita{
+.calecita li{
   position:relative;
+  display: none;
+}
+
+.calecita li.activo{
+  display: block;
 }
 
 /*unsorted*/
