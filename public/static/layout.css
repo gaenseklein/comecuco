@@ -251,6 +251,7 @@ h3 a {
 
 .topMenu ul {
     padding-top: 1.4em;
+    text-align: right;
 }
 
 .blockRight {
@@ -320,13 +321,15 @@ a.videolink {
 
 .duration {
     position: absolute;
-    right: 0;
-    bottom: 10px;
+    right: 0.5ch;
+    bottom: 1ch;
     background: black;
     color: white;
+    font-family: patagonian;
     font-size: large;
     font-weight: bold;
     padding-left: 1ch;
+    padding-right: 0.5ch;
 }
 
 .blockRight.resumenSemanal {
@@ -402,14 +405,19 @@ a.videolink {
 }
 
 form.buscador {
-	width: max-content;
+	width: 90%;
 	background: #e93e20;
-	padding: 1px 10px 1px 5px;
+	padding: 1px 5px 1px 5px;
 	border-radius: 25px;
 	margin-top: 5px;
 	margin-bottom: 5px;
 	display: inline-grid;
-	grid-template-columns: auto auto;
+	grid-template-columns: auto 50px;
+}
+
+form.buscador label{
+  width: max-content;
+  margin: auto 0 auto auto;
 }
 
 input#searchSubmit {
@@ -419,11 +427,10 @@ input#searchSubmit {
 input#search {
 	border-radius: 15px;
 	border: 1px solid gray;
-	width: 40ch;
+	width: 100%;
 	height: 1.5em;
 	margin: auto auto;
   padding-left: 1ch;
-  padding-right: 1ch;
 }
 
 /*destacadas */
