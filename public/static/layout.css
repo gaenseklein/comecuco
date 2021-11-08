@@ -458,3 +458,29 @@ input#search {
   font-size: medium;
   font-style: italic;
 }
+
+/*tags arriba del imagen*/
+
+.por-tags li {
+    display: grid;
+    grid-template-rows: auto auto auto auto;
+}
+
+.por-tags img {
+    grid-row-start: 1;
+    grid-row-end: 3;
+    grid-column: 1/2;
+}
+
+.por-tags .tag {
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column: 1/2;
+    margin-left: 3ch;
+    padding: 0.3em 2ch 0.3em 2ch;
+    background: orange;
+    width: max-content;
+    text-transform: uppercase;
+    font-weight:bold;
+    font-style:italic;
+}
