@@ -477,10 +477,11 @@ input#search {
     grid-row-end: 3;
     grid-column: 1/2;
     margin-left: 3ch;
-    padding: 0.3em 2ch 0.3em 2ch;
-    background: orange;
+    padding: 0.4em 2ch 0 2ch;
+    background: #d6ab2b;
     width: max-content;
     text-transform: uppercase;
     font-weight:bold;
     font-style:italic;
+    font-size:large;
 }
