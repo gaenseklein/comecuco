@@ -4,9 +4,9 @@ async function buildMediosEnVivo(toHTML){
     let resp = await fetch(url); //,{mode:'no-cors'}
     let statusstring;
     statusstring = await resp.text();
-    let mountpoints = ['Cuyum', 'TierraCampesina'];
-    let mountnames = ['Radio Cuyum', 'Radio Tierra Campesina'];
-    let html = '';    
+    let mountpoints = ['Cuyum', 'TierraCampesina','RadiosinDueño'];
+    let mountnames = ['Radio Cuyum', 'Radio Tierra Campesina', 'Radio sin Dueño'];
+    let html = '';
     for(let x=0;x<mountpoints.length;x++){
         if(statusstring.indexOf('/'+mountpoints[x])==-1)continue;
         let css='';
@@ -32,15 +32,15 @@ async function buildMediosEnVivo(toHTML){
             let act=document.querySelector('.mediosEnVivo .activo');
             let prev=act.previousElementSibling;
             if(prev==null)prev=act.parentElement.lastChild;
-            prev.classList.add('activo');
             act.classList.remove('activo');
+            prev.classList.add('activo');
         }
         arrright.onclick=function(){
             let act=document.querySelector('.mediosEnVivo .activo');
             let next=act.nextElementSibling;
             if(next==null)next=act.parentElement.firstChild;
-            next.classList.add('activo');
             act.classList.remove('activo');
+            next.classList.add('activo');
         }
     }
     return html;
@@ -53,4 +53,3 @@ function activaMedioEnVivo(mountpoint){
     audio.play();
     audio.parentElement.classList.add('playing');
 }
-
