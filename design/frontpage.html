@@ -227,9 +227,9 @@ asi tenemos maximo flexibilidad para ser responsive/mobil
     </div>
     <div class="blockRight resumenSemanal">
       <h2>RESUMEN SEMANAL</h2>
-      <audio src="" controls>
+      <audio id="resumenSemanal" src="ALasBarricadas.mp3" controls>
       </audio>
-      <button class="playbuttonResumen">▶</button>
+      <button name="resumenSemanal" class="playbuttonResumen" onclick="playbutton(this)">▶</button>
       <img class="logoResumen" src="../public/static/resumensemanal.gif" alt="">
     </div>
     <div class="mediosMenu">
@@ -415,6 +415,6 @@ asi tenemos maximo flexibilidad para ser responsive/mobil
     }
     calecita();
   </script>
-  <script src='../public/static/scripts/mediosenvivo.js'>
-  </script>
+  <script src='../public/static/scripts/mediosenvivo.js'></script>
+  <script src='../public/static/scripts/playbutton.js'></script>
 </html>

@@ -300,10 +300,12 @@ h3 a {
   display:none;
 }
 
-.blockRight.mediosEnVivo .playing audio{
+.blockRight .playing audio,
+.blockRight.playing audio{
   display:block;
 }
-.blockRight.mediosEnVivo .playing .playbutton{
+.blockRight .playing .playbutton,
+.blockRight.playing .playbuttonResumen{
   display:none;
 }
 
