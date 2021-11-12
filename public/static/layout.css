@@ -284,9 +284,34 @@ h3 a {
   margin:0.5em;
 }
 .blockRight.mediosEnVivo ul{
-  grid-area:medio;
+  grid-column-start:1;
+  grid-column-end:4;
+  grid-row-start:2;
+  grid-row-end:3;
+
   margin:0;
   padding: 0;
+}
+.blockRight.mediosEnVivo li{
+  /*display: grid;*/
+  grid-template-areas:
+  "prev medio next"
+  "nombre nombre nombre";
+  grid-template-columns: 7ch 1fr 7ch;
+}
+
+.blockRight.mediosEnVivo button{
+  grid-area:medio;
+  width:3ch;
+  height:3ch;
+  justify-self: center;
+}
+.blockRight.mediosEnVivo audio{
+  grid-area:medio;
+}
+
+.blockRight.mediosEnVivo .nombre{
+  grid-area:nombre;
 }
 
 .blockRight.mediosEnVivo .arrowLeft{
@@ -314,7 +339,7 @@ h3 a {
   height: 8em;
 }
 .blockRight.mediosEnVivo li.activo{
-  display: block;
+  display: grid;
 }
 
 a.videolink {
