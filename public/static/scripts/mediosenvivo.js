@@ -4,8 +4,8 @@ async function buildMediosEnVivo(toHTML){
     let resp = await fetch(url); //,{mode:'no-cors'}
     let statusstring;
     statusstring = await resp.text();
-    let mountpoints = ['Cuyum', 'TierraCampesina','RadiosinDueño'];
-    let mountnames = ['Radio Cuyum', 'Radio Tierra Campesina', 'Radio sin Dueño'];
+    let mountpoints = ['Cuyum', 'TierraCampesina','RadiosinDueño','LaLenera'];
+    let mountnames = ['Radio Cuyum', 'Radio Tierra Campesina', 'Radio sin Dueño','La Leñera'];
     let html = '';
     for(let x=0;x<mountpoints.length;x++){
         if(statusstring.indexOf('/'+mountpoints[x])==-1)continue;
