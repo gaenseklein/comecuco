@@ -32,7 +32,7 @@ body{
     "produccionesColectivas produccionesColectivas produccionesColectivas produccionesColectivas"
     "columnas columnas columnas columnas"
     "footer footer footer footer";
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 22% 28% 28% 22%;
 }
 
 .logo,
@@ -81,6 +81,13 @@ h3 a {
   margin-left:2ch;
   margin-right:1ch;
 }
+.loMasLeido ul{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 90%;
+  margin: 0;
+}
 .calecita{
   grid-area: calecita;
 }
@@ -100,6 +107,14 @@ h3 a {
 .mediosMenu h2, .destacadas h2{
   width: max-content;
   padding-right: 8ch;
+}
+
+.mediosMenu ul{
+display: flex;
+justify-content: space-between;
+margin: 0;
+padding: 0;
+flex-wrap: wrap;
 }
 
 .mediosMenu li{
@@ -128,7 +143,6 @@ h3 a {
 /*logo*/
 .logo {
     font-family: patagonian;
-    padding-left: 10%;
     padding-bottom:1em;
 }
 
@@ -136,11 +150,13 @@ h3 a {
     text-transform: uppercase;
     font-size: small;
     opacity: 0.7;
+    margin-left: 10%;
 }
 
 .logo h1 {
     margin-bottom: 0;
     font-size: xxx-large;
+    margin-left: 10%;
 }
 
 /*lo mas leido */
@@ -173,7 +189,6 @@ h3 a {
 }
 
 .loMasLeido .title {
-    width: 20ch;
     font-weight: bold;
     margin: 0;
     line-height: 1em;
@@ -223,8 +238,8 @@ h3 a {
     font-family: 'patagonian';
     padding-left: 10%;
     padding-top: 0.8em;
+    padding-bottom: 0.8em;
     font-size: large;
-    height: 2em;
     display: inline-block;
 }
 
@@ -433,6 +448,7 @@ a.videolink {
 
 form.buscador {
 	width: 90%;
+  max-width: 30ch;
 	background: #e93e20;
 	padding: 1px 5px 1px 5px;
 	border-radius: 25px;
