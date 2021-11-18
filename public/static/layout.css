@@ -628,4 +628,8 @@ input#search {
      "footer footer footer";
      grid-template-columns: 1fr 1fr 1fr;
    }
+   .destacadas .destacadas-list,
+   .actualidad .chiquitas{
+      grid-template-columns: 1fr;
+   }
  }
