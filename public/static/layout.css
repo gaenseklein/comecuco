@@ -599,3 +599,33 @@ input#search {
  .produccionesColectivas{
    background: #7f8384;
  }
+
+
+ @media screen and (orientation: portrait) {
+   body{
+     grid-template-areas:
+ /*    "logo logo topMenu topMenu"
+     "clima clima buscador buscador"
+     "loMasLeido calecita calecita mediosEnVivo"
+     "loMasLeido calecita calecita video"
+     "loMasLeido calecita calecita resumenSemanal"
+     "loMasLeido mediosMenu mediosMenu mediosMenu"
+     "destacadas destacadas destacadas destacadas"
+     "actualidad actualidad actualidad actualidad"
+     "produccionesColectivas produccionesColectivas produccionesColectivas produccionesColectivas"
+     "columnas columnas columnas columnas"
+     "footer footer footer footer";*/
+     "logo logo topMenu"
+     "clima clima buscador"
+     "mediosEnVivo video resumenSemanal"
+     "calecita calecita calecita"
+     "mediosMenu mediosMenu mediosMenu"
+     "loMasLeido loMasLeido loMasLeido"
+     "destacadas destacadas destacadas"
+     "actualidad actualidad actualidad"
+     "produccionesColectivas produccionesColectivas produccionesColectivas"
+     "columnas columnas columnas"
+     "footer footer footer";
+     grid-template-columns: 1fr 1fr 1fr;
+   }
+ }
