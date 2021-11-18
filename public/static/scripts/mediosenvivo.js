@@ -4,11 +4,12 @@ async function buildMediosEnVivo(toHTML){
     let resp = await fetch(url); //,{mode:'no-cors'}
     let statusstring;
     statusstring = await resp.text();
-    let mountpoints = ['Cuyum', 'TierraCampesina','RadiosinDueño','LaLenera'];
-    let mountnames = ['Radio Cuyum', 'Radio Tierra Campesina', 'Radio sin Dueño','La Leñera'];
+    let mountpoints = ['Cuyum', 'TierraCampesina','RadiosinDueño','LaLenera','mosquitera.mp3'];
+    let mountnames = ['Radio Cuyum', 'Radio Tierra Campesina', 'Radio sin Dueño','La Leñera','La mosquitera'];
     let html = '';
     for(let x=0;x<mountpoints.length;x++){
-        if(statusstring.indexOf('/'+mountpoints[x])==-1)continue;
+        if(statusstring.indexOf('/'+mountpoints[x])==-1 &&
+            mountpoints[x]!='mosquitera.mp3')continue; //mosquitera no esta streaming en comecuco.org, solo proxy para ssl
         let css='';
         if(x==0)css='activo';
         let innerhtml = `<li class="${css}">
