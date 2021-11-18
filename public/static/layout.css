@@ -29,10 +29,12 @@ body{
     "loMasLeido calecita calecita resumenSemanal"
     "loMasLeido mediosMenu mediosMenu mediosMenu"
     "destacadas destacadas destacadas destacadas"
+    "actualidad actualidad actualidad actualidad"
     "produccionesColectivas produccionesColectivas produccionesColectivas produccionesColectivas"
     "columnas columnas columnas columnas"
     "footer footer footer footer";
   grid-template-columns: 22% 28% 28% 22%;
+  grid-row-gap: 1em;
 }
 
 .logo,
@@ -107,7 +109,9 @@ h3 a {
   grid-area:mediosMenu;
 }
 
-.mediosMenu h2, .destacadas h2{
+.mediosMenu h2,
+.destacadas h2,
+.produccionesColectivas h2{
   width: max-content;
   padding-right: 8ch;
 }
@@ -132,6 +136,9 @@ flex-wrap: wrap;
 
 .destacadas{
   grid-area: destacadas;
+}
+.actualidad{
+  grid-area: actualidad;
 }
 .produccionesColectivas{
   grid-area: produccionesColectivas;
@@ -164,7 +171,10 @@ flex-wrap: wrap;
 
 /*lo mas leido */
 
-.loMasLeido h2, .mediosMenu h2, .destacadas h2 {
+.loMasLeido h2,
+.mediosMenu h2,
+.destacadas h2,
+.produccionesColectivas h2 {
     padding-left: 3ch;
     padding-bottom: 0.5em;
     padding-top: 0.5em;
@@ -301,7 +311,6 @@ flex-wrap: wrap;
   grid-column-end:4;
   grid-row-start:2;
   grid-row-end:3;
-
   margin:0;
   padding: 0;
 }
@@ -321,6 +330,8 @@ flex-wrap: wrap;
 }
 .blockRight.mediosEnVivo audio{
   grid-area:medio;
+  justify-self:center;
+  align-self:center;
 }
 
 .blockRight.mediosEnVivo .nombre{
@@ -480,46 +491,51 @@ input#search {
   padding-left: 1ch;
 }
 
-/*destacadas */
+/*destacadas y actualidad */
 
-.destacadas .grandes{
+.destacadas{
+  background: #7f8384;
+}
+
+.actualidad .grandes{
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap:10ch;
   margin-bottom:5em;
 }
-.destacadas .por-tags,
-.destacadas .chiquitas{
+.destacadas .destacadas-list,
+.actualidad .chiquitas{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap:8ch;
   margin-bottom: 5em;
 }
-.destacadas img{
+.destacadas img,
+.actualidad img{
 	display: inline-block;
   width: 100%;
 }
 
-.destacadas li .resumen{
+.destacadas li .resumen,
+.actualidad li .resumen{
 	font-family: KeepCalm;
   font-size: medium;
   font-style: italic;
 }
-
 /*tags arriba del imagen*/
 
-.por-tags li {
+.destacadas-list li {
     display: grid;
     grid-template-rows: auto auto auto auto;
 }
 
-.por-tags img {
+.destacadas-list img {
     grid-row-start: 1;
     grid-row-end: 3;
     grid-column: 1/2;
 }
 
-.por-tags .tag {
+.destacadas-list .tag {
     grid-row-start: 2;
     grid-row-end: 3;
     grid-column: 1/2;
@@ -579,3 +595,7 @@ input#search {
 .chiquitas a{
     font-size:medium;
 }
+ /*producciones colectivas:*/
+ .produccionesColectivas{
+   background: #7f8384;
+ }
