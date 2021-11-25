@@ -46,12 +46,16 @@ h2,
   color:white;
 }
 
-h2 {
+h2{
     font-family: patagonian;
     font-size: large;
 }
 
-h3 a {
+h3{
+    font-family: KeepCalm;
+}
+
+h3 a{
     font-family: KeepCalm;
     color: #000;
     font-size: xx-large;
