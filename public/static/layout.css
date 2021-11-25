@@ -609,14 +609,6 @@ input#search {
    grid-gap: 1em;
  }
 
- .colectiva1{
-   grid-column: 1/2;
- }
-
- .colectiva2{
-   grid-column: 2/3;
- }
-
  .produccionesColectivas li{
    display: grid;
    grid-template-columns: auto 1fr;
@@ -624,7 +616,7 @@ input#search {
    grid-gap: 1em;
  }
 
- .produccionesColectivas video, img{
+ .produccionesColectivas img{
    grid-column: 1/2;
    grid-row: 1/3;
  }
