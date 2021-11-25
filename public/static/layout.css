@@ -17,6 +17,9 @@ button {
   src:url(KeepCalm-Medium.ttf);
 }
 
+:root {
+  --espacio: 5ch;
+}
 
 body{
   display: grid;
@@ -35,6 +38,18 @@ body{
     "footer footer footer footer";
   grid-template-columns: 22% 28% 28% 22%;
   grid-row-gap: 1em;
+}
+
+/*margin derecha/izquierda casi-total*/
+.destacadas,
+.produccionesColectivas{
+  padding-left:var(espacio);
+  padding-right:var(espacio);
+}
+.actualidad,
+.columnas{
+  margin-left:var(espacio);
+  margin-right:var(espacio);
 }
 
 .logo,
@@ -695,5 +710,11 @@ input#search {
    .destacadas .destacadas-list,
    .actualidad .chiquitas{
       grid-template-columns: 1fr;
+   }
+   .produccionesColectivas ul{
+     display:block;
+   }
+   .produccionesColectivas li{
+     margin-bottom: 3em;
    }
  }
