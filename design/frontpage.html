@@ -384,6 +384,8 @@ asi tenemos maximo flexibilidad para ser responsive/mobil
           <video src="videofile.ogg" controls poster="posterimage.jpg">
 
           </video>
+        </li>
+        <li>
           <!--audio-->
           <button name="produccioncollectiva2" class="playbuttonResumen" onclick="playbutton(this)">▶</button>
           <img src="conjunto-preview.png" alt="">
@@ -404,26 +406,58 @@ asi tenemos maximo flexibilidad para ser responsive/mobil
 
       por ejemplo:
       frontpage: medios-ambiental y deporte
-      subpagina: medios-ambiental, deporte, feminismo y cocinar 
+      subpagina: medios-ambiental, deporte, feminismo y cocinar
       columna-subpagina de medios-ambiental: capitulo 11, capitulo 10, capitulo 9...
     -->
       <h2>COLUMNAS</h2>
-      <ul>
-        <li>
-          <a href="#">
-            <img src="masleidospreview.png" alt="">
-            <h3>Titulo de la Columna</h3>
-          </a>
-        </li>
+      <div class="columnas-wrapper">
+        <button class="scrollbutton izquierda" onclick="scrollList(this)">«</button>
+        <a href="#" class="verMas">Ver mas columnas</a>
+        <button class="scrollbutton derecha" onclick="scrollList(this)">»</button>
+        <div class="columnas-ul-wrapper">
+          <ul>
+            <li>
+              <a href="#">
+                <h3>Titulo de la Columna 1</h3>
+                <img src="masleidospreview.png" alt="">
+              </a>
+            </li>
 
-        <li>
-          <a href="#">
-            <img src="masleidospreview.png" alt="">
-            <h3>Titulo de la Columna</h3>
-          </a>
-        </li>
-      </ul>
-      <a href="#" class="verMas">Ver mas columnas</a>
+            <li>
+              <a href="#">
+                <h3>Titulo de la Columna 2</h3>
+                <img src="masleidospreview.png" alt="">
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <h3>Titulo de la Columna 3</h3>
+                <img src="masleidospreview.png" alt="">
+              </a>
+            </li>
+
+            <li>
+              <a href="#">
+                <h3>Titulo de la Columna 4</h3>
+                <img src="masleidospreview.png" alt="">
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <h3>Titulo de la Columna 5</h3>
+                <img src="masleidospreview.png" alt="">
+              </a>
+            </li>
+
+            <li>
+              <a href="#">
+                <h3>Titulo de la Columna 6</h3>
+                <img src="masleidospreview.png" alt="">
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
     <div class="footer">
 
@@ -446,4 +480,5 @@ asi tenemos maximo flexibilidad para ser responsive/mobil
   </script>
   <script src='../public/static/scripts/mediosenvivo.js'></script>
   <script src='../public/static/scripts/playbutton.js'></script>
+  <script src='../public/static/scripts/verticalscrolllist.js'></script>
 </html>
