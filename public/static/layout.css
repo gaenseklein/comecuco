@@ -42,13 +42,14 @@ body{
 /*margin derecha/izquierda casi-total*/
 .destacadas,
 .produccionesColectivas{
-  padding-left:var(espacio);
-  padding-right:var(espacio);
+  padding-left: var(--espacio);
+  padding-right: var(--espacio);
+  margin-top: 20px;
 }
 .actualidad,
 .columnas{
-  margin-left:var(espacio);
-  margin-right:var(espacio);
+  margin-left:var(--espacio);
+  margin-right:var(--espacio);
 }
 
 .logo,
@@ -103,6 +104,7 @@ h3 a{
   grid-area:loMasLeido;
   margin-left:2ch;
   margin-right:1ch;
+  margin-top: 5px;
 }
 .loMasLeido ul{
   display: flex;
@@ -113,7 +115,19 @@ h3 a{
 }
 .calecita{
   grid-area: calecita;
+  margin-top: 4px;
+  padding-left: 2ch;
 }
+
+.calecita .subtitle{
+  font-family: KeepCalm;
+}
+
+.calecita .autor{
+  font-family: KeepCalm;
+  padding-bottom: 1em;
+}
+
 .mediosEnVivo{
   grid-area: mediosEnVivo;
 }
@@ -125,6 +139,8 @@ h3 a{
 }
 .mediosMenu{
   grid-area:mediosMenu;
+  padding-left: 2ch;
+  margin-top: 10px;
 }
 
 .mediosMenu h2,
@@ -232,7 +248,7 @@ flex-wrap: wrap;
 
 /*carusel*/
 .caruselpreviewimage{
-  width:90%;
+  width:100%;
 }
 
 .puntito{
@@ -299,7 +315,7 @@ flex-wrap: wrap;
     text-align: center;
     width:90%;
     justify-self: center;
-    margin: 10px auto;
+    margin: 20px auto 0;
 }
 
 .blockRight.video img{
@@ -324,7 +340,7 @@ flex-wrap: wrap;
 .blockRight.mediosEnVivo h2{
   grid-area:titulo;
   margin-top: 0.8em;
-  margin-bottom: 0;
+  margin-bottom: 1.5px;
 }
 .blockRight.mediosEnVivo ul{
   grid-column: 1/4;
