@@ -145,7 +145,8 @@ h3 a{
 
 .mediosMenu h2,
 .destacadas h2,
-.produccionesColectivas h2{
+.produccionesColectivas h2,
+.columnas h2{
   width: max-content;
   padding-right: 8ch;
 }
@@ -208,7 +209,8 @@ flex-wrap: wrap;
 .loMasLeido h2,
 .mediosMenu h2,
 .destacadas h2,
-.produccionesColectivas h2 {
+.produccionesColectivas h2,
+.columnas h2{
     padding-left: 3ch;
     padding-bottom: 0.5em;
     padding-top: 0.5em;
