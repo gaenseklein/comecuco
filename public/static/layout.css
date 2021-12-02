@@ -36,6 +36,17 @@ body{
   grid-template-columns: 22% 28% 28% 22%;
   grid-row-gap: 1em;
 }
+/*margin derecha/izquierda casi-total*/
+.destacadas,
+.produccionesColectivas{
+  padding-left:5ch;
+  padding-right:5ch;
+}
+.actualidad,
+.columnas{
+  margin-left:5ch;
+  margin-right:5ch;
+}
 
 .logo,
 .topMenu,
@@ -695,5 +706,11 @@ input#search {
    .destacadas .destacadas-list,
    .actualidad .chiquitas{
       grid-template-columns: 1fr;
+   }
+   .produccionesColectivas ul{
+     display:block;
+   }
+   .produccionesColectivas li{
+     margin-bottom: 3em;
    }
  }
