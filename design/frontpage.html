@@ -376,7 +376,7 @@ asi tenemos maximo flexibilidad para ser responsive/mobil
       </ul>
     </div>
     <div class="produccionesColectivas">
-      <h2>PRODUCCIONES COLECTIVAS</h2>
+      <h2><a href="#">PRODUCCIONES COLECTIVAS</a></h2>
       <!-- entra video o audio al elemento -->
       <ul>
         <li>
@@ -403,11 +403,9 @@ asi tenemos maximo flexibilidad para ser responsive/mobil
       subpagina: medios-ambiental, deporte, feminismo y cocinar
       columna-subpagina de medios-ambiental: capitulo 11, capitulo 10, capitulo 9...
     -->
-      <h2>COLUMNAS</h2>
-      <div class="columnas-wrapper">
+      <h2><a href="#">COLUMNAS</a></h2>
+      <div class="columnas-wrapper" id="cajacolumna">
         <button class="scrollbutton izquierda" onclick="scrollList(this)">«</button>
-        <a href="#" class="verMas">Ver mas columnas</a>
-        <button class="scrollbutton derecha" onclick="scrollList(this)">»</button>
         <div class="columnas-ul-wrapper">
           <ul>
             <li>
@@ -443,13 +441,15 @@ asi tenemos maximo flexibilidad para ser responsive/mobil
               </a>
             </li>
 
-            <li>
-              <a href="#">
-                <h3>Titulo de la Columna 6</h3>
-                <img src="masleidospreview.png" alt="">
+            <li class="ultimoli">
+              <a href="#" class="finalscroll">
+                <h3>Ver todas las Columnas</h3>
               </a>
             </li>
           </ul>
+        </div>
+        <button class="scrollbutton derecha" onclick="scrollList(this)">»</button>
+        <div id="cajacolumnahija">
         </div>
       </div>
     </div>

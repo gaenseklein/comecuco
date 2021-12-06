@@ -678,34 +678,112 @@ input#search {
 
 
  /*columnas*/
-.columnas-wrapper{
-  display:grid;
-  grid-template-areas:"iz titulo der" "lista lista lista";
-  text-align: center;
+#cajacolumnahija{
+  position: relative;
+  z-index: 1;
+  background-color: #e93e1f;
+  height: 150px;
+  width: 100%;
+  /*margin-top: 130px;*/
+  display: inline-block;
+  grid-column: 1/4;
+  grid-row: 1/2;
   max-width:95vw;
 }
 
-.columnas .columnas-ul-wrapper{
-  width:100%;
+.columnas-wrapper{
+  display:grid;
+  grid-template-columns: 10ch 1fr 10ch;
+  text-align: center;
+  max-width:95vw;
+  justify-items: center;
+  align-items: center;
+  /*top: -125px;*/
+}
+
+.columnas-ul-wrapper{
+  width:90%;
   overflow-x:auto;
-  grid-area:lista;
   scroll-behavior: smooth;
+  grid-row: 1/2;
+  grid-column: 2/3;
+  position: relative;
+  z-index: 2;
 }
 
 .columnas ul {
   width: max-content;
+  position: relative;
 }
+
 .columnas li {
   display: inline-block;
-  margin-right: 5ch;
+  margin-right: 2ch;
+  width: 25vw;
+}
+
+.columnas h2 a,
+.produccionesColectivas h2 a{
+  text-decoration: none;
+  color: white;
+  font-family: patagonian;
+  font-size: Medium;
 }
 
 .columnas a{
-  width: 25ch;
+  text-decoration: none;
+  color: black;
+  font-size: Medium;
+}
+
+.columnas .ultimoli{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  height: 40%;
+  margin: auto;
+  width: 11ch;
+  margin-left: 2ch;
+}
+
+.columnas .finalscroll{
+  font-size: large;
+  text-align: center;
+  font-weight: bold;
+  font-family: keepcalm;
+  line-height: 3ch;
 }
 
 .columnas img{
   width:100%;
+}
+
+.scrollbutton.izquierda,
+.scrollbutton.derecha{
+  background: rgba(127, 131, 132, 0.8);
+  color: rgb(233, 62, 31);
+  font-size: xxx-large;
+  border-radius: 5px;
+  border:none;
+  display: inline-block;
+  text-decoration: none;
+  font-weight:bold;
+  width: 1.5ch;
+  height: 4ch;
+  text-align: center;
+  position: relative;
+}
+
+.scrollbutton.izquierda{
+  grid-row: 1/2;
+  grid-column: 1/2;
+  z-index: 3;
+}
+
+.scrollbutton.derecha{
+  grid-row: 1/2;
+  grid-column: 3/4;
+  z-index: 4;
 }
 
  @media screen and (orientation: portrait) {
