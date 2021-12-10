@@ -1,0 +1,826 @@
+ul {
+    padding: 0;
+    list-style-type: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+@font-face {
+  font-family:patagonian;
+  src:url(PatagoniaPatagonian-Titles.ttf);
+}
+
+@font-face {
+  font-family: KeepCalm;
+  src:url(KeepCalm-Medium.ttf);
+}
+
+:root {
+  --espacio: 5ch;
+}
+
+body{
+  display: grid;
+  /*widescreen size:*/
+  grid-template-areas:
+    "logo logo topMenu topMenu"
+    "clima clima buscador buscador"
+    "loMasLeido calecita calecita mediosEnVivo"
+    "loMasLeido calecita calecita video"
+    "loMasLeido calecita calecita resumenSemanal"
+    "loMasLeido mediosMenu mediosMenu mediosMenu"
+    "destacadas destacadas destacadas destacadas"
+    "actualidad actualidad actualidad actualidad"
+    "produccionesColectivas produccionesColectivas produccionesColectivas produccionesColectivas"
+    "columnas columnas columnas columnas"
+    "footer footer footer footer";
+  grid-template-columns: 22% 28% 28% 22%;
+}
+
+/*margin derecha/izquierda casi-total*/
+.destacadas,
+.produccionesColectivas{
+  padding-left: var(--espacio);
+  padding-right: var(--espacio);
+  margin-top: 20px;
+}
+.actualidad,
+.columnas{
+  margin-left:var(--espacio);
+  margin-right:var(--espacio);
+}
+/*margin derecha/izquierda casi-total*/
+.destacadas,
+.produccionesColectivas{
+  padding-left:5ch;
+  padding-right:5ch;
+}
+.actualidad,
+.columnas{
+  margin-left:5ch;
+  margin-right:5ch;
+}
+
+.logo,
+.topMenu,
+h2,
+.mediosEnVivo,
+.resumenSemanal  {
+  background: #e93e1f;
+  color:white;
+}
+
+h2{
+    font-family: patagonian;
+    font-size: large;
+}
+
+h3{
+    font-family: KeepCalm;
+}
+
+h3 a{
+    font-family: KeepCalm;
+    color: #000;
+    font-size: xx-large;
+    text-decoration: none;
+}
+
+.logo{
+  grid-area:logo;
+  width: 100%;
+}
+
+.topMenu{
+  grid-area:topMenu;
+  width: 100%;
+}
+
+.clima{
+  grid-area: clima;
+}
+
+.buscador{
+  grid-area:buscador;
+  text-align: right;
+  padding-right: 2ch;
+  position: relative;
+}
+.clima, .buscador{
+  background:#808384;
+}
+.loMasLeido{
+  grid-area:loMasLeido;
+  margin-left:2ch;
+  margin-right:1ch;
+  margin-top: 5px;
+}
+.loMasLeido ul{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 90%;
+  margin: 0;
+}
+.calecita{
+  grid-area: calecita;
+  margin-top: 4px;
+  padding-left: 2ch;
+}
+
+.calecita .subtitle{
+  font-family: KeepCalm;
+}
+
+.calecita .autor{
+  font-family: KeepCalm;
+  padding-bottom: 1em;
+}
+
+.mediosEnVivo{
+  grid-area: mediosEnVivo;
+}
+.video{
+  grid-area:video;
+}
+.resumenSemanal{
+  grid-area: resumenSemanal;
+}
+.mediosMenu{
+  grid-area:mediosMenu;
+  padding-left: 2ch;
+  margin-top: 10px;
+}
+
+.mediosMenu h2,
+.destacadas h2,
+.produccionesColectivas h2,
+.columnas h2{
+  width: max-content;
+  padding-right: 8ch;
+}
+
+.mediosMenu ul{
+display: flex;
+justify-content: space-between;
+margin: 0;
+padding: 0;
+flex-wrap: wrap;
+}
+
+.mediosMenu li{
+  height:6em;
+  display: inline-block;
+  margin-right: 2ch;
+}
+
+.mediosMenu img{
+  height:100%;
+}
+
+.destacadas{
+  grid-area: destacadas;
+}
+.actualidad{
+  grid-area: actualidad;
+}
+.produccionesColectivas{
+  grid-area: produccionesColectivas;
+}
+.columnas{
+  grid-area: columnas;
+}
+.footer{
+  grid-area:footer;
+}
+
+/*logo*/
+.logo {
+    font-family: patagonian;
+    padding-bottom:1em;
+}
+
+.logo .subtitle {
+    text-transform: uppercase;
+    font-size: small;
+    opacity: 0.7;
+    margin-left: 10%;
+}
+
+.logo h1 {
+    margin-bottom: 0;
+    font-size: xxx-large;
+    margin-left: 10%;
+}
+
+/*lo mas leido */
+
+.loMasLeido h2,
+.mediosMenu h2,
+.destacadas h2,
+.produccionesColectivas h2,
+.columnas h2{
+    padding-left: 3ch;
+    padding-bottom: 0.5em;
+    padding-top: 0.5em;
+}
+
+.loMasLeido a {
+    display: grid;
+    grid-template-areas:
+        "img title"
+        "img fecha";
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto 1fr;
+    grid-column-gap: 1ch;
+    text-decoration: none;
+    color: black;
+}
+
+
+.loMasLeido a img {
+    grid-area: img;
+}
+
+.loMasLeido li {
+    margin-bottom: 1em;
+}
+
+.loMasLeido .title {
+    font-weight: bold;
+    margin: 0;
+    line-height: 1em;
+}
+
+.loMasLeido .fecha {
+    color: gray;
+    font-size: small;
+}
+
+/*carusel*/
+.caruselpreviewimage{
+  width:100%;
+}
+
+.puntito{
+  width:1.5ch;
+  height:1.5ch;
+  border-radius: 50%;
+  border:1px solid black;
+  background:white;
+  display: inline-block;
+  margin-left: 1px;
+}
+
+.puntito.activo{
+  background: red;
+}
+.puntitos{
+  position:absolute;
+  bottom:8%;
+  left:42%;
+}
+.calecita li{
+  position:relative;
+  display: none;
+}
+
+.calecita li.activo{
+  display: block;
+}
+
+/*unsorted*/
+
+.clima {
+    color: white;
+    font-family: 'patagonian';
+    padding-left: 10%;
+    padding-top: 0.8em;
+    padding-bottom: 0.8em;
+    font-size: large;
+    display: inline-block;
+}
+
+#hora {
+      display: inline-block;
+}
+
+.topMenu a {
+    text-decoration: none;
+    color: white;
+    font-family: KeepCalm;
+	  font-size: Medium;
+}
+
+.topMenu li {
+    display: inline-block;
+    margin-right: 2ch;
+}
+
+.topMenu ul {
+    padding-top: 1.4em;
+    text-align: right;
+}
+
+.blockRight {
+    text-align: center;
+    width:90%;
+    justify-self: center;
+    margin: 20px auto 0;
+}
+
+.blockRight.video img{
+  width:100%;
+}
+
+.blockRight audio{
+  width:90%;
+}
+
+.blockRight.mediosEnVivo{
+  display: grid;
+  grid-template-areas:
+  "titulo titulo titulo"
+  "prev medio prox"
+  "vacio medio nada";
+  grid-template-columns: 50px auto 50px;
+  grid-gap: 5px;
+  /*align-items:center;*/
+}
+
+.blockRight.mediosEnVivo h2{
+  grid-area:titulo;
+  margin-top: 0.8em;
+  margin-bottom: 1.5px;
+}
+.blockRight.mediosEnVivo ul{
+  grid-column: 1/4;
+  grid-row: 2/4;
+  margin:0;
+  padding: 0;
+}
+
+.blockRight.mediosEnVivo button{
+  grid-area:play;
+  width:2ch;
+  height:2ch;
+  justify-self: center;
+}
+.blockRight.mediosEnVivo audio{
+  grid-area:play;
+  justify-self:center;
+  align-self:center;
+}
+
+.blockRight.mediosEnVivo .nombre{
+  grid-area:nombre;
+}
+
+.blockRight.mediosEnVivo .arrowLeft{
+  grid-area:prev;
+}
+.blockRight.mediosEnVivo .arrowRight{
+  grid-area:prox;
+}
+
+.blockRight audio{
+  display:none;
+}
+
+.blockRight .playing audio,
+.blockRight.playing audio{
+  display:block;
+}
+.blockRight .playing .playbutton,
+.blockRight.playing .playbuttonResumen{
+  display:none;
+}
+
+.blockRight.mediosEnVivo li{
+  display: none;
+}
+.blockRight.mediosEnVivo li.activo{
+  display: grid;
+  grid-template-areas:
+  "play"
+  "nombre";
+  grid-template-rows: 1fr 1em;
+  padding-bottom: 0.5em;
+  grid-gap: 0.5em;
+}
+
+a.videolink {
+    position: relative;
+}
+
+.duration {
+    position: absolute;
+    right: 0.5ch;
+    bottom: 1ch;
+    background: black;
+    color: white;
+    font-family: patagonian;
+    font-size: large;
+    font-weight: bold;
+    padding-left: 1ch;
+    padding-right: 0.5ch;
+}
+
+.blockRight.resumenSemanal {
+	display: grid;
+	grid-template-areas: "titulo titulo" "play logo";
+	grid-template-columns: auto 55%;
+	grid-gap: 5px;
+	align-items: center;
+}
+
+.blockRight.resumenSemanal h2{
+  grid-area: titulo;
+  margin: 0.5em;
+}
+
+.blockRight.resumenSemanal.playbuttonResumen{
+  grid-area: play;
+}
+
+.blockRight.resumenSemanal.logoResumen{
+  grid-area: logo;
+}
+
+.playbuttonResumen{
+  background: rgba(255,255,255,0.3);
+  border-radius:50%;
+  border:none;
+  font-size: 3em;
+  color: rgb(233, 62, 31);
+  padding: 1px 12px 7px 14px;
+  margin: 0 0 0.4em auto;
+}
+
+.logoResumen{
+  grid-area:logo;
+  width: 65%;
+  opacity: 0.3;
+  margin: 0 auto 1.5em 0;
+}
+
+.nombre{
+  font-family: KeepCalm;
+  font-size: Medium;
+  margin: 0.5em 0;
+}
+
+.arrowLeft,
+.arrowRight{
+  background: rgba(255,255,255,0.3);
+  color: rgb(233, 62, 31);
+  font-size: x-large;
+  border-radius: 5px;
+  border:none;
+  display: block;
+  text-decoration: none;
+  font-weight:bold;
+}
+
+.arrowLeft{
+  margin: 37% 0 auto 0;
+  padding: 0 4px 4px 4px;
+}
+.arrowRight{
+  margin: 37% 0px auto 0;
+  padding: 0 4px 4px 4px;
+}
+
+.playbutton{
+  background: rgba(255,255,255,0.3);
+  border-radius:50%;
+  border:none;
+  font-size: 3em;
+  color: rgb(233, 62, 31);
+  padding: 0px 3px 0px 7px;
+}
+
+form.buscador {
+	width: 90%;
+  max-width: 30ch;
+	background: #e93e20;
+	padding: 1px 5px 1px 5px;
+	border-radius: 25px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	display: inline-grid;
+	grid-template-columns: auto 50px;
+  position: absolute;
+  right: 2ch;
+  bottom: auto;
+  left: auto;
+  top: 50%;
+  transform: translateY(-65%);
+}
+
+form.buscador label{
+  width: max-content;
+  margin: auto 0 auto auto;
+}
+
+input#searchSubmit {
+    display: none;
+}
+
+input#search {
+	border-radius: 15px;
+	border: 1px solid gray;
+	width: 100%;
+	height: 1.5em;
+	margin: auto auto;
+  padding-left: 1ch;
+}
+
+/*destacadas y actualidad */
+
+.destacadas{
+  background: #7f8384;
+}
+
+.actualidad .grandes{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap:10ch;
+  margin-bottom:5em;
+}
+.destacadas .destacadas-list,
+.actualidad .chiquitas{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap:8ch;
+  margin-bottom: 5em;
+}
+.destacadas img,
+.actualidad img{
+	display: inline-block;
+  width: 100%;
+}
+
+.destacadas li .resumen,
+.actualidad li .resumen{
+	font-family: KeepCalm;
+  font-size: medium;
+  font-style: italic;
+}
+/*tags arriba del imagen*/
+
+.destacadas-list li {
+    display: grid;
+    grid-template-rows: auto auto auto auto;
+}
+
+.destacadas-list img {
+    grid-row-start: 1;
+    grid-row-end: 3;
+    grid-column: 1/2;
+}
+
+.destacadas-list .tag {
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column: 1/2;
+    margin-left: 3ch;
+    padding: 0.4em 2ch 0 2ch;
+    background: #d6ab2b;
+    width: max-content;
+    text-transform: uppercase;
+    font-weight:bold;
+    font-style:italic;
+    font-size:large;
+}
+
+.chiquitas li {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: auto 5em;
+}
+
+.chiquitas .fecha {
+    grid-column: 2;
+}
+
+.chiquitas img {
+    grid-row: 1/3;
+    grid-column: 1/2;
+}
+
+.chiquitas h3 a {
+    font-size: medium;
+}
+
+.chiquitas h3 {
+    margin-top: 0.1em;
+}
+
+
+.chiquitas li{
+    display:grid;
+    grid-template-areas:"image titulo" "image fecha";
+}
+
+.chiquitas h3{
+    grid-area:titulo;
+    margin-top:0.1em;
+    margin-bottom:0.3em;
+}
+
+.chiquitas img{
+    grid-area:image;
+}
+
+.chiquitas .fecha{
+    grid-area:fecha;
+}
+
+.chiquitas a{
+    font-size:medium;
+}
+ /*producciones colectivas:*/
+ .produccionesColectivas{
+   background: #7f8384;
+ }
+ .produccionesColectivas ul{
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   grid-gap: 1em;
+ }
+
+ .produccionesColectivas li{
+   display: grid;
+   grid-template-columns: auto 1fr;
+   grid-template-rows: auto 1fr;
+   grid-gap: 1em;
+ }
+
+ .produccionesColectivas img{
+   grid-column: 1/2;
+   grid-row: 1/3;
+ }
+
+ .produccionesColectivas h3{
+   grid-column: 2/3;
+   grid-row: 1/2;
+   margin-top: 0;
+   margin-bottom: 0;
+ }
+
+ .produccionesColectivas .titulocolectiva{
+   grid-column: 2/3;
+   grid-row: 2/3;
+ }
+
+
+ /*columnas*/
+#cajacolumnahija{
+  position: relative;
+  z-index: 1;
+  background-color: #e93e1f;
+  height: 150px;
+  width: 100%;
+  /*margin-top: 130px;*/
+  display: inline-block;
+  grid-column: 1/4;
+  grid-row: 1/2;
+  max-width:95vw;
+}
+
+.columnas-wrapper{
+  display:grid;
+  grid-template-columns: 10ch 1fr 10ch;
+  text-align: center;
+  max-width:95vw;
+  justify-items: center;
+  align-items: center;
+  /*top: -125px;*/
+}
+
+.columnas-ul-wrapper{
+  width:90%;
+  overflow-x:auto;
+  scroll-behavior: smooth;
+  grid-row: 1/2;
+  grid-column: 2/3;
+  position: relative;
+  z-index: 2;
+}
+
+.columnas ul {
+  width: max-content;
+  position: relative;
+}
+
+.columnas li {
+  display: inline-block;
+  margin-right: 2ch;
+  width: 25vw;
+}
+
+.columnas h2 a,
+.produccionesColectivas h2 a{
+  text-decoration: none;
+  color: white;
+  font-family: patagonian;
+  font-size: Medium;
+}
+
+.columnas a{
+  text-decoration: none;
+  color: black;
+  font-size: Medium;
+}
+
+.columnas .ultimoli{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  height: 40%;
+  margin: auto;
+  width: 11ch;
+  margin-left: 2ch;
+}
+
+.columnas .finalscroll{
+  font-size: large;
+  text-align: center;
+  font-weight: bold;
+  font-family: keepcalm;
+  line-height: 3ch;
+}
+
+.columnas img{
+  width:100%;
+}
+
+.scrollbutton.izquierda,
+.scrollbutton.derecha{
+  background: rgba(127, 131, 132, 0.8);
+  color: rgb(233, 62, 31);
+  font-size: xxx-large;
+  border-radius: 5px;
+  border:none;
+  display: inline-block;
+  text-decoration: none;
+  font-weight:bold;
+  width: 1.5ch;
+  height: 4ch;
+  text-align: center;
+  position: relative;
+}
+
+.scrollbutton.izquierda{
+  grid-row: 1/2;
+  grid-column: 1/2;
+  z-index: 3;
+}
+
+.scrollbutton.derecha{
+  grid-row: 1/2;
+  grid-column: 3/4;
+  z-index: 4;
+}
+
+ @media screen and (orientation: portrait) {
+   body{
+     grid-template-areas:
+ /*    "logo logo topMenu topMenu"
+     "clima clima buscador buscador"
+     "loMasLeido calecita calecita mediosEnVivo"
+     "loMasLeido calecita calecita video"
+     "loMasLeido calecita calecita resumenSemanal"
+     "loMasLeido mediosMenu mediosMenu mediosMenu"
+     "destacadas destacadas destacadas destacadas"
+     "actualidad actualidad actualidad actualidad"
+     "produccionesColectivas produccionesColectivas produccionesColectivas produccionesColectivas"
+     "columnas columnas columnas columnas"
+     "footer footer footer footer";*/
+     "logo logo topMenu"
+     "clima clima buscador"
+     "mediosEnVivo video resumenSemanal"
+     "calecita calecita calecita"
+     "mediosMenu mediosMenu mediosMenu"
+     "loMasLeido loMasLeido loMasLeido"
+     "destacadas destacadas destacadas"
+     "actualidad actualidad actualidad"
+     "produccionesColectivas produccionesColectivas produccionesColectivas"
+     "columnas columnas columnas"
+     "footer footer footer";
+     grid-template-columns: 1fr 1fr 1fr;
+   }
+   .destacadas .destacadas-list,
+   .actualidad .chiquitas{
+      grid-template-columns: 1fr;
+   }
+   .produccionesColectivas ul{
+     display:block;
+   }
+   .produccionesColectivas li{
+     margin-bottom: 3em;
+   }
+ }

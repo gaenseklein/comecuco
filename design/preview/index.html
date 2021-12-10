@@ -1,0 +1,478 @@
+<!--
+esceleto del html de la frontpage - sirve para construir un template de eso
+esta hecho con el diseño pensado usar grid para posicionar elementos
+asi tenemos maximo flexibilidad para ser responsive/mobil
+-->
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>COMECUCO</title>
+    <link rel="stylesheet" href="static/layout.css">
+    <script type="text/javascript">
+      function startTime()
+      {
+        var today=new Date();
+        var h=today.getHours();
+        var m=today.getMinutes();
+        var s=today.getSeconds();
+    // add a zero in front of numbers<10
+        h=checkTime(h);
+        m=checkTime(m);
+        s=checkTime(s);
+        document.getElementById('hora').innerHTML=h+":"+m+":"+s;
+        t=setTimeout('startTime()',500);
+      }
+      function checkTime(i)
+      {
+        if (i<10)
+        {
+          i="0" + i;
+        }
+        return i;
+      }
+    </script>
+  </head>
+  <body onload="startTime()">
+    <div class="logo">
+      <h1>
+        COMECUCO
+      </h1>
+      <div class="subtitle">
+        somos el colectivo de medios comunitarios de cuyo
+      </div>
+    </div>
+    <div class="topMenu">
+        <ul>
+          <li><a href="#">Todas las noticias</a></li>
+          <li><a href="#">Resumen Semanal</a></li>
+          <li><a href="#">Quienes Somos</a></li>
+        </ul>
+    </div>
+    <div class="clima">
+        EL CLIMA EN MENDOZA 13° HORA
+        <div id="hora"></div>
+    </div>
+    <div class="buscador">
+      <form class="buscador" action="/search" method="post">
+        <input id="search" type="text" name="txt" value="">
+        <input type="submit" id="searchSubmit" name="" value="">
+        <label for="searchSubmit">
+          <img src="lupe.png" alt="search">
+        </label>
+      </form>
+    </div>
+    <div class="loMasLeido">
+      <h2>LO MAS LEIDO</h2>
+      <ul>
+        <li>
+          <a href="#">
+            <img src="masleidospreview.png" alt="titleimage">
+            <div class="title">
+                Camioneros bloquea centros de distribucion de Mercado Libre
+            </div>
+            <div class="fecha">
+                26/02/2020
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img src="masleidospreview.png" alt="titleimage">
+            <div class="title">
+                Camioneros bloquea centros de distribucion de Mercado Libre
+            </div>
+            <div class="fecha">
+                26/02/2020
+            </div>
+          </a>
+        </li><li>
+          <a href="#">
+            <img src="masleidospreview.png" alt="titleimage">
+            <div class="title">
+                Camioneros bloquea centros de distribucion de Mercado Libre
+            </div>
+            <div class="fecha">
+                26/02/2020
+            </div>
+          </a>
+        </li><li>
+          <a href="#">
+            <img src="masleidospreview.png" alt="titleimage">
+            <div class="title">
+                Camioneros bloquea centros de distribucion de Mercado Libre
+            </div>
+            <div class="fecha">
+                26/02/2020
+            </div>
+          </a>
+        </li><li>
+          <a href="#">
+            <img src="masleidospreview.png" alt="titleimage">
+            <div class="title">
+                Camioneros bloquea centros de distribucion de Mercado Libre
+            </div>
+            <div class="fecha">
+                26/02/2020
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="calecita">
+      <ul>
+        <li class="activo">
+          <div class="subtitle">
+                A mas de 10 anos de sancionada la ley de medios
+          </div>
+          <h3>
+            <a href="#">
+                Los medios comunitarios y la necesidad de acceder a un porcentaje de la pauta oficial
+            </a>
+          </h3>
+          <div class="autor">
+               Por radio Tierra Campesina
+          </div>
+          <a href="#"><img class="caruselpreviewimage" src="caruselpreview.png" alt=""></a>
+          <div class="puntitos">
+            <div class="puntito activo"></div>
+            <div class="puntito"></div>
+            <div class="puntito"></div>
+            <div class="puntito"></div>
+          </div>
+        </li>
+        <li>
+          <div class="subtitle">
+                A mas de 10 anos de sancionada la ley de medios
+          </div>
+          <h3>
+            <a href="#">
+                Los medios comunitarios y la necesidad de acceder a un porcentaje de la pauta oficial
+            </a>
+          </h3>
+          <div class="autor">
+               Por radio Tierra Campesina
+          </div>
+          <a href="#"><img class="caruselpreviewimage" src="caruselpreview.png" alt=""></a>
+          <div class="puntitos">
+            <div class="puntito"></div>
+            <div class="puntito activo"></div>
+            <div class="puntito"></div>
+            <div class="puntito"></div>
+          </div>
+        </li><li>
+          <div class="subtitle">
+                A mas de 10 anos de sancionada la ley de medios
+          </div>
+          <h3>
+            <a href="#">
+                Los medios comunitarios y la necesidad de acceder a un porcentaje de la pauta oficial
+            </a>
+          </h3>
+          <div class="autor">
+               Por radio Tierra Campesina
+          </div>
+          <a href="#"><img class="caruselpreviewimage" src="caruselpreview.png" alt=""></a>
+          <div class="puntitos">
+            <div class="puntito"></div>
+            <div class="puntito"></div>
+            <div class="puntito activo"></div>
+            <div class="puntito"></div>
+          </div>
+        </li><li>
+          <div class="subtitle">
+                A mas de 10 anos de sancionada la ley de medios
+          </div>
+          <h3>
+            <a href="#">
+                Los medios comunitarios y la necesidad de acceder a un porcentaje de la pauta oficial
+            </a>
+          </h3>
+          <div class="autor">
+               Por radio Tierra Campesina
+          </div>
+          <a href="#"><img class="caruselpreviewimage" src="caruselpreview.png" alt=""></a>
+          <div class="puntitos">
+            <div class="puntito"></div>
+            <div class="puntito"></div>
+            <div class="puntito"></div>
+            <div class="puntito activo"></div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="blockRight mediosEnVivo">
+      <h2>MEDIOS EN VIVO</h2>
+      <ul>
+        <li class="activo">
+          <audio src="http://comecuco.org:8000/stream" controls="">
+          </audio>
+          <!-- https://unicode-table.com -->
+          <button class="playbutton">▶</button>
+          <div class="nombre">
+            La Pujante fm 93.3
+          </div>
+        </li>
+      </ul>
+      <button class="arrowLeft">❮</button>
+      <button class="arrowRight">❯</button>
+    </div>
+    <div class="blockRight video">
+      <a href="#" class="videolink">
+        <img src="giramundopreview.png" alt="">
+        <div class="duration">
+            29:10
+        </div>
+      </a>
+    </div>
+    <div class="blockRight resumenSemanal">
+      <h2>RESUMEN SEMANAL</h2>
+      <audio id="resumenSemanal" src="ALasBarricadas.mp3" controls>
+      </audio>
+      <button name="resumenSemanal" class="playbuttonResumen" onclick="playbutton(this)">▶</button>
+      <img class="logoResumen" src="static/resumensemanal.gif" alt="">
+    </div>
+    <div class="mediosMenu">
+      <h2>MEDIOS</h2>
+      <ul>
+        <li>
+          <a href="#">
+            <img src="static/logos/mosquitera.png" alt="radio la mosquitera">
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img src="static/logos/tierracampesina.jpg" alt="radio tierra Campesina">
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img src="static/logos/cuyum.jpg" alt="radio la cuyum">
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img src="static/logos/pujante.jpg" alt="radio la Pujante">
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img src="static/logos/rsd.jpg" alt="Radio Sin Dueño">
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img src="static/logos/lenera.jpg" alt="radio la leñera">
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img src="static/logos/giramundo.png" alt="TV giramundo">
+          </a>
+        </li>
+      </ul>
+    </div>
+    <!-- Nuestras Destacadas (ex-actualidad):
+      todos elementos de actualidad contienen toda informacion
+      necesaria para pagina principal. el css elige cual informacion
+      se muenstra con n-th-child
+      asi logramos maximo flexibilidad para responsive/mobil
+      !!! no es valido !!!
+      primero nuestras destacadas son solo dos,
+      despues vienen tres por tag
+      despues vienen tres mas por actualidad
+    -->
+    <div class="destacadas">
+      <h2>NUESTRAS DESTACADAS</h2>
+      <ul class="destacadas-list">
+        <li>
+          <img src="3-column-preview.png" alt="">
+          <h3><a href="#">
+            En Mendoza "ya hay circulacion de Corona Virus"
+          </a></h3>
+          <div class="resumen">
+            Asi lo reconocio la ministra de Salud, Ana Maria Nadal durante la conferencia de prensa de este ...
+          </div>
+          <div class="tag">
+            pandemia en mendoza
+          </div>
+        </li>
+        <li>
+          <img src="3-column-preview.png" alt="">
+          <h3><a href="#">
+            En Mendoza "ya hay circulacion de Corona Virus"
+          </a></h3>
+          <div class="resumen">
+            Asi lo reconocio la ministra de Salud, Ana Maria Nadal durante la conferencia de prensa de este ...
+          </div>
+          <div class="tag">
+            pandemia en mendoza
+          </div>
+        </li>
+        <li>
+          <img src="3-column-preview.png" alt="">
+          <h3><a href="#">
+            En Mendoza "ya hay circulacion de Corona Virus"
+          </a></h3>
+          <div class="resumen">
+            Asi lo reconocio la ministra de Salud, Ana Maria Nadal durante la conferencia de prensa de este ...
+          </div>
+          <div class="tag">
+            pandemia en mendoza
+          </div>
+        </li>
+      </ul>
+      </div>
+      <div class="actualidad">
+      <ul class="grandes">
+        <li>
+          <img src="2-colum-preview.png" alt="">
+          <h3><a href="#">
+            Las mejores fotos del reciente paso del cometa Neowise por la Tierra
+          </a></h3>
+          <div class="resumen">
+            En la segunda quincena de julio, el cuerpo celeste se podra observar durante la puesta del sol,...
+          </div>
+        </li>
+        <li>
+          <img src="2-colum-preview.png" alt="">
+          <h3><a href="#">
+            Las mejores fotos del reciente paso del cometa Neowise por la Tierra
+          </a></h3>
+          <div class="resumen">
+            En la segunda quincena de julio, el cuerpo celeste se podra observar durante la puesta del sol,...
+          </div>
+        </li>
+
+      </ul>
+      <ul class="chiquitas">
+        <li>
+          <img src="mini-preview.png" alt="">
+          <h3><a href="#">
+            Las mejores fotos del reciente paso del cometa Neowise por la Tierra
+          </a></h3>
+          <div class="fecha">
+            16/JUL/2020
+          </div>
+        </li>
+        <li>
+          <img src="mini-preview.png" alt="">
+          <h3><a href="#">
+            Las mejores fotos del reciente paso del cometa Neowise por la Tierra
+          </a></h3>
+          <div class="fecha">
+            16/JUL/2020
+          </div>
+        </li>
+        <li>
+          <img src="mini-preview.png" alt="">
+          <h3><a href="#">
+            Las mejores fotos del reciente paso del cometa Neowise por la Tierra
+          </a></h3>
+          <div class="fecha">
+            16/JUL/2020
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="produccionesColectivas">
+      <h2><a href="#">PRODUCCIONES COLECTIVAS</a></h2>
+      <!-- entra video o audio al elemento -->
+      <ul>
+        <li>
+          <img src="conjunto-preview.png" alt="">
+          <h3>VIDEO</h3>
+          <h3 class="titulocolectiva"><a href="#">Cadena Popular por la Revolución de Mayo</a></h3>
+        </li>
+        <li>
+          <img src="conjunto-preview.png" alt="">
+          <h3>AUDIO</h3>
+          <h3 class="titulocolectiva"><a href="#">Cadena Popular por la Revolución de Mayo</a></h3>
+        </li>
+      </ul>
+    </div>
+    <div class="columnas">
+      <!--
+      frontpage: link a columna-subpagina o ultima entrada de columnas
+        que esta compartido entre la red de comecuco
+      subpagina: sobrevista sobre todas las columnas con link a columna-subpagina
+      columna-subpagina: todas las subidas/capitulos de esta columna
+
+      por ejemplo:
+      frontpage: medios-ambiental y deporte
+      subpagina: medios-ambiental, deporte, feminismo y cocinar
+      columna-subpagina de medios-ambiental: capitulo 11, capitulo 10, capitulo 9...
+    -->
+      <h2><a href="#">COLUMNAS</a></h2>
+      <div class="columnas-wrapper" id="cajacolumna">
+        <button class="scrollbutton izquierda" onclick="scrollList(this)">«</button>
+        <div class="columnas-ul-wrapper">
+          <ul>
+            <li>
+              <a href="#">
+                <h3>Titulo de la Columna 1</h3>
+                <img src="masleidospreview.png" alt="">
+              </a>
+            </li>
+
+            <li>
+              <a href="#">
+                <h3>Titulo de la Columna 2</h3>
+                <img src="masleidospreview.png" alt="">
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <h3>Titulo de la Columna 3</h3>
+                <img src="masleidospreview.png" alt="">
+              </a>
+            </li>
+
+            <li>
+              <a href="#">
+                <h3>Titulo de la Columna 4</h3>
+                <img src="masleidospreview.png" alt="">
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <h3>Titulo de la Columna 5</h3>
+                <img src="masleidospreview.png" alt="">
+              </a>
+            </li>
+
+            <li class="ultimoli">
+              <a href="#" class="finalscroll">
+                <h3>Ver todas las Columnas</h3>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <button class="scrollbutton derecha" onclick="scrollList(this)">»</button>
+        <div id="cajacolumnahija">
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+
+    </div>
+  </body>
+  <script type="text/javascript">
+    var calecitaactivo=0;
+    var calecitatiempo=3000;
+    var calecitatimer;
+    function calecita(){
+      let lis = document.querySelectorAll('.calecita li');
+      let oldli=document.querySelector('.calecita li.activo');
+      if(oldli)oldli.classList.remove('activo');
+      if(lis[calecitaactivo])lis[calecitaactivo].classList.add('activo');
+      calecitaactivo++;
+      if(calecitaactivo>3)calecitaactivo=0;
+      calecitatimer=setTimeout(calecita, calecitatiempo);
+    }
+    calecita();
+  </script>
+  <script src='static/scripts/mediosenvivo.js'></script>
+  <script src='static/scripts/playbutton.js'></script>
+  <script src='static/scripts/verticalscrolllist.js'></script>
+</html>
