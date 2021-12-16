@@ -5,3 +5,29 @@ busqueda diseño 2
 medios diseño
 sobre vista columnas diseño3
 columnas diseño 4
+
+diseno 1: una entrada (articulo y estatica)
+diseno 2: una lista de articulos
+diseno 3: sobrevista de columnas
+diseno 4: columna con sus articulos
+diseno 5: pagina del usuario / radio
+diseno 6: sobrevista de medios (mini-radio-app?)
+
+
+pagina usuario/radio/medio
+
+titulo: nombre del radio/medio
+texto: descripcion
+bloque de imagenes
+mountpoint: invisible para el usuario
+icono del medio
+datos del medio: (invisible en este parte)
+    - frequencia 
+    - zona?
+    - contacto bloque de texto? 
+lista "noticias del medio"
+    - titulo
+    - imagen
+    - fecha
+
+
