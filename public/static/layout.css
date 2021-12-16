@@ -392,6 +392,7 @@ flex-wrap: wrap;
 .blockRight .playing audio,
 .blockRight.playing audio{
   display:block;
+  max-width: 60%;
 }
 .blockRight .playing .playbutton,
 .blockRight.playing .playbuttonResumen{
