@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>COMECUCO</title>
+    <link rel="stylesheet" href="../public/static/layout.css">
+    <script type="text/javascript">
+      function startTime()
+      {
+        var today=new Date();
+        var h=today.getHours();
+        var m=today.getMinutes();
+        var s=today.getSeconds();
+    // add a zero in front of numbers<10
+        h=checkTime(h);
+        m=checkTime(m);
+        s=checkTime(s);
+        document.getElementById('hora').innerHTML=h+":"+m+":"+s;
+        t=setTimeout('startTime()',500);
+      }
+      function checkTime(i)
+      {
+        if (i<10)
+        {
+          i="0" + i;
+        }
+        return i;
+      }
+    </script>
+  </head>
+  <body onload="startTime()" class="todaslasnoticias">
+    <div class="logo">
+      <h1>
+        COMECUCO
+      </h1>
+      <div class="subtitle">
+        somos el colectivo de medios comunitarios de cuyo
+      </div>
+    </div>
+    <div class="clima">
+        EL CLIMA EN MENDOZA 13° HORA
+        <div id="hora"></div>
+    </div>
+    <div class="buscador">
+      <form class="buscador" action="/search" method="post">
+        <input id="search" type="text" name="txt" value="">
+        <input type="submit" id="searchSubmit" name="" value="">
+        <label for="searchSubmit">
+          <img src="lupe.png" alt="search">
+        </label>
+      </form>
+    </div>
+
+    <div class="noticiasúltimas">
+      <ul class="últimas">
+        <li>
+          <img src="2-colum-preview.png" alt="">
+          <h3><a href="#">
+            Las mejores fotos del reciente paso del cometa Neowise por la Tierra
+          </a></h3>
+          <div class="resumen"><div class="fecha">16/JUL/2020
+          </div>
+            En la segunda quincena de julio, el cuerpo celeste se podra observar durante la puesta del sol,...
+          </div>
+        </li>
+        <li>
+          <img src="2-colum-preview.png" alt="">
+          <h3><a href="#">
+            Las mejores fotos del reciente paso del cometa Neowise por la Tierra
+          </a></h3>
+          <div class="resumen"><div class="fecha">16/JUL/2020
+          </div>
+            En la segunda quincena de julio, el cuerpo celeste se podra observar durante la puesta del sol,...
+          </div>
+        </li>
+        <li>
+          <img src="2-colum-preview.png" alt="">
+          <h3><a href="#">
+            Las mejores fotos del reciente paso del cometa Neowise por la Tierra
+          </a></h3>
+          <div class="resumen"><div class="fecha">16/JUL/2020
+          </div>
+            En la segunda quincena de julio, el cuerpo celeste se podra observar durante la puesta del sol,...
+          </div>
+        </li>
+        <li>
+          <img src="2-colum-preview.png" alt="">
+          <h3><a href="#">
+            Las mejores fotos del reciente paso del cometa Neowise por la Tierra
+          </a></h3>
+          <div class="resumen"><div class="fecha">16/JUL/2020
+          </div>
+            En la segunda quincena de julio, el cuerpo celeste se podra observar durante la puesta del sol,...
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="noticiasviejas">
+      <ul class="viejas">
+        <li>
+          <img src="mini-preview.png" alt="">
+          <h3><a href="#">
+            Las mejores fotos del reciente paso del cometa Neowise por la Tierra
+          </a></h3>
+          <div class="fecha">
+            16/JUL/2020
+          </div>
+        </li>
+        <li>
+          <img src="mini-preview.png" alt="">
+          <h3><a href="#">
+            Las mejores fotos del reciente paso del cometa Neowise por la Tierra
+          </a></h3>
+          <div class="fecha">
+            16/JUL/2020
+          </div>
+        </li>
+        <li>
+          <img src="mini-preview.png" alt="">
+          <h3><a href="#">
+            Las mejores fotos del reciente paso del cometa Neowise por la Tierra
+          </a></h3>
+          <div class="fecha">
+            16/JUL/2020
+          </div>
+        </li>
+        <li>
+          <img src="mini-preview.png" alt="">
+          <h3><a href="#">
+            Las mejores fotos del reciente paso del cometa Neowise por la Tierra
+          </a></h3>
+          <div class="fecha">
+            16/JUL/2020
+          </div>
+        </li>
+        <li>
+          <img src="mini-preview.png" alt="">
+          <h3><a href="#">
+            Las mejores fotos del reciente paso del cometa Neowise por la Tierra
+          </a></h3>
+          <div class="fecha">
+            16/JUL/2020
+          </div>
+        </li>
+        <li>
+          <img src="mini-preview.png" alt="">
+          <h3><a href="#">
+            Las mejores fotos del reciente paso del cometa Neowise por la Tierra
+          </a></h3>
+          <div class="fecha">
+            16/JUL/2020
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="footer">
+    </div>
+  </body>
+</html>

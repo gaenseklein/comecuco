@@ -88,6 +88,11 @@ h3 a{
     text-decoration: none;
 }
 
+.fecha{
+  font-family: KeepCalm;
+  font-size: smaller;
+}
+
 .logo{
   grid-area:logo;
   width: 100%;
@@ -206,13 +211,13 @@ flex-wrap: wrap;
     text-transform: uppercase;
     font-size: small;
     opacity: 0.7;
-    margin-left: 10%;
+    margin-left: 5vw;
 }
 
 .logo h1 {
     margin-bottom: 0;
     font-size: xxx-large;
-    margin-left: 10%;
+    margin-left: 5vw;
 }
 
 /*lo mas leido */
@@ -296,7 +301,7 @@ flex-wrap: wrap;
 .clima {
     color: white;
     font-family: 'patagonian';
-    padding-left: 10%;
+    padding-left: 5vw;
     padding-top: 0.8em;
     padding-bottom: 0.8em;
     font-size: large;
@@ -504,7 +509,7 @@ a.videolink {
 }
 
 form.buscador {
-	width: 90%;
+	width: 80%;
   max-width: 30ch;
 	background: #e93e20;
 	padding: 1px 5px 1px 5px;
@@ -825,3 +830,65 @@ input#search {
      margin-bottom: 3em;
    }
  }
+
+
+ body.todaslasnoticias{
+   display: grid;
+   /*widescreen size:*/
+   grid-template-areas:
+     "logo logo"
+     "clima buscador"
+     "últimas últimas"
+     "viejas viejas"
+     "footer footer";
+   grid-template-columns: 50% 50%;
+ }
+
+ .noticiasúltimas{
+   grid-area: últimas;
+ }
+
+ .noticiasviejas{
+   grid-area: viejas;
+ }
+
+ .noticiasúltimas .últimas{
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   grid-gap:5ch;
+   margin-bottom:2em;
+ }
+ .noticiasviejas .viejas{
+   display: grid;
+   grid-template-columns: 1fr 1fr 1fr;
+   grid-gap: 4ch;
+ }
+
+  .últimas img,
+  .viejas img{
+    width: 100%;
+  }
+
+  .últimas li .resumen{
+  	font-family: KeepCalm;
+    font-size: medium;
+    font-style: italic;
+  }
+
+  .viejas h3{
+      margin-bottom: 0.5em;
+  }
+
+  .viejas h3 a{
+      font-size: large;
+  }
+
+  @media screen and (orientation: portrait) {
+    .noticiasúltimas .últimas, .noticiasviejas .viejas{
+      display: block;
+      margin-bottom: 0;
+    }
+    .últimas li, .viejas li{
+      margin-bottom: 2em;
+    }
+  }
