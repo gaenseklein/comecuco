@@ -971,3 +971,18 @@ audio{
     color: white;
     text-decoration: none;
   }
+
+  @media screen and (orientation: portrait) {
+    .fotonoticia{
+      display: contents;
+      margin-bottom: 0;
+    }
+
+    .fotonoticia img.foto1{
+      max-width: 100%;
+    }
+
+    .textofoto{
+      text-align: center;
+    }
+  }
