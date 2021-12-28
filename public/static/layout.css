@@ -220,6 +220,11 @@ flex-wrap: wrap;
     margin-left: 5vw;
 }
 
+.logo h1 a {
+    color: #ffffff;
+    text-decoration: none;
+  }
+
 /*lo mas leido */
 
 .loMasLeido h2,
@@ -891,4 +896,78 @@ input#search {
     .últimas li, .viejas li{
       margin-bottom: 2em;
     }
+  }
+
+  body.unanoticia{
+    display: block;
+  }
+
+  .unanoticia .logo{
+    padding-top: 2em;
+  }
+
+  .unanoticia .logo h1{
+    margin-top: 0;
+  }
+
+  .unanoticia .clima{
+    display: block;
+  }
+
+  .lanoticia{
+    font-family: keepcalm;
+    margin: 2em;
+  }
+
+  .lanoticia h3{
+    font-size: 2.5em;
+  }
+
+  .lanoticia h4{
+    font-size: 1.5em;
+    font-style: italic;
+  }
+
+  .fotonoticia{
+    display: grid;
+    float: right;
+  }
+
+  .fotonoticia img.foto1{
+    max-width: 55vw;
+    padding-left: 1ch;
+  }
+
+  .textofoto{
+    text-align: right;
+    font-style: italic;
+  }
+
+  .lanoticia img.logoautor{
+    float: left;
+    max-width: 10%;
+    padding-right: 1ch;
+    padding-bottom: 1ch;
+  }
+
+  .contenido p{
+    text-align: justify;
+    font-weight: lighter;
+    text-indent: 2ch;
+    line-height: 1.5em;
+  }
+
+.audiosyvideos{
+  background-color: #e93e1f;
+  padding: 1ch 5vw;
+  line-height: 1.5em;
+}
+
+audio{
+    display: block;
+  }
+
+.audiosyvideos a{
+    color: white;
+    text-decoration: none;
   }
