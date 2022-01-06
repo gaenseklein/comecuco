@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>COMECUCO: Columnas</title>
+    <link rel="stylesheet" href="../public/static/layout.css">
+    <script type="text/javascript">
+      function startTime()
+      {
+        var today=new Date();
+        var h=today.getHours();
+        var m=today.getMinutes();
+        var s=today.getSeconds();
+    // add a zero in front of numbers<10
+        h=checkTime(h);
+        m=checkTime(m);
+        s=checkTime(s);
+        document.getElementById('hora').innerHTML=h+":"+m+":"+s;
+        t=setTimeout('startTime()',500);
+      }
+      function checkTime(i)
+      {
+        if (i<10)
+        {
+          i="0" + i;
+        }
+        return i;
+      }
+    </script>
+  </head>
+  <body onload="startTime()" class="subtodaslascolumnas">
+    <div class="logo">
+      <h1><a href="#">
+        COMECUCO</a>
+      </h1>
+      <div class="subtitle">
+        somos el colectivo de medios comunitarios de cuyo
+      </div>
+    </div>
+    <div class="clima">
+        EL CLIMA EN MENDOZA 13° HORA
+        <div id="hora"></div>
+    </div>
+
+    <div class="todaslascolumnas">
+      <ul class="lascolumnas">
+        <li>
+          <div class="contenedorlogo"><a href="#"><img class="fotocolumna" src="2-colum-preview.png" alt=""></a>
+            <img class="logoautor" src="../public/static/logos/cuyum.jpg" alt="radio cuyum"
+          </div>
+          <h3><a href="#">
+            "Perdidos en el Espacio"
+          </a></h3>
+          <div class="producido">Columna producida por: Radio Cuyum
+          </div>
+          <div class="fechadeemisión">Emitida desde julio 2020 hasta mayo 2021
+          </div>
+          <div class="ndecapítulos">Nº de capítulos: 22
+          </div>
+          <div class="resumen">
+            En la segunda quincena de julio, el cuerpo celeste se podra observar durante la puesta del sol. Pero un extraño ser de otra galaxia aparece para desequilibrar la paz universal.
+          </div>
+        </li>
+        <li>
+          <div class="contenedorlogo"><a href="#"><img class="fotocolumna" src="2-colum-preview.png" alt=""></a>
+            <img class="logoautor" src="../public/static/logos/cuyum.jpg" alt="radio cuyum"
+          </div>
+          <h3><a href="#">
+            "Perdidos en el Espacio"
+          </a></h3>
+          <div class="producido">Columna producida por: Radio Cuyum
+          </div>
+          <div class="fechadeemisión">Emitida desde julio 2020 hasta mayo 2021
+          </div>
+          <div class="ndecapítulos">Nº de capítulos: 22
+          </div>
+          <div class="resumen">
+            En la segunda quincena de julio, el cuerpo celeste se podra observar durante la puesta del sol. Pero un extraño ser de otra galaxia aparece para desequilibrar la paz universal.
+          </div>
+        </li>
+        <li>
+          <div class="contenedorlogo"><a href="#"><img class="fotocolumna" src="2-colum-preview.png" alt=""></a>
+            <img class="logoautor" src="../public/static/logos/cuyum.jpg" alt="radio cuyum"
+          </div>
+          <h3><a href="#">
+            "Perdidos en el Espacio"
+          </a></h3>
+          <div class="producido">Columna producida por: Radio Cuyum
+          </div>
+          <div class="fechadeemisión">Emitida desde julio 2020 hasta mayo 2021
+          </div>
+          <div class="ndecapítulos">Nº de capítulos: 22
+          </div>
+          <div class="resumen">
+            En la segunda quincena de julio, el cuerpo celeste se podra observar durante la puesta del sol. Pero un extraño ser de otra galaxia aparece para desequilibrar la paz universal.
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="footer">
+    </div>
+  </body>
+</html>
