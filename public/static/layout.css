@@ -941,7 +941,7 @@ input#search {
     padding-left: 1ch;
   }
 
-  .textofoto{
+  .fotonoticia p.textofoto{
     text-align: right;
     font-style: italic;
   }
@@ -966,7 +966,7 @@ input#search {
   line-height: 1.5em;
 }
 
-audio{
+.audiosyvideos audio{
     display: block;
   }
 
@@ -985,7 +985,7 @@ audio{
       max-width: 100%;
     }
 
-    .textofoto{
+    .lanoticia p.textofoto{
       text-align: center;
     }
   }
@@ -1023,13 +1023,14 @@ audio{
     margin-right: 1em;
     margin-bottom: 1em;
     z-index: 1;
-  }
-
-  .contenedorlogo{
     position: relative;
   }
 
-  .logoautor{
+  .lascolumnas div.contenedorlogo{
+    position: relative;
+  }
+
+  .lascolumnas img.logoautor{
     max-width: 13%;
     z-index: 2;
     position: absolute;
@@ -1052,7 +1053,116 @@ audio{
     .lascolumnas img.fotocolumna{
       max-width: 100%;
     }
-    .logoautor{
+    .lascolumnas img.logoautor{
       max-width: 25%;
     }
   }
+
+  /*a partir de aca subpagina de CAPITULO DE COLUMNA*/
+
+    body.subcapitulodecolumna{
+      display: block;
+    }
+
+    .subcapitulodecolumna .logo{
+      padding-top: 2em;
+    }
+
+    .subcapitulodecolumna .logo h1{
+      margin-top: 0;
+    }
+
+    .subcapitulodecolumna .clima{
+      display: block;
+    }
+
+    .capitulodecolumna{
+      font-family: keepcalm;
+      margin: 1em;
+      display: grid;
+      grid-template-columns: 1.5fr 2fr 0.7fr;
+      grid-gap: 1em;
+    }
+
+    .capitulodecolumna img.logoautor{
+      grid-column: 3/4;
+      width: 100%;
+      align-self: center;
+    }
+
+    .capitulodecolumna h2{
+      font-size: 2em;
+      line-height: 1.5em;
+      text-align: center;
+      margin: 0;
+      background: none;
+      color: black;
+      align-self: center;
+    }
+
+    .capitulodecolumna ul{
+      margin: 0;
+    }
+
+    .capitulodecolumna div{
+      line-height: 1.5em;
+      margin-bottom: 1ch;
+    }
+
+    .subcapitulodecolumna h2.cap{
+      background: #e93e1f;
+      color:white;
+      padding-left: 5vw;
+      padding-top: 0.8em;
+      padding-bottom: 0.8em;
+    }
+
+    .capitulo li img{
+      max-width: 35vw;
+      float: left;
+      margin-right: 1em;
+    }
+
+    .capitulo li div{
+      margin-bottom: 1em;
+    }
+
+    .capitulo div.reproductor{
+      display: inline-block;
+      background-color:  rgb(71, 71, 71);
+      font-size: 0;
+      margin: 0;
+      padding: 0;
+      height: 40px;
+      width: 350px;
+      position: relative;
+    }
+
+    .reproductor a{
+      font-size: 32px;
+      position: absolute;
+      top: 0;
+    }
+
+
+
+
+
+    @media screen and (orientation: portrait) {
+
+      .capitulodecolumna{
+        display: grid;
+        grid-template-columns: 1fr 0.7fr;
+        grid-template-rows: auto auto
+        grid-gap: 1em;
+      }
+      .capitulodecolumna img.logoautor{
+        grid-column: 2/3;
+        grid-row: 1/2;
+        width: 100%;
+        align-self: center;
+      }
+      .capitulodecolumna ul{
+        grid-column: 1/3;
+      }
+    }

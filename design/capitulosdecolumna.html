@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>COMECUCO: Columna</title>
+    <link rel="stylesheet" href="../public/static/layout.css">
+    <script type="text/javascript">
+      function startTime()
+      {
+        var today=new Date();
+        var h=today.getHours();
+        var m=today.getMinutes();
+        var s=today.getSeconds();
+    // add a zero in front of numbers<10
+        h=checkTime(h);
+        m=checkTime(m);
+        s=checkTime(s);
+        document.getElementById('hora').innerHTML=h+":"+m+":"+s;
+        t=setTimeout('startTime()',500);
+      }
+      function checkTime(i)
+      {
+        if (i<10)
+        {
+          i="0" + i;
+        }
+        return i;
+      }
+    </script>
+  </head>
+  <body onload="startTime()" class="subcapitulodecolumna">
+    <div class="logo">
+      <h1><a href="#">
+        COMECUCO</a>
+      </h1>
+      <div class="subtitle">
+        somos el colectivo de medios comunitarios de cuyo
+      </div>
+    </div>
+    <div class="clima">
+        EL CLIMA EN MENDOZA 13° HORA
+        <div id="hora"></div>
+    </div>
+
+    <div class="capitulodecolumna">
+      <h2>"PERDIDOS EN EL ESPACIO"</h2>
+      <ul>
+        <div class="producido">Columna producida por: Radio Cuyum
+        </div>
+        <div class="fechadeemisión">Emitida desde julio 2020 hasta mayo 2021
+        </div>
+        <div class="ndecapítulos">Nº de capítulos: 22
+        </div>
+      </ul>
+      <img class="logoautor" src="../public/static/logos/cuyum.jpg" alt="radio cuyum">
+    </div>
+
+    <h2 class="cap">CAPITULOS</h2>
+
+    <div class="listadecapitulos">
+      <ul class="capitulo">
+        <li>
+          <img src="2-colum-preview.png" alt="">
+          <h3>"Perdidos en el Espacio"</h3>
+          <div class="fechadeemisión">Emitido el 15 de julio de 2020
+          </div>
+          <div class="resumen">
+            En la segunda quincena de julio, el cuerpo celeste se podra observar durante la puesta del sol. Pero un extraño ser de otra galaxia aparece para desequilibrar la paz universal.
+          </div>
+          <div class="reproductor">
+          <audio src="https://www.comecuco.org/sites/default/files/Parar%20La%20Olla%20Recordando%20la%20crisis%20del%202001%2020%2012%202021%20Tanda%201.mp3" controls=""></audio>
+          <a href="https://www.comecuco.org/sites/default/files/Parar%20La%20Olla%20Recordando%20la%20crisis%20del%202001%2020%2012%202021%20Tanda%201.mp3" type="audio/mpeg; length=21821863">
+&#9196;</a>
+        </div>
+        </li>
+        <li>
+          <img src="2-colum-preview.png" alt="">
+          <h3>"Perdidos en el Espacio"</h3>
+          <div class="fechadeemisión">Emitido el 15 de julio de 2020
+          </div>
+          <div class="resumen">
+            En la segunda quincena de julio, el cuerpo celeste se podra observar durante la puesta del sol. Pero un extraño ser de otra galaxia aparece para desequilibrar la paz universal.
+          </div>
+          <div class="reproductor">
+          <audio src="https://www.comecuco.org/sites/default/files/Parar%20La%20Olla%20Recordando%20la%20crisis%20del%202001%2020%2012%202021%20Tanda%201.mp3" controls=""></audio>
+          <a href="https://www.comecuco.org/sites/default/files/Parar%20La%20Olla%20Recordando%20la%20crisis%20del%202001%2020%2012%202021%20Tanda%201.mp3" type="audio/mpeg; length=21821863">
+&#9196;</a>
+        </div>
+        </li>
+      </ul>
+    </div>
+    <div class="footer">
+    </div>
+  </body>
+</html>
