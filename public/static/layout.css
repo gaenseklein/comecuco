@@ -963,17 +963,25 @@ input#search {
 .audiosyvideos{
   background-color: #e93e1f;
   padding: 1ch 5vw;
-  line-height: 1.5em;
+  height: 40px;
 }
 
-.audiosyvideos audio{
-    display: block;
+.audiosyvideos div.cuadrocontrol{
+  display: inline-block;
+  background-color:  rgb(34, 34, 34);
+  font-size: 0;
+  margin: 0;
+  padding: 0;
+  height: 40px;
+  width: 350px;
+  position: relative;
   }
 
-.audiosyvideos a{
-    color: white;
-    text-decoration: none;
-  }
+  .cuadrocontrol a{
+    font-size: 32px;
+    position: absolute;
+    top: 0;
+    }
 
   @media screen and (orientation: portrait) {
     .fotonoticia{
