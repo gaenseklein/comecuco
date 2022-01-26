@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>MEDIO</title>
+    <link rel="stylesheet" href="../public/static/layout.css">
+    <script type="text/javascript">
+      function startTime()
+      {
+        var today=new Date();
+        var h=today.getHours();
+        var m=today.getMinutes();
+        var s=today.getSeconds();
+    // add a zero in front of numbers<10
+        h=checkTime(h);
+        m=checkTime(m);
+        s=checkTime(s);
+        document.getElementById('hora').innerHTML=h+":"+m+":"+s;
+        t=setTimeout('startTime()',500);
+      }
+      function checkTime(i)
+      {
+        if (i<10)
+        {
+          i="0" + i;
+        }
+        return i;
+      }
+    </script>
+  </head>
+  <body onload="startTime()" class="subpaginamedio">
+    <div class="logo">
+      <h1><a href="#">
+          COMECUCO</a>
+      </h1>
+      <div class="subtitle">
+        somos el colectivo de medios comunitarios de cuyo
+      </div>
+    </div>
+    <div class="clima">
+        EL CLIMA EN MENDOZA 13° HORA
+        <div id="hora"></div>
+    </div>
+    <div class="paginamedio">
+      <img class="logomedio" src="../public/static/logos/lenera.jpg" alt="Logo Radio La Leñera">
+      <h1 class="nombremedio">RADIO LA LEÑERA</h1>
+      <p class="descripcionmedio">Radio Comunitaria La Leñera FM 97.9 transmite desde el año 2003, y está ubicada en Las Vegas, Potrerillos, a 70 km de la Ciudad de Mendoza. Tenemos una programación muy variada, pero siempre buscando aportar a la construcción de la identidad del lugar. Somos parte de FARCO (Foro Argentino de Radios Comunitarias) y del CoMeCuCo (Colectivo de Medios Comunitarios de Cuyo).</p>
+      <div class="fondoblanco"></div>
+      <div class="calecitadelmedio">
+        <ul>
+          <li class="activo">
+            <img class="fotosdelmedio" src="caruselpreview.png" alt="">
+        </ul>
+      </div>
+      <div class="datosdelmedio">
+        <a href="http://comecuco.org:8000/stream">RADIO ONLINE</a>
+        <a href="#">MAPA</a>
+        <a href="#">MAIL</a>
+        <a href="#">FACEBOOK</a>
+        <a href="#">INSTAGRAM</a>
+      </div>
+    </div>
+    <div class="titulonoticiasdelmedio">
+      <h3>NOTICIAS DE LA LEÑERA</h3>
+    </div>
+
+    <div class="noticiasdelmedio">
+      <ul>
+        <li>
+          <img src="mini-preview.png" alt="">
+          <h3><a href="#">
+            Las mejores fotos del reciente paso del cometa Neowise por la Tierra
+          </a></h3>
+          <div class="fecha">
+            16/JUL/2020
+          </div>
+        </li>
+        <li>
+          <img src="mini-preview.png" alt="">
+          <h3><a href="#">
+            Las mejores fotos del reciente paso del cometa Neowise por la Tierra
+          </a></h3>
+          <div class="fecha">
+            16/JUL/2020
+          </div>
+        </li>
+        <li>
+          <img src="mini-preview.png" alt="">
+          <h3><a href="#">
+            Las mejores fotos del reciente paso del cometa Neowise por la Tierra
+          </a></h3>
+          <div class="fecha">
+            16/JUL/2020
+          </div>
+        </li>
+        <li>
+          <img src="mini-preview.png" alt="">
+          <h3><a href="#">
+            Las mejores fotos del reciente paso del cometa Neowise por la Tierra
+          </a></h3>
+          <div class="fecha">
+            16/JUL/2020
+          </div>
+        </li>
+        <li>
+          <img src="mini-preview.png" alt="">
+          <h3><a href="#">
+            Las mejores fotos del reciente paso del cometa Neowise por la Tierra
+          </a></h3>
+          <div class="fecha">
+            16/JUL/2020
+          </div>
+        </li>
+        <li>
+          <img src="mini-preview.png" alt="">
+          <h3><a href="#">
+            Las mejores fotos del reciente paso del cometa Neowise por la Tierra
+          </a></h3>
+          <div class="fecha">
+            16/JUL/2020
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer">
+    </div>
+  </body>
+</html>

@@ -1152,16 +1152,12 @@ input#search {
       top: 0;
     }
 
-
-
-
-
     @media screen and (orientation: portrait) {
 
       .capitulodecolumna{
         display: grid;
         grid-template-columns: 1fr 0.7fr;
-        grid-template-rows: auto auto
+        grid-template-rows: auto auto;
         grid-gap: 1em;
       }
       .capitulodecolumna img.logoautor{
@@ -1172,5 +1168,176 @@ input#search {
       }
       .capitulodecolumna ul{
         grid-column: 1/3;
+      }
+    }
+
+    /*a partir de aca subpagina de CADA MEDIO*/
+
+      body.subpaginamedio{
+        display: block;
+      }
+
+      .subpaginamedio .logo{
+        padding-top: 2em;
+      }
+
+      .subpaginamedio .logo h1{
+        margin-top: 0;
+      }
+
+      .subpaginamedio .clima{
+        display: block;
+      }
+
+      .paginamedio{
+        display: grid;
+        grid-template-columns: 4vw 1fr 2fr 1fr 2fr;
+        grid-template-rows: auto auto auto;
+        grid-gap: 1ch;
+      }
+
+      .paginamedio .nombremedio{
+        font-family: patagonian;
+        font-size: 4em;
+        grid-column: 3/6;
+        grid-row: 1/2;
+        text-align: left;
+        margin-bottom: 0;
+        margin-top: auto;
+      }
+
+      .paginamedio img.logomedio{
+        grid-column: 2/3;
+        grid-row: 1/2;
+        justify-self: left;
+        width: 90%;
+      }
+
+      .paginamedio p.descripcionmedio{
+        font-family: keepcalm;
+        grid-column: 2/5;
+        grid-row: 2/3;
+        line-height: 1.5em;
+        text-align: right;
+        margin-right: 5em;
+        z-index: 3;
+        margin-top: 2em;
+      }
+
+      .paginamedio .fondoblanco{
+        background-image: linear-gradient(to right, rgb(255, 255, 255), rgba(255, 255, 255, 0));
+        grid-column: 4/5;
+        grid-row: 2/3;
+        z-index: 2;
+      }
+
+      .paginamedio .calecitadelmedio{
+        grid-column: 4/6;
+        grid-row: 2/3;
+        background-color: #808384;
+        height: 100%;
+        display: grid;
+        z-index: 1;
+      }
+
+      .paginamedio .calecitadelmedio ul{
+        margin-top: 0;
+        margin-bottom: 0;
+        align-self: center;
+      }
+
+      .paginamedio .calecitadelmedio img.fotosdelmedio{
+        width: 100%;
+        margin-top: 1em;
+        margin-bottom: 1em;
+      }
+
+      .paginamedio .datosdelmedio{
+        background-color: #e93e1f;
+        grid-column: 1/6;
+        grid-row: 3/4;
+        display: grid;
+        grid-template-columns: repeat(5,1fr);
+        grid-column-gap: 3em;
+      }
+
+      .paginamedio .datosdelmedio a{
+        text-align: center;
+        font-family: patagonian;
+        font-size: large;
+        text-decoration: none;
+        color: black;
+        margin-top: 1em;
+        margin-bottom: 1em;
+      }
+
+      .titulonoticiasdelmedio{
+        background-color: #808384;
+      }
+
+      .titulonoticiasdelmedio h3{
+        color: white;
+        margin-left: 5vw;
+        font-size: xx-large;
+        padding-top: 1em;
+        padding-bottom: 0.5em;
+      }
+
+      .noticiasdelmedio ul{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 4ch;
+      }
+
+       .noticiasdelmedio ul img{
+         width: 100%;
+       }
+
+       .noticiasdelmedio ul h3{
+           margin-bottom: 0.5em;
+       }
+
+       .noticiasdelmedio ul h3 a{
+           font-size: large;
+        }
+
+    @media screen and (orientation: portrait) {
+        .paginamedio{
+          display: block;
+        }
+
+        .paginamedio img.logomedio{
+          float: left;
+          width: 20vw;
+          margin-right: 1em;
+        }
+
+        .paginamedio p.descripcionmedio {
+          line-height: 1.5em;
+          text-align: right;
+          margin-right: 1em;
+          margin-top: 2em;
+        }
+
+        .paginamedio .nombremedio{
+          font-family: patagonian;
+          font-size: 3em;
+          text-align: left;
+          margin-bottom: 0.5em;
+          margin-top: 0.5em;
+        }
+
+        .paginamedio .datosdelmedio{
+          grid-template-columns: 1fr 1fr;
+          grid-template-rows: auto auto auto;
+          margin-top: 1em;
+        }
+
+      .noticiasdelmedio ul{
+        display: block;
+        margin-bottom: 0;
+      }
+      .noticiasdelmedio ul li{
+        margin-bottom: 2em;
       }
     }
