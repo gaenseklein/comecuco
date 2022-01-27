@@ -1246,6 +1246,14 @@ input#search {
         align-self: center;
       }
 
+      .paginamedio .calecitadelmedio ul li{
+        display: none;
+      }
+
+      .paginamedio .calecitadelmedio ul li.activo{
+        display: block;
+      }
+
       .paginamedio .calecitadelmedio img.fotosdelmedio{
         width: 100%;
         margin-top: 1em;
