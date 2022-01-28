@@ -1231,33 +1231,40 @@ input#search {
         z-index: 2;
       }
 
-      .paginamedio .calecitadelmedio{
+      .paginamedio .calecita{
         grid-column: 4/6;
         grid-row: 2/3;
         background-color: #808384;
-        height: 100%;
-        display: grid;
+        height: 35vw;
         z-index: 1;
+        margin-top: 0;
+        padding-left: 0;
+        display: grid;
+        place-content: center;
       }
 
-      .paginamedio .calecitadelmedio ul{
+      .paginamedio .calecita ul{
         margin-top: 0;
         margin-bottom: 0;
-        align-self: center;
       }
 
-      .paginamedio .calecitadelmedio ul li{
+      .paginamedio .calecita ul li{
         display: none;
       }
 
-      .paginamedio .calecitadelmedio ul li.activo{
+      .paginamedio .calecita ul li.activo{
         display: block;
+        width: 1000px;
       }
 
-      .paginamedio .calecitadelmedio img.fotosdelmedio{
-        width: 100%;
+      .paginamedio .calecita img.fotosdelmedio{
         margin-top: 1em;
         margin-bottom: 1em;
+        height: 100%;
+        width: 100%;
+        max-width: 45vw;
+        max-height: 30vw;
+        object-fit: contain;
       }
 
       .paginamedio .datosdelmedio{
