@@ -1192,7 +1192,7 @@ input#search {
       .paginamedio{
         display: grid;
         grid-template-columns: 4vw 1fr 2fr 1fr 2fr;
-        grid-template-rows: auto auto auto;
+        grid-template-rows: auto auto 3.5em;
         grid-gap: 1ch;
       }
 
@@ -1276,7 +1276,7 @@ input#search {
         grid-column-gap: 3em;
       }
 
-      .paginamedio .datosdelmedio a{
+      .paginamedio .datosdelmedio a, .datosdelmedio div{
         text-align: center;
         font-family: patagonian;
         font-size: large;
@@ -1284,6 +1284,35 @@ input#search {
         color: black;
         margin-top: 1em;
         margin-bottom: 1em;
+      }
+
+      .datosdelmedio a:hover, .datosdelmedio div:hover{
+        color: white;
+      }
+
+      .datosdelmedio div{
+        position: relative;
+      }
+
+      .datosdelmedio div ul{
+        display: none;
+        position: absolute;
+        top: -27px;
+        left: 130px;
+        background-color: #e93e1f;
+      }
+
+      .navredes li{
+        text-align: left;
+        padding: .5em;
+      }
+
+      .datosdelmedio div.listaredes:hover{
+        cursor: pointer;
+      }
+
+      .datosdelmedio div:hover > ul{
+        display: block;
       }
 
       .titulonoticiasdelmedio{
@@ -1342,10 +1371,41 @@ input#search {
           margin-top: 0.5em;
         }
 
+        .paginamedio .fondoblanco{
+          display: none;
+        }
+
+        .paginamedio .calecita{
+          display: grid;
+          place-content: center;
+          padding: 0;
+          margin: 0;
+        }
+
+        .paginamedio .calecita ul li.activo{
+          display: block;
+          width: auto;
+        }
+
+        .paginamedio .calecita img.fotosdelmedio{
+          margin-top: 1em;
+          margin-bottom: 1em;
+          height: 100%;
+          width: 100%;
+          max-width: 45vw;
+          max-height: 30vw;
+        }
+
         .paginamedio .datosdelmedio{
           grid-template-columns: 1fr 1fr;
           grid-template-rows: auto auto auto;
           margin-top: 1em;
+        }
+
+        .datosdelmedio div ul{
+          left: 30px;
+          top: 1px;
+          padding-top: 10px;
         }
 
       .noticiasdelmedio ul{
