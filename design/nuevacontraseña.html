@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Nueva Contraseña</title>
+    <link rel="stylesheet" href="../public/static/layout.css">
+    <script type="text/javascript">
+      function startTime()
+      {
+        var today=new Date();
+        var h=today.getHours();
+        var m=today.getMinutes();
+        var s=today.getSeconds();
+    // add a zero in front of numbers<10
+        h=checkTime(h);
+        m=checkTime(m);
+        s=checkTime(s);
+        document.getElementById('hora').innerHTML=h+":"+m+":"+s;
+        t=setTimeout('startTime()',500);
+      }
+      function checkTime(i)
+      {
+        if (i<10)
+        {
+          i="0" + i;
+        }
+        return i;
+      }
+    </script>
+  </head>
+  <body onload="startTime()" class="subpaginainiciosesion">
+    <div class="logo">
+      <h1><a href="file:///home/javier/Documentos%20COMECUCO/comecuco/design/frontpage.html">
+          COMECUCO</a>
+      </h1>
+      <div class="subtitle">
+        somos el colectivo de medios comunitarios de cuyo
+      </div>
+    </div>
+    <div class="clima">
+        EL CLIMA EN MENDOZA 13° HORA
+        <div id="hora"></div>
+    </div>
+    <div class="paginainiciosesion">
+      <h1>Iniciar Sesión</h1>
+      <img class="logocomecuco" src="../public/static/logos/comecuco.png" alt="Logo del COMECUCO">
+      <form class="forminiciosesion" id="nuevacontraseña" action="index.html" method="post">
+        <label>Usuario<input type="text" name="nombre" value="" placeholder="" required></label>
+        <br>
+        <div class="input-group">
+          <label>Email<input type="email" name="email" id="email" size="27" required>
+          </label>
+        </div>
+        <br>
+        <input type="submit" class="submit" value="Solicitar nueva Contraseña por Email">
+      </form>
+    </div>
+
+    <div class="footer">
+    </div>
+  </body>
+  <script src='../public/static/scripts/verpassword2.js'></script>
+</html>

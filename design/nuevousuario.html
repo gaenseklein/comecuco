@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Nuevo Usuario</title>
+    <link rel="stylesheet" href="../public/static/layout.css">
+    <script type="text/javascript">
+      function startTime()
+      {
+        var today=new Date();
+        var h=today.getHours();
+        var m=today.getMinutes();
+        var s=today.getSeconds();
+    // add a zero in front of numbers<10
+        h=checkTime(h);
+        m=checkTime(m);
+        s=checkTime(s);
+        document.getElementById('hora').innerHTML=h+":"+m+":"+s;
+        t=setTimeout('startTime()',500);
+      }
+      function checkTime(i)
+      {
+        if (i<10)
+        {
+          i="0" + i;
+        }
+        return i;
+      }
+    </script>
+  </head>
+  <body onload="startTime()" class="subpaginainiciosesion">
+    <div class="logo">
+      <h1><a href="file:///home/javier/Documentos%20COMECUCO/comecuco/design/frontpage.html">
+          COMECUCO</a>
+      </h1>
+      <div class="subtitle">
+        somos el colectivo de medios comunitarios de cuyo
+      </div>
+    </div>
+    <div class="clima">
+        EL CLIMA EN MENDOZA 13° HORA
+        <div id="hora"></div>
+    </div>
+    <div class="paginainiciosesion">
+      <h1>Iniciar Sesión</h1>
+      <img class="logocomecuco" id="responsivelogo" src="../public/static/logos/comecuco.png" alt="Logo del COMECUCO">
+      <form class="forminiciosesion" id="formnuevousuario" action="index.html" method="post">
+        <label>Nuevo Usuario<input type="text" name="nombre" id="formnombre" required></label>
+        <br>
+        <label>Email (para uso interno del COMECUCO)<input type="email" name="email" id="email" size="27" required>
+        </label>
+        <br>
+        <label>Nombre del Medio<input type="text" name="nombremedio" id="formnombremedio" required></label>
+        <br>
+        <label>Dirección<input type="text" name="direcciónmedio" id="direccionmedio" size="27" required></label>
+        <br>
+        <label>Frecuencia o canal de transmisión<input type="text" name="frecuenciamedio" id="frecuenciamedio" size="10"></label>
+        <br>
+        <label>Dirección de Streaming<input type="text" name="streamingmedio" id="streamingmedio" size="27"></label>
+        <br>
+        <label>Email del Medio (para uso público)<input type="email" name="emailpublico" id="emailpublico" size="27"></label>
+        <br>
+        <label id="labelfortextarea">Descripción del Medio<textarea type="text" name="descripcionmedio" id="descripcionmedio" required></textarea>
+        <br>
+        <input type="submit" class="submit" value="Solicitar Registro como nuevo Usuario">
+      </form>
+    </div>
+
+    <div class="footer">
+    </div>
+  </body>
+  <script src='../public/static/scripts/verpassword2.js'></script>
+</html>

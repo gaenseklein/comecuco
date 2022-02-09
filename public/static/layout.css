@@ -332,6 +332,7 @@ flex-wrap: wrap;
 .topMenu ul {
     padding-top: 1.4em;
     text-align: right;
+    line-height: 2em;
 }
 
 .blockRight {
@@ -1416,3 +1417,165 @@ input#search {
         margin-bottom: 2em;
       }
     }
+
+    /*a partir de aca subpagina de INICIO DE SESION*/
+
+      body.subpaginainiciosesion{
+        display: block;
+      }
+
+      .subpaginainiciosesion .logo{
+        padding-top: 2em;
+      }
+
+      .subpaginainiciosesion .logo h1{
+        margin-top: 0;
+      }
+
+      .subpaginainiciosesion .clima{
+        display: block;
+      }
+
+      .paginainiciosesion{
+        font-family: keepcalm;
+        position: relative;
+      }
+
+      .paginainiciosesion img.logocomecuco{
+        position: absolute;
+        top: -2em;
+        left: 2em;
+        width: 70vw;
+        opacity: 0.3;
+        z-index: 1;
+      }
+
+      #responsivelogo{
+        position: fixed;
+        top: 20px;
+        left: 2em;
+        height: 90vh;
+        width: auto;
+        opacity: 0.3;
+        z-index: 1;
+      }
+
+      .paginainiciosesion h1{
+        position: absolute;
+        left: 10000px;
+      }
+
+      form.forminiciosesion{
+        margin: 4vh auto 2vh 5vw;
+        max-width: 80vw;
+        text-align: right;
+        position: relative;
+        z-index: 2;
+      }
+
+      form.forminiciosesion input{
+        display: inline;
+        margin-left: 2em;
+        margin-top: 1em;
+      }
+      form input#formnombre{
+        margin-bottom: 0.5em;
+      }
+
+      .input-group{
+        position: relative;
+        margin-bottom: 0.5em;
+      }
+
+      form.forminiciosesion input:hover,
+      form.forminiciosesion textarea:hover,
+      form.forminiciosesion label:hover{
+        cursor: pointer;
+      }
+
+      #verpassword{
+        border-width: 1px;
+        padding-top: 4px;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+      }
+
+      #enlacenuevacontraseña, #crearnuevacuenta{
+        text-decoration: none;
+        font-size: small;
+      }
+
+      form.forminiciosesion textarea{
+        width:60vw;
+        height: auto;
+        min-height: 10em;
+        margin-top: 1em;
+        display: block;
+        margin-right: 0;
+        margin-left: auto;
+      }
+
+      #emailpublico{
+        margin-bottom: 1em;
+      }
+
+      form.forminiciosesion input.submit{
+        margin-top: 2em;
+        margin-right: 0px;
+      }
+
+      @media screen and (orientation: portrait) {
+          .paginainiciosesion{
+            display: block;
+          }
+
+          form.forminiciosesion{
+            margin: 4vh auto 2vh 5vw;
+            max-width: 70vw;
+            text-align: right;
+            min-width: 221px;
+          }
+
+          .paginainiciosesion img.logocomecuco{
+            top: -1em;
+            left: 1em;
+            width: 90vw;
+            opacity: 0.2;
+            z-index: 0;
+          }
+
+          form.forminiciosesion input{
+            display: block;
+            margin-left: auto;
+            margin-top: 1em;
+          }
+
+          form#nuevacontraseña{
+            min-width: 290px;
+          }
+
+          #email{
+            size: 20;
+          }
+
+          #formnuevousuario{
+            margin: 4vh 5vw 2vh auto;
+            max-width: 90vw;
+            text-align: right;
+            min-width: 221px;
+          }
+
+          form.forminiciosesion textarea{
+            width:80vw;
+            height: auto;
+          }
+
+          #responsivelogo{
+            height: 90vh;
+            width: auto;
+            position: fixed;
+            top: 20px;
+            left: -50px;
+          }
+      }
