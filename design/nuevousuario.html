@@ -4,29 +4,6 @@
     <meta charset="utf-8">
     <title>Nuevo Usuario</title>
     <link rel="stylesheet" href="../public/static/layout.css">
-    <script type="text/javascript">
-      function startTime()
-      {
-        var today=new Date();
-        var h=today.getHours();
-        var m=today.getMinutes();
-        var s=today.getSeconds();
-    // add a zero in front of numbers<10
-        h=checkTime(h);
-        m=checkTime(m);
-        s=checkTime(s);
-        document.getElementById('hora').innerHTML=h+":"+m+":"+s;
-        t=setTimeout('startTime()',500);
-      }
-      function checkTime(i)
-      {
-        if (i<10)
-        {
-          i="0" + i;
-        }
-        return i;
-      }
-    </script>
   </head>
   <body onload="startTime()" class="subpaginainiciosesion">
     <div class="logo">
@@ -41,26 +18,48 @@
         EL CLIMA EN MENDOZA 13° HORA
         <div id="hora"></div>
     </div>
-    <div class="paginainiciosesion">
-      <h1>Iniciar Sesión</h1>
+    <div class="paginausuario">
+      <h1>Usuario</h1>
       <img class="logocomecuco" id="responsivelogo" src="../public/static/logos/comecuco.png" alt="Logo del COMECUCO">
       <form class="forminiciosesion" id="formnuevousuario" action="index.html" method="post">
-        <label>Nuevo Usuario<input type="text" name="nombre" id="formnombre" required></label>
+        <label>Nuevo Usuario</label>
+          <input type="text" name="nombre" id="formnombre" required>
         <br>
-        <label>Email (para uso interno del COMECUCO)<input type="email" name="email" id="email" size="27" required>
+        <label>
+          Email (para uso interno del COMECUCO)
         </label>
+        <input type="email" name="email" id="email" size="27" required>
         <br>
-        <label>Nombre del Medio<input type="text" name="nombremedio" id="formnombremedio" required></label>
+        <label>
+          Nombre del Medio
+        </label>
+          <input type="text" name="nombremedio" id="formnombremedio" required>
         <br>
-        <label>Dirección<input type="text" name="direcciónmedio" id="direccionmedio" size="27" required></label>
+        <label>
+          Dirección
+        </label>
+          <input type="text" name="direcciónmedio" id="direccionmedio" size="27" required>
         <br>
-        <label>Frecuencia o canal de transmisión<input type="text" name="frecuenciamedio" id="frecuenciamedio" size="10"></label>
+        <label>
+          Frecuencia o canal de transmisión
+        </label>
+        <input type="text" name="frecuenciamedio" id="frecuenciamedio" size="10">
         <br>
-        <label>Dirección de Streaming<input type="text" name="streamingmedio" id="streamingmedio" size="27"></label>
+        <label>Dirección de Streaming
+        </label>
+          <input type="text" name="streamingmedio" id="streamingmedio" size="27">
         <br>
-        <label>Email del Medio (para uso público)<input type="email" name="emailpublico" id="emailpublico" size="27"></label>
+        <label>Email del Medio (para uso público)
+        </label>
+        <input type="email" name="emailpublico" id="emailpublico" size="27">
         <br>
-        <label id="labelfortextarea">Descripción del Medio<textarea type="text" name="descripcionmedio" id="descripcionmedio" required></textarea>
+        <label id="labelfortextarea">
+          Descripción del Medio
+        </label>
+          <textarea type="text" name="descripcionmedio" id="descripcionmedio" required>
+          </textarea>
+        <br>
+        <label for="iconupload">Icono del medio</label> <input type="file" id="iconupload" name="" value="">
         <br>
         <input type="submit" class="submit" value="Solicitar Registro como nuevo Usuario">
       </form>
