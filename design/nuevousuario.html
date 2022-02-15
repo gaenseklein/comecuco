@@ -19,48 +19,41 @@
         <div id="hora"></div>
     </div>
     <div class="paginausuario">
-      <h1>Usuario</h1>
+      <h1>Crear Nuevo Usuario</h1>
       <img class="logocomecuco" id="responsivelogo" src="../public/static/logos/comecuco.png" alt="Logo del COMECUCO">
       <form class="forminiciosesion" id="formnuevousuario" action="index.html" method="post">
-        <label>Nuevo Usuario</label>
-          <input type="text" name="nombre" id="formnombre" required>
-        <br>
-        <label>
-          Email (para uso interno del COMECUCO)
-        </label>
-        <input type="email" name="email" id="email" size="27" required>
-        <br>
-        <label>
-          Nombre del Medio
-        </label>
+        <div>
+          <label for="formnombremedio">Nombre del Medio</label>
           <input type="text" name="nombremedio" id="formnombremedio" required>
-        <br>
-        <label>
-          Dirección
-        </label>
+        </div>
+        <div>
+          <label for="email">Email (para uso interno del COMECUCO)</label>
+          <input type="email" name="email" id="email" size="27" required>
+        </div>
+        <div>
+          <label for="direccionmedio">Dirección</label>
           <input type="text" name="direcciónmedio" id="direccionmedio" size="27" required>
-        <br>
-        <label>
-          Frecuencia o canal de transmisión
-        </label>
-        <input type="text" name="frecuenciamedio" id="frecuenciamedio" size="10">
-        <br>
-        <label>Dirección de Streaming
-        </label>
+        </div>
+        <div>
+          <label for="frecuenciamedio">Frecuencia o canal de transmisión</label>
+          <input type="text" name="frecuenciamedio" id="frecuenciamedio" size="10">
+        </div>
+        <div>
+          <label for="streamingmedio">Dirección de Streaming</label>
           <input type="text" name="streamingmedio" id="streamingmedio" size="27">
-        <br>
-        <label>Email del Medio (para uso público)
-        </label>
-        <input type="email" name="emailpublico" id="emailpublico" size="27">
-        <br>
-        <label id="labelfortextarea">
-          Descripción del Medio
-        </label>
-          <textarea type="text" name="descripcionmedio" id="descripcionmedio" required>
-          </textarea>
-        <br>
-        <label for="iconupload">Icono del medio</label> <input type="file" id="iconupload" name="" value="">
-        <br>
+        </div>
+        <div>
+          <label for="emailpublico">Email del Medio (para uso público)</label>
+          <input type="email" name="emailpublico" id="emailpublico" size="27">
+        </div>
+        <div>
+          <label for="descripcionmedio" id="labelfortextarea">Descripción del Medio</label>
+          <textarea type="text" name="descripcionmedio" id="descripcionmedio" required></textarea>
+        </div>
+        <div>
+          <label for="logoupload">Logo del Medio</label>
+          <input type="file" id="logoupload" name="" value="">
+        </div>
         <input type="submit" class="submit" value="Solicitar Registro como nuevo Usuario">
       </form>
     </div>

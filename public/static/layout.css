@@ -843,16 +843,19 @@ input#search {
    display: grid;
    /*widescreen size:*/
    grid-template-areas:
-     "logo logo"
-     "clima buscador"
-     "últimas últimas"
-     "viejas viejas"
-     "footer footer";
-   grid-template-columns: 50% 50%;
+     "logo logo topMenu topMenu"
+     "clima clima buscador buscador"
+     "últimas últimas últimas últimas"
+     "viejas viejas viejas viejas"
+     "footer footer footer footer";
  }
 
  .noticiasúltimas{
    grid-area: últimas;
+ }
+
+ .topMenu #sinmenu{
+   display: none;
  }
 
  .noticiasviejas{
@@ -964,7 +967,9 @@ input#search {
 .audiosyvideos{
   background-color: #e93e1f;
   padding: 1ch 5vw;
-  height: 40px;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-column-gap: 1em;
 }
 
 .audiosyvideos div.cuadrocontrol{
@@ -978,11 +983,25 @@ input#search {
   position: relative;
   }
 
+  #tituloAudio{
+    font-size: 1em;
+    color: white;
+    margin-top: 0;
+    }
+
   .cuadrocontrol a{
     font-size: 32px;
     position: absolute;
     top: 0;
     }
+
+  @media screen and (max-width: 924px) {
+    .audiosyvideos{
+      display: grid;
+      grid-template-columns: auto;
+      grid-row-gap: 0;
+    }
+  }
 
   @media screen and (orientation: portrait) {
     .fotonoticia{
@@ -1273,8 +1292,8 @@ input#search {
         grid-column: 1/6;
         grid-row: 3/4;
         display: grid;
-        grid-template-columns: repeat(5,1fr);
-        grid-column-gap: 3em;
+        grid-template-columns: 1.5fr repeat(3,1fr);
+        grid-column-gap: 1em;
       }
 
       .paginamedio .datosdelmedio a, .datosdelmedio div{
@@ -1297,14 +1316,13 @@ input#search {
 
       .datosdelmedio div ul{
         display: none;
-        position: absolute;
-        top: -27px;
-        left: 130px;
-        background-color: #e93e1f;
+        background-color: rgba(233, 62, 31, 0.7);
+        padding-top: 10px;
+        margin-top: 0px;
       }
 
       .navredes li{
-        text-align: left;
+        text-align: right;
         padding: .5em;
       }
 
@@ -1399,13 +1417,11 @@ input#search {
 
         .paginamedio .datosdelmedio{
           grid-template-columns: 1fr 1fr;
-          grid-template-rows: auto auto auto;
+          grid-template-rows: 3.5em 3.5em;
           margin-top: 1em;
         }
 
         .datosdelmedio div ul{
-          left: 30px;
-          top: 1px;
           padding-top: 10px;
         }
 
@@ -1418,7 +1434,8 @@ input#search {
       }
     }
 
-    /*a partir de aca subpagina de INICIO DE SESION*/
+    /*a partir de aca subpagina de INICIO DE SESION,
+    NUEVA CONTRASEÑA Y CREAR NUEVO USUARIO*/
 
       body.subpaginainiciosesion{
         display: block;
@@ -1461,30 +1478,42 @@ input#search {
       }
 
       .paginainiciosesion h1{
-        position: absolute;
+        position: fixed;
         left: 10000px;
+      }
+
+      .paginausuario h1{
+          margin-left: 5vw;
       }
 
       form.forminiciosesion{
         margin: 4vh auto 2vh 5vw;
         max-width: 80vw;
-        text-align: right;
         position: relative;
         z-index: 2;
+        display:grid;
+        grid-row-gap: 2em;
+        justify-items: right;
+      }
+
+      form.forminiciosesion div{
+        justify-items: right;
+        display: inline-grid;
+        grid-template-columns: auto auto;
+        text-align: right;
+      }
+
+      form.forminiciosesion div label{
+        margin-bottom: 0.5em;
       }
 
       form.forminiciosesion input{
         display: inline;
         margin-left: 2em;
-        margin-top: 1em;
-      }
-      form input#formnombre{
-        margin-bottom: 0.5em;
       }
 
       .input-group{
         position: relative;
-        margin-bottom: 0.5em;
       }
 
       form.forminiciosesion input:hover,
@@ -1501,19 +1530,19 @@ input#search {
         right: 0;
       }
 
-      #enlacenuevacontraseña, #crearnuevacuenta{
+      #enlacenuevacontraseña{
         text-decoration: none;
         font-size: small;
+        width: max-content;
       }
 
       form.forminiciosesion textarea{
         width:60vw;
         height: auto;
         min-height: 10em;
-        margin-top: 1em;
         display: block;
         margin-right: 0;
-        margin-left: auto;
+        margin-left: 2em;
       }
 
       #emailpublico{
@@ -1521,8 +1550,7 @@ input#search {
       }
 
       form.forminiciosesion input.submit{
-        margin-top: 2em;
-        margin-right: 0px;
+        width: max-content;
       }
 
       @media screen and (orientation: portrait) {
@@ -1537,7 +1565,8 @@ input#search {
             min-width: 221px;
           }
 
-          .paginainiciosesion img.logocomecuco{
+          .paginainiciosesion img.logocomecuco,
+          .paginausuario img.logocomecuco{
             top: -1em;
             left: 1em;
             width: 90vw;
@@ -1560,15 +1589,20 @@ input#search {
           }
 
           #formnuevousuario{
-            margin: 4vh 5vw 2vh auto;
+            margin: 4vh 5vw 2vh 2vw;
             max-width: 90vw;
             text-align: right;
             min-width: 221px;
           }
 
+          form.forminiciosesion div {
+            display: block;
+          }
+
           form.forminiciosesion textarea{
             width:80vw;
             height: auto;
+            margin-top:1em;
           }
 
           #responsivelogo{
@@ -1579,3 +1613,199 @@ input#search {
             left: -50px;
           }
       }
+
+      /*a partir de aca subpagina de USUARIO*/
+
+        body.subpagusuario{
+          display: block;
+          font-family: keepcalm;
+        }
+
+        body.subpagusuario #logoUsuario{
+          position: relative;
+          z-index: 4;
+        }
+
+        .menusubusuario{
+          display: grid;
+          grid-template-areas: "logoUsuario topMenuUsuario";
+          grid-template-columns: 50% 50%;
+        }
+
+        .subpagusuario #logoUsuario{
+          grid-area: logoUsuario;
+          padding-top: 2em;
+        }
+
+        .subpagusuario #topMenuUsuario{
+          grid-area: topMenuUsuario;
+        }
+
+        .subpagusuario #topMenuUsuario ul{
+          width: 90%;
+          margin-right: 5vw;
+          margin-left: auto;
+          display: grid;
+        }
+
+        .subpagusuario #topMenuUsuario li{
+          margin-right: 0;
+        }
+
+        body.subpagusuario .logo h1{
+          margin-top: 0;
+          text-overflow: clip;
+        }
+
+        .subpagusuario #climausuario{
+          display: block;
+        }
+
+        form.FormEditUsuario{
+          position: relative;
+        }
+
+        .CajaEditUsuario{
+          display: grid;
+          text-align: right;
+        }
+
+        .CajaEditUsuario .logomedio{
+          position: absolute;
+          left: 50px;
+          opacity: 0.3;
+          width: 30vw;
+          z-index: 0;
+        }
+
+        #datosdelusuario li{
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          margin: 0 5vw 1em auto;
+          text-align: right;
+          column-gap: 1em;
+        }
+
+        li.itempassword, li.itempassword2{
+          position: relative;
+        }
+
+        #verpassword2{
+          border-width: 1px;
+          padding-top: 4px;
+          position: absolute;
+          bottom: 0;
+          right: 0;
+        }
+
+        #fotosdeusuario{
+          display: inline-flex;
+          max-width: 90vw;
+          flex-wrap: wrap;
+          flex-direction: row;
+          margin-left: 5vw;
+          margin-right: 5vw;
+        }
+
+        #fotosdeusuario li div{
+          display: grid;
+          position: relative;
+          grid-template-areas: "img img"
+                              "label checkbox";
+          margin-right: 2em;
+          margin-bottom: 2em;
+        }
+
+        #fotosdeusuario img{
+          max-width: 20vw;
+          grid-area: img;
+        }
+
+        #fotosdeusuario input{
+          display: none;
+        }
+
+        #fotosdeusuario label{
+          grid-area: label;
+          color: red;
+          margin-top: 0.5em;
+        }
+
+        input[type="checkbox"] + label:before {
+	         content: "";
+	         width: 13px;
+	         height: 13px;
+	         float: left;
+	         margin: 0 0.5em 0 0;
+	         border: 2px solid red;
+	         background: #fff;
+        }
+
+        input[type="checkbox"]:checked + label:after {
+          content: "";
+          width: 6px;
+          height: 3px;
+          border: 3px solid red;
+          float: left;
+          margin-left: -1.35em;
+          border-right: 0;
+          border-top: 0;
+          margin-top: 0.3em;
+          transform: rotate(-55deg);
+        }
+
+        input[type="checkbox"]:checked ~ img.fotosdelmedio {
+          opacity: 0.3;
+        }
+
+        input[type="checkbox"]:checked + label {
+          display: inline;
+        }
+
+        input.submitusuario{
+          margin-right: 5vw;
+          margin-top: 2em;
+        }
+
+  @media screen and (orientation: portrait){
+        .menusubusuario{
+          display: grid;
+          grid-template-areas: "logoUsuario"
+                              "topMenuUsuario";
+          grid-template-columns: auto;
+        }
+
+        #datosdelusuario li{
+          display: inline-block;
+        }
+
+        #fotosdeusuario img{
+          max-width: 30vw;
+        }
+      }
+
+    /*a partir de aca subpagina de EDITAR NOTICIA*/
+
+        #listaAudiosYVideos li{
+          display: grid;
+          grid-template-areas: "audio"
+                              "checkbox";
+        }
+
+        #eliminarAudiosyVideos{
+          grid-area: audio;
+        }
+
+        #listaAudiosYVideos li label{
+          grid-area: checkbox;
+          color: red;
+          margin-top: 0.5em;
+        }
+
+        #listaAudiosYVideos input{
+          display: none;
+        }
+
+        input[type="checkbox"]:checked ~ div.audiosyvideos {
+          opacity: 0.3;
+        }

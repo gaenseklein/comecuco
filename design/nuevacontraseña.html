@@ -42,16 +42,13 @@
         <div id="hora"></div>
     </div>
     <div class="paginainiciosesion">
-      <h1>Iniciar Sesión</h1>
+      <h1>Solicitar nueva contraseña</h1>
       <img class="logocomecuco" src="../public/static/logos/comecuco.png" alt="Logo del COMECUCO">
       <form class="forminiciosesion" id="nuevacontraseña" action="index.html" method="post">
-        <label>Usuario<input type="text" name="nombre" value="" placeholder="" required></label>
-        <br>
-        <div class="input-group">
-          <label>Email<input type="email" name="email" id="email" size="27" required>
-          </label>
+        <div>
+          <label for="email">Email</label>
+          <input type="email" name="email" id="email" size="27" required>
         </div>
-        <br>
         <input type="submit" class="submit" value="Solicitar nueva Contraseña por Email">
       </form>
     </div>

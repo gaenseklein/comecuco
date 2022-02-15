@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>EDIT NOTICIA</title>
+    <link rel="stylesheet" href="../public/static/layout.css">
+    <script type="text/javascript">
+      function startTime()
+      {
+        var today=new Date();
+        var h=today.getHours();
+        var m=today.getMinutes();
+        var s=today.getSeconds();
+    // add a zero in front of numbers<10
+        h=checkTime(h);
+        m=checkTime(m);
+        s=checkTime(s);
+        document.getElementById('hora').innerHTML=h+":"+m+":"+s;
+        t=setTimeout('startTime()',500);
+      }
+      function checkTime(i)
+      {
+        if (i<10)
+        {
+          i="0" + i;
+        }
+        return i;
+      }
+    </script>
+  </head>
+  <body onload="startTime()" class="subpagusuario">
+  <div class="menusubusuario">
+    <div class="logo" id="logoUsuario">
+      <h1><a href="frontpage.html">
+          COMECUCO</a>
+      </h1>
+      <div class="subtitle">
+        somos el colectivo de medios comunitarios de cuyo
+      </div>
+    </div>
+    <div class="topMenu" id="topMenuUsuario">
+      <ul>
+        <li><a href="subpaginausuario.html">Ver Usuario</a></li>
+        <li><a href="#">Ayuda</a></li>
+      </ul>
+    </div>
+  </div>
+    <div class="clima" id="climausuario">
+        EL CLIMA EN MENDOZA 13° HORA
+        <div id="hora"></div>
+    </div>
+
+    <div class="lanoticia">
+      <form>
+          <h3 class="titulopagina">Las mejores fotos del reciente paso del cometa Neowise por la Tierra</h3>
+          <h4 class="subtitulo">En la segunda quincena de julio, el cuerpo celeste se podra observar durante la puesta del sol
+          </h4>
+          <div class="fotonoticia">
+            <img src="2-colum-preview.png" alt="" class="foto1">
+            <p class="textofoto">El cometa pasando veloz</p>
+          </div>
+          <img class="logoautor" src="../public/static/logos/cuyum.jpg" alt="">
+          <div class="autor">Por Radio Cuyum</div>
+          <div class="fecha">16/JUL/2020</div><br>
+          <div class="contenido">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus aliquam dolor, eu lacinia lorem placerat vulputate.</p><p>Duis felis orci, pulvinar id metus ut, rutrum luctus orci. Cras porttitor imperdiet nunc, at ultricies tellus laoreet sit amet. Sed auctor cursus massa at porta. Integer ligula ipsum, tristique sit amet orci vel, viverra egestas ligula. Curabitur vehicula tellus neque, ac ornare ex malesuada et. In vitae convallis lacus. Aliquam erat volutpat. Suspendisse ac imperdiet turpis. Aenean finibus sollicitudin eros pharetra congue. Duis ornare egestas augue ut luctus. Proin blandit quam nec lacus varius commodo et a urna. Ut id ornare felis, eget fermentum sapien.</p><p>Nam vulputate diam nec tempor bibendum. Donec luctus augue eget malesuada ultrices. Phasellus turpis est, posuere sit amet dapibus ut, facilisis sed est. Nam id risus quis ante semper consectetur eget aliquam lorem. Vivamus tristique elit dolor, sed pretium metus suscipit vel. Mauris ultricies lectus sed lobortis finibus. Vivamus eu urna eget velit cursus viverra quis vestibulum sem. Aliquam tincidunt eget purus in interdum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+              </p>
+          </div>
+            <li>
+              <label for="AgregarFotos">Agregar Fotos</label>
+              <input type="file" id="AgregarFotos" name="" value="">
+            </li>
+          </ul>
+          <ul class="fotosdeusuario" id="fotosdeusuario">
+            <li>
+              <div>
+                <input type="checkbox" id="eliminarfoto">
+                <label for="eliminarfoto">Eliminar</label>
+                <img class="fotosdelmedio" id="fotosdelmedio" src="caruselpreview.png" alt="">
+              </div>
+            </li>
+            <li>
+              <div>
+                <input type="checkbox" id="eliminarfoto1">
+                <label for="eliminarfoto1">Eliminar</label>
+                <img class="fotosdelmedio" src="2-colum-preview.png" alt="">
+              </div>
+            </li>
+        </ul>
+        <ul>
+          <li>
+            <label for="AgregarAudios">Agregar Audios o Videos</label>
+            <input type="file" id="AgregarAudios" name="" value="">
+          </li>
+        </ul>
+        <ul id="listaAudiosYVideos">
+          <li>
+            <input type="checkbox" id="eliminaraudio1">
+            <label for="eliminaraudio1">Eliminar</label>
+            <div class="audiosyvideos" id="eliminarAudiosyVideos">
+              <p id=tituloAudio>Parar La Olla Recordando la crisis del 2001 20122021 Tanda1.mp3</p>
+              <div class="cuadrocontrol">
+                <audio src="https://www.comecuco.org/sites/default/files/Parar%20La%20Olla%20Recordando%20la%20crisis%20del%202001%2020%2012%202021%20Tanda%201.mp3" controls=""></audio>
+                <a href="https://www.comecuco.org/sites/default/files/Parar%20La%20Olla%20Recordando%20la%20crisis%20del%202001%2020%2012%202021%20Tanda%201.mp3" type="audio/mpeg; length=21821863">&#9196;</a>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <input type="submit" class="submitusuario" value="Guardar cambios y volver a la Noticia">
+      </form>
+    </div>
+    <div class="footer">
+    </div>
+  </body>
+</html>
