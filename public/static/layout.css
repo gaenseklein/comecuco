@@ -964,7 +964,7 @@ input#search {
     line-height: 1.5em;
   }
 
-.audiosyvideos{
+.audiosyvideos, .Editaudiosyvideos{
   background-color: #e93e1f;
   padding: 1ch 5vw;
   display: grid;
@@ -972,7 +972,8 @@ input#search {
   grid-column-gap: 1em;
 }
 
-.audiosyvideos div.cuadrocontrol{
+.audiosyvideos div.cuadrocontrol,
+.Editaudiosyvideos div.cuadrocontrol{
   display: inline-block;
   background-color:  rgb(34, 34, 34);
   font-size: 0;
@@ -1663,6 +1664,7 @@ input#search {
 
         form.FormEditUsuario{
           position: relative;
+          margin-right: 0;
         }
 
         .CajaEditUsuario{
@@ -1690,12 +1692,22 @@ input#search {
           position: relative;
         }
 
+        input.submitLogousuario{
+          justify-self: right;
+        }
+
         #verpassword2{
           border-width: 1px;
           padding-top: 4px;
           position: absolute;
           bottom: 0;
           right: 0;
+        }
+
+        li#AgregarFotosUsuario,
+        li#AgregarLogoUsuario{
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr;
         }
 
         #fotosdeusuario{
@@ -1767,6 +1779,36 @@ input#search {
           margin-top: 2em;
         }
 
+        div.noticiasdelmedio li div.paraEditarNoticia{
+          position: relative;
+        }
+
+        div.noticiasdelmedio li a.botoneditarnoticia{
+          display: block;
+          font-size: 50px;
+          color: red;
+          text-decoration: none;
+          position: absolute;
+          top: -5px;
+          cursor: pointer;
+          right: 5px;
+          rotate: 135deg;
+        }
+
+        div.noticiasdelmedio li div.fondobotonEditarnoticia{
+          position: absolute;
+          top: 10px;
+          cursor: pointer;
+          right: 15px;width: 50px;
+          height: 50px;
+          border-radius: 50px;
+          background-color: rgba(255, 255, 255, 0.5);
+        }
+
+        textarea{
+          resize: vertical;
+        }
+
   @media screen and (orientation: portrait){
         .menusubusuario{
           display: grid;
@@ -1786,26 +1828,165 @@ input#search {
 
     /*a partir de aca subpagina de EDITAR NOTICIA*/
 
-        #listaAudiosYVideos li{
+        #EditAudiosYVideos li{
           display: grid;
           grid-template-areas: "audio"
                               "checkbox";
+          grid-template-columns: 1fr;
         }
 
-        #eliminarAudiosyVideos{
+        #eliminarEditAudiosyVideos{
           grid-area: audio;
         }
 
-        #listaAudiosYVideos li label{
+        #EditAudiosYVideos li label{
           grid-area: checkbox;
           color: red;
           margin-top: 0.5em;
         }
 
-        #listaAudiosYVideos input{
+        #EditAudiosYVideos input{
           display: none;
         }
 
-        input[type="checkbox"]:checked ~ div.audiosyvideos {
+        input[type="checkbox"]:checked ~ div.Editaudiosyvideos {
           opacity: 0.3;
         }
+
+        div.EditNoticia li{
+          display: grid;
+          grid-template-columns: 1fr 3fr;
+          grid-column-gap: 1em;
+          margin: 1em 5vw;
+          text-align: right;
+          }
+
+        div.EditNoticia li textarea,
+        div.EditNoticia li input,
+        div.EditNoticia li label{
+          cursor: pointer;
+          margin: 0;
+          max-width: 60vw;
+        }
+
+        div.EditNoticia li p{
+          margin: 0;
+          text-align: left;
+        }
+
+        div.EditNoticia li label{
+          grid-column: 1/2;
+        }
+
+        div.EditNoticia li textarea:hover{
+          border-color: blue;
+        }
+
+        #EditAutorNoticia, #EditFechaNoticia{
+          max-width: 30ch;
+        }
+
+        form.EditFotosAudiosVideos li{
+          display: block;
+        }
+
+        li#ListaAgregarFotosEditNoticia,
+        li#ListaAgregarAudiosEditNoticia{
+          display: grid;
+          grid-template-columns: 1fr 1.5fr 1.5fr;
+        }
+
+        #EditFotosNoticia{
+          display: inline-flex;
+          max-width: 90vw;
+          flex-wrap: wrap;
+          flex-direction: row;
+          margin-left: 5vw;
+          margin-right: 5vw;
+        }
+
+        #EditFotosNoticia li div{
+          display: grid;
+          position: relative;
+          grid-template-areas: "img img"
+                              "label checkbox";
+          margin-right: 2em;
+          margin-bottom: 2em;
+        }
+
+        #EditFotosNoticia img{
+          max-width: 20vw;
+          grid-area: img;
+        }
+
+        #EditFotosNoticia input{
+          display: none;
+        }
+
+        #EditFotosNoticia label{
+          grid-area: label;
+          color: red;
+          margin-top: 0.5em;
+        }
+
+        input[type="checkbox"] + label:before {
+	         content: "";
+	         width: 13px;
+	         height: 13px;
+	         float: left;
+	         margin: 0 0.5em 0 0;
+	         border: 2px solid red;
+	         background: #fff;
+        }
+
+        input[type="checkbox"]:checked + label:after {
+          content: "";
+          width: 6px;
+          height: 3px;
+          border: 3px solid red;
+          float: left;
+          margin-left: -1.35em;
+          border-right: 0;
+          border-top: 0;
+          margin-top: 0.3em;
+          transform: rotate(-55deg);
+        }
+
+        input[type="checkbox"]:checked ~ img.EditfotosdeNoticia {
+          opacity: 0.3;
+        }
+
+        input[type="checkbox"]:checked + label {
+          display: inline;
+        }
+
+        #EditAudiosYVideos label,
+        #EditAudiosYVideos div.cuadrocontrol{
+          text-align: left;
+        }
+
+        input.submitEditNoticia{
+          margin-right: 0;
+          margin-left: auto;
+          display: block;
+        }
+
+    @media screen and (orientation: portrait){
+       li#ListaAgregarFotosEditNoticia,
+       li#ListaAgregarAudiosEditNoticia{
+          display: grid;
+          grid-template-columns: 1fr 1.5fr;
+          grid-row-gap: 1em;
+        }
+
+        li .submitEditFotoNoticia,
+        li .submitEditAudioNoticia{
+          grid-column: 2/3;
+        }
+
+        #eliminarEditAudiosyVideos{
+          grid-template-columns: Auto;
+        }
+
+
+      }
