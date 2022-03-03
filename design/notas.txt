@@ -1,0 +1,14 @@
+destacadas:
+- si no hay una destacada actual extender la anterior una semana y si pasa ese fecha no monstrar la seccion destacadas
+- si hubiera una sola noticia igual aparezca, si no hay noticia no aparezca la seccion
+- la destacada es por mes
+
+dash-board:
+- lista con sus ultimos subidas (noticias)
+- lista de comecuco/trabajos conjuntos
+(- lista de todos ultimos subidas (noticias) )
+- link a subir noticia
+- link a subir nueva columna
+- calendario de destacadas
+
+
