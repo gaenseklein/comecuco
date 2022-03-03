@@ -1929,6 +1929,11 @@ input#search {
           cursor: pointer;
           margin: 0;
           max-width: 60vw;
+          resize: none;
+        }
+
+        textarea#EditContenidoNoticia{
+          resize: vertical;
         }
 
         div.EditNoticia li p{
@@ -1940,7 +1945,8 @@ input#search {
           grid-column: 1/2;
         }
 
-        div.EditNoticia li textarea:hover{
+        div.EditNoticia li textarea:hover,
+        div.EditNoticia li input:hover{
           border-color: blue;
         }
 
@@ -1952,17 +1958,38 @@ input#search {
           display: block;
         }
 
-        li#ListaAgregarFotosEditNoticia,
-        li#ListaAgregarAudiosEditNoticia{
-          display: grid;
-          grid-template-columns: 1fr 1.5fr 1.5fr;
+        div.EditNoticia li.ListaAgregarFotosEditNoticia,
+        div.EditNoticia li.ListaAgregarAudiosEditNoticia{
+          display: none;
         }
 
+      /*  #ListaAgregarFotosEditNoticia:empty ~ #ListaAgregarFotosEditNoticia1 {
+          display: none;
+        }
+ :first-of-type
+
+        #AgregarFotosEditNoticia input:valid ~ #ListaAgregarFotosEditNoticia2 {
+            font-size: x-large;
+        }
+
+        div.EditNoticia li.ListaAgregarFotosEditNoticia:empty ~
+        div.EditNoticia li.ListaAgregarAudiosEditNoticia{
+          display: none;
+        } */
+
+        #ListaAgregarFotosEditNoticia:hover + li{
+            display: grid;
+          }
+
+        .ListaAgregarFotosEditNoticia:hover + li{
+            display: grid;
+          }
+
         #EditFotosNoticia{
-          display: inline-flex;
+          display: grid;
+          grid-template-columns: repeat(4,1fr);
+          grid-template-rows: auto;
           max-width: 90vw;
-          flex-wrap: wrap;
-          flex-direction: row;
           margin-left: 5vw;
           margin-right: 5vw;
         }
@@ -2039,11 +2066,6 @@ input#search {
           display: grid;
           grid-template-columns: 1fr 1.5fr;
           grid-row-gap: 1em;
-        }
-
-        li .submitEditFotoNoticia,
-        li .submitEditAudioNoticia{
-          grid-column: 2/3;
         }
 
         #eliminarEditAudiosyVideos{

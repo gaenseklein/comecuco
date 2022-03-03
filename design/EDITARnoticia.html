@@ -2,7 +2,7 @@
 <html lang="es" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>EDIT NOTICIA</title>
+    <title>EDITAR NOTICIA</title>
     <link rel="stylesheet" href="../public/static/layout.css">
     <script type="text/javascript">
       function startTime()
@@ -51,27 +51,28 @@
     </div>
 
     <div class="EditNoticia">
-      <form>
+      <form method="post" enctype="multipart/form-data">
+        <ul>
           <li>
             <label for="EditTituloNoticia">Título</label>
-            <p><textarea id="EditTituloNoticia" type="text" name="comment" rows="2" cols="60"
-            spellcheck="true">Las mejores fotos del reciente paso del cometa Neowise por la Tierra</textarea></p>
+            <p><input id="EditTituloNoticia" type="text" name="comment" size="45" maxlength="40" spellcheck="true"
+              value="Las mejores fotos del paso del cometa Neowise por la Tierra"></input></p>
           </li>
           <li>
             <label for="EditSubTituloNoticia">Subtítulo</label>
-            <p><textarea id="EditSubTituloNoticia" type="text" name="comment" rows="2" cols="60"
+            <p><textarea id="EditSubTituloNoticia" type="text" name="comment" rows="2" cols="60" maxlength="100"
             spellcheck="true">En la segunda quincena de julio, el cuerpo celeste se podra observar durante la puesta del sol.</textarea></p>
           </li>
           <li>
             <label for="EditEpigrafeFoto">Epígrafe de la Foto</label>
-            <p><textarea id="EditEpigrafeFoto" type="text" name="comment" rows="2" cols="60"
-            spellcheck="true">El cometa pasando veloz</textarea></p>
+            <p><input id="EditEpigrafeFoto" type="text" name="comment" size="45" maxlength="50"
+            spellcheck="true" value="El cometa pasando veloz"></input></p>
           </li>
           <li>
             <label for="EditAutorNoticia">Autor de la Noticia</label>
             <select id="EditAutorNoticia" class="" name="autor">
               <option value="Radio Cuyum">Radio Cuyum</option>
-              <option value="comecuco">comecuco</option>
+              <option value="comecuco">COMECUCO</option>
             </select>
           </li>
           <li>
@@ -83,53 +84,72 @@
             <p><textarea id="EditContenidoNoticia" type="text" name="comment" rows="20" cols="100"
             spellcheck="true">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus aliquam dolor, eu lacinia lorem placerat vulputate.</p><p>Duis felis orci, pulvinar id metus ut, rutrum luctus orci. Cras porttitor imperdiet nunc, at ultricies tellus laoreet sit amet. Sed auctor cursus massa at porta. Integer ligula ipsum, tristique sit amet orci vel, viverra egestas ligula. Curabitur vehicula tellus neque, ac ornare ex malesuada et. In vitae convallis lacus. Aliquam erat volutpat. Suspendisse ac imperdiet turpis. Aenean finibus sollicitudin eros pharetra congue. Duis ornare egestas augue ut luctus. Proin blandit quam nec lacus varius commodo et a urna. Ut id ornare felis, eget fermentum sapien.</p><p>Nam vulputate diam nec tempor bibendum. Donec luctus augue eget malesuada ultrices. Phasellus turpis est, posuere sit amet dapibus ut, facilisis sed est. Nam id risus quis ante semper consectetur eget aliquam lorem. Vivamus tristique elit dolor, sed pretium metus suscipit vel. Mauris ultricies lectus sed lobortis finibus. Vivamus eu urna eget velit cursus viverra quis vestibulum sem. Aliquam tincidunt eget purus in interdum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p></textarea></p>
           </li>
+        </ul>
+        <ul id="sumafotos">
           <li id="ListaAgregarFotosEditNoticia">
             <label for="AgregarFotosEditNoticia">Agregar Fotos</label>
-            <input type="file" id="AgregarFotosEditNoticia" name="" value="">
-            <input type="submit" class="submitEditFotoNoticia" value="Cargar Foto Seleccionada">
+            <input type="file" id="AgregarFotosEditNoticia" accept=".png, .jpeg, .jpg, .gif" name="nuevasfotos[]" value="newfoto" multiple>
           </li>
-        </form>
-        <form class="EditFotosAudiosVideos">
-          <ul class="EditFotosNoticia" id="EditFotosNoticia">
-            <li>
-              <div>
-                <input type="checkbox" id="eliminarfoto">
-                <label for="eliminarfoto">Eliminar</label>
-                <img class="EditfotosdeNoticia" id="EliminarEditfotosdeNoticia" src="caruselpreview.png" alt="">
+          <li id="ListaAgregarFotosEditNoticia1" class="ListaAgregarFotosEditNoticia">
+            <label for="AgregarFotosEditNoticia1">Agregar Fotos</label>
+            <input type="file" id="AgregarFotosEditNoticia1" name="" value="">
+          </li>
+          <li id="ListaAgregarFotosEditNoticia2" class="ListaAgregarFotosEditNoticia">
+            <label for="AgregarFotosEditNoticia2">Agregar Fotos</label>
+            <input type="file" id="AgregarFotosEditNoticia2" name="" value="">
+          </li>
+          <li id="ListaAgregarFotosEditNoticia3" class="ListaAgregarFotosEditNoticia">
+            <label for="AgregarFotosEditNoticia3">Agregar Fotos</label>
+            <input type="file" id="AgregarFotosEditNoticia3" name="" value="">
+          </li>
+        </ul>
+        <ul class="EditFotosNoticia" id="EditFotosNoticia">
+          <li class="grideliminarfotoyaudio">
+            <div>
+              <input type="checkbox" id="eliminarfoto">
+              <label for="eliminarfoto">Eliminar</label>
+              <img class="EditfotosdeNoticia" id="EliminarEditfotosdeNoticia" src="caruselpreview.png" alt="">
+            </div>
+          </li>
+          <li class="grideliminarfotoyaudio">
+            <div>
+              <input type="checkbox" id="eliminarfoto1">
+              <label for="eliminarfoto1">Eliminar</label>
+              <img class="EditfotosdeNoticia" src="2-colum-preview.png" alt="">
+            </div>
+          </li>
+        </ul>
+        <ul>
+          <li id="ListaAgregarAudiosEditNoticia">
+            <label for="AgregarAudios">Agregar Audios o Videos</label>
+            <input type="file" id="AgregarAudios" name="" value="">
+          </li>
+          <li id="ListaAgregarAudiosEditNoticia1" class="ListaAgregarAudiosEditNoticia">
+            <label for="AgregarAudios1">Agregar Audios o Videos</label>
+            <input type="file" id="AgregarAudios1" name="" value="">
+          </li>
+          <li id="ListaAgregarAudiosEditNoticia2" class="ListaAgregarAudiosEditNoticia">
+            <label for="AgregarAudios2">Agregar Audios o Videos</label>
+            <input type="file" id="AgregarAudios2" name="" value="">
+          </li>
+        </ul>
+        <ul id="EditAudiosYVideos">
+          <li>
+            <input type="checkbox" id="eliminaraudio1">
+            <label for="eliminaraudio1">Eliminar</label>
+            <div class="Editaudiosyvideos" id="eliminarEditAudiosyVideos">
+              <p id=tituloAudio>Parar La Olla Recordando la crisis del 2001 20122021 Tanda1.mp3</p>
+              <div class="cuadrocontrol">
+                <audio src="https://www.comecuco.org/sites/default/files/Parar%20La%20Olla%20Recordando%20la%20crisis%20del%202001%2020%2012%202021%20Tanda%201.mp3" controls=""></audio>
+                <a href="https://www.comecuco.org/sites/default/files/Parar%20La%20Olla%20Recordando%20la%20crisis%20del%202001%2020%2012%202021%20Tanda%201.mp3" type="audio/mpeg; length=21821863">&#9196;</a>
               </div>
-            </li>
-            <li>
-              <div>
-                <input type="checkbox" id="eliminarfoto1">
-                <label for="eliminarfoto1">Eliminar</label>
-                <img class="EditfotosdeNoticia" src="2-colum-preview.png" alt="">
-              </div>
-            </li>
-          </ul>
-          <ul>
-            <li id="ListaAgregarAudiosEditNoticia">
-              <label for="AgregarAudios">Agregar Audios o Videos</label>
-              <input type="file" id="AgregarAudios" name="" value="">
-              <input type="submit" class="submitEditAudioNoticia" value="Cargar Audio o Video Seleccionado">
-            </li>
-          </ul>
-          <ul id="EditAudiosYVideos">
-            <li>
-              <input type="checkbox" id="eliminaraudio1">
-              <label for="eliminaraudio1">Eliminar</label>
-              <div class="Editaudiosyvideos" id="eliminarEditAudiosyVideos">
-                <p id=tituloAudio>Parar La Olla Recordando la crisis del 2001 20122021 Tanda1.mp3</p>
-                <div class="cuadrocontrol">
-                  <audio src="https://www.comecuco.org/sites/default/files/Parar%20La%20Olla%20Recordando%20la%20crisis%20del%202001%2020%2012%202021%20Tanda%201.mp3" controls=""></audio>
-                  <a href="https://www.comecuco.org/sites/default/files/Parar%20La%20Olla%20Recordando%20la%20crisis%20del%202001%2020%2012%202021%20Tanda%201.mp3" type="audio/mpeg; length=21821863">&#9196;</a>
-                </div>
-              </div>
-            </li>
-          </ul>
-          <input type="submit" class="submitEditNoticia" value="Guardar cambios y volver a la Noticia">
-        </form>
-      </div>
-      <div class="footer">
-      </div>
+            </div>
+          </li>
+        </ul>
+        <input type="submit" class="submitEditNoticia" value="Guardar cambios y volver a la Noticia">
+      </form>
+    </div>
+    <div class="footer">
+    </div>
   </body>
 </html>
