@@ -113,6 +113,11 @@ h3 a{
   padding-right: 2ch;
   position: relative;
 }
+
+.buscador img{
+  cursor: pointer;
+}
+
 .clima, .buscador{
   background:#808384;
 }
@@ -554,6 +559,7 @@ input#search {
 
 .destacadas{
   background: #7f8384;
+  margin-bottom: 2em;
 }
 
 .actualidad .grandes{
@@ -566,8 +572,8 @@ input#search {
 .actualidad .chiquitas{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap:8ch;
-  margin-bottom: 5em;
+  grid-gap:3em;
+  margin-bottom: 3em;
 }
 .destacadas img,
 .actualidad img{
@@ -598,10 +604,9 @@ input#search {
     grid-row-start: 2;
     grid-row-end: 3;
     grid-column: 1/2;
-    margin-left: 3ch;
-    padding: 0.4em 2ch 0 2ch;
+    padding: 0.3em 2ch 0 2ch;
     background: #d6ab2b;
-    width: max-content;
+    width: min-content;
     text-transform: uppercase;
     font-weight:bold;
     font-style:italic;
@@ -610,8 +615,8 @@ input#search {
 
 .chiquitas li {
     display: grid;
-    grid-template-columns: 1fr 3fr;
-    grid-template-rows: auto 5em;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 2em;
 }
 
 .chiquitas .fecha {
@@ -657,6 +662,7 @@ input#search {
  /*producciones colectivas:*/
  .produccionesColectivas{
    background: #7f8384;
+   margin-bottom: 2em;
  }
  .produccionesColectivas ul{
    display: grid;
@@ -826,12 +832,18 @@ input#search {
      grid-template-columns: 1fr 1fr 1fr;
    }
    .destacadas .destacadas-list,
-   .actualidad .chiquitas{
+   .actualidad .chiquitas,
+   .actualidad .grandes{
       grid-template-columns: 1fr;
    }
    .produccionesColectivas ul{
      display:block;
    }
+
+   .produccionesColectivas img{
+     max-width: 40vw;
+   }
+
    .produccionesColectivas li{
      margin-bottom: 3em;
    }
@@ -879,8 +891,13 @@ input#search {
     width: 100%;
   }
 
+  .últimas li div,
+  .viejas li div{
+    font-family: KeepCalm;
+    margin-bottom: 1em;
+  }
+
   .últimas li .resumen{
-  	font-family: KeepCalm;
     font-size: medium;
     font-style: italic;
   }
@@ -1197,7 +1214,7 @@ input#search {
       grid-row: 4/5;
       justify-self: center;
       display: inline-block;
-      background-color:  rgb(71, 71, 71);
+      background-color: rgb(34, 34, 34);;
       font-size: 0;
       margin: 0;
       padding: 0;
@@ -1519,13 +1536,13 @@ input#search {
       .paginainiciosesion{
         font-family: keepcalm;
         position: relative;
+        height: 60vh;
       }
 
       .paginainiciosesion img.logocomecuco{
         position: absolute;
-        top: -2em;
         left: 2em;
-        width: 70vw;
+        height: 100%;
         opacity: 0.3;
         z-index: 1;
       }
@@ -1587,7 +1604,6 @@ input#search {
 
       #verpassword{
         border-width: 1px;
-        padding-top: 4px;
         position: absolute;
         bottom: 0;
         right: 0;
@@ -1632,15 +1648,17 @@ input#search {
           .paginausuario img.logocomecuco{
             top: -1em;
             left: 1em;
-            width: 90vw;
+            width: 80vw;
             opacity: 0.2;
             z-index: 0;
+            height: auto;
           }
 
           form.forminiciosesion input{
             display: block;
             margin-left: auto;
             margin-top: 1em;
+            height: 24px;
           }
 
           form#nuevacontraseña{
