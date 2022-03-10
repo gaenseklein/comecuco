@@ -1,6 +1,6 @@
 function deleteOldSelection(inputField){
   inputField.value="";
-  inputField.previousElementSibling.innerHTML="Agregar Fotos+";
+  inputField.previousElementSibling.innerHTML="Agregar Fotos";
 }
 
 function showNextFileUploads(inputField){

@@ -2194,11 +2194,15 @@ body.dashboard{
   display: grid;
   grid-template-areas:
   "header header"
+  "bienvenido bienvenido"
   "subir subir"
   "noticias calendario"
   "comecuco calendario";
   grid-template-columns: 1fr 1fr;
   grid-gap:5ch;
+}
+.dashboard .bienvenido{
+  grid-area:bienvenido;
 }
 .dashboard .menusubusuario{
   grid-area: header;
