@@ -2187,3 +2187,81 @@ input#search {
           font-size: large;
         }
     }
+
+/* a partir de aca subpagina de dash*/
+
+body.dashboard{
+  display: grid;
+  grid-template-areas:
+  "header header"
+  "subir subir"
+  "noticias calendario"
+  "comecuco calendario";
+  grid-template-columns: 1fr 1fr;
+  grid-gap:5ch;
+}
+.dashboard .menusubusuario{
+  grid-area: header;
+}
+.dashboard .subirContainer{
+  grid-area:subir;
+}
+.dashboard .calendariodestacadas{
+  grid-area:calendario;
+}
+.dashboard .noticiasSubidas{
+  grid-area:noticias;
+}
+.dashboard .noticiasComecuco{
+  grid-area:comecuco;
+}
+
+.dashboard .logo{
+  grid-area:logoUsuario;
+}
+.dashboard .topMenu{
+  grid-area:topMenuUsuario;
+}
+.dashboard h2{
+  font-family:unset;
+  padding-left: 1ch;
+}
+.dashboard .calendariodestacadas {
+    border: 1px solid;
+    padding: 1ch;
+}
+
+.dashboard .calendariodestacadas h2 {
+    margin-top: 0;
+}
+
+.dashboard .calendariodestacadas li {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-bottom: 0.5em;
+    background:#f4f4f4;
+
+}
+
+.dashboard li.pasado{
+  opacity:0.7;
+}
+.dashboard li.actual{
+  font-size: large;
+  font-weight: bold;
+}
+.dashboard li.noeligido{
+  background:red;
+}
+
+.dashboard .subirContainer a {
+    font-size: x-large;
+    border: 3px solid;
+    border-radius: 14px;
+    padding: 1ch;
+    color: black;
+    text-decoration: none;
+    display: inline-block;
+    min-width:20ch;
+    text-align:center;
+}
