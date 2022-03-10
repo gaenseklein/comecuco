@@ -1,3 +1,8 @@
+function deleteOldSelection(inputField){
+  inputField.value="";
+  inputField.previousElementSibling.innerHTML="Agregar Fotos+";
+}
+
 function showNextFileUploads(inputField){
   let classname = inputField.name.substring(0,inputField.name.length-1)+"Upload";
   let allFields = document.querySelectorAll('.'+classname);

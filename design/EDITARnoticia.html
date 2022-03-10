@@ -89,19 +89,19 @@
         <ul id="sumafotos">
           <li id="ListaAgregarFotosEditNoticia" class="fotoUpload active">
             <label for="AgregarFotosEditNoticia">Agregar Fotos +</label>
-            <input type="file" onchange="showNextFileUploads(this)" id="AgregarFotosEditNoticia" accept=".png, .jpeg, .jpg, .gif" name="foto1" value="">
+            <input type="file" onclick="deleteOldSelection(this)" onchange="showNextFileUploads(this)" id="AgregarFotosEditNoticia" accept=".png, .jpeg, .jpg, .gif" name="foto1" value="">
           </li>
           <li id="ListaAgregarFotosEditNoticia1" class="fotoUpload">
             <label for="AgregarFotosEditNoticia1">Agregar Fotos +</label>
-            <input type="file" onchange="showNextFileUploads(this)" id="AgregarFotosEditNoticia1" accept=".png, .jpeg, .jpg, .gif" name="foto2" value="">
+            <input type="file" onclick="deleteOldSelection(this)" onchange="showNextFileUploads(this)" id="AgregarFotosEditNoticia1" accept=".png, .jpeg, .jpg, .gif" name="foto2" value="">
           </li>
           <li id="ListaAgregarFotosEditNoticia2" class="fotoUpload">
             <label for="AgregarFotosEditNoticia2">Agregar Fotos +</label>
-            <input type="file" onchange="showNextFileUploads(this)" id="AgregarFotosEditNoticia2" accept=".png, .jpeg, .jpg, .gif" name="foto3" value="">
+            <input type="file" onclick="deleteOldSelection(this)" change="showNextFileUploads(this)" id="AgregarFotosEditNoticia2" accept=".png, .jpeg, .jpg, .gif" name="foto3" value="">
           </li>
           <li id="ListaAgregarFotosEditNoticia3" class="fotoUpload">
             <label for="AgregarFotosEditNoticia3">Agregar Fotos +</label>
-            <input type="file" onchange="showNextFileUploads(this)" id="AgregarFotosEditNoticia3" accept=".png, .jpeg, .jpg, .gif" name="foto4" value="">
+            <input type="file" onclick="deleteOldSelection(this)" onchange="showNextFileUploads(this)" id="AgregarFotosEditNoticia3" accept=".png, .jpeg, .jpg, .gif" name="foto4" value="">
           </li>
         </ul>
         <ul class="EditFotosNoticia" id="EditFotosNoticia">
