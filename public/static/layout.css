@@ -1994,32 +1994,23 @@ input#search {
           display: block;
         }
 
-        div.EditNoticia li.ListaAgregarFotosEditNoticia,
-        div.EditNoticia li.ListaAgregarAudiosEditNoticia{
+        .EditNoticia li.fotoUpload,
+        .EditNoticia li.audioUpload,
+        .EditNoticia li.fotoUpload input
+        {
           display: none;
         }
-
-      /*  #ListaAgregarFotosEditNoticia:empty ~ #ListaAgregarFotosEditNoticia1 {
-          display: none;
+        .EditNoticia li.fotoUpload.active,
+        .EditNoticia li.audioUpload.active{
+          display: grid;
         }
- :first-of-type
-
-        #AgregarFotosEditNoticia input:valid ~ #ListaAgregarFotosEditNoticia2 {
-            font-size: x-large;
+        .EditNoticia li.fotoUpload label{
+          border: 2px solid;
+          border-radius: 5px;
+          padding:5px;
+          text-align: center;
         }
 
-        div.EditNoticia li.ListaAgregarFotosEditNoticia:empty ~
-        div.EditNoticia li.ListaAgregarAudiosEditNoticia{
-          display: none;
-        } */
-
-        #ListaAgregarFotosEditNoticia:hover + li{
-            display: grid;
-          }
-
-        .ListaAgregarFotosEditNoticia:hover + li{
-            display: grid;
-          }
 
         #EditFotosNoticia{
           display: grid;
