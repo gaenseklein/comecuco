@@ -453,9 +453,10 @@ a.videolink {
 	align-items: center;
 }
 
-.blockRight.resumenSemanal h2{
+.blockRight.resumenSemanal a{
   grid-area: titulo;
   margin: 0.5em;
+  text-decoration: none;
 }
 
 .blockRight.resumenSemanal.playbuttonResumen{
@@ -680,6 +681,7 @@ input#search {
  .produccionesColectivas img{
    grid-column: 1/2;
    grid-row: 1/3;
+   max-width: 20vw;
  }
 
  .produccionesColectivas h3{
@@ -804,6 +806,12 @@ input#search {
   z-index: 4;
 }
 
+@media screen and (max-width: 870px) {
+  h3 a{
+    font-size: x-large;
+    }
+  }
+
  @media screen and (orientation: portrait) {
    body{
      grid-template-areas:
@@ -818,7 +826,8 @@ input#search {
      "produccionesColectivas produccionesColectivas produccionesColectivas produccionesColectivas"
      "columnas columnas columnas columnas"
      "footer footer footer footer";*/
-     "logo logo topMenu"
+     "logo logo logo"
+     "topMenu topMenu topMenu"
      "clima clima buscador"
      "mediosEnVivo video resumenSemanal"
      "calecita calecita calecita"
@@ -836,6 +845,11 @@ input#search {
    .actualidad .grandes{
       grid-template-columns: 1fr;
    }
+
+   .logo h1 {
+       font-size: xxx-large;
+   }
+
    .produccionesColectivas ul{
      display:block;
    }
@@ -847,6 +861,10 @@ input#search {
    .produccionesColectivas li{
      margin-bottom: 3em;
    }
+
+   .columnas-wrapper{
+     grid-template-columns: auto 1fr auto;
+   }
  }
 
 /*a partir de aca subpagina de TODAS LAS NOTICIAS*/
@@ -855,7 +873,7 @@ input#search {
    display: grid;
    /*widescreen size:*/
    grid-template-areas:
-     "logo logo topMenu topMenu"
+     "logo logo logo topMenu"
      "clima clima buscador buscador"
      "últimas últimas últimas últimas"
      "viejas viejas viejas viejas"
@@ -1823,7 +1841,7 @@ input#search {
           margin-top: 0.5em;
         }
 
-        input[type="checkbox"] + label:before {
+        div.CajaEditUsuario input[type="checkbox"] + label:before {
 	         content: "";
 	         width: 13px;
 	         height: 13px;
@@ -1833,7 +1851,7 @@ input#search {
 	         background: #fff;
         }
 
-        input[type="checkbox"]:checked + label:after {
+        div.CajaEditUsuario input[type="checkbox"]:checked + label:after {
           content: "";
           width: 6px;
           height: 3px;
@@ -2036,7 +2054,7 @@ input#search {
           margin-top: 0.5em;
         }
 
-        input[type="checkbox"] + label:before {
+        div.EditNoticia input[type="checkbox"] + label:before {
 	         content: "";
 	         width: 13px;
 	         height: 13px;
@@ -2046,7 +2064,7 @@ input#search {
 	         background: #fff;
         }
 
-        input[type="checkbox"]:checked + label:after {
+        div.EditNoticia input[type="checkbox"]:checked + label:after {
           content: "";
           width: 6px;
           height: 3px;
@@ -2089,6 +2107,92 @@ input#search {
         #eliminarEditAudiosyVideos{
           grid-template-columns: Auto;
         }
-
-
       }
+
+      /*a partir de aca subpagina de RESUMEN SEMANAL*/
+
+      div.subpagresumenSemanal{
+        padding: 2vh 5vw;
+        font-family: KeepCalm;
+      }
+
+      .subpagresumenSemanal img{
+        float: left;
+        max-width: 50%;
+        padding-right: 1ch;
+        padding-bottom: 1ch;
+      }
+
+      .subpagresumenSemanal h3{
+        font-size: xx-large;
+        margin-bottom: 0.5em;
+        margin-top: 0.5em;
+      }
+
+      .subpagresumenSemanal h4{
+        font-size: x-large;
+      }
+
+      .subpagresumenSemanal h3,
+      .subpagresumenSemanal p{
+        text-align: right;
+      }
+
+      #controlesResumenSemanal{
+        background-color: white;
+        padding: 0;
+        justify-content: right;
+        margin-bottom: 1em;
+      }
+
+      div.todoslosresumencomecuco {
+        background-color: #e93e1f;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: "h3 buscador"
+                            "resultado resultado";
+      }
+
+      .todoslosresumencomecuco h3{
+        grid-area: h3;
+        font-family: KeepCalm;
+        padding: 1em 5vw;
+        color: white;
+        font-size: large;
+      }
+
+      div.todoslosresumencomecuco div.buscador{
+        grid-area: buscador;
+        background: none;
+      }
+
+      ul.resultadobusquedaRSC{
+        grid-area: resultado;
+        list-style-type: disc;
+        width: 80%;
+        justify-self: center;
+      }
+
+      ul.resultadobusquedaRSC .subpagresumenSemanal{
+        padding: 1vh 0;
+      }
+
+      #controlesResumenSemanal1{
+        padding: 0;
+        justify-content: right;
+        margin-bottom: 1em;
+      }
+
+      @media screen and (orientation: portrait){
+
+        .subpagresumenSemanal img{
+          position: absolute;
+          padding-right: 0;
+          padding-bottom: 1ch;
+          opacity: 0.4;
+        }
+
+        .subpagresumenSemanal h4{
+          font-size: large;
+        }
+    }

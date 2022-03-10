@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Resumen Semanal COMECUCO</title>
+    <link rel="stylesheet" href="../public/static/layout.css">
+    <script type="text/javascript">
+      function startTime()
+      {
+        var today=new Date();
+        var h=today.getHours();
+        var m=today.getMinutes();
+        var s=today.getSeconds();
+    // add a zero in front of numbers<10
+        h=checkTime(h);
+        m=checkTime(m);
+        s=checkTime(s);
+        document.getElementById('hora').innerHTML=h+":"+m+":"+s;
+        t=setTimeout('startTime()',500);
+      }
+      function checkTime(i)
+      {
+        if (i<10)
+        {
+          i="0" + i;
+        }
+        return i;
+      }
+    </script>
+  </head>
+  <body onload="startTime()" class="unanoticia">
+    <div class="logo">
+      <h1><a href="frontpage.html">
+          COMECUCO</a>
+      </h1>
+      <div class="subtitle">
+        somos el colectivo de medios comunitarios de cuyo
+      </div>
+    </div>
+    <div class="clima">
+        EL CLIMA EN MENDOZA 13° HORA
+        <div id="hora"></div>
+    </div>
+
+    <div class="subpagresumenSemanal">
+        <img class="logoautor" src="../public/static/logos/comecuco.png" alt="">
+        <h3>Resumen Semanal de Noticias del COMECUCO</h3>
+        <p class="subtítuloResumenSemanal">Producido por Radios y Televisoras Comunitarias de Cuyo</p>
+        <h4 class="subtitulo">Emisión Nº240 - 10/marzo/2022</h4>
+        <p class="contenido">Se abre la temporada en el Parque Provincial Cordón del Plata - Nace una nueva Radio Comunitaria: FM LA ENRAMADA, de Costa de Araujo - Entrega de Certificados en la Diplomatura de Comunicación Popular y Fortalecimiento Comunitario.
+        </p>
+        <div class="audiosyvideos" id="controlesResumenSemanal">
+          <div class="cuadrocontrol">
+            <audio src="https://www.comecuco.org/sites/default/files/Parar%20La%20Olla%20Recordando%20la%20crisis%20del%202001%2020%2012%202021%20Tanda%201.mp3" controls=""></audio>
+            <a href="https://www.comecuco.org/sites/default/files/Parar%20La%20Olla%20Recordando%20la%20crisis%20del%202001%2020%2012%202021%20Tanda%201.mp3" type="audio/mpeg; length=21821863">&#9196;</a>
+          </div>
+        </div>
+    </div>
+    <div class="todoslosresumencomecuco">
+      <h3 id="buscadorRSC">Archivo del Resumen Semanal:</h3>
+      <div class="buscador">
+        <form class="buscador" action="/search" method="post">
+          <input id="search" type="text" name="txt" value="">
+          <input type="submit" id="searchSubmit" name="" value="">
+          <label for="searchSubmit">
+            <img src="lupe.png" alt="search">
+          </label>
+        </form>
+      </div>
+      <ul class="resultadobusquedaRSC">
+        <li>
+          <div class="subpagresumenSemanal">
+              <h4 class="subtitulo">RSC Nº239 - 03/marzo/2022</h4>
+              <div class="contenido">
+                  <p>Se cierra la temporada en el Parque Provincial Cordón del Plata - Nace una nueva Radio Comunitaria: FM LA ENRAMADA, de Costa de Araujo - Entrega de Certificados en la Diplomatura de Comunicación Popular y Fortalecimiento Comunitario.
+                  </p>
+              </div>
+              <div class="audiosyvideos" id="controlesResumenSemanal1">
+                <div class="cuadrocontrol">
+                  <audio src="https://www.comecuco.org/sites/default/files/Parar%20La%20Olla%20Recordando%20la%20crisis%20del%202001%2020%2012%202021%20Tanda%201.mp3" controls=""></audio>
+                  <a href="https://www.comecuco.org/sites/default/files/Parar%20La%20Olla%20Recordando%20la%20crisis%20del%202001%2020%2012%202021%20Tanda%201.mp3" type="audio/mpeg; length=21821863">&#9196;</a>
+                </div>
+              </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>
