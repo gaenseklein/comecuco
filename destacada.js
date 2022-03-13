@@ -2,7 +2,7 @@ const fs = require('fs');
 const destacada = {
     destacadas: [],
     init: function(){
-      let oldraw = fs.readFileSync('destacadas.dt', 'utf-8');
+      let oldraw = fs.readFileSync('destacadas.dt', 'utf8');
       if(!oldraw)oldraw="            "
       let oldlines = oldraw.split('\n');
       for (let x=0;x<12.length;x++){
@@ -39,7 +39,7 @@ const destacada = {
       this.destacadas[mes]=valor;
       let raw=this.destacadas.join('\n');
       try {
-        fs.writeFileSync('destacadas.dt','utf-8');
+        fs.writeFileSync('destacadas.dt','utf8');
       } catch (e) {
         return false;
       }

@@ -41,6 +41,12 @@ const counterSchema = new mongoose.Schema({
     description: String,
     id: mongoose.ObjectId,
   }],
+  tags: [
+    type: String
+  ],
+  tipo: {
+    type: String //noticia, capitulo, resumensemanal
+  },
 });
 
 module.exports = mongoose.model('Noticia',counterSchema);

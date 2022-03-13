@@ -41,7 +41,7 @@
     </div>
     <div class="topMenu" id="topMenuUsuario">
       <ul>
-        <li><a href="subpaginausuario.html">Ver Usuario</a></li>
+        <li><a href="dash.html">Volver</a></li>
         <li><a href="#">Ayuda</a></li>
       </ul>
     </div>
@@ -55,6 +55,27 @@
       <form method="post" enctype="multipart/form-data">
         <ul>
           <li>
+            <label>Tipo</label>
+            <div class="tipoWrapper">
+
+              <input id="radioNoticia" type="radio" name="tipo" value="noticia" checked>
+              <label for="radioNoticia" class="radiolabel">Noticia común</label>
+              <input id="radioCapitulo" type="radio" name="tipo" value="capitulo">
+              <label for="radioCapitulo" class="radiolabel">Capitulo de una columna</label>
+              <input id="radioSemanal" type="radio" name="tipo" value="resumensemanal" onclick="document.getElementById('EditAutorNoticia').value='comecuco'">
+              <label for="radioSemanal" class="radiolabel">Resumen semanal</label>
+
+              <div class="columnaWrapper">
+                  <select class="columnaSelect" name="columna">
+                    <option value="$idcolumna1">$titulo columna1</option>
+                    <option value="$idcolumna2">$titulo columna2</option>
+                    <option value="$idcolumna3">$titulo columna3</option>
+                    <option value="$idcolumna4">$titulo columna4</option>
+                  </select>
+              </div>
+            </div>
+          </li>
+          <li>
             <label for="EditTituloNoticia">Título</label>
             <p><input id="EditTituloNoticia" type="text" name="title" size="45" maxlength="40" spellcheck="true"
               value="Las mejores fotos del paso del cometa Neowise por la Tierra"></input></p>
@@ -65,9 +86,20 @@
             spellcheck="true">En la segunda quincena de julio, el cuerpo celeste se podra observar durante la puesta del sol.</textarea></p>
           </li>
           <li>
-            <label for="EditEpigrafeFoto">Epígrafe de la Foto</label>
-            <p><input id="EditEpigrafeFoto" type="text" name="fototext" size="45" maxlength="50"
-            spellcheck="true" value="El cometa pasando veloz"></input></p>
+            <label for="addTags">Tags</label>
+            <div class="tagWrapper">
+              <div id="tagdisplay">
+                <span id="noTagEligido">no contiene tag</span>
+              </div>
+              <input id="tagsContainer" type="text" name="tags" value="">
+              <div id="addTagDialog">
+                <button type="button" id="openDialog" onclick="tagcontroler.openDialog()">añadir tag</button>
+                <button type="button" id="newTagButton" onclick="tagcontroler.newTag()">crear nuevo tag</button>
+              </div>
+              <div id="alltags">feminismo
+en vivo
+que se yo</div>
+            </div>
           </li>
           <li>
             <label for="EditAutorNoticia">Autor de la Noticia</label>
@@ -85,6 +117,11 @@
             <p><textarea id="EditContenidoNoticia" type="text" name="body" rows="20" cols="100"
             spellcheck="true">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus aliquam dolor, eu lacinia lorem placerat vulputate.</p><p>Duis felis orci, pulvinar id metus ut, rutrum luctus orci. Cras porttitor imperdiet nunc, at ultricies tellus laoreet sit amet. Sed auctor cursus massa at porta. Integer ligula ipsum, tristique sit amet orci vel, viverra egestas ligula. Curabitur vehicula tellus neque, ac ornare ex malesuada et. In vitae convallis lacus. Aliquam erat volutpat. Suspendisse ac imperdiet turpis. Aenean finibus sollicitudin eros pharetra congue. Duis ornare egestas augue ut luctus. Proin blandit quam nec lacus varius commodo et a urna. Ut id ornare felis, eget fermentum sapien.</p><p>Nam vulputate diam nec tempor bibendum. Donec luctus augue eget malesuada ultrices. Phasellus turpis est, posuere sit amet dapibus ut, facilisis sed est. Nam id risus quis ante semper consectetur eget aliquam lorem. Vivamus tristique elit dolor, sed pretium metus suscipit vel. Mauris ultricies lectus sed lobortis finibus. Vivamus eu urna eget velit cursus viverra quis vestibulum sem. Aliquam tincidunt eget purus in interdum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p></textarea></p>
           </li>
+          <li>
+            <label for="EditEpigrafeFoto">Epígrafe del primer imagen</label>
+            <p><input id="EditEpigrafeFoto" type="text" name="fototext" size="45" maxlength="50"
+              spellcheck="true" value="El cometa pasando veloz"></input></p>
+            </li>
         </ul>
         <ul id="sumafotos">
           <li id="ListaAgregarFotosEditNoticia" class="fotoUpload active">
@@ -147,11 +184,12 @@
             </div>
           </li>
         </ul>
-        <input type="submit" class="submitEditNoticia" value="Guardar cambios y volver a la Noticia">
+        <button type="button" class="submitEditNoticia">Guardar cambios y volver a la Noticia</button>
       </form>
     </div>
     <div class="footer">
     </div>
   </body>
-
+  <script src="../public/static/scripts/eligirtags.js">
+  </script>
 </html>

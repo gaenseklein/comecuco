@@ -2086,6 +2086,72 @@ input#search {
           margin-left: auto;
           display: block;
         }
+        .tipoWrapper{
+          text-align: left;
+        }
+        .columnaWrapper{
+          display:none;
+
+        }
+        .columnaSelect {
+            font-size: x-large;
+            margin-top: 10px;
+            min-width: 30ch;
+        }
+        #radioCapitulo:checked ~ .columnaWrapper{
+          display:block;
+        }
+
+        .tagWrapper{
+          display: grid;
+          grid-template-areas: "preview dialog";
+          position: inherit;
+          overflow: visible;
+          text-align: left;
+          grid-template-columns: auto 30ch;
+        }
+        #addTagDialog{
+          grid-area: dialog;
+          width: 30ch;
+          max-height: 10em;
+          background:white;
+          display: grid;
+        }
+        #addTagDialog.active{
+          overflow-y: auto;
+          height:auto;
+          position: absolute;
+          right:0;
+          box-shadow: 3px 3px 5px 2px gray;
+          padding: 3px;
+        }
+        #addTagDialog button{
+          display:none;
+        }
+        #addTagDialog button:first-child{
+          display:unset;
+        }
+        #addTagDialog.active button{
+          display:unset;
+          margin-bottom: 1ch;
+        }
+        button.tagdisplay {
+          width: fit-content;
+          justify-self: center;
+          border-radius: 8px;
+          margin-left: 2ch;
+          margin-bottom: 1ch;
+        }
+        button.tagdisplay ~ #noTagEligido{
+          display:none;
+        }
+        #noTagEligido{
+          font-style:italic;
+          opacity: 0.5;
+        }
+        #tagsContainer{
+          display: none;
+        }
 
     @media screen and (orientation: portrait){
        li#ListaAgregarFotosEditNoticia,
@@ -2197,7 +2263,9 @@ body.dashboard{
   "bienvenido bienvenido"
   "subir subir"
   "noticias calendario"
-  "comecuco calendario";
+  "comecuco calendario"
+  "adicional ."
+  "footer footer";
   grid-template-columns: 1fr 1fr;
   grid-gap:5ch;
 }
@@ -2268,4 +2336,11 @@ body.dashboard{
     display: inline-block;
     min-width:20ch;
     text-align:center;
+}
+.dashboard .adicional{
+  grid-area:adicional;
+  display: grid;
+}
+.dashboard .footer{
+  grid-area:footer;
 }
