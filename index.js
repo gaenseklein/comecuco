@@ -4,6 +4,7 @@ const app = express();
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const fs = require('fs');
+
 //Import routes
 const adminRoute = require('./routes/admin');
 const fpRoute = require('./routes/frontpage');
@@ -12,6 +13,10 @@ const userRoute = require('./routes/user');
 
 //initializa dotenv:
 dotenv.config();
+
+//implementa destacada:
+const destacada = require('./destacada.js');
+destacada.init();
 
 //Connect to DB
 mongoose.connect(process.env.DB_CONNECT,
