@@ -12,3 +12,14 @@ dash-board:
 - calendario de destacadas
 
 
+url para radios en vivo:
+comecuco.org/envivo/laleñera
+
+medios en pagina principal solo los medios con subidas en los ultimos tres meses
+por orden alphabetico 
+
+quienes somos:
+sobrevista sobre los medios con descripcion del medio y tal (viejo /medios)
+por orden alphabetico
+
+
