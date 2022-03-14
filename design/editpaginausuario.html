@@ -27,6 +27,8 @@
         return i;
       }
     </script>
+    <script src="../public/static/scripts/urlcleaner.js"></script>
+
   </head>
   <body onload="startTime()" class="subpagusuario">
   <div class="menusubusuario">
@@ -54,13 +56,22 @@
       <form class="FormEditUsuario" action="index.html" method="post">
         <ul id="datosdelusuario">
           <li>
-            <label for="NombreUsuario">Nombre del Usuario</label>
+            <label for="NombreUsuario">Nombre del Medio</label>
             <input id="NombreUsuario" type="text" name="" value="RADIO LA LEÑERA" size="40">
           </li>
+          <li>
+            <label for="UrlUsuario">URL del Medio</label>
+            <div>
+              <input id="UrlUsuario" type="text" name="" value="LA LEÑERA" size="15" onkeyup="cleanurl(this,this.nextElementSibling)">
+              <span id="UrlUsuarioPreview">https://comecuco.org/laleñera</span>
+            </div>
+          </li>
           <li id="AgregarLogoUsuario">
-            <label for="newlogoupload">Nuevo Logo</label>
-            <input type="file" id="newlogoupload" name="" value="">
-            <input type="submit" class="submitLogousuario" value="Cargar Logo Seleccionado">
+            <label>Logo</label>
+            <div class="">
+              <label for="newlogoupload" class="logopreview"><img src="../public/static/logos/lenera.jpg"></label>
+              <input type="file" id="newlogoupload" name="" value="">
+            </div>
           </li>
           <li>
             <label for="DescripcionUsuario">Descripción</label>
@@ -68,7 +79,7 @@
             spellcheck="true">Radio Comunitaria La Leñera FM 97.9 transmite desde el año 2003, y está ubicada en Las Vegas, Potrerillos, a 70 km de la Ciudad de Mendoza. Tenemos una programación muy variada, pero siempre buscando aportar a la construcción de la identidad del lugar. Somos parte de FARCO (Foro Argentino de Radios Comunitarias) y del CoMeCuCo (Colectivo de Medios Comunitarios de Cuyo)</textarea></p>
           </li>
           <li>
-            <label for="EmailUsuario">Email (para uso interno del COMECUCO)</label>
+            <label for="EmailUsuario">Email (para uso interno del COMECUCO y entrar a la pagina)</label>
             <input id="EmailUsuario" type="email" name="" value="" size="40">
           </li>
           <li class="itempassword">
@@ -86,17 +97,25 @@
             <input type="email" name="emailpublico" id="EmailPublicoUsuario" size="27">
           </li>
           <li>
-            <label for="RedesUsuario">Redes</label>
-            <input id="RedesUsuario" type="text" name="" value="" size="40">
+            <label>Redes</label>
+            <div class="redesWrapper">
+              <button type="button" name="button" onclick="addSocialRed()">añadir nueva red</button>
+              <div id="redesPreview">
+                <!--<button type="button" name="button" class="redesButton" onclick="removeSocialRed()" value="facebook https://facebook.com/lalenera">facebook : https://facebook.com/lalenera x</button>-->
+              </div>
+              <input id="RedesUsuario" type="text" name="redes" value="facebook https://www.facebook.com/fm979comunitaria/" size="40">
+            </div>
           </li>
           <li>
             <label for="StreamingUsuario">Streaming</label>
-            <input id="StreamingUsuario" type="text" name="" value="http://comecuco.org:8000/stream" size="40">
+            <div class="">
+              <input id="StreamingUsuario" type="text" name="" value="stream" size="10" onkeyup="cleanurl(this,this.nextElementSibling,'envivo/')">
+              <span>https://comecuco.org/envivo/stream</span>
+            </div>
           </li>
           <li id="AgregarFotosUsuario">
             <label for="AgregarFotos">Agregar Fotos</label>
-            <input type="file" id="AgregarFotos" name="" value="">
-            <input type="submit" class="submitFotousuario" value="Cargar Foto Seleccionada">
+            <input type="file" id="AgregarFotos" name="f" value="">
           </li>
         </ul>
         <ul class="fotosdeusuario" id="fotosdeusuario">
@@ -139,95 +158,8 @@
         <input type="submit" class="submitusuario" value="Guardar cambios para Usuario">
       </form>
     </div>
-    <div class="titulonoticiasdelmedio">
-      <h3>NOTICIAS DE LA LEÑERA</h3>
-    </div>
-
-    <div class="noticiasdelmedio">
-      <ul>
-        <li>
-          <div class="paraEditarNoticia">
-            <img src="mini-preview.png" alt="">
-            <div class="fondobotonEditarnoticia"><a class="botoneditarnoticia" href="EDITARnoticia.html">&#9999;</a>
-            </div>
-          </div>
-          <h3><a href="#">
-            Las mejores fotos del reciente paso del cometa Neowise por la Tierra
-          </a></h3>
-          <div class="fecha">
-            16/JUL/2020
-          </div>
-        </li>
-        <li>
-          <div class="paraEditarNoticia">
-            <img src="mini-preview.png" alt="">
-            <div class="fondobotonEditarnoticia"><a class="botoneditarnoticia" href="EDITARnoticia.html">&#9999;</a>
-            </div>
-          </div>
-          <h3><a href="#">
-            Las mejores fotos del reciente paso del cometa Neowise por la Tierra
-          </a></h3>
-          <div class="fecha">
-            16/JUL/2020
-          </div>
-        </li>
-        <li>
-          <div class="paraEditarNoticia">
-            <img src="mini-preview.png" alt="">
-            <div class="fondobotonEditarnoticia"><a class="botoneditarnoticia" href="EDITARnoticia.html">&#9999;</a>
-            </div>
-          </div>
-          <h3><a href="#">
-            Las mejores fotos del reciente paso del cometa Neowise por la Tierra
-          </a></h3>
-          <div class="fecha">
-            16/JUL/2020
-          </div>
-        </li>
-        <li>
-          <div class="paraEditarNoticia">
-            <img src="mini-preview.png" alt="">
-            <div class="fondobotonEditarnoticia"><a class="botoneditarnoticia" href="EDITARnoticia.html">&#9999;</a>
-            </div>
-          </div>
-          <h3><a href="#">
-            Las mejores fotos del reciente paso del cometa Neowise por la Tierra
-          </a></h3>
-          <div class="fecha">
-            16/JUL/2020
-          </div>
-        </li>
-        <li>
-          <div class="paraEditarNoticia">
-            <img src="mini-preview.png" alt="">
-            <div class="fondobotonEditarnoticia"><a class="botoneditarnoticia" href="EDITARnoticia.html">&#9999;</a>
-            </div>
-          </div>
-          <h3><a href="#">
-            Las mejores fotos del reciente paso del cometa Neowise por la Tierra
-          </a></h3>
-          <div class="fecha">
-            16/JUL/2020
-          </div>
-        </li>
-        <li>
-          <div class="paraEditarNoticia">
-            <img src="mini-preview.png" alt="">
-            <div class="fondobotonEditarnoticia"><a class="botoneditarnoticia" href="EDITARnoticia.html">&#9999;</a>
-            </div>
-          </div>
-          <h3><a href="#">
-            Las mejores fotos del reciente paso del cometa Neowise por la Tierra
-          </a></h3>
-          <div class="fecha">
-            16/JUL/2020
-          </div>
-        </li>
-      </ul>
-    </div>
-
-    <div class="footer">
-    </div>
   </body>
   <script src='../public/static/scripts/verpassword2.js'></script>
+  <script src="../public/static/scripts/addsocialmedialink.js"></script>
+  
 </html>

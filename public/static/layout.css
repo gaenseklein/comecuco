@@ -1785,13 +1785,24 @@ input#search {
           text-align: right;
           column-gap: 1em;
         }
+        #datosdelusuario li div{
+          text-align: left;
+        }
+
+        #newlogoupload{
+          text-align: left;
+        }
+        .logopreview{
+          height:4em;
+          text-align: left;
+          display: inline-block;
+        }
+        .logopreview img{
+          height:100%;
+        }
 
         li.itempassword, li.itempassword2{
           position: relative;
-        }
-
-        input.submitLogousuario{
-          justify-self: right;
         }
 
         #verpassword2{
@@ -1801,9 +1812,10 @@ input#search {
           bottom: 0;
           right: 0;
         }
-
-        li#AgregarFotosUsuario,
-        li#AgregarLogoUsuario{
+        #RedesUsuario{
+          display:none;
+        }
+        #AgregarFotosUsuario{
           display: grid;
           grid-template-columns: 1fr 1fr 1fr;
         }
@@ -1875,6 +1887,7 @@ input#search {
         input.submitusuario{
           margin-right: 5vw;
           margin-top: 2em;
+          font-size: x-large;
         }
 
         div.noticiasdelmedio li div.paraEditarNoticia{

@@ -33,6 +33,10 @@ const userSchema = new mongoose.Schema({
     type: Date,
     default: Date.now
   },
+  ultimaSubida:{
+    type: Date,
+    default: Date.now
+  },
   description:{
     type: String,
   },
@@ -48,7 +52,12 @@ const userSchema = new mongoose.Schema({
   mountpoint:{
     type: String,
   },
-
+  redes:[
+    {
+      red: String,
+      url: String,
+    }
+  ],
 
 
 });
