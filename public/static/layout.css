@@ -74,7 +74,7 @@ h2,
 
 h2{
     font-family: patagonian;
-    font-size: large;
+    font-size: medium;
 }
 
 h3{
@@ -184,6 +184,7 @@ flex-wrap: wrap;
   height:6em;
   display: inline-block;
   margin-right: 2ch;
+  margin-bottom: 1em;
 }
 
 .mediosMenu img{
@@ -742,14 +743,6 @@ input#search {
   width: 25vw;
 }
 
-.columnas h2 a,
-.produccionesColectivas h2 a{
-  text-decoration: none;
-  color: white;
-  font-family: patagonian;
-  font-size: Medium;
-}
-
 .columnas a{
   text-decoration: none;
   color: black;
@@ -848,6 +841,27 @@ input#search {
 
    .logo h1 {
        font-size: xxx-large;
+   }
+
+   .mediosMenu ul{
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      margin: 0;
+      padding: 0;
+      justify-items: center;
+      align-items: center;
+      grid-gap: 1em;
+   }
+
+   .mediosMenu li{
+     height: auto;
+     margin-right: 0;
+     margin-bottom: 0;
+   }
+
+   .mediosMenu img{
+     display: block;
+     width: 100%;
    }
 
    .produccionesColectivas ul{
@@ -1312,6 +1326,7 @@ input#search {
         grid-template-columns: 4vw 1fr 2fr 1fr 2fr;
         grid-template-rows: auto auto 3.5em;
         grid-gap: 1ch;
+        margin-top: 2em;
       }
 
       .paginamedio .nombremedio{
@@ -2383,4 +2398,30 @@ body.dashboard{
 }
 .dashboard .footer{
   grid-area:footer;
+}
+
+/*a partir de aca QUIENES SOMOS*/
+
+.logoredCOMECUCO{
+  position: absolute;
+  right: 5vw;
+  top: 3vh;
+}
+
+@media screen and (max-width: 650px){
+
+  .logoredCOMECUCO{
+    grid-column: 4/6;
+    display: block;
+    right: 0;
+    top: 0;
+    grid-row: 1/2;
+    position: relative;
+    justify-self: center;
+    float: left;
+  }
+
+  .paginamedio p#descripcionCOMECUCO{
+    grid-row: 1/3;
+  }
 }
