@@ -25,6 +25,12 @@ const Schema = new mongoose.Schema({
   capitulos:[{
     id: mongoose.ObjectId,
   }],
+  ultimoCapitulo:{
+    imagen: String,
+    titulo: String,
+    url: String,
+    id: mongoose.ObjectId,
+  },
 });
 
 module.exports = mongoose.model('Columna',Schema);

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>EDITAR NOTICIA</title>
+    <link rel="stylesheet" href="../public/static/layout.css">
+  </head>
+  <body onload="startTime()" class="editcolumna">
+  <div class="menusubusuario">
+    <div class="logo" id="logoUsuario">
+      <h1><a href="frontpage.html">
+          COMECUCO</a>
+      </h1>
+      <div class="subtitle">
+        somos el colectivo de medios comunitarios de cuyo
+      </div>
+    </div>
+    <div class="topMenu" id="topMenuUsuario">
+      <ul>
+        <li><a href="subpaginausuario.html">Ver Usuario</a></li>
+        <li><a href="#">Ayuda</a></li>
+      </ul>
+    </div>
+  </div>
+    <div class="clima" id="climausuario">
+        EL CLIMA EN MENDOZA 13° HORA
+        <div id="hora"></div>
+    </div>
+
+    <div class="EditNoticia">
+      <form method="post" enctype="multipart/form-data">
+        <ul>
+          <li>
+            <label for="EditTituloNoticia">Título</label>
+            <p><input id="EditTituloNoticia" type="text" name="title" size="45" maxlength="40" spellcheck="true"
+              value="Las mejores fotos del paso del cometa Neowise por la Tierra"></input></p>
+          </li>
+          <li>
+            <label for="EditSubTituloNoticia">Subtítulo</label>
+            <p><textarea id="EditSubTituloNoticia" type="text" name="subtitle" rows="2" cols="60" maxlength="100"
+            spellcheck="true">En la segunda quincena de julio, el cuerpo celeste se podra observar durante la puesta del sol.</textarea></p>
+          </li>
+          <li>
+            <label for="EditEpigrafeFoto">Epígrafe de la Foto</label>
+            <p><input id="EditEpigrafeFoto" type="text" name="fototext" size="45" maxlength="50"
+            spellcheck="true" value="El cometa pasando veloz"></input></p>
+          </li>
+          <li>
+            <label for="EditAutorNoticia">Autor de la Noticia</label>
+            <select id="EditAutorNoticia" class="" name="autor">
+              <option value="Radio Cuyum">Radio Cuyum</option>
+              <option value="comecuco">COMECUCO</option>
+            </select>
+          </li>
+          <li>
+            <label for="EditFechaNoticia">Fecha de la Noticia</label>
+            <input id="EditFechaNoticia" type="date" name="fecha" value="16/JUL/2020">
+          </li>
+          <li>
+            <label for="EditContenidoNoticia">Contenido</label>
+            <p><textarea id="EditContenidoNoticia" type="text" name="body" rows="20" cols="100"
+            spellcheck="true">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus aliquam dolor, eu lacinia lorem placerat vulputate.</p><p>Duis felis orci, pulvinar id metus ut, rutrum luctus orci. Cras porttitor imperdiet nunc, at ultricies tellus laoreet sit amet. Sed auctor cursus massa at porta. Integer ligula ipsum, tristique sit amet orci vel, viverra egestas ligula. Curabitur vehicula tellus neque, ac ornare ex malesuada et. In vitae convallis lacus. Aliquam erat volutpat. Suspendisse ac imperdiet turpis. Aenean finibus sollicitudin eros pharetra congue. Duis ornare egestas augue ut luctus. Proin blandit quam nec lacus varius commodo et a urna. Ut id ornare felis, eget fermentum sapien.</p><p>Nam vulputate diam nec tempor bibendum. Donec luctus augue eget malesuada ultrices. Phasellus turpis est, posuere sit amet dapibus ut, facilisis sed est. Nam id risus quis ante semper consectetur eget aliquam lorem. Vivamus tristique elit dolor, sed pretium metus suscipit vel. Mauris ultricies lectus sed lobortis finibus. Vivamus eu urna eget velit cursus viverra quis vestibulum sem. Aliquam tincidunt eget purus in interdum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p></textarea></p>
+          </li>
+        </ul>
+        <ul id="sumafotos">
+          <li id="ListaAgregarFotosEditNoticia" class="fotoUpload active">
+            <label for="AgregarFotosEditNoticia">Agregar Fotos +</label>
+            <input type="file" onclick="deleteOldSelection(this)" onchange="showNextFileUploads(this)" id="AgregarFotosEditNoticia" accept=".png, .jpeg, .jpg, .gif" name="foto1" value="">
+          </li>
+          <li id="ListaAgregarFotosEditNoticia1" class="fotoUpload">
+            <label for="AgregarFotosEditNoticia1">Agregar Fotos +</label>
+            <input type="file" onclick="deleteOldSelection(this)" onchange="showNextFileUploads(this)" id="AgregarFotosEditNoticia1" accept=".png, .jpeg, .jpg, .gif" name="foto2" value="">
+          </li>
+          <li id="ListaAgregarFotosEditNoticia2" class="fotoUpload">
+            <label for="AgregarFotosEditNoticia2">Agregar Fotos +</label>
+            <input type="file" onclick="deleteOldSelection(this)" change="showNextFileUploads(this)" id="AgregarFotosEditNoticia2" accept=".png, .jpeg, .jpg, .gif" name="foto3" value="">
+          </li>
+          <li id="ListaAgregarFotosEditNoticia3" class="fotoUpload">
+            <label for="AgregarFotosEditNoticia3">Agregar Fotos +</label>
+            <input type="file" onclick="deleteOldSelection(this)" onchange="showNextFileUploads(this)" id="AgregarFotosEditNoticia3" accept=".png, .jpeg, .jpg, .gif" name="foto4" value="">
+          </li>
+        </ul>
+        <ul class="EditFotosNoticia" id="EditFotosNoticia">
+          <li class="grideliminarfotoyaudio">
+            <div>
+              <input type="checkbox" id="eliminarfoto">
+              <label for="eliminarfoto">Eliminar</label>
+              <img class="EditfotosdeNoticia" id="EliminarEditfotosdeNoticia" src="caruselpreview.png" alt="">
+            </div>
+          </li>
+          <li class="grideliminarfotoyaudio">
+            <div>
+              <input type="checkbox" id="eliminarfoto1">
+              <label for="eliminarfoto1">Eliminar</label>
+              <img class="EditfotosdeNoticia" src="2-colum-preview.png" alt="">
+            </div>
+          </li>
+        </ul>
+        <ul>
+          <li class="audioUpload active" id="ListaAgregarAudiosEditNoticia">
+            <label class="uploadlabel" for="AgregarAudios">Agregar Audios o Videos</label>
+            <input class="uploadinput" type="file" onchange="showNextFileUploads(this)" id="AgregarAudios" name="audio1" value="">
+          </li>
+          <li class="audioUpload" id="ListaAgregarAudiosEditNoticia1" class="ListaAgregarAudiosEditNoticia">
+            <label class="uploadlabel" for="AgregarAudios1">Agregar Audios o Videos</label>
+            <input class="uploadinput" type="file" onchange="showNextFileUploads(this)" id="AgregarAudios1" name="audio2" value="">
+          </li>
+          <li class="audioUpload" id="ListaAgregarAudiosEditNoticia2" class="ListaAgregarAudiosEditNoticia">
+            <label class="uploadlabel" for="AgregarAudios2">Agregar Audios o Videos</label>
+            <input class="uploadinput" type="file" onchange="showNextFileUploads(this)" id="AgregarAudios2" name="audio3" value="">
+          </li>
+        </ul>
+        <ul id="EditAudiosYVideos">
+          <li>
+            <input type="checkbox" id="eliminaraudio1">
+            <label for="eliminaraudio1">Eliminar</label>
+            <div class="Editaudiosyvideos" id="eliminarEditAudiosyVideos">
+              <p id=tituloAudio>Parar La Olla Recordando la crisis del 2001 20122021 Tanda1.mp3</p>
+              <div class="cuadrocontrol">
+                <audio src="https://www.comecuco.org/sites/default/files/Parar%20La%20Olla%20Recordando%20la%20crisis%20del%202001%2020%2012%202021%20Tanda%201.mp3" controls=""></audio>
+                <a href="https://www.comecuco.org/sites/default/files/Parar%20La%20Olla%20Recordando%20la%20crisis%20del%202001%2020%2012%202021%20Tanda%201.mp3" type="audio/mpeg; length=21821863">&#9196;</a>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <input type="submit" class="submitEditNoticia" value="Guardar cambios y volver a la Noticia">
+      </form>
+    </div>
+    <div class="footer">
+    </div>
+  </body>
+
+</html>

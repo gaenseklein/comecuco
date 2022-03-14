@@ -2263,14 +2263,15 @@ body.dashboard{
   "bienvenido bienvenido"
   "subir subir"
   "noticias calendario"
-  "comecuco calendario"
+  "comecuco columnas"
   "adicional ."
   "footer footer";
   grid-template-columns: 1fr 1fr;
-  grid-gap:5ch;
+  grid-gap:2ch;
 }
 .dashboard .bienvenido{
   grid-area:bienvenido;
+  margin:0;
 }
 .dashboard .menusubusuario{
   grid-area: header;
@@ -2288,6 +2289,25 @@ body.dashboard{
   grid-area:comecuco;
 }
 
+.dashboard .listaColumnas{
+  grid-area: columnas;
+}
+
+.dashboard .noticiasSubidas li,
+.dashboard .noticiasComecuco li,
+.dashboard .listaColumnas li {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-bottom: 1ch;
+    background: #f4f4f4;
+}
+
+.dashboard .noticiasSubidas li:first-child,
+.dashboard .noticiasComecuco li:first-child,
+.dashboard .listaColumnas li:first-child {
+    font-weight: bold;
+}
+
 .dashboard .logo{
   grid-area:logoUsuario;
 }
@@ -2298,13 +2318,16 @@ body.dashboard{
   font-family:unset;
   padding-left: 1ch;
 }
-.dashboard .calendariodestacadas {
-    border: 1px solid;
-    padding: 1ch;
-}
-
-.dashboard .calendariodestacadas h2 {
+.dashboard > div h2 {
     margin-top: 0;
+}
+.dashboard > div{
+  box-shadow: 3px 3px 15px -3px;
+}
+.dashboard > div ul{
+  max-height: 14em;
+  overflow-y: auto;
+  padding-left:1ch;
 }
 
 .dashboard .calendariodestacadas li {
@@ -2312,6 +2335,10 @@ body.dashboard{
     grid-template-columns: 1fr 1fr 1fr;
     margin-bottom: 0.5em;
     background:#f4f4f4;
+    padding-left: 1ch;
+    padding-top:0.5ch;
+    padding-bottom:0.5ch;
+    padding-right: 2ch;
 
 }
 
