@@ -2216,6 +2216,7 @@ input#search {
 
       .subpagresumenSemanal h4{
         font-size: x-large;
+        margin: 1em 0;
       }
 
       .subpagresumenSemanal h3,
@@ -2243,7 +2244,8 @@ input#search {
         font-family: KeepCalm;
         padding: 1em 5vw;
         color: white;
-        font-size: large;
+        font-size: x-large;
+        margin: 0;
       }
 
       div.todoslosresumencomecuco div.buscador{
@@ -2256,6 +2258,29 @@ input#search {
         list-style-type: disc;
         width: 80%;
         justify-self: center;
+        margin: 0;
+      }
+
+      .subpagresumenSemanal input{
+        display: none;
+      }
+
+      .subpagresumenSemanal label h4.subtitulo{
+        cursor: pointer;
+        font-size: large;
+        margin: 1em 0 0 0;
+      }
+
+      .subpagresumenSemanal label:hover{
+        color: white;
+      }
+
+      div.contenidoRSC{
+        display: none;
+      }
+
+      .subpagresumenSemanal input:checked ~ div.contenidoRSC{
+        display: grid;
       }
 
       ul.resultadobusquedaRSC .subpagresumenSemanal{
