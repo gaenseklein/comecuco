@@ -1960,6 +1960,11 @@ input#search {
 
     /*a partir de aca subpagina de EDITAR NOTICIA*/
 
+        .EditNoticia h1{
+          position: absolute;
+          left: 10000px;
+        }
+
         #EditAudiosYVideos li{
           display: grid;
           grid-template-areas: "audio"
@@ -2509,4 +2514,36 @@ body.dashboard{
 
 .logo p{
   margin-top: 0;
+}
+
+.ManualDeEstilo h1{
+  margin-left: 5vw;
+  font-family: patagonian;
+}
+
+.ManualDeEstilo p{
+  font-family: keepcalm;
+  margin-left: 5vw;
+}
+
+.ManualDeEstilo img.logocomecuco{
+  display: block;
+  float: right;
+}
+
+.ManualDeEstilo h2{
+  padding: 0.5em 0 0.5em 0.5em;
+  font-family: keepcalm;
+}
+
+.ManualDeEstilo ul{
+  line-height: 1.5em;
+  list-style-type: disc;
+  margin-left: 2em;
+  font-family: keepcalm;
+  margin-bottom: 2em;
+}
+
+.ManualDeEstilo li{
+  margin-bottom: 1em;
 }
