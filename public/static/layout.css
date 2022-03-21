@@ -2439,6 +2439,54 @@ body.dashboard{
   top: 3vh;
 }
 
+
+  .integrantesCOMECUCO{
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    margin: 3vw;
+  }
+
+  .integrantesCOMECUCO img.mapaCOMECUCO{
+    grid-column: 2/3;
+    grid-row: 1/2;
+  }
+
+  .integrantesCOMECUCO ul.logosIntegrantesCOMECUCO{
+    grid-column: 1/2;
+    grid-row: 1/2;
+  }
+
+  ul.logosIntegrantesCOMECUCO li{
+    display: grid;
+    grid-template-areas: "logo nombre"
+                        "logo descripcion";
+    grid-template-rows: 2em auto;
+  }
+
+  ul.logosIntegrantesCOMECUCO img{
+    grid-area: logo;
+    justify-self: center;
+    width: 10vw;
+    margin-bottom: 1em;
+  }
+
+  ul.logosIntegrantesCOMECUCO a{
+    grid-area: nombre;
+    text-decoration: none;
+    color: black;
+  }
+
+  ul.logosIntegrantesCOMECUCO h4{
+    margin: 0.5em auto 0 0.5em;
+    font-family: keepcalm;
+  }
+
+  ul.logosIntegrantesCOMECUCO p{
+    grid-area: descripcion;
+    font-family: keepcalm;
+    margin: 0 auto 0.5em 0.5em;
+  }
+
 @media screen and (max-width: 650px){
 
   .logoredCOMECUCO{
