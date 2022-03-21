@@ -96,6 +96,22 @@ h3 a{
 .logo{
   grid-area:logo;
   width: 100%;
+/*desde aca encabezado para todas las subpaginas*/
+  display: grid;
+  grid-template-areas: "encabezado menu"
+                      "subtitulo menu";
+}
+
+.logo p{
+  grid-area: encabezado;
+}
+
+.logo div.subtitle{
+  grid-area: subtitulo;
+}
+
+.logo div.topMenu{
+  grid-area: menu;
 }
 
 .topMenu{
