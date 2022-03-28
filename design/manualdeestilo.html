@@ -4,29 +4,7 @@
     <meta charset="utf-8">
     <title>Manual de Estilo</title>
     <link rel="stylesheet" href="../public/static/layout.css">
-    <script type="text/javascript">
-      function startTime()
-      {
-        var today=new Date();
-        var h=today.getHours();
-        var m=today.getMinutes();
-        var s=today.getSeconds();
-    // add a zero in front of numbers<10
-        h=checkTime(h);
-        m=checkTime(m);
-        s=checkTime(s);
-        document.getElementById('hora').innerHTML=h+":"+m+":"+s;
-        t=setTimeout('startTime()',500);
-      }
-      function checkTime(i)
-      {
-        if (i<10)
-        {
-          i="0" + i;
-        }
-        return i;
-      }
-    </script>
+
   </head>
   <body onload="startTime()" class="subpagusuario">
     <div class="menusubusuario">
@@ -44,11 +22,7 @@
         </ul>
       </div>
     </div>
-    <div class="clima" id="climausuario">
-        EL CLIMA EN MENDOZA 13° HORA
-        <div id="hora"></div>
-    </div>
-
+  
     <div class="ManualDeEstilo">
       <img class="logocomecuco" src="../public/static/logos/comecuco.png" alt="Logo del COMECUCO">
       <h1>MANUAL DE ESTILO DE COMECUCO.ORG</h1>

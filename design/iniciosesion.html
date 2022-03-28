@@ -4,43 +4,18 @@
     <meta charset="utf-8">
     <title>Inicio de Sesión</title>
     <link rel="stylesheet" href="../public/static/layout.css">
-    <script type="text/javascript">
-      function startTime()
-      {
-        var today=new Date();
-        var h=today.getHours();
-        var m=today.getMinutes();
-        var s=today.getSeconds();
-    // add a zero in front of numbers<10
-        h=checkTime(h);
-        m=checkTime(m);
-        s=checkTime(s);
-        document.getElementById('hora').innerHTML=h+":"+m+":"+s;
-        t=setTimeout('startTime()',500);
-      }
-      function checkTime(i)
-      {
-        if (i<10)
-        {
-          i="0" + i;
-        }
-        return i;
-      }
-    </script>
+
   </head>
   <body onload="startTime()" class="subpaginainiciosesion">
     <div class="logo">
-      <h1><a href="frontpage.html">
-          COMECUCO</a>
-      </h1>
+      <p class="encabezado"><a href="frontpage.html">
+        COMECUCO</a>
+      </p>
       <div class="subtitle">
         somos el colectivo de medios comunitarios de cuyo
       </div>
     </div>
-    <div class="clima">
-        EL CLIMA EN MENDOZA 13° HORA
-        <div id="hora"></div>
-    </div>
+
     <div class="paginainiciosesion">
       <h1>Iniciar Sesión</h1>
       <img class="logocomecuco" src="../public/static/logos/comecuco.png" alt="Logo del COMECUCO">

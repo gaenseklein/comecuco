@@ -4,29 +4,6 @@
     <meta charset="utf-8">
     <title>EDIT USUARIO LA LEÑERA</title>
     <link rel="stylesheet" href="../public/static/layout.css">
-    <script type="text/javascript">
-      function startTime()
-      {
-        var today=new Date();
-        var h=today.getHours();
-        var m=today.getMinutes();
-        var s=today.getSeconds();
-    // add a zero in front of numbers<10
-        h=checkTime(h);
-        m=checkTime(m);
-        s=checkTime(s);
-        document.getElementById('hora').innerHTML=h+":"+m+":"+s;
-        t=setTimeout('startTime()',500);
-      }
-      function checkTime(i)
-      {
-        if (i<10)
-        {
-          i="0" + i;
-        }
-        return i;
-      }
-    </script>
     <script src="../public/static/scripts/urlcleaner.js"></script>
 
   </head>
@@ -47,10 +24,6 @@
       </ul>
     </div>
   </div>
-    <div class="clima" id="climausuario">
-        EL CLIMA EN MENDOZA 13° HORA
-        <div id="hora"></div>
-    </div>
     <div class="CajaEditUsuario">
       <img class="logomedio" src="../public/static/logos/lenera.jpg" alt="Logo Radio La Leñera">
       <form class="FormEditUsuario" action="index.html" method="post" enctype="multipart/form-data">
@@ -79,7 +52,7 @@
             spellcheck="true">Radio Comunitaria La Leñera FM 97.9 transmite desde el año 2003, y está ubicada en Las Vegas, Potrerillos, a 70 km de la Ciudad de Mendoza. Tenemos una programación muy variada, pero siempre buscando aportar a la construcción de la identidad del lugar. Somos parte de FARCO (Foro Argentino de Radios Comunitarias) y del CoMeCuCo (Colectivo de Medios Comunitarios de Cuyo)</textarea></p>
           </li>
           <li>
-            <label for="EmailUsuario">Email (para uso interno del COMECUCO y entrar a la pagina)</label>
+            <label for="EmailUsuario">Email (para uso interno del COMECUCO y para entrar a la pagina)</label>
             <input id="EmailUsuario" type="email" name="" value="" size="40">
           </li>
           <li class="itempassword">
@@ -93,7 +66,7 @@
             <button id="verpassword2" type="button">👁</button>
           </li>
           <li>
-            <label for="EmailPublicoUsuario">Email (para uso público)</label>
+            <label for="EmailPublicoUsuario">Email (para contacto público)</label>
             <input type="email" name="emailpublico" id="EmailPublicoUsuario" size="27">
           </li>
           <li>

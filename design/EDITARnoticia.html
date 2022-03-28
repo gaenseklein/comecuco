@@ -5,29 +5,7 @@
     <title>EDITAR NOTICIA</title>
     <link rel="stylesheet" href="../public/static/layout.css">
     <script src="../public/static/scripts/fileuploadstepper.js"></script>
-    <script type="text/javascript">
-      function startTime()
-      {
-        var today=new Date();
-        var h=today.getHours();
-        var m=today.getMinutes();
-        var s=today.getSeconds();
-    // add a zero in front of numbers<10
-        h=checkTime(h);
-        m=checkTime(m);
-        s=checkTime(s);
-        document.getElementById('hora').innerHTML=h+":"+m+":"+s;
-        t=setTimeout('startTime()',500);
-      }
-      function checkTime(i)
-      {
-        if (i<10)
-        {
-          i="0" + i;
-        }
-        return i;
-      }
-    </script>
+
   </head>
   <body onload="startTime()" class="subpagusuario">
   <div class="menusubusuario">
@@ -46,10 +24,6 @@
       </ul>
     </div>
   </div>
-    <div class="clima" id="climausuario">
-        EL CLIMA EN MENDOZA 13° HORA
-        <div id="hora"></div>
-    </div>
 
     <div class="EditNoticia">
       <h1>EDITAR o SUBIR NOTICIA</h1>
@@ -119,7 +93,7 @@ que se yo</div>
             spellcheck="true">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus aliquam dolor, eu lacinia lorem placerat vulputate.</p><p>Duis felis orci, pulvinar id metus ut, rutrum luctus orci. Cras porttitor imperdiet nunc, at ultricies tellus laoreet sit amet. Sed auctor cursus massa at porta. Integer ligula ipsum, tristique sit amet orci vel, viverra egestas ligula. Curabitur vehicula tellus neque, ac ornare ex malesuada et. In vitae convallis lacus. Aliquam erat volutpat. Suspendisse ac imperdiet turpis. Aenean finibus sollicitudin eros pharetra congue. Duis ornare egestas augue ut luctus. Proin blandit quam nec lacus varius commodo et a urna. Ut id ornare felis, eget fermentum sapien.</p><p>Nam vulputate diam nec tempor bibendum. Donec luctus augue eget malesuada ultrices. Phasellus turpis est, posuere sit amet dapibus ut, facilisis sed est. Nam id risus quis ante semper consectetur eget aliquam lorem. Vivamus tristique elit dolor, sed pretium metus suscipit vel. Mauris ultricies lectus sed lobortis finibus. Vivamus eu urna eget velit cursus viverra quis vestibulum sem. Aliquam tincidunt eget purus in interdum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p></textarea></p>
           </li>
           <li>
-            <label for="EditEpigrafeFoto">Epígrafe del primer imagen</label>
+            <label for="EditEpigrafeFoto">Epígrafe de la primer imagen</label>
             <p><input id="EditEpigrafeFoto" type="text" name="fototext" size="45" maxlength="50"
               spellcheck="true" value="El cometa pasando veloz"></input></p>
             </li>

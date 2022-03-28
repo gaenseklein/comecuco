@@ -100,6 +100,7 @@ h3 a{
   display: grid;
   grid-template-areas: "encabezado menu"
                       "subtitulo menu";
+  padding-top: 2em;
 }
 
 .logo p{
@@ -239,6 +240,7 @@ flex-wrap: wrap;
 .logo h1,
 .logo p {
     margin-bottom: 0;
+    margin-top: 0;
     font-size: xxx-large;
     margin-left: 5vw;
 }
@@ -357,6 +359,7 @@ flex-wrap: wrap;
     padding-top: 1.4em;
     text-align: right;
     line-height: 2em;
+    margin: 0;
 }
 
 .blockRight {
@@ -835,7 +838,8 @@ input#search {
      "footer footer footer footer";*/
      "logo logo logo"
      "topMenu topMenu topMenu"
-     "clima clima buscador"
+     "clima clima clima"
+     "buscador buscador buscador"
      "mediosEnVivo video resumenSemanal"
      "calecita calecita calecita"
      "mediosMenu mediosMenu mediosMenu"
@@ -853,9 +857,18 @@ input#search {
       grid-template-columns: 1fr;
    }
 
+   .logo {
+     display: block;
+   }
+
    .logo h1,
    .logo p {
        font-size: xxx-large;
+   }
+
+   .buscador{
+     margin: 2em 0 2em 2em;
+
    }
 
    .mediosMenu ul{
@@ -936,6 +949,7 @@ input#search {
   .últimas img,
   .viejas img{
     width: 100%;
+    margin-top: 2em;
   }
 
   .últimas li div,
@@ -958,6 +972,11 @@ input#search {
   }
 
   @media screen and (orientation: portrait) {
+
+    body.todaslasnoticias{
+      display: block;
+    }
+
     .noticiasúltimas .últimas, .noticiasviejas .viejas{
       display: block;
       margin-bottom: 0;
@@ -1204,8 +1223,9 @@ input#search {
       align-self: center;
     }
 
-    .capitulodecolumna h2{
+    .capitulodecolumna h1{
       font-size: 2em;
+      font-family: patagonian;
       line-height: 1.5em;
       text-align: center;
       margin: 0;
@@ -1303,6 +1323,11 @@ input#search {
 
 
     @media screen and (orientation: portrait) {
+
+      .subcapitulodecolumna .logo{
+      /*desde aca encabezado para todas las subpaginas*/
+        display: block;
+      }
 
       .capitulodecolumna{
         display: grid;
@@ -2235,7 +2260,7 @@ input#search {
         padding-bottom: 1ch;
       }
 
-      .subpagresumenSemanal h3{
+      .subpagresumenSemanal h1{
         font-size: xx-large;
         margin-bottom: 0.5em;
         margin-top: 0.5em;
@@ -2246,9 +2271,13 @@ input#search {
         margin: 1em 0;
       }
 
-      .subpagresumenSemanal h3,
+      .subpagresumenSemanal h1{
+        text-align: right;
+      }
+
       .subpagresumenSemanal p{
         text-align: right;
+        margin-right: 2em;
       }
 
       #controlesResumenSemanal{
@@ -2348,6 +2377,9 @@ body.dashboard{
   "footer footer";
   grid-template-columns: 1fr 1fr;
   grid-gap:2ch;
+}
+.dashboard .menusubusuario .logo{
+  padding-top: 2em;
 }
 .dashboard .bienvenido{
   grid-area:bienvenido;
@@ -2451,6 +2483,13 @@ body.dashboard{
 .dashboard .footer{
   grid-area:footer;
 }
+
+  @media screen and (orientation: portrait) {
+
+    body.dashboard{
+      display: block;
+    }
+  }
 
 /*a partir de aca QUIENES SOMOS*/
 
