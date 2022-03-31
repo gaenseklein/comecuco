@@ -86,7 +86,7 @@ const datacontroler = {
   },
   noticias: async function(pagenr){
     try {
-      let query = {};
+      let query = {tipo:'noticia'};
       let limit = 20;
       let qopt = {sort : {pubdate:-1}, limit: limit};
       if(pagenr)qopt.skip=pagenr*limit;
