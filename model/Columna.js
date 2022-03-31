@@ -2,9 +2,13 @@ const mongoose = require('mongoose');
 
 const Schema = new mongoose.Schema({
   title:{
-    type:String,
-    required:true,
-    maxLength:255
+    type: String,
+    required: true,
+    maxLength: 255
+  },
+  url:{
+    type: String,
+    required: true,
   },
   subtitle: {
     type: String,

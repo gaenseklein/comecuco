@@ -14,6 +14,9 @@ const counterSchema = new mongoose.Schema({
     type: String,
     maxLength:255,
   },
+  idDeAutor:{
+    type: mongoose.ObjectId
+  },
   pubdate: {
     type: Date,
     default: Date.now,
@@ -25,7 +28,7 @@ const counterSchema = new mongoose.Schema({
   body:{
     type: String,
     required: true,
-  }
+  },
   resumen:{
     type: String,
   },

@@ -84,8 +84,80 @@ const datacontroler = {
       return false;
     }
   },
-  medio: async function(url){
-    
+  noticias: async function(pagenr){
+    try {
+      let query = {};
+      let limit = 20;
+      let qopt = {sort : {pubdate:-1}, limit: limit};
+      if(pagenr)qopt.skip=pagenr*limit;
+      let noticias = await Noticia.find(query,null,qopt);
+      return noticias;
+    } catch (e) {
+      console.log(e);
+      return false;
+    }
+  },
+  medio: async function(url, pagenr){
+    try {
+      let medio = await User.findOne({url:url});
+      if(!medio){
+        let date = new Date().toGMTString();
+        console.log('user not found',url,date);
+        return false;
+      }
+      let query = {idDeAutor:medio._id};
+      let queryoptions = {sort : {pubdate:-1}, limit: 50};
+      if(pagenr)queryoptions.skip=pagenr*50;
+      let noticias = await Noticia.find(query,null,queryoptions);
+      return {medio:medio,noticias:noticias};
+    } catch (e) {
+      console.log(e);
+      return false;
+    }
+  },
+  columna: async function(url){
+    try {
+      let columna = await Columna.find({url:url});
+      if(!columna || !columna.capitulos)return false;
+      let capitulos = await Noticia.find({$in:{_id:columna.capitulos}});
+      let result = {columna:columna,capitulos:capitulos};
+      return result;
+    } catch (e) {
+      console.log(e);
+      return false;
+    }
+  },
+  columnas: async function(){
+    try {
+      let columnas = await Columna.find();
+      columnas.sort(function(a,b){return b.lastUpdated - a.lastUpdated})
+      return columnas;
+    } catch (e) {
+      console.log(e);
+      return false;
+    }
+  },
+  quienessomos: async function(){
+    try {
+      let medios = await User.find();
+      medios.sort(function(a,b){return a.name-b.name});
+      return medios;
+    } catch (e) {
+      console.log(e);
+      return false;
+    }
+  },
+  resumensemanal: async function(pagenr){
+    try {
+      let query={tipo:'resumensemanal'};
+      let qopt={sort : {pubdate:-1}, limit:100};
+      if(pagenr)qopt.skip=pagenr*100;
+      let resumenes = await Noticia.find(query,null,qopt);
+      return resumenes;
+    } catch (e) {
+      console.log(e);
+      return false;
+    }
   },
 }
 
