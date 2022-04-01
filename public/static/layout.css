@@ -917,58 +917,59 @@ input#search {
    grid-template-areas:
      "logo logo logo topMenu"
      "clima clima buscador buscador"
-     "últimas últimas últimas últimas"
-     "viejas viejas viejas viejas"
+     "noticia noticia noticia noticia"
      "footer footer footer footer";
- }
-
- .noticiasúltimas{
-   grid-area: últimas;
  }
 
  .topMenu #sinmenu{
    display: none;
  }
 
- .noticiasviejas{
-   grid-area: viejas;
+ .noticiasúltimas{
+   grid-area: noticia;
  }
 
- .noticiasúltimas .últimas{
+ .noticiasúltimas ul li{
    display: grid;
-   grid-template-columns: 1fr 1fr;
-   grid-gap:5ch;
-   margin-bottom:2em;
- }
- .noticiasviejas .viejas{
-   display: grid;
-   grid-template-columns: 1fr 1fr 1fr;
-   grid-gap: 4ch;
+   grid-template-areas: "foto titulo"
+                        "foto autor"
+                        "texto texto";
+   grid-template-columns: 1fr 6fr;
+   grid-column-gap: 1em;
+   margin-bottom: 2em;
+   border: 1px solid;
  }
 
-  .últimas img,
-  .viejas img{
-    width: 100%;
-    margin-top: 2em;
+  .últimas img{
+    grid-area: foto;
+    width: 20vw;
+    margin-top: 0.5em;
+    margin-left: 1em;
   }
 
-  .últimas li div,
-  .viejas li div{
+  .últimas h3{
+    grid-area: titulo;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+
+  .últimas li div{
     font-family: KeepCalm;
-    margin-bottom: 1em;
+    margin-bottom: 0.5em;
+  }
+
+  .últimas li .autor,
+  .últimas li .fecha{
+    grid-area: autor;
+    display: inline-block;
+    margin-right: 2em;
   }
 
   .últimas li .resumen{
+    grid-area: texto;
     font-size: medium;
     font-style: italic;
-  }
-
-  .viejas h3{
-      margin-bottom: 0.5em;
-  }
-
-  .viejas h3 a{
-      font-size: large;
+    margin-left: 1em;
   }
 
   @media screen and (orientation: portrait) {
@@ -977,12 +978,35 @@ input#search {
       display: block;
     }
 
-    .noticiasúltimas .últimas, .noticiasviejas .viejas{
-      display: block;
-      margin-bottom: 0;
+    .noticiasúltimas ul{
+      margin-top: 4em;
     }
-    .últimas li, .viejas li{
-      margin-bottom: 2em;
+
+    .noticiasúltimas ul li{
+      grid-template-areas: "titulo titulo"
+                           "autor foto"
+                           "texto texto";
+      grid-template-columns: 4fr 2fr;
+      grid-column-gap: 0.5em;
+      margin-bottom: 1em;
+      padding: 0.5em;
+    }
+
+    .últimas img{
+      width: 60vw;
+      margin-bottom: 0.5em;
+      margin-left: 0.5em;
+      margin-top: 0;
+    }
+
+    .últimas li .autor,
+    .últimas li .fecha{
+      display: inline-block;
+      margin-right: 0;
+    }
+
+    .últimas li .resumen{
+      margin-left: 0;
     }
   }
 
