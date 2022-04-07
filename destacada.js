@@ -11,7 +11,7 @@ const destacada = {
     },
     actual: function(){
       let mes = new Date().getMonth();
-      return destacada[mes];
+      return this.destacadas[mes];
     },
     calendarioseis: function(){
       let meses = [];

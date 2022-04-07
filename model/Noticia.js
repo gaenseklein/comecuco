@@ -32,23 +32,22 @@ const counterSchema = new mongoose.Schema({
   resumen:{
     type: String,
   },
-  image:{
-    type: String,
-  },
-  imageTitle:{
-    type: String,
-    maxLength: 255,
-  },
+  images:[{
+    url: String,
+    title: String,
+  }],
   audios:[{
     url: String,
     description: String,
-    id: mongoose.ObjectId,
   }],
   tags: [
     type: String
   ],
   tipo: {
     type: String //noticia, capitulo, resumensemanal
+  },
+  columna:{
+    type: mongoose.ObjectId
   },
 });
 

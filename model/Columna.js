@@ -27,12 +27,12 @@ const Schema = new mongoose.Schema({
     default: Date.now
   },
   capitulos:[{
-    id: mongoose.ObjectId,
+    type: mongoose.ObjectId,
   }],
   ultimoCapitulo:{
     imagen: String,
     titulo: String,
-    url: String,
+    // url: String,
     id: mongoose.ObjectId,
   },
 });
