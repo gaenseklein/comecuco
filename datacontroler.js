@@ -37,7 +37,7 @@ const datacontroler = {
       let masleidos = [];
       if(masleidosids.length>0){
         query = {
-          _id: {'$in':masleidosids};
+          _id: {'$in':masleidosids}
         }
         masleidos = await Noticia.find(query);
       }
@@ -187,7 +187,7 @@ const datacontroler = {
     },
     //check for user-right to put data in here or else?
     //lets presume its already checked
-    noticia: function(content, user){
+    noticia: async function(content, user){
       let simplefields = ['title','subtitle','author','body','resumen','tipo'];
       let updateobj = {};
       let cdate = new Date();
@@ -412,7 +412,7 @@ const datacontroler = {
       const hashedPassword = await bcrypt.hash(password,salt);
       return hashedPassword;
     },
-    user: function(user){
+    user: async function(user){
       if(user.new){
         //create new user:
         let cdate = Date.now();
@@ -493,7 +493,7 @@ const datacontroler = {
         }
       }
     },
-    columna: function(columna){
+    columna: async function(columna){
 
     },
   },

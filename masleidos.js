@@ -4,12 +4,12 @@ const masleidos = {
     maximoEdadEnMs: 7776000000, //90 dias
     init: function(){
       try {
-        let oldraw = fs.readFileSync('masleidos.data', 'utf8');
+        let oldraw = fs.readFileSync('./private/masleidos.data', 'utf8');
       } catch (e) {
         console.warn(e);
         return;
       }
-      if(!oldraw)oldraw="",
+      if(!oldraw)oldraw="";
       let oldlines = oldraw.split('\n');
       for (let x=0;x<oldlines.length;x++){
         let linearr =oldlines[x].split(',');
@@ -27,7 +27,7 @@ const masleidos = {
         newraw+=valores[x].id+','+valores[x].count+','+valores[x].pubdate+'\n';
       }
       try {
-        fs.writeFileSync('masleidos.data',newraw,'utf8');
+        fs.writeFileSync('./private/masleidos.data',newraw,'utf8');
       } catch (e) {
         console.warn(e);
         return false;
@@ -40,7 +40,7 @@ const masleidos = {
         newraw+=eliminados[x].id+','+eliminados[x].count+','+eliminados[x].pubdate+'\n';
       }
       try {
-        fs.appendFileSync('masleidos.old',newraw,'utf8');
+        fs.appendFileSync('./private/masleidos.old',newraw,'utf8');
       } catch (e) {
         console.warn(e);
       }
