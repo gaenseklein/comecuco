@@ -2,11 +2,11 @@ const fs = require('fs');
 const destacada = {
     destacadas: [],
     init: function(){
-      let oldraw = fs.readFileSync('destacadas.dt', 'utf8');
+      let oldraw = fs.readFileSync('./private/destacadas.dt', 'utf8');
       if(!oldraw)oldraw="            "
       let oldlines = oldraw.split('\n');
-      for (let x=0;x<12.length;x++){
-        destacadas[x]=oldlines[x];
+      for (let x=0;x<12;x++){
+        this.destacadas[x]=oldlines[x];
       }
     },
     actual: function(){
@@ -24,7 +24,7 @@ const destacada = {
       }
       for (x=0;x<8;x++){
         let ulm=meses.pop();
-        if(x<2)meses.unshift(ulm;)
+        if(x<2)meses.unshift(ulm);
       }
       let destacadas=[];
       for (x=0;x<6;x++){
@@ -39,7 +39,7 @@ const destacada = {
       this.destacadas[mes]=valor;
       let raw=this.destacadas.join('\n');
       try {
-        fs.writeFileSync('destacadas.dt','utf8');
+        fs.writeFileSync('./private/destacadas.dt','utf8');
       } catch (e) {
         return false;
       }

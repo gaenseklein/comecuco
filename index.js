@@ -17,6 +17,10 @@ dotenv.config();
 //implementa destacada:
 const destacada = require('./destacada.js');
 destacada.init();
+//implementa tags:
+const tags = require('./tags.js');
+tags.init();
+
 
 //Connect to DB
 mongoose.connect(process.env.DB_CONNECT,
@@ -28,11 +32,11 @@ mongoose.connect(process.env.DB_CONNECT,
 });
 
 //Route Middlewares
-app.use(express.json({limit: '50mb'}));
-app.use('/admin',adminRoute);
-app.use('/',fpRoute);
-app.use('/notes',notesRoute);
-app.use('/user',userRoute);
+// app.use(express.json({limit: '50mb'}));
+// app.use('/admin',adminRoute);
+// app.use('/',fpRoute);
+// app.use('/notes',notesRoute);
+// app.use('/user',userRoute);
 
 
 //serving static-files for test-purpose / can be served directly by nginx

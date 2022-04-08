@@ -4,7 +4,7 @@ const Noticia = require('./model/Noticia.js');
 const tags = {
     tags: [],
     init: function(){
-      let oldraw = fs.readFileSync('tags.dt', 'utf8');
+      let oldraw = fs.readFileSync('./private/tags.dt', 'utf8');
       if(!oldraw)return;
       let oldlines = oldraw.split('\n');
       for (let x=0;x<oldlines.length;x++){
@@ -49,7 +49,7 @@ const tags = {
           let raw=this.tags.join('\n');
           console.log('removed tag',tag);
           try {
-            fs.writeFileSync('tags.dt',raw,'utf8')
+            fs.writeFileSync('./private/tags.dt',raw,'utf8')
           } catch (e) {
             console.log(e)
           }

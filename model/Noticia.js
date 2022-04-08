@@ -41,7 +41,7 @@ const counterSchema = new mongoose.Schema({
     description: String,
   }],
   tags: [
-    type: String
+    String
   ],
   tipo: {
     type: String //noticia, capitulo, resumensemanal
