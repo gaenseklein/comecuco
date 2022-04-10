@@ -31,5 +31,15 @@ router.post('/', async (req,res)=>{
     res.status(400).send('error');
   }
 });
+router.get('/logout', async (req,res)=>{
+
+  try{
+    res.clearCookie('jwt');
+    res.redirect('/');
+  }catch(e){
+    console.warn(e);
+    res.status(400).send('error');
+  }
+});
 
 module.exports = router;

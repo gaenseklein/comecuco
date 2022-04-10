@@ -122,6 +122,20 @@ const datacontroler = {
       return false;
     }
   },
+  usuario: async function(id){
+    try {
+      let medio = await User.findOne({_id:id});
+      if(!medio){
+        let date = new Date().toGMTString();
+        console.log('user not found',url,date);
+        return false;
+      }
+      return medio;
+    } catch (e) {
+      console.log(e);
+      return false;
+    }
+  },
   columna: async function(url){
     try {
       let columna = await Columna.find({url:url});
@@ -476,7 +490,7 @@ const datacontroler = {
         if(user.icon){
           let iconurl = './public/static/logos/'+newUser.url+'.png';
           let savedimg = await saveImage(iconurl, user.icon.data, 320, 240)
-          if(savedimg)newUser.icon=iconurl;
+          if(savedimg)newUser.icon=iconurl.substring(1);
         }
         newUser.password = await this.userHashPassword(user.password);
         //images
@@ -547,8 +561,8 @@ const datacontroler = {
           updateobj.redes = this.userParseRedes(user.redes);
           olduser.redes=updateobj.redes;
           if(user.icon){
-            let iconurl = './public/static/logos/'+user.url+'.png';
-            let savedimg = await saveImage(iconurl, user.icon, 320, 240)
+            let iconurl = '/public/static/logos/'+user.url+'.png';
+            let savedimg = await saveImage('.'+iconurl, user.icon.data, 320, 240)
             if(savedimg){
               updateobj.icon=iconurl;
               olduser.icon=iconurl;

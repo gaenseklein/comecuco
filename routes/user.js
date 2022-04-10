@@ -48,9 +48,10 @@ router.get('/cambia/', async (req,res)=>{
     return;
   }
   try{
-    let data = await datacontroler.medio(req.params.url,false,true);
+    console.log('user asks for change:',req.user)
+    let data = await datacontroler.usuario(req.user._id,false,true);
     if(!data){
-      res.status(404).send('user not found '+req.params.url);
+      res.status(404).send('user not found '+req.user._id);
       return;
     }
     let response = templates.buildForm('usuario',data);

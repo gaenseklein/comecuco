@@ -20,14 +20,14 @@ const template = function(data){
   <head>
     <meta charset="utf-8">
     <title>EDIT USUARIO LA LEÑERA</title>
-    <link rel="stylesheet" href="../public/static/layout.css">
-    <script src="../public/static/scripts/urlcleaner.js"></script>
+    <link rel="stylesheet" href="/public/static/layout.css">
+    <script src="/public/static/scripts/urlcleaner.js"></script>
 
   </head>
   <body onload="startTime()" class="subpagusuario">
   <div class="menusubusuario">
     <div class="logo" id="logoUsuario">
-      <h1><a href="frontpage.html">
+      <h1><a href="/">
           COMECUCO</a>
       </h1>
       <div class="subtitle">
@@ -36,13 +36,13 @@ const template = function(data){
     </div>
     <div class="topMenu" id="topMenuUsuario">
       <ul>
-        <li><a href="dash.html">Volver</a></li>
-        <li><a href="frontpage.html">Cerrar Sesión</a></li>
+        <li><a href="/user">Volver</a></li>
+        <li><a href="/iniciar/logout">Cerrar Sesión</a></li>
       </ul>
     </div>
   </div>
     <div class="CajaEditUsuario">
-      <img class="logomedio" src="../public/static/logos/lenera.jpg" alt="Logo Radio La Leñera">
+      <img class="logomedio" src="${data.icon}" alt="Logo ${data.name}">
       <form class="FormEditUsuario" action="/user/cambia" method="post" enctype="multipart/form-data">
         <input type="hidden" name="uid" value="${data._id}">
         <ul id="datosdelusuario">
@@ -60,7 +60,7 @@ const template = function(data){
           <li id="AgregarLogoUsuario">
             <label>Logo</label>
             <div class="">
-              <label for="newlogoupload" class="logopreview"><img src="/public/static/logos/${data.url}.png"></label>
+              <label for="newlogoupload" class="logopreview"><img src="${data.icon}"></label>
               <input type="file" id="newlogoupload" name="icon" value="">
             </div>
           </li>
@@ -116,8 +116,8 @@ const template = function(data){
       </form>
     </div>
   </body>
-  <script src='../public/static/scripts/verpassword2.js'></script>
-  <script src="../public/static/scripts/addsocialmedialink.js"></script>
+  <script src='/public/static/scripts/verpassword2.js'></script>
+  <script src="/public/static/scripts/addsocialmedialink.js"></script>
 
 </html>
 `;
