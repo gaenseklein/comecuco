@@ -10,7 +10,8 @@ const adminRoute = require('./routes/admin');
 const fpRoute = require('./routes/frontpage');
 const notesRoute = require('./routes/notes');
 const userRoute = require('./routes/user');
-
+const loginRoute = require('./routes/login');
+const auth = require('./routes/auth');
 //initializa dotenv:
 dotenv.config();
 
@@ -32,11 +33,12 @@ mongoose.connect(process.env.DB_CONNECT,
 });
 
 //Route Middlewares
-// app.use(express.json({limit: '50mb'}));
+app.use(express.json({limit: '50mb'}));
 // app.use('/admin',adminRoute);
-// app.use('/',fpRoute);
+app.use('/',fpRoute);
 // app.use('/notes',notesRoute);
-// app.use('/user',userRoute);
+app.use('/iniciar',express.urlencoded({extended:false}),loginRoute);
+app.use('/user',auth, express.urlencoded({extended:true}),userRoute);
 
 
 //serving static-files for test-purpose / can be served directly by nginx

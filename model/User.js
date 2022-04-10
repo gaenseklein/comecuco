@@ -61,8 +61,12 @@ const userSchema = new mongoose.Schema({
       url: String,
     }
   ],
-
-
+  images:[
+    String
+  ],
+  imagetitles:[
+    String
+  ],
 });
 
 module.exports = mongoose.model('User',userSchema);

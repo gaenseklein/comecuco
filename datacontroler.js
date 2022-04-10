@@ -1,22 +1,24 @@
 const Noticia = require('./model/Noticia.js');
+const fs = require('fs');
 const User = require('./model/User.js');
 const Columna = require('./model/Columna.js');
-const destacada = require('./destacada.js');
-const masleidos = require('./masleidos.js')
-const tags = require('./tags.js');
+const Destacada = require('./destacada.js');
+const Masleidos = require('./masleidos.js')
+const Tags = require('./tags.js');
 const sharp = require('sharp');
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 
 const datacontroler = {
   frontpage: async function(){
     //exporta un objeto que contiene todos datos para frontpage
-    if(this.cache.frontpage)return this.cache.frontpage;
+    // if(this.cache.frontpage)return this.cache.frontpage;
     try {
 
       let query={tipo: 'noticia'};
       let searchoptions = {sort : {pubdate:-1}, limit: 12};
       let nuevosarticulos = await Noticia.find(query, null, searchoptions);
-      let destacada = destacada.actual();
+      let destacada = Destacada.actual();
       let fechaminima = Date.now()-(31*24*60*60*1000);
       let destacadaquery={
         pubdate:{'$gt':fechaminima},
@@ -33,7 +35,7 @@ const datacontroler = {
           }
         }
       }
-      let masleidosids = masleidos.ultimos(5);
+      let masleidosids = Masleidos.ultimos(5);
       let masleidos = [];
       if(masleidosids.length>0){
         query = {
@@ -58,7 +60,7 @@ const datacontroler = {
 
       let columnas = await Columna.find();
       query={
-        '$gt':{ultimaSubida:fechaminima}
+        ultimaSubida:{'$gt':fechaminima}
       };
       searchoptions={sort: {ultimaSubida:-1}};
       let medios = await User.find(query, null, searchoptions);
@@ -68,7 +70,7 @@ const datacontroler = {
         destacadas:destacadas,
         masleidos:masleidos,
         resumen:resumensemanal,
-        colectivas:[produccionesColectivasVideo, produccionesColectivasAudio],
+        colectivas:produccionesColectivas,
         columnas:columnas,
         medios: medios,
       }
@@ -101,7 +103,7 @@ const datacontroler = {
       return false;
     }
   },
-  medio: async function(url, pagenr){
+  medio: async function(url, pagenr,onlyUser){
     try {
       let medio = await User.findOne({url:url});
       if(!medio){
@@ -109,6 +111,7 @@ const datacontroler = {
         console.log('user not found',url,date);
         return false;
       }
+      if(onlyUser)return medio;
       let query = {idDeAutor:medio._id};
       let queryoptions = {sort : {pubdate:-1}, limit: 50};
       if(pagenr)queryoptions.skip=pagenr*50;
@@ -145,7 +148,7 @@ const datacontroler = {
     try {
       let medios = await User.find();
       medios.sort(function(a,b){return a.name-b.name});
-      let imagenes = fs.readdirSync('public/static/comecuco');
+      let imagenes = fs.readdirSync('public/static/quienessomos');
       return {medios:medios, images: imagenes};
     } catch (e) {
       console.log(e);
@@ -159,6 +162,33 @@ const datacontroler = {
       if(pagenr)qopt.skip=pagenr*100;
       let resumenes = await Noticia.find(query,null,qopt);
       return resumenes;
+    } catch (e) {
+      console.log(e);
+      return false;
+    }
+  },
+  iniciarSession: async function(username, password){
+    try {
+      let user = await User.findOne({name:username});
+      if(!user)user = await User.findOne({email:username});
+      if(!user){
+        console.log('user not found',username);
+        return false;
+      }
+      let validation = await bcrypt.compare(password, user.password);
+      if(!validation){
+        console.log('password wrong',username);
+        return false;
+      }
+      user.lastLogin=Date.now();
+      user.save();
+      const token = jwt.sign({
+        _id:user._id,
+        url:user.url,
+        ttl: process.env.TOKENTTL,
+        }, process.env.TOKEN_SECRET);
+      return token;
+
     } catch (e) {
       console.log(e);
       return false;
@@ -200,7 +230,7 @@ const datacontroler = {
       //tags:
       updateobj.tags = content.tags.split(',');
       for(let t=updateobj.tags.length-1;t>=0;t--)if(updateobj.tags[t]=='')updateobj.tags.splice(t,1);
-      if(updateobj.tags.length>0)tags.addTags(updateobj.tags);
+      if(updateobj.tags.length>0)Tags.addTags(updateobj.tags);
       //id:
       updateobj.idDeAutor = user.id;
       //pubdate:
@@ -414,6 +444,17 @@ const datacontroler = {
     },
     user: async function(user){
       if(user.new){
+        //check for old user:
+        try {
+          let olduser = await User.findOne({name:user.name});
+          if(!olduser)olduser = await User.findOne({email:user.email});
+          if(olduser){
+            console.log('creating user forbidden: user exists',olduser)
+            return false;
+          }
+        } catch (e) {
+          console.log(e)
+        }
         //create new user:
         let cdate = Date.now();
         let newUser = {
@@ -428,21 +469,57 @@ const datacontroler = {
           openstreetmap: user.openstreetmap,
           mountpoint: user.mountpoint,
         }
-        //missing: redes, icon, password, url
+        //missing: redes, icon, password, url, images
         newUser.url = cleanurl(user.url);
         newUser.redes = this.userParseRedes(user.redes);
         //icon:
         if(user.icon){
           let iconurl = './public/static/logos/'+newUser.url+'.png';
-          let savedimg = await saveImage(iconurl, user.icon, 320, 240)
+          let savedimg = await saveImage(iconurl, user.icon.data, 320, 240)
           if(savedimg)newUser.icon=iconurl;
         }
         newUser.password = await this.userHashPassword(user.password);
+        //images
+        let newimages = [];
+        let x=0;
+        if(user.deleteimages){
+          //delete images from hdd BEFORE putting new one in as they could be "replaced"
+          for (x=0;x<user.deleteimages.length;x++){
+            let delpath = "."+user.deleteimages[x];
+            if(!fs.existsSync(delpath))continue;
+            //check for malformed strings:
+            if(user.deleteimages[x].substring(0,'/public/files/images/'.length)!='/public/files/images/')continue;
+            if(user.deleteimages[x].indexOf('..')>-1)continue;
+            //should we move or just delete files?
+            //move: fs.renameSync(delpath, './private/deleted'+content.deleteimages[x]);
+            //delete:
+            fs.unlinkSync(delpath);
+          }
+        }
+        if(user.images){
+          let imgpath = './public/files/images/'+user._id;
+          if(!fs.existsSync(imgpath))fs.mkdirSync(imgpath,true);
+          imgpath+='/';
+          for (x=0;x<user.images.length;x++){
+            let imgname = user.images[x].name;
+            imgname=this.chooseNewName(imgpath,imgname);
+            imgurl = imgpath.substring(1)+imgname;
+            if(!imgname){
+              console.log('imagename not allowed?',imgname,user.images[x]);
+              continue;
+            }
+            let savedimg = await saveImage(imgpath+imgname, user.images[x].data, 320, 240);
+            if(savedimg)newimages.push({
+              url:imgurl,
+              // title: user.imagetitles[x],
+            });
+          }
+        }
         //create a new user:
         const nuser = new User(newUser);
         try{
           const savedUser = await nuser.save();
-          console.log('saved user');
+          console.log('saved user',savedUser);
           return true;
         }catch(e){
           console.log(e);
@@ -452,7 +529,7 @@ const datacontroler = {
       }else{
         //update existing user:
         try {
-          let olduser = User.findOne({_id:user.id});
+          let olduser = await User.findOne({_id:user.id});
           if(!olduser){
             console.log('user not found:',user.id);
             return false;
@@ -507,7 +584,7 @@ async function saveImage(path, data, width, height){
       height:height,
       withoutEnlargement: true,
       fit:'inside'})
-      .toFile(iconurl);
+      .toFile(path);
       return true;
   } catch (e) {
     console.log(e);
@@ -520,11 +597,22 @@ function cleanurl(input,aditional){
   let raw = input;
   raw = raw.toLowerCase();
   for (let x=0;x<cars.length;x++){
-    raw = raw.replaceAll(cars[x], '');
+    if(raw.replaceAll)raw = raw.replaceAll(cars[x], '');
+    else raw = replaceAll(raw,cars[x],'');
   }
   if(aditional)raw=aditional+raw;
   //output.innerText = 'https://comecuco.org/'+raw;
   return raw;
+}
+
+function replaceAll(text,target,replacement){
+  let res=text;
+  let pos = text.indexOf(target);
+  while(pos>-1){
+    res=res.substring(0,pos)+replacement+res.substring(pos+target.length);
+    pos=res.indexOf(target);
+  }
+  return res;
 }
 
 module.exports = datacontroler;
