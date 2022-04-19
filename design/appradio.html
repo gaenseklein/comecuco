@@ -13,9 +13,9 @@
       </div>
       <div class="red">
         <input type="checkbox" name="verRedes" id="Banda">
-        <label for="Banda" id="ElegirBanda"><p>&#x1f50d;</p><h4 class="cambiarRed">Cambiar Banda</h4><h4 class="aceptarRed">Aceptar</h4>
+        <label for="Banda" id="ElegirBanda"><p>&#x1f50d;</p><h4 class="cambiarRed">Cambiar RED</h4><h4 class="aceptarRed">Aceptar</h4>
         </label>
-        <img id="tapamodeloradio" src="../public/static/modelo-appradio0.jpeg" alt="">
+        <img id="tapamodeloradio" src="../public/static/modelo-appradio2blur.jpeg" alt="">
 
         <input type="radio" class="redes" name="redes" id="COMECUCO" checked>
         <label for="COMECUCO" class="menuredes"><h2>COMECUCO</h2></label>
@@ -38,62 +38,63 @@
         <img class="logo" id="logoRadiosLibres" src="../public/static/AppRadioyTV/logoRadios-libres.png" alt="Logo de Radios Libres">
       </div>
     </div>
-    <div class="dial">
-      <button type="button" name="anterior" class="sintonizador" id="anterior"><</button>
-      <div class="espectro" id="COMECUCOactivo">
-        <ul>
-          <li class="activo" class="COMECUCO">
-            <h5>1- La Leñera</h5>
-            <audio src="https://www.comecuco.org/sites/default/files/Parar%20La%20Olla%20Recordando%20la%20crisis%20del%202001%2020%2012%202021%20Tanda%201.mp3" type="audio/mp3" controls>
-            </audio>
+    <div class="cajaDial">
+      <div class="dial">
+        <button type="button" name="anterior" class="sintonizador" id="anterior"><</button>
+        <div class="espectro" id="COMECUCOactivo">
+          <ul>
+            <li class="activo" class="COMECUCO">
+              <h5>1- La Leñera</h5>
+              <audio src="https://www.comecuco.org/sites/default/files/Parar%20La%20Olla%20Recordando%20la%20crisis%20del%202001%2020%2012%202021%20Tanda%201.mp3" type="audio/mp3" controls>
+              </audio>
+            </li>
+            <li>
+              <h5>2- Cuyum</h5>
+              <audio src="ALasBarricadas.mp3" type="audio/mp3" controls></audio>
+            </li>
+            <li class="COMECUCO">
+              <h5>3- Radio Sin Dueño</h5>
+              <audio src="https://www.comecuco.org/sites/default/files/Parar%20La%20Olla%20Recordando%20la%20crisis%20del%202001%2020%2012%202021%20Tanda%201.mp3" type="audio/mp3" controls>Tu navegador no soporta HTML5 audio.</audio>
+            </li>
+            <li>
+              <h5>4- La Mosquitera</h5>
+              <audio src="ALasBarricadas.mp3" type="audio/mp3" controls></audio>
+            </li>
+            <li>
+              <h5>5- La Pujante</h5>
+              <audio src="https://www.comecuco.org/sites/default/files/Parar%20La%20Olla%20Recordando%20la%20crisis%20del%202001%2020%2012%202021%20Tanda%201.mp3" type="audio/mp3" controls></audio>
+            </li>
+            <li>
+              <h5>6- Giramundo TV</h5>
+              <div class="cajavideo">
+                <iframe width="256" height="144" src="https://www.youtube.com/embed/i4rlKGYUPTo" title="YouTube video player" frameborder="0" allow="autoplay" allowfullscreen></iframe>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <button type="button" name="posterior" class="sintonizador" id="posterior">></button>
+        <div class="volumen">
+         <input id="barra" type="range" min="0" max="1" value="0" step="0.1">
+         <span id="valor"></span>
+        </div>
+        <ul id="botoneraDeMemorias">
+          <li>
+            <button type="button" name="button" id="memoria1" class="testbutton"><h6>M1</h6></button>
           </li>
           <li>
-            <h5>2- Cuyum</h5>
-            <audio src="ALasBarricadas.mp3" type="audio/mp3" controls></audio>
-          </li>
-          <li class="COMECUCO">
-            <h5>3- Radio Sin Dueño</h5>
-            <audio src="https://www.comecuco.org/sites/default/files/Parar%20La%20Olla%20Recordando%20la%20crisis%20del%202001%2020%2012%202021%20Tanda%201.mp3" type="audio/mp3" controls>Tu navegador no soporta HTML5 audio.</audio>
+            <button type="button" name="button" id="memoria2" class="testbutton"><h6>M2</h6></button>
           </li>
           <li>
-            <h5>4- La Mosquitera</h5>
-            <audio src="ALasBarricadas.mp3" type="audio/mp3" controls></audio>
+            <button type="button" name="button" id="memoria3" class="testbutton"><h6>M3</h6></button>
           </li>
           <li>
-            <h5>5- La Pujante</h5>
-            <audio src="https://www.comecuco.org/sites/default/files/Parar%20La%20Olla%20Recordando%20la%20crisis%20del%202001%2020%2012%202021%20Tanda%201.mp3" type="audio/mp3" controls></audio>
+            <button type="button" name="button" id="memoria4" class="testbutton"><h6>M4</h6></button>
           </li>
           <li>
-            <h5>6- Giramundo TV</h5>
-            <div class="cajavideo">
-              <img src="" id="tapamodeloradioTV" alt="">
-              <iframe width="256" height="144" src="https://www.youtube.com/embed/i4rlKGYUPTo" title="YouTube video player" frameborder="0" allow="autoplay" allowfullscreen></iframe>
-            </div>
+            <button type="button" name="button" id="memoria5" class="testbutton"><h6>M5</h6></button>
           </li>
         </ul>
       </div>
-      <button type="button" name="posterior" class="sintonizador" id="posterior">></button>
-      <div class="volumen">
-       <input id="barra" type="range" min="0" max="1" value="0" step="0.1">
-       <span id="valor"></span>
-      </div>
-      <ul id="botoneraDeMemorias">
-        <li>
-          <button type="button" name="button" id="memoria1" class="testbutton"><h6>M1</h6></button>
-        </li>
-        <li>
-          <button type="button" name="button" id="memoria2" class="testbutton"><h6>M2</h6></button>
-        </li>
-        <li>
-          <button type="button" name="button" id="memoria3" class="testbutton"><h6>M3</h6></button>
-        </li>
-        <li>
-          <button type="button" name="button" id="memoria4" class="testbutton"><h6>M4</h6></button>
-        </li>
-        <li>
-          <button type="button" name="button" id="memoria5" class="testbutton"><h6>M5</h6></button>
-        </li>
-      </ul>
     </div>
 
 
