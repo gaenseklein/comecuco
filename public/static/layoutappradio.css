@@ -21,66 +21,71 @@ ul{
   src:url(KeepCalm-Medium.ttf);
 }
 
-img#modeloradio{
-  position: absolute;
-  top: 40px;
-  left: 0px;
-  width: 300px;
-  z-index: 0;
+.bodyappradio{
+  background-image: url("../static/modelo-appradioTV.png");
+  background-repeat: no-repeat;
+  background-color: rgb(208, 189, 122);
+  background-position: center;
+  background-size: 50vw;
+  background-position: 50% 7em;
 }
 
 img#tapamodeloradio{
   display: none;
   position: absolute;
-  top: 40px;
-  left: 0px;
-  width: 300px;
-  z-index: 2;
+  top: 7em;
+  left: 0%;
+  width: 50vw;
+  z-index: 3;
 }
 
 div.contenedorEncabezado{
   display: grid;
   grid-template-areas:
     "titulo redes";
-  grid-template-columns: 60px 230px;
+  grid-template-columns: 12vw 37vw;
   background-color: #e93e1f;
   color: #ffffff;
-  width: 300px;
-  height: 40px;
+  width: 50vw;
+  height: 7em;
   align-items: initial;
   justify-items: center;
   position: relative;
+  top: 0;
+  left: 25%;
   z-index: 4;
-  grid-column-gap: 10px;
+  grid-column-gap: 1vw;
+
 }
 
 .titulo{
   grid-area: titulo;
   background-color: white;
   width: 100%;
-  height: 40px;
+  height: 7em;
+  align-content: center;
+  display: flex;
 }
 
 h1{
   font-family: patagonian;
   font-size: x-small;
   position: absolute;
-  left: 1000px;
+  left: -10000px;
 }
 
 .titulo img{
-height: 40px;
+width: 100%;
 }
 
 .red{
   grid-area: redes;
   display: grid;
-  grid-template-areas: "cambiar red logo"
-                        "banda banda vacio";
-  grid-template-columns: 90px 90px 50px;
-  grid-template-rows: 40px auto;
+  grid-template-areas: "red cambiar"
+                        "banda banda";
+  grid-template-columns: 24vw 13vw;
+  grid-template-rows: 7em auto;
   align-items: center;
-  width: 230px;
 }
 
 .red input{
@@ -90,31 +95,38 @@ height: 40px;
 .red label.menuredes{
   display: none;
   position: relative;
-  height: 25px;
-  width: 90px;
+  height: 4vw;
   margin-top: 0;
   background-color: rgb(126, 126, 126);
   border: 1px solid;
   border-radius: 3px;
-  line-height: 25px;
   z-index: 6;
-  grid-column: 2/3;
+  grid-column: 1/2;
+  align-items: center;
+  justify-content: center;
 }
 
 #ElegirBanda{
   grid-area: cambiar;
   background-color: rgba(158, 108, 108, 0.83);
-  height: 25px;
-  width: 70px;
+  height: 4vw;
+  width: 8vw;
+  margin-top: 0;
   border: 1px solid;
   z-index: 5;
   align-items: center;
   display: flex;
-  padding-left: 3px;
+  padding-left: 0.5vw;
+  padding-right: 0.5vw;
+  border-radius: 5px;
+}
+
+#ElegirBanda p{
+  font-size: 2vw;
 }
 
 #ElegirBanda:hover{
-  background-color: rgba(158, 108, 108, 0.13);
+  background-color: rgba(158, 108, 108, 0.63);
   color: white;
   border: 1px solid black;
 }
@@ -124,7 +136,7 @@ height: 40px;
 }
 
 input[type="checkbox"]:checked ~ label.menuredes{
-  display: inline-block;
+  display: flex;
 }
 
 input[type="checkbox"]:checked ~ img#tapamodeloradio{
@@ -140,26 +152,10 @@ input[type="checkbox"]:checked + label h4.cambiarRed{
 }
 
 .red input.redes:checked + label{
-  display: block;
-  grid-area: red;
-  height: 25px;
-  width: 90px;
-  position: relative;
-  top: 0;
-  right: 0;
-  color: black;
-  cursor: context-menu;
-}
-
-.red input#COMECUCO:checked ~ div#COMECUCOactivo{
-  display: block;
+  display: none;
 }
 
 .red input#COMECUCO:checked ~ #logoCOMECUCO{
-  display: block;
-}
-
-.red input#FARCO:checked ~ div#FARCOactivo{
   display: block;
 }
 
@@ -167,15 +163,7 @@ input[type="checkbox"]:checked + label h4.cambiarRed{
   display: block;
 }
 
-.red input#RNMA:checked ~ div#RNMAactivo{
-  display: block;
-}
-
 .red input#RNMA:checked ~ #logoRNMA{
-  display: block;
-}
-
-.red input#AMARC:checked ~ div#AMARCactivo{
   display: block;
 }
 
@@ -183,20 +171,21 @@ input[type="checkbox"]:checked + label h4.cambiarRed{
   display: block;
 }
 
+.red input#RadiosLibres:checked ~ #logoRadiosLibres{
+  display: block;
+}
+
 h2{
   font-family: patagonian;
-  font-size: small;
   text-align: center;
-  background-color: rgba(153, 153, 153, 0.78);
   z-index: 5;
 }
 
 h4{
   font-family: KeepCalm;
-  font-size: xx-small;
+  font-size: 1.2vw;
   text-align: center;
-  margin: 3px;
-  line-height: 10px;
+  margin-left: 0.3vw;
 }
 
 h4.aceptarRed{
@@ -205,38 +194,75 @@ h4.aceptarRed{
 
 h5{
   font-family: KeepCalm;
-  font-size: revert;
+  font-size: 2vw;
   text-align: center;
-  margin: 3px;
+  margin: auto;
 }
 
 img.logo{
-  grid-area: logo;
+  grid-area: red;
   display: none;
-  justify-self: end;
+  justify-self: center;
+  width: 4vw;
+  width: auto;
+  max-width: 90%;
+  max-height: 90%;
 }
 
-#logoCOMECUCO, #logoRNMA, #logoAMARC{
-  width: 30px;
-  margin-top: 0;
-  margin-right: 5px;
+div.cajaDial{
+  position: relative;
+  top: 0;
+  width: 50vw;
+  height: 34vw;
+  left: 25%;
 }
 
-#logoFARCO{
-  width: 40px;
-  margin-top: 0;
+div.dial{
+  display: grid;
+  position: relative;
+  top: 21vw;
+  left: 4.5vw;
+  grid-template-areas:
+    "leftdial dial rightdial"
+    "leftdial pregrabado rightdial"
+    "tv1 volumen tv2";
+  grid-template-columns: 5vw 31.1vw 5vw;
+  grid-row-gap: 1vw;
+  /*background-color: #808384;*/
+  z-index: 1;
+  align-items: center;
+  justify-items: center;
+}
+
+.dial button#anterior{
+  grid-area: leftdial;
+}
+
+.dial button#posterior{
+  grid-area: rightdial;
+}
+
+.dial button.sintonizador{
+  border-radius: 50px;
+  font-size: 3vw;
+  width: 4.2vw;
+  background-color: rgba(252, 216, 139, 0.3);
+}
+
+.dial button.sintonizador:hover {
+  color: #FFFFFF !important;
+  background-color: rgba(252, 216, 139, 0.14);
 }
 
 div.espectro{
-    display: none;
-    position: absolute;
-    top: 165px;
-    left: 92px;
-    width: 110px;
-    height: 20px;
+    display: grid;
+    grid-area: dial;
+    width: 28vw;
+    height: 3vw;
     background-color: rgba(252, 216, 139, 0.44);
     border: 1px solid;
     border-radius: 5px;
+    align-content: center;
 }
 
 div.espectro li{
@@ -249,37 +275,23 @@ div.espectro li.activo{
 
 div.espectro li.activo audio{
   position: absolute;
-  left: -1000px;
+  left: -10000px;
 }
 
-div.dial{
-  display: grid;
+div.cajavideo{
   position: absolute;
-  top: 164px;
-  left: 44px;
-  grid-template-areas:
-    "leftdial dial dial rightdial"
-    "volumen pregrabado pregrabado tv";
-  grid-template-columns: 35px 74px 74px 35px;
-  /*background-color: #808384;*/
-  width: 300px;
-  height: 40px;
-  z-index: 1;
+  top: -16vw;
+  left: 10.2vw;
+  z-index: 2;
+  width: 20vw;
+  height: 11vw;
 }
 
-.dial button#anterior{
-  grid-area: leftdial;
-}
-
-.dial button#posterior{
-  grid-area: rightdial;
-}
-
-.dial button{
-  border-radius: 50px;
-  font-size: 20px;
-  width: 30px;
-  background-color: rgba(252, 216, 139, 0.44);
+iframe{
+  z-index: 2;
+  position: relative;
+  max-width: 100%;
+  max-height: 100%;
 }
 
 .dial .volumen{
@@ -287,6 +299,208 @@ div.dial{
 }
 
 .dial .volumen input{
-  width: 35px;
-  height: 4px;
+  width: 17vw;
+  height: 0.5vw;
+  margin-top: 0px;
 }
+
+ul#botoneraDeMemorias{
+  grid-area: pregrabado;
+  display: flex;
+  width: 28vw;
+  justify-content: space-evenly;
+}
+
+/*desde aca codigo para la barra de volumen*/
+
+input[type=range] {
+  height: 20px;
+  -webkit-appearance: none;
+  margin: 10px 0;
+  width: 100%;
+}
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 7px;
+  cursor: pointer;
+  animate: 0.2s;
+  box-shadow: 1px 1px 1px #000000;
+  background: rgba(252, 216, 139, 0.44);
+  border-radius: 5px;
+  border: 1px solid #000000;
+}
+input[type=range]::-webkit-slider-thumb {
+  box-shadow: 1px 1px 1px #28242B;
+  border: 1px solid #FAFFB5;
+  height: 12px;
+  width: 11px;
+  border-radius: 50px;
+  background: #B0A13C;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -3.5px;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: rgba(252, 216, 139, 0.44);
+}
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 7px;
+  cursor: pointer;
+  animate: 0.2s;
+  box-shadow: 1px 1px 1px #000000;
+  background: rgba(252, 216, 139, 0.44);
+  border-radius: 5px;
+  border: 1px solid #000000;
+}
+input[type=range]::-moz-range-thumb {
+  box-shadow: 1px 1px 1px #28242B;
+  border: 1px solid #FAFFB5;
+  height: 12px;
+  width: 11px;
+  border-radius: 50px;
+  background: #B0A13C;
+  cursor: pointer;
+}
+
+/*desde acá botones para memoria de radios*/
+
+.testbutton {
+  font-family: KeepCalm;
+  color: #000000 !important;
+  font-size: 1.7vw;
+  padding: 6px 6px;
+  border-radius: 10px;
+  border: 1px solid #000000;
+  background: rgba(252, 216, 139, 0.44);
+}
+
+.testbutton:hover {
+  color: #FFFFFF !important;
+  background: #CFA329;
+}
+
+
+@media screen and (orientation: portrait) {
+
+  .bodyappradio{
+    background-size: 100vw;
+    background-position: 50% 25vw;
+  }
+
+  img#tapamodeloradio{
+    top: 25vw;
+    left: 0%;
+    width: 100vw;
+  }
+
+  div.contenedorEncabezado{
+    grid-template-columns: 24vw 74vw;
+    width: 100vw;
+    height: 25vw;
+    top: 0;
+    left: 0%;
+    grid-column-gap: 2vw;
+  }
+
+  .titulo{
+    height: 25vw;
+  }
+
+  .red{
+    grid-template-columns: 55vw 16vw;
+    grid-template-rows: 25vw auto;
+  }
+
+  .red label.menuredes{
+    height: 8vw;
+    width: 54vw;
+  }
+
+  #ElegirBanda{
+    height: 5vw;
+    width: 13vw;
+    padding-left: 1vw;
+  }
+
+  h2{
+    font-size: 2vw;
+  }
+
+  h4{
+    font-size: 1.7vw;
+  }
+
+  h5{
+    font-size: 4vw;
+  }
+
+  img.logo{
+    max-width: 90%;
+    max-height: 90%;
+  }
+
+  div.cajaDial{
+    width: 100vw;
+    height: 69vw;
+    left: 0;
+  }
+
+  div.espectro{
+      top: 20vw;
+      left: 12vw;
+      width: 36vw;
+      height: 12vw;
+  }
+
+  div.dial{
+    top: 40vw;
+    left: 9.5vw;
+    grid-template-columns: 10vw 62vw 10vw;
+    grid-row-gap: 2.5vw;
+  }
+
+  .dial button.sintonizador{
+    font-size: 8vw;
+    width: 10vw;
+  }
+
+  div.espectro{
+    width: 50vw;
+    height: 6vw;
+  }
+
+  div.cajavideo{
+    top: -30vw;
+    left: 20vw;
+    width: 40vw;
+    height: 22vw;
+  }
+
+  div.cajavideo iframe{
+    width: 352px;
+    height: 198px;
+  }
+
+  .dial .volumen input{
+    width: 31vw;
+    height: 0.5vw;
+  }
+
+  ul#botoneraDeMemorias{
+    width: 48vw;
+  }
+
+  ul#botoneraDeMemorias li{
+    ;
+  }
+
+
+  .testbutton {
+    font-size: 4vw;
+    padding: 1.2vw 1.2vw;
+    border-radius: 10px;
+  }
