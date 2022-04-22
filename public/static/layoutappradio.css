@@ -27,13 +27,13 @@ ul{
   background-color: rgb(208, 189, 122);
   background-position: center;
   background-size: 50vw;
-  background-position: 50% 7em;
+  background-position: 50% 9vw;
 }
 
 img#tapamodeloradio{
   display: none;
   position: absolute;
-  top: 7em;
+  top: 9vw;
   left: 0%;
   width: 50vw;
   z-index: 3;
@@ -47,7 +47,7 @@ div.contenedorEncabezado{
   background-color: #e93e1f;
   color: #ffffff;
   width: 50vw;
-  height: 7em;
+  height: 9vw;
   align-items: initial;
   justify-items: center;
   position: relative;
@@ -62,7 +62,7 @@ div.contenedorEncabezado{
   grid-area: titulo;
   background-color: white;
   width: 100%;
-  height: 7em;
+  height: 9vw;
   align-content: center;
   display: flex;
 }
@@ -84,7 +84,7 @@ width: 100%;
   grid-template-areas: "red cambiar"
                         "banda banda";
   grid-template-columns: 24vw 13vw;
-  grid-template-rows: 7em auto;
+  grid-template-rows: 9vw auto;
   align-items: center;
 }
 
