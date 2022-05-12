@@ -4,7 +4,7 @@ var radioapp={
       nombre: 'comecuco',
       //si miembro tiene un mountpoint se toma base + mountpoint para src del audio
       //si no usa el src directo del miembro:
-      base: 'https://comecuco.org:9000/', 
+      base: 'https://comecuco.org:9000/',
       miembros: [
         {tipo: 'radio', nombre: 'la lenera', mountpoint:"lalenera"},
         {tipo: 'radio', nombre: 'radio cuyum', mountpoint:"Cuyum"},
@@ -62,11 +62,21 @@ var radioapp={
     let miembroact = this.redActual.miembros[index]
     this.radioActual = index
     if(miembroact.tipo=='radio'){
+      let videoframe = document.getElementById('videoiframe')
+      if(videoframe)videoframe.parentElement.removeChild(videoframe)
       let src=miembroact.src
       if(miembroact.mountpoint)src=this.redActual.base + miembroact.mountpoint
       this.radioplayer.src=src
       this.radioplayer.load()
     }else{
+      if(miembroact.tipo=='video'){
+        let iframe = document.createElement('iframe');
+        iframe.width="256"
+        iframe.height="144"
+        iframe.id='videoiframe'
+        iframe.src=miembroact.src;
+        videopreview.appendChild(iframe);
+      }
       this.radioplayer.pause()
     }
 

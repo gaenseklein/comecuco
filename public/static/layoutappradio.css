@@ -495,12 +495,25 @@ input[type=range]::-moz-range-thumb {
   }
 
   ul#botoneraDeMemorias li{
-    ;
   }
-
+}
 
   .testbutton {
-    font-size: 4vw;
+    font-size: large;
     padding: 1.2vw 1.2vw;
     border-radius: 10px;
   }
+
+/*videopreview para youtube videos */
+#videopreview {
+  position: absolute;
+  left: 14.5vw;
+  top: 5vw;
+  width: 20vw;
+  height: 11vw;
+}
+
+#videopreview iframe{
+  max-width:100%;
+  max-height:100%;
+}
