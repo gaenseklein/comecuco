@@ -1,5 +1,6 @@
 const raw = {
   quienessomos: require('./templates/quienessomos.js'),
+  frontpage: require('./templates/frontpage.js'),
   form:{
     usuario: require('./templates/forms/usuario.js'),
     iniciar: require('./templates/forms/iniciosesion.js'),

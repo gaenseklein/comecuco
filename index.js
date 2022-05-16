@@ -36,7 +36,7 @@ mongoose.connect(process.env.DB_CONNECT,
 app.use(express.json({limit: '50mb'}));
 // app.use('/admin',adminRoute);
 app.use('/',fpRoute);
-// app.use('/notes',notesRoute);
+// app.use('/noticia',notesRoute);
 app.use('/iniciar',express.urlencoded({extended:false}),loginRoute);
 app.use('/user',auth, express.urlencoded({extended:true}),userRoute);
 

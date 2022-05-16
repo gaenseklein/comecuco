@@ -2,7 +2,7 @@ const template = function(data){
     let x=0;
     let redesString = "";
     for(x=0;x<data.redes.length;x++){
-        redesString+= data.redes[x].red+" "+data.redes[x].url;
+        redesString+= " "+data.redes[x].red+" "+data.redes[x].url;
     }
     let eliminarfotos = "";
     if(data.images)for(x=0;x<data.images.length;x++){
