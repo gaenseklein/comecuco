@@ -5,6 +5,7 @@ const templates = require('../templates.js');
 const fileUpload = require('express-fileupload');
 
 const router = require('express').Router();
+/*
 router.get('/iniciar', async (req,res)=>{
   try{
     let loginpage = templates.buildForm('iniciar');
@@ -33,6 +34,16 @@ router.post('/iniciar', async (req,res)=>{
   }
 });
 
+router.get('/cerrar', async (req,res)=>{
+  try{
+    res.clearCookie('jwt');
+    res.redirect('/');
+  }catch(e){
+    console.warn(e);
+    res.status(400).send('error');
+  }
+});
+*/
 router.get('/nuevo', async (req,res)=>{
   let response = templates.buildForm('usuario');
   try{
@@ -114,4 +125,16 @@ router.post('/cambia/', fileUpload(), async (req,res)=>{
     res.status(400).send('error');
   }
 });
+
+router.get('/',async (req,res)=>{
+  //dashboard:
+
+});
+
+router.get('/noticia/:id',async (req,res)=>{
+  //edit noticia
+})
+router.post('/noticia/:id',async (req,res)=>{
+  //edit noticia
+})
 module.exports = router;

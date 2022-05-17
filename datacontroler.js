@@ -59,6 +59,9 @@ const datacontroler = {
 
 
       let columnas = await Columna.find();
+      columnas = columnas.sort(function(a,b){return a.lastUpdated - b.lastUpdated})
+      //solo columnas con ultima subida no mas viejo que 2 meses?
+
       query={
         ultimaSubida:{'$gt':fechaminima}
       };
@@ -208,6 +211,35 @@ const datacontroler = {
       return false;
     }
   },
+  // logged-in-stuff:
+  dashboard: async function(jwt){
+    //user._id & user.url available
+    try {
+      let user = await User.findOne({_id:jwt._id})
+      if(!user){
+        console.log('user not found',jwt);
+        return false;
+      }
+      let query={idDeAutor:user._id};
+      let qopt={sort : {pubdate:-1}, limit:20};
+      let noticias = await Noticia.find(query,null,qopt)
+      query={autor:'comecuco'}
+      let comecucos = await Noticia.find(query,null,qopt)
+      let columnas = await Columna.find({author:user.name})
+      let destacadas = destacada.calendarioseis() //meses,destacadas
+      return {
+        user:user,
+        noticias:noticias,
+        conjuntos:comecucos,
+        columnas: columnas,
+        destacadas:destacadas,
+      }
+    } catch (e) {
+      console.warn('dashboard went wrong',e)
+      return false
+    }
+  },
+  
   datainput: {
     chooseNewName: function(path,fname){
         let filename = fname.toLowerCase();
@@ -246,7 +278,7 @@ const datacontroler = {
       for(let t=updateobj.tags.length-1;t>=0;t--)if(updateobj.tags[t]=='')updateobj.tags.splice(t,1);
       if(updateobj.tags.length>0)Tags.addTags(updateobj.tags);
       //id:
-      updateobj.idDeAutor = user.id;
+      updateobj.idDeAutor = user._id;
       //pubdate:
       let pdate = new Date(content.pubdate);
       if(content.pubdate.length>0 && pdate!='Invalid Date'){
