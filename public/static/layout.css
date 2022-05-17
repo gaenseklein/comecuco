@@ -27,9 +27,8 @@ body{
   grid-template-areas:
     "logo logo topMenu topMenu"
     "clima clima buscador buscador"
-    "loMasLeido calecita calecita mediosEnVivo"
-    "loMasLeido calecita calecita video"
-    "loMasLeido calecita calecita resumenSemanal"
+    "loMasLeido calecita calecita blockRight"
+    "loMasLeido calecita calecita blockRight"
     "loMasLeido mediosMenu mediosMenu mediosMenu"
     "destacadas destacadas destacadas destacadas"
     "actualidad actualidad actualidad actualidad"
@@ -166,15 +165,12 @@ h3 a{
   padding-bottom: 1em;
 }
 
-.mediosEnVivo{
-  grid-area: mediosEnVivo;
+.cajaBlockRight{
+  grid-area: blockRight;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
 }
-.video{
-  grid-area:video;
-}
-.resumenSemanal{
-  grid-area: resumenSemanal;
-}
+
 .mediosMenu{
   grid-area:mediosMenu;
   padding-left: 2ch;
@@ -365,162 +361,73 @@ flex-wrap: wrap;
 .blockRight {
     text-align: center;
     width:90%;
-    justify-self: center;
-    margin: 20px auto 0;
-}
-
-.blockRight.video img{
-  width:100%;
-}
-
-.blockRight audio{
-  width:90%;
+    display: grid;
+    grid-template-areas:
+    "titulo"
+    "logo";
+    grid-gap: 1em;
 }
 
 .blockRight.mediosEnVivo{
-  display: grid;
-  grid-template-areas:
-  "titulo titulo titulo"
-  "prev medio prox"
-  "vacio medio nada";
-  grid-template-columns: 50px auto 50px;
-  grid-gap: 5px;
-  /*align-items:center;*/
+  margin: auto;
 }
 
-.blockRight.mediosEnVivo h2{
+.blockRight h2{
   grid-area:titulo;
-  margin-top: 0.8em;
-  margin-bottom: 1.5px;
-}
-.blockRight.mediosEnVivo ul{
-  grid-column: 1/4;
-  grid-row: 2/4;
-  margin:0;
-  padding: 0;
 }
 
-.blockRight.mediosEnVivo button{
-  grid-area:play;
+.blockRight.resumenSemanal h2{
+  margin-bottom: 0;
+}
+
+.blockRight.mediosEnVivo .miniApp{
+  grid-area:logo;
+  width: 90%;
+  display: grid;
+  justify-self: center;
+  position: relative;
+  grid-template-areas: "miniApp"
+                        "vacio";
+  margin-bottom: 1em;
+}
+
+.blockRight.mediosEnVivo a{
   width:2ch;
   height:2ch;
   justify-self: center;
-}
-.blockRight.mediosEnVivo audio{
-  grid-area:play;
-  justify-self:center;
-  align-self:center;
-}
-
-.blockRight.mediosEnVivo .nombre{
-  grid-area:nombre;
-}
-
-.blockRight.mediosEnVivo .arrowLeft{
-  grid-area:prev;
-}
-.blockRight.mediosEnVivo .arrowRight{
-  grid-area:prox;
-}
-
-.blockRight audio{
-  display:none;
-}
-
-.blockRight .playing audio,
-.blockRight.playing audio{
-  display:block;
-  max-width: 60%;
-}
-.blockRight .playing .playbutton,
-.blockRight.playing{
-  display:none;
-}
-
-.blockRight.mediosEnVivo li{
-  display: none;
-}
-.blockRight.mediosEnVivo li.activo{
-  display: grid;
-  grid-template-areas:
-  "play"
-  "nombre";
-  grid-template-rows: 1fr 1em;
-  padding-bottom: 0.5em;
-  grid-gap: 0.5em;
-}
-
-a.videolink {
-    position: relative;
-}
-
-.duration {
-    position: absolute;
-    right: 0.5ch;
-    bottom: 1ch;
-    background: black;
-    color: white;
-    font-family: patagonian;
-    font-size: large;
-    font-weight: bold;
-    padding-left: 1ch;
-    padding-right: 0.5ch;
+  align-self: center;
+  text-decoration: none;
+  position: relative;
+  z-index: 2;
+  grid-area: miniApp;
 }
 
 .blockRight.resumenSemanal {
-	display: grid;
-	grid-template-areas: "titulo"
-                        "logo";
-	grid-gap: 5px;
-	align-items: center;
+  margin: auto;
 }
 
 .blockRight.resumenSemanal a{
-  grid-area: titulo;
-  margin: 0.5em;
-  text-decoration: none;
-}
-
-.blockRight.resumenSemanal a h2{
-  margin: 0;
-}
-
-.blockRight.resumenSemanal.logoResumen{
   grid-area: logo;
-}
-
-.logoResumen{
-  grid-area:logo;
-  width: 65%;
-  opacity: 0.8;
-  margin: 0 auto 0.5em auto;
-}
-
-.nombre{
-  font-family: KeepCalm;
-  font-size: Medium;
-  margin: 0.5em 0;
-}
-
-.arrowLeft,
-.arrowRight{
-  background: rgba(255,255,255,0.3);
-  color: rgb(233, 62, 31);
-  font-size: x-large;
-  border-radius: 5px;
-  border:none;
-  display: block;
+  margin: 0 auto 1em;
   text-decoration: none;
-  font-weight:bold;
 }
 
-.arrowLeft{
-  margin: 37% 0 auto 0;
-  padding: 0 4px 4px 4px;
+img.imgMiniApp{
+  position: relative;
+  z-index: 1;
+  grid-area: miniApp;
+  justify-self: center;
+  align-self: center;
 }
-.arrowRight{
-  margin: 37% 0px auto 0;
-  padding: 0 4px 4px 4px;
+
+img.imgMiniApp{
+  width: 90%;
+  opacity: 0.9;
+}
+
+img.logoResumen{
+  width: 63%;
+  opacity: 0.8;
 }
 
 .playbutton{
@@ -827,9 +734,8 @@ input#search {
      grid-template-areas:
  /*    "logo logo topMenu topMenu"
      "clima clima buscador buscador"
-     "loMasLeido calecita calecita mediosEnVivo"
-     "loMasLeido calecita calecita video"
-     "loMasLeido calecita calecita resumenSemanal"
+     "loMasLeido calecita calecita blockRight"
+     "loMasLeido calecita calecita blockRight"
      "loMasLeido mediosMenu mediosMenu mediosMenu"
      "destacadas destacadas destacadas destacadas"
      "actualidad actualidad actualidad actualidad"
@@ -840,7 +746,7 @@ input#search {
      "topMenu topMenu topMenu"
      "clima clima clima"
      "buscador buscador buscador"
-     "mediosEnVivo video resumenSemanal"
+     "blockRight blockRight blockRight"
      "calecita calecita calecita"
      "mediosMenu mediosMenu mediosMenu"
      "loMasLeido loMasLeido loMasLeido"
@@ -869,6 +775,12 @@ input#search {
    .buscador{
      margin: 2em 0 2em 2em;
 
+   }
+
+   .cajaBlockRight{
+     display: grid;
+     grid-template-columns: 1fr 1fr;
+     grid-template-rows: auto;
    }
 
    .mediosMenu ul{
