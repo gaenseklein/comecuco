@@ -87,7 +87,10 @@ const datacontroler = {
   noticia: async function(id){
     try {
       let not = await Noticia.findOne({_id:id});
-      return not;
+      if(!not)return false;
+      let autor = await User.findOne({_id:not.idDeAutor})
+      if(!autor)return false;
+      return {noticia:not, autor:autor};
     } catch (e) {
       console.log(e);
       return false;
@@ -239,7 +242,7 @@ const datacontroler = {
       return false
     }
   },
-  
+
   datainput: {
     chooseNewName: function(path,fname){
         let filename = fname.toLowerCase();

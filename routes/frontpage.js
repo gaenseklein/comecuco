@@ -63,8 +63,11 @@ router.get('/resumensemanal', async (req,res)=>{
 router.get('/noticia/:id', async (req,res)=>{
   try {
     let data = await datacontroler.noticia(req.params.id);
-    let response='hello';
-    //response = templates.buildPage('frontpage',data);
+    if(!data){
+      res.status(404).send('oops, not found')
+      return;
+    }
+    let response= templates.buildPage('noticia',data);
     res.send(response);
   } catch (e) {
     console.warn(e);
