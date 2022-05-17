@@ -19,8 +19,9 @@
 
         <input type="radio" class="redes" name="redes" id="COMECUCO" checked>
         <label for="COMECUCO" class="menuredes"><h2>COMECUCO</h2></label>
-        <img class="logo" id="logoCOMECUCO" src="../public/static/logos/comecuco.png" alt="Logo del COMECUCO">
-
+        <a class="logo" id="logoCOMECUCO" href="https://comecuco.org">
+          <img class=""  src="../public/static/logos/comecuco.png" alt="Logo del COMECUCO">
+        </a>
         <input type="radio" class="redes" name="redes" id="FARCO">
         <label for="FARCO" class="menuredes"><h2>FARCO</h2></label>
         <img class="logo" id="logoFARCO" src="../public/static/logos/farco.png" alt="Logo de FARCO">
@@ -41,9 +42,9 @@
     <div class="cajaDial">
       <div id="videopreview">
         <audio id="radioplayer" src="https://comecuco.org:9000/Cuyum" autoplay>
-          <!--<iframe width="256" height="144" src="https://www.youtube.com/embed/i4rlKGYUPTo" title="YouTube video player" frameborder="0" allow="autoplay" allowfullscreen></iframe>-->
-
         </audio>
+        <div id="noHayRadio" class="">No hay señal</div>
+        <!--<iframe width="256" height="144" src="https://www.youtube.com/embed/i4rlKGYUPTo" title="YouTube video player" frameborder="0" allow="autoplay" allowfullscreen></iframe>-->
       </div>
       <div class="dial">
         <button type="button" name="anterior" class="sintonizador" id="anterior" onclick="radioapp.cambiaRadio(true)">&lt;</button>

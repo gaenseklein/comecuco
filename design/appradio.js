@@ -66,8 +66,17 @@ var radioapp={
       if(videoframe)videoframe.parentElement.removeChild(videoframe)
       let src=miembroact.src
       if(miembroact.mountpoint)src=this.redActual.base + miembroact.mountpoint
-      this.radioplayer.src=src
-      this.radioplayer.load()
+      noHayRadio.classList.remove('nohaysenal')
+      this.radioplayer.onerror = function(e){
+        console.log('error on radioplayer',e);
+        noHayRadio.classList.add('nohaysenal')
+      }
+      try {
+        this.radioplayer.src=src
+        this.radioplayer.load()
+      } catch (e) {
+        noHayRadio.classList.add('nohaysenal')
+      }
     }else{
       if(miembroact.tipo=='video'){
         let iframe = document.createElement('iframe');
