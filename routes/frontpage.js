@@ -71,4 +71,16 @@ router.get('/noticia/:id', async (req,res)=>{
     res.status(400).send('oops, something went wrong');
   }
 });
+router.get('/medio/:url', async (req,res)=>{
+  try {
+    let data = await datacontroler.medio(req.params.url);
+    let response='hello';
+    //response = templates.buildPage('frontpage',data);
+    res.send(response);
+  } catch (e) {
+    console.warn(e);
+    res.status(400).send('oops, something went wrong');
+  }
+});
+
 module.exports = router;
