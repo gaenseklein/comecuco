@@ -13,7 +13,7 @@ const template = function(data){
       <head>
         <meta charset="utf-8">
         <title>Quienes Somos: COMECUCO</title>
-        <link rel="stylesheet" href="../public/static/layout.css">
+        <link rel="stylesheet" href="/public/static/layout.css">
         <script type="text/javascript">
           function startTime()
           {
@@ -40,7 +40,7 @@ const template = function(data){
       </head>
       <body onload="startTime()" class="subpaginamedio">
         <div class="logo">
-          <p class="encabezado"><a href="frontpage.html">
+          <p class="encabezado"><a href="/">
             COMECUCO</a>
           </p>
           <div class="subtitle">

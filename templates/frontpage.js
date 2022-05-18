@@ -22,39 +22,39 @@ const template = function(data){
         </a>
       </li>
       `;
-      //calecita:
-      let calecita = ''
-      for(x=0;x<calecitaLength;x++){
-        let ce = data.articulos[x]
-        let cltactivo=''
-        if(x==0)cltactivo='class="activo"'
-        let pimage = '';
-        if(ce.images.length>0)pimage = `<img class="caruselpreviewimage" src="${ce.images[0].url}" alt="${ce.images[0].title}">`
-        let pactivosstring=''
-        for(pa=0;pa<calecitaLength;pa++){
-          let pactivo=''
-          if(pa==x)pactivo='activo'
-          pactivostring+=`<div class="puntito ${pactivo}"></div>`
-        }
-
-
-        let clt=`<li ${ctlactivo}>
-          <div class="subtitle">
-                ${ce.subtitle}
-          </div>
-          <h3>
-            <a href="noticia/${ce._id}">${ce.title}</a>
-          </h3>
-          <div class="autor">
-               Por ${ce.author}
-          </div>
-          <a href="noticia/${ce._id}">${pimage}</a>
-          <div class="puntitos">
-            ${pactivosstring}
-          </div>
-        </li>`
-        calecita+=clt
+    }
+    //calecita:
+    let calecita = ''
+    for(x=0;x<calecitaLength && x<data.articulos.length;x++){
+      let ce = data.articulos[x]
+      let cltactivo=''
+      if(x==0)cltactivo='class="activo"'
+      let pimage = '';
+      if(ce.images.length>0)pimage = `<img class="caruselpreviewimage" src="${ce.images[0].url}" alt="${ce.images[0].title}">`
+      let pactivosstring=''
+      for(pa=0;pa<calecitaLength;pa++){
+        let pactivo=''
+        if(pa==x)pactivo='activo'
+        pactivostring+=`<div class="puntito ${pactivo}"></div>`
       }
+
+
+      let clt=`<li ${ctlactivo}>
+      <div class="subtitle">
+      ${ce.subtitle}
+      </div>
+      <h3>
+      <a href="noticia/${ce._id}">${ce.title}</a>
+      </h3>
+      <div class="autor">
+      Por ${ce.author}
+      </div>
+      <a href="noticia/${ce._id}">${pimage}</a>
+      <div class="puntitos">
+      ${pactivosstring}
+      </div>
+      </li>`
+      calecita+=clt
     }
     //medios menu: data.medios
     let mediosmenu = ''
@@ -88,22 +88,22 @@ const template = function(data){
       </div>
       </li>`
       destacadasmenu+=destacadatemplate
-      //columnas: data.columnas - tipo columna
-      let columnamenu = ''
-      for(x=0;x<maxColumnas && x<data.columnas.length;x++){
+    }
+    //columnas: data.columnas - tipo columna
+    let columnamenu = ''
+    for(x=0;x<maxColumnas && x<data.columnas.length;x++){
 
-        let columnatemplate = `<li>
-        <a href="/columna/${data.columnas[x].url}">
-        <h3>${data.columnas[x].title}</h3>
-        <img src="${data.columnas[x].ultimoCapitulo.imagen}" alt="${data.columnas[x].ultimoCapitulo.titulo}">
-        </a>
-        </li>`
-        columnamenu+=columnatemplate
-      }
+      let columnatemplate = `<li>
+      <a href="/columna/${data.columnas[x].url}">
+      <h3>${data.columnas[x].title}</h3>
+      <img src="${data.columnas[x].ultimoCapitulo.imagen}" alt="${data.columnas[x].ultimoCapitulo.titulo}">
+      </a>
+      </li>`
+      columnamenu+=columnatemplate
     }
     //produccionesColectivas: data.colectivas
     let pcolectivasmenu=''
-    for(x=0;x<2;x++){
+    for(x=0;x<2 && x<data.colectivas.length;x++){
       let ptipo = 'VIDEO'
       if(data.colectivas[x].audios.length>0)ptipo='AUDIO'
       let pcolectivastemplate = `<li>
@@ -113,7 +113,57 @@ const template = function(data){
       </li>`
       pcolectivasmenu+=pcolectivastemplate
     }
-
+    //2 grandes: solo si hay bastante articulos
+    let grandesmenu = ''
+    if(data.articulos.length>calecitaLength+1)grandesmenu=`<li>
+      <img src="${data.articulos[calecitaLength+0].images[0].url}" alt="${data.articulos[calecitaLength+0].images[0].title}">
+      <h3><a href="noticia/${data.articulos[calecitaLength+0]._id}">
+        ${data.articulos[calecitaLength+0].title}
+      </a></h3>
+      <div class="resumen">
+        ${data.articulos[calecitaLength+0].resumen}
+      </div>
+    </li>
+    <li>
+      <img src="${data.articulos[calecitaLength+1].images[0].url}" alt="${data.articulos[calecitaLength+1].images[0].title}">
+      <h3><a href="noticia/${data.articulos[calecitaLength+1]._id}">
+        ${data.articulos[calecitaLength+1].title}
+      </a></h3>
+      <div class="resumen">
+        ${data.articulos[calecitaLength+1].resumen}
+      </div>
+    </li>`
+    //4 chiquitas: solo si hay bastante articulos
+    let chiquitasmenu = ''
+    if(data.articulos.length>calecitaLength+4){
+      chiquitasmenu = `<li>
+        <img src="${data.articulos[calecitaLength+2].images[0].url}" alt="${data.articulos[calecitaLength+2].images[0].title}">
+        <h3><a href="noticia/${data.articulos[calecitaLength+2]._id}">
+          ${data.articulos[calecitaLength+2].title}
+        </a></h3>
+        <div class="fecha">
+          ${new Date(data.articulos[calecitaLength+2].pubdate).toLocaleDateString('es')}
+        </div>
+      </li>
+      <li>
+        <img src="${data.articulos[calecitaLength+3].images[0].url}" alt="${data.articulos[calecitaLength+3].images[0].title}">
+        <h3><a href="noticia/${data.articulos[calecitaLength+3]._id}">
+          ${data.articulos[calecitaLength+3].title}
+        </a></h3>
+        <div class="fecha">
+          ${new Date(data.articulos[calecitaLength+3].pubdate).toLocaleDateString('es')}
+        </div>
+      </li>
+      <li>
+        <img src="${data.articulos[calecitaLength+4].images[0].url}" alt="${data.articulos[calecitaLength+4].images[0].title}">
+        <h3><a href="noticia/${data.articulos[calecitaLength+4]._id}">
+          ${data.articulos[calecitaLength+4].title}
+        </a></h3>
+        <div class="fecha">
+          ${new Date(data.articulos[calecitaLength+4].pubdate).toLocaleDateString('es')}
+        </div>
+      </li>`
+    }
     let raw = `
     <!DOCTYPE html>
     <html lang="es" dir="ltr">
@@ -157,7 +207,7 @@ const template = function(data){
         <div class="topMenu">
             <ul>
               <li><a href="todaslasnoticias.html">Todas las noticias</a></li>
-              <li><a href="quienessomos.html">Quienes Somos</a></li>
+              <li><a href="/quienessomos">Quienes Somos</a></li>
             </ul>
         </div>
         <div class="clima">
@@ -226,54 +276,11 @@ const template = function(data){
           </div>
           <div class="actualidad">
           <ul class="grandes">
-            <li>
-              <img src="${data.articulos[calecitaLength+0].images[0].url}" alt="${data.articulos[calecitaLength+0].images[0].title}">
-              <h3><a href="noticia/${data.articulos[calecitaLength+0]._id}">
-                ${data.articulos[calecitaLength+0].title}
-              </a></h3>
-              <div class="resumen">
-                ${data.articulos[calecitaLength+0].resumen}
-              </div>
-            </li>
-            <li>
-              <img src="${data.articulos[calecitaLength+1].images[0].url}" alt="${data.articulos[calecitaLength+1].images[0].title}">
-              <h3><a href="noticia/${data.articulos[calecitaLength+1]._id}">
-                ${data.articulos[calecitaLength+1].title}
-              </a></h3>
-              <div class="resumen">
-                ${data.articulos[calecitaLength+1].resumen}
-              </div>
-            </li>
+            ${grandesmenu}
 
           </ul>
           <ul class="chiquitas">
-            <li>
-              <img src="${data.articulos[calecitaLength+2].images[0].url}" alt="${data.articulos[calecitaLength+2].images[0].title}">
-              <h3><a href="noticia/${data.articulos[calecitaLength+2]._id}">
-                ${data.articulos[calecitaLength+2].title}
-              </a></h3>
-              <div class="fecha">
-                ${new Date(data.articulos[calecitaLength+2].pubdate).toLocaleDateString('es')}
-              </div>
-            </li>
-            <li>
-              <img src="${data.articulos[calecitaLength+3].images[0].url}" alt="${data.articulos[calecitaLength+3].images[0].title}">
-              <h3><a href="noticia/${data.articulos[calecitaLength+3]._id}">
-                ${data.articulos[calecitaLength+3].title}
-              </a></h3>
-              <div class="fecha">
-                ${new Date(data.articulos[calecitaLength+3].pubdate).toLocaleDateString('es')}
-              </div>
-            </li>
-            <li>
-              <img src="${data.articulos[calecitaLength+4].images[0].url}" alt="${data.articulos[calecitaLength+4].images[0].title}">
-              <h3><a href="noticia/${data.articulos[calecitaLength+4]._id}">
-                ${data.articulos[calecitaLength+4].title}
-              </a></h3>
-              <div class="fecha">
-                ${new Date(data.articulos[calecitaLength+4].pubdate).toLocaleDateString('es')}
-              </div>
-            </li>
+            ${chiquitasmenu}
           </ul>
         </div>
         <div class="produccionesColectivas">
@@ -305,7 +312,7 @@ const template = function(data){
               <ul>
                 ${columnamenu}
                 <li class="ultimoli">
-                  <a href="todaslascolumnas.html" class="finalscroll">
+                  <a href="/todaslascolumnas" class="finalscroll">
                     <h3>Ver todas las Columnas</h3>
                   </a>
                 </li>

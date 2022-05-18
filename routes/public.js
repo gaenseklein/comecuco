@@ -8,7 +8,7 @@ router.get('/', async (req,res)=>{
   try {
     let data = await datacontroler.frontpage();
     let response='hello';
-    //response = templates.buildPage('frontpage',data);
+    response = templates.buildPage('frontpage',data);
     res.send(response);
   } catch (e) {
     console.warn(e);

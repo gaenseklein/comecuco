@@ -7,7 +7,7 @@ const fs = require('fs');
 
 //Import routes
 const adminRoute = require('./routes/admin');
-const fpRoute = require('./routes/frontpage');
+const fpRoute = require('./routes/public');
 const notesRoute = require('./routes/notes');
 const userRoute = require('./routes/user');
 const loginRoute = require('./routes/login');
