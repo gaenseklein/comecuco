@@ -35,7 +35,7 @@ module.exports = function(data){
     let dcl='';
     if(x<2)dcl='pasado'
     if(x==2)dcl='actual'
-    if(dest.length<1){
+    if(dest===undefined || dest.length<1){
       dest='falta de eligir'
       dcl='noeligido'
     }
@@ -45,7 +45,7 @@ module.exports = function(data){
     <li class="${dcl}">
     <span class="mes">${mes}</span>
     <span class="tag">${dest}</span>
-    <button value="${x}" ${dis} onclick="cambiaDestacada(this)" >cambiar</button>
+    <button value="${data.destacadas.meses[x]}" ${dis} onclick="cambiaDestacada(this)" >cambiar</button>
     </li>`
     destacadamenu+=tmpl
   }
@@ -142,4 +142,6 @@ module.exports = function(data){
   </html>
 
   `
+  // console.log('builded dash-page',raw);
+  return raw;
 }

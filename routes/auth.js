@@ -12,7 +12,7 @@ const auth = async function(req,res,next){
   let token = cookie.substring(cookie.indexOf('jwt=')+'jwt='.length);
   // console.log('jwt',token);
   const verified = jwt.verify(token,process.env.TOKEN_SECRET);
-  // console.log('verified:',verified);
+  console.log('verified:',verified);
   if(verified){
     req.user=verified;
     next();

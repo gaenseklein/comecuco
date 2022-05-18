@@ -128,7 +128,15 @@ router.post('/cambia/', fileUpload(), async (req,res)=>{
 
 router.get('/',async (req,res)=>{
   //dashboard:
-
+  try {
+    let data = await datacontroler.dashboard(req.user)
+    if(data)console.log('data fetched',data);
+    let page = templates.buildPage('dash',data)
+    res.send(page)
+  } catch (e) {
+    console.log('dashboard went wrong',e)
+    res.status(400).send('an error occured')
+  }
 });
 
 router.get('/noticia/:id',async (req,res)=>{

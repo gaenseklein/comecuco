@@ -229,7 +229,7 @@ const datacontroler = {
       query={autor:'comecuco'}
       let comecucos = await Noticia.find(query,null,qopt)
       let columnas = await Columna.find({author:user.name})
-      let destacadas = destacada.calendarioseis() //meses,destacadas
+      let destacadas = Destacada.calendarioseis() //meses,destacadas
       return {
         user:user,
         noticias:noticias,

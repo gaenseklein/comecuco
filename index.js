@@ -12,6 +12,7 @@ const notesRoute = require('./routes/notes');
 const userRoute = require('./routes/user');
 const loginRoute = require('./routes/login');
 const auth = require('./routes/auth');
+const api = require('./routes/api');
 //initializa dotenv:
 dotenv.config();
 
@@ -39,7 +40,8 @@ app.use('/',fpRoute);
 // app.use('/noticia',notesRoute);
 app.use('/iniciar',express.urlencoded({extended:false}),loginRoute);
 app.use('/user',auth, express.urlencoded({extended:true}),userRoute);
-
+// app.use('/user', express.urlencoded({extended:true}),userRoute);
+app.use('/api', auth, express.json({limit: '50mb'}),api);
 
 //serving static-files for test-purpose / can be served directly by nginx
 app.use('/public', express.static('./public'));
