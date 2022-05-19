@@ -261,7 +261,7 @@ const datacontroler = {
             title:'', subtitle:'',
             author:user.name,
             idDeAutor: user._id,
-            tags:'',
+            tags:[''],
             pubdate:Date.now(),
             images:[],
             audios:[],

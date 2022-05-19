@@ -134,6 +134,7 @@ module.exports = function(data){
       <h2>operaciones adicionales</h2>
       <a href="/user/nuevo">nuevo usuario/medio</a>
       <a href="/user/list">sobrevista usuarios</a>
+      <a href="/user/tags">editar tags</a>
     </div>
     <div class="footer">
     </div>

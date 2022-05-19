@@ -35,11 +35,11 @@ const template = function(data){
       for(pa=0;pa<calecitaLength;pa++){
         let pactivo=''
         if(pa==x)pactivo='activo'
-        pactivostring+=`<div class="puntito ${pactivo}"></div>`
+        pactivosstring+=`<div class="puntito ${pactivo}"></div>`
       }
 
 
-      let clt=`<li ${ctlactivo}>
+      let clt=`<li ${cltactivo}>
       <div class="subtitle">
       ${ce.subtitle}
       </div>
@@ -75,13 +75,20 @@ const template = function(data){
       let dimg = ''
       let dest=data.destacadas[x]
       if(dest.images.length>0)dimg=`<img src="${dest.images[0].url}" alt="${dest.images[0].title}">`
+      let resumen = dest.resumen;
+      if(!resumen){
+        let espaciopos=dest.body.indexOf(' ',15);
+        if(espaciopos>-1)resumen=dest.body.substring(0,espaciopos);
+        else resumen=dest.body.substring(0,15)
+        resumen+='...'
+      }
       let destacadatemplate=`<li>
       ${dimg}
       <h3><a href="/noticia/${dest._id}">
       ${dest.title}
       </a></h3>
       <div class="resumen">
-      ${dest.resumen}
+      ${resumen}
       </div>
       <div class="tag">
       ${dest.tags.join(' ')}
@@ -234,33 +241,20 @@ const template = function(data){
             ${calecita}
           </ul>
         </div>
-        <div class="blockRight mediosEnVivo">
-          <h2>MEDIOS EN VIVO</h2>
-          <ul>
-            <li class="activo">
-              <audio src="http://comecuco.org:8000/stream" controls="">
-              </audio>
-              <!-- https://unicode-table.com -->
-              <button class="playbutton">▶</button>
-              <div class="nombre">
-                La Pujante fm 93.3
-              </div>
-            </li>
-          </ul>
-          <button class="arrowLeft">❮</button>
-          <button class="arrowRight">❯</button>
-        </div>
-        <div class="blockRight video">
-          <a href="#" class="videolink">
-            <img src="giramundopreview.png" alt="">
-            <div class="duration">
-                29:10
+        <div class="cajaBlockRight">
+          <div class="blockRight mediosEnVivo">
+            <h2>MEDIOS EN VIVO</h2>
+            <div class="miniApp">
+              <img src="/public/static/modelo-appradioTV.png" alt="Reproductor Radios Comunitarias" class="imgMiniApp">
+              <a class="playbutton" href="/envivo" target="_blank">▶</a>
             </div>
-          </a>
-        </div>
-        <div class="blockRight resumenSemanal">
-          <a href="/resumensemanal"><h2>RESUMEN SEMANAL COMECUCO</h2></a>
-          <img class="logoResumen" src="/public/static/resumensemanal.gif" alt="">
+          </div>
+          <div class="blockRight resumenSemanal">
+            <h2>RESUMEN SEMANAL COMECUCO</h2>
+            <a href="/resumensemanal">
+              <img class="logoResumen" src="/public/static/resumensemanal.gif" alt="Logo COMECUCO">
+            </a>
+          </div>
         </div>
         <div class="mediosMenu">
           <h2>MEDIOS</h2>
@@ -337,7 +331,7 @@ const template = function(data){
           if(oldli)oldli.classList.remove('activo');
           if(lis[calecitaactivo])lis[calecitaactivo].classList.add('activo');
           calecitaactivo++;
-          if(calecitaactivo>3)calecitaactivo=0;
+          if(calecitaactivo>=lis.length)calecitaactivo=0;
           calecitatimer=setTimeout(calecita, calecitatiempo);
         }
         calecita();
