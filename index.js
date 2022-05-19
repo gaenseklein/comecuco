@@ -42,6 +42,7 @@ app.use('/iniciar',express.urlencoded({extended:false}),loginRoute);
 app.use('/user',auth, express.urlencoded({extended:true}),userRoute);
 // app.use('/user', express.urlencoded({extended:true}),userRoute);
 app.use('/api', auth, express.json({limit: '50mb'}),api);
+app.use('/admin',auth,adminRoute)
 
 //serving static-files for test-purpose / can be served directly by nginx
 app.use('/public', express.static('./public'));

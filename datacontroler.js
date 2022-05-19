@@ -623,6 +623,12 @@ const datacontroler = {
 
     },
   },
+  dataexport: {
+    user: async function(){
+      let user = await User.find();
+      return user;
+    }
+  }
 }
 
 async function saveImage(path, data, width, height){
