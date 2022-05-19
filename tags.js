@@ -35,11 +35,19 @@ const tags = {
       return true;
     },
     addTags: function(taglist){
+      console.log('adding tags',taglist);
+      let count=0;
       for (let x=0;x<taglist.length;x++){
         if(taglist[x]=='')continue;
         if(this.tags.indexOf(taglist[x])==-1){
+          count++
           this.tags.push(taglist[x]);
         }
+      }
+      console.log('added '+count+' tags');
+      if(count>0){
+        fs.writeFileSync('tags.dt',this.tags.join('\n'),'utf8')
+        console.log('saved tags to disk');
       }
     },
     removeTag: function(tag){

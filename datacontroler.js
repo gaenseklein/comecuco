@@ -242,7 +242,46 @@ const datacontroler = {
       return false
     }
   },
+  editarNoticia: async function(id, userid){
 
+    try {
+      let user = await User.findOne({_id:userid})
+      if(!user)return false;
+      let columnas = await Columna.find({author:user.name})
+      let alltags = Tags.tags.join(',')
+      if(!id){
+        console.log('nueva noticia');
+        let nuevanoticia = {
+          new:true,
+          user:user,
+          columnas:columnas,
+          alltags:alltags,
+          noticia:{
+            title:'', subtitle:'',
+            author:user.name,
+            idDeAutor: user._id,
+            tags:'',
+            pubdate:Date.now(),
+            images:[],
+            audios:[],
+            body:'',
+          }
+        }
+        // console.log(nuevanoticia);
+        return nuevanoticia
+      }
+      let articulo = await Noticia.findOne({_id:id});
+      return {
+        user:user,
+        columnas:columnas,
+        alltags:alltags,
+        noticia:articulo
+      }
+    } catch (e) {
+      console.log('editar noticia error',e);
+      return false;
+    }
+  },
   datainput: {
     chooseNewName: function(path,fname){
         let filename = fname.toLowerCase();
@@ -251,10 +290,11 @@ const datacontroler = {
         for (let x=0;x<filename.length;x++){
           if(allowed.indexOf(filename[x])==-1)filename[x]='-';
         }
-        let ext = filename.substring(filename.lastIndexOf('.'));
+        console.log('new filename',filename);
+        let ext = filename.substring(filename.lastIndexOf('.')+1);
         if(allowedExt.indexOf(ext)==-1)return false;
+        if(!fs.existsSync(path+filename))return filename;
         let filen=filename.substring(0,filename.length-ext.length);
-
         let n=0;
         while(fs.existsSync(path+filen+n+ext)){
           n++;
@@ -262,11 +302,12 @@ const datacontroler = {
           if(n==30)filen+='--';
           if(n>100)break;
         }
-        return filen+n+imgext;
+        return filen+n+ext;
     },
     //check for user-right to put data in here or else?
     //lets presume its already checked
     noticia: async function(content, user){
+      console.log('writing noticia');
       let simplefields = ['title','subtitle','author','body','resumen','tipo'];
       let updateobj = {};
       let cdate = new Date();
@@ -280,6 +321,7 @@ const datacontroler = {
       updateobj.tags = content.tags.split(',');
       for(let t=updateobj.tags.length-1;t>=0;t--)if(updateobj.tags[t]=='')updateobj.tags.splice(t,1);
       if(updateobj.tags.length>0)Tags.addTags(updateobj.tags);
+      else console.log('no tags found',updateobj.tags, content.tags);
       //id:
       updateobj.idDeAutor = user._id;
       //pubdate:
@@ -323,8 +365,9 @@ const datacontroler = {
         }
       }
       if(content.images){
-        let imgpath = './public/files/images/'+cdate.getFullYear()+'/'+cdate.getMonth;
-        if(!fs.existsSync(imgpath))fs.mkdirSync(imgpath,true);
+        console.log('saving images',content.images);
+        let imgpath = './public/files/images/'+cdate.getFullYear()+'/'+cdate.getMonth();
+        if(!fs.existsSync(imgpath))fs.mkdirSync(imgpath,{recursive:true});
         imgpath+='/';
         for (x=0;x<content.images.length;x++){
           let imgname = content.images[x].filename;
@@ -334,7 +377,9 @@ const datacontroler = {
             console.log('imagename not allowed?',imgname,content.images[x].filename);
             continue;
           }
-          let savedimg = await saveImage(imgpath+imgname, content.images[x].file, 320, 240);
+          console.log('save image as',imgname,'in',imgpath);
+          let savedimg = await saveImage(imgpath+imgname, content.images[x].data, 640, 480);
+          console.log('saved image?',savedimg);
           if(savedimg)newimages.push({
             url:imgurl,
             title: content.imagetitles[x],
@@ -344,10 +389,10 @@ const datacontroler = {
       //audios
       let newaudios = [];
       if(content.audios && content.audios.length>0){
-        let audiopath = './public/files/audios/'+cdate.getFullYear()+'/'+cdate.getMonth;
+        let audiopath = './public/files/audios/'+cdate.getFullYear()+'/'+cdate.getMonth();
         if(content.tipo=='resumensemanal')audiopath='./public/files/audios/resumensemanal';
         //podemos tambien filtrar los capitulos de columnas por columna
-        if(!fs.existsSync(audiopath))fs.mkdirSync(audiopath,true);
+        if(!fs.existsSync(audiopath))fs.mkdirSync(audiopath,{recursive:true});
         audiopath+='/';
         for (x=0;x<content.audios.length;x++){
           let audioname = content.audios[x].filename;
@@ -365,9 +410,11 @@ const datacontroler = {
           });
         }
       }
-      if(content.isnew){
+      console.log('content is new?',content.isnew);
+      if(content.isnew ){
         updateobj.audios=newaudios;
         updateobj.images = newimages;
+        console.log('updateobject:',updateobj);
 
         try {
           let newnoticia = new Noticia(updateobj);
@@ -398,6 +445,7 @@ const datacontroler = {
         try {
           let oldnoticia = await Noticia.findOne({_id:content.id});
           if(!oldnoticia)return false;
+          console.log('old noticia',oldnoticia.title, oldnoticia._id);
           //check for columna:
           if(content.tipo=="capitulo"){
             if(oldnoticia.tipo!='capitulo' || oldnoticia.columna!=content.columna){
@@ -632,6 +680,7 @@ const datacontroler = {
 }
 
 async function saveImage(path, data, width, height){
+  console.log('save image',path,width,height);
   try {
     let savedImageToDisk = await sharp(data)
     .resize({

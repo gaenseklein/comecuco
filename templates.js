@@ -6,6 +6,7 @@ const raw = {
   form:{
     usuario: require('./templates/forms/usuario.js'),
     iniciar: require('./templates/forms/iniciosesion.js'),
+    noticia: require('./templates/forms/noticia.js'),
   },
 }
 

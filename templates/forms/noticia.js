@@ -1,0 +1,193 @@
+module.exports = function(dataobj){
+  let data = dataobj.noticia
+  let x=0;
+  let checked = {
+    noticia: (data.tipo==='noticia') ? 'checked': '',
+    capitulo: (data.tipo==='capitulo') ? 'checked': '',
+    resumensemanal: (data.tipo==='resumensemanal') ? 'checked': ''
+  }
+  if(dataobj.new){
+    checked.noticia='checked'
+  }
+  let columnaoptions=''
+  for(x=0;x<dataobj.columnas.length;x++){
+    columnaoptions+= `<option value="${dataobj.columnas[x]._id}">${dataobj.columnas[x].title}</option>`
+  }
+  let imagetitle = ''
+  if(data.images[0])imagetitle=data.images[0].title
+
+  let eliminarfotosmenu=''
+  for(x=0;x<data.images.length;x++){
+    eliminarfotosmenu+=`<li class="grideliminarfotoyaudio">
+      <div>
+        <input type="checkbox" id="eliminarfoto${x}" name="eliminarfotos" value="${data.images[x].url}">
+        <label for="eliminarfoto${x}">Eliminar</label>
+        <img class="EditfotosdeNoticia" id="EliminarEditfotosdeNoticia${x}" src="${data.images[x].url}" alt="">
+      </div>
+    </li>`
+  }
+  let eliminaraudios = ''
+  let checkedauthor=''
+  let checkedauthorcomecuco='';
+  if(data.author=='comecuco')checkedauthorcomecuco='selected';
+  else checkedauthor='selected';
+  for(x=0;x<data.audios.length;x++){
+    eliminaraudios+=`<li>
+      <input type="checkbox" id="eliminaraudio${x}">
+      <label for="eliminaraudio${x}">Eliminar</label>
+      <div class="Editaudiosyvideos">
+        <p class=tituloAudio>${data.audios[x].description}</p>
+        <div class="cuadrocontrol">
+          <audio src="${data.audios[x].url}" controls=""></audio>
+          <a href="${data.audios[x].url}" download>&#9196;</a>
+        </div>
+      </div>
+    </li>`
+  }
+  let raw=`<!DOCTYPE html>
+  <html lang="es" dir="ltr">
+    <head>
+      <meta charset="utf-8">
+      <title>EDITAR NOTICIA</title>
+      <link rel="stylesheet" href="/public/static/layout.css">
+      <script src="/public/static/scripts/fileuploadstepper.js"></script>
+
+    </head>
+    <body class="subpagusuario">
+    <div class="menusubusuario">
+      <div class="logo" id="logoUsuario">
+        <p class="encabezado"><a href="/">
+            COMECUCO</a>
+        </p>
+        <div class="subtitle">
+          somos el colectivo de medios comunitarios de cuyo
+        </div>
+      </div>
+      <div class="topMenu" id="topMenuUsuario">
+        <ul>
+          <li><a href="/user">Volver</a></li>
+          <li><a href="manualdeestilo.html">Manual de Estilo</a></li>
+        </ul>
+      </div>
+    </div>
+
+      <div class="EditNoticia">
+        <h1>EDITAR o SUBIR NOTICIA</h1>
+        <form method="post" action="/user/noticia" enctype="multipart/form-data">
+        <input type="hidden" name="id" value="${data._id}">
+        <input type="hidden" name="isnew" value="${(dataobj.new==true)}">
+          <ul>
+            <li>
+              <label>Tipo</label>
+              <div class="tipoWrapper">
+
+                <input id="radioNoticia" type="radio" name="tipo" value="noticia" ${checked.noticia}>
+                <label for="radioNoticia" class="radiolabel">Noticia común</label>
+                <input id="radioCapitulo" type="radio" name="tipo" value="capitulo" ${checked.capitulo}>
+                <label for="radioCapitulo" class="radiolabel">Capitulo de una columna</label>
+                <input id="radioSemanal" type="radio" name="tipo" value="resumensemanal" ${checked.resumensemanal} onclick="document.getElementById('EditAutorNoticia').value='comecuco'">
+                <label for="radioSemanal" class="radiolabel">Resumen semanal</label>
+
+                <div class="columnaWrapper">
+                    <select class="columnaSelect" name="columna">
+                      ${columnaoptions}
+                    </select>
+                </div>
+              </div>
+            </li>
+            <li>
+              <label for="EditTituloNoticia">Título</label>
+              <p><input id="EditTituloNoticia" type="text" name="title" size="45" maxlength="40" spellcheck="true"
+                value="${data.title}"></p>
+            </li>
+            <li>
+              <label for="EditSubTituloNoticia">Subtítulo</label>
+              <p><textarea id="EditSubTituloNoticia" type="text" name="subtitle" rows="2" cols="60" maxlength="100"
+              spellcheck="true">${data.subtitle}</textarea></p>
+            </li>
+            <li>
+              <label for="addTags">Tags</label>
+              <div class="tagWrapper">
+                <div id="tagdisplay">
+                  <span id="noTagEligido">no contiene tag</span>
+                </div>
+                <input id="tagsContainer" type="text" name="tags" value="${data.tags.join(',')}">
+                <div id="addTagDialog">
+                  <button type="button" id="openDialog" onclick="tagcontroler.openDialog()">añadir tag</button>
+                  <button type="button" id="newTagButton" onclick="tagcontroler.newTag()">crear nuevo tag</button>
+                </div>
+                <input type='hidden' id="alltags" value="${dataobj.alltags}">
+              </div>
+            </li>
+            <li>
+              <label for="EditAutorNoticia">Autor de la Noticia</label>
+              <select id="EditAutorNoticia" class="" name="autor">
+                <option value="${dataobj.user.name}" ${checkedauthor}>${dataobj.user.name}</option>
+                <option value="comecuco" ${checkedauthorcomecuco}>COMECUCO</option>
+              </select>
+            </li>
+            <li>
+              <label for="EditFechaNoticia">Fecha de la Noticia</label>
+              <input id="EditFechaNoticia" type="date" name="fecha" value="${new Date(data.pubdate).toLocaleDateString('es')}">
+            </li>
+            <li>
+              <label for="EditContenidoNoticia">Contenido</label>
+              <p><textarea id="EditContenidoNoticia" type="text" name="body" rows="20" cols="100"
+              spellcheck="true">${data.body}</textarea></p>
+            </li>
+            <li>
+              <label for="EditEpigrafeFoto">Epígrafe de la primer imagen</label>
+              <p><input id="EditEpigrafeFoto" type="text" name="fototext" size="45" maxlength="50"
+                spellcheck="true" value="${imagetitle}"></p>
+              </li>
+          </ul>
+          <ul id="sumafotos">
+            <li id="ListaAgregarFotosEditNoticia0" class="fotoUpload active">
+              <label for="AgregarFotosEditNoticia0">Agregar Fotos +</label>
+              <input type="file" onclick="deleteOldSelection(this)" onchange="showNextFileUploads(this)" id="AgregarFotosEditNoticia0" accept=".png, .jpeg, .jpg, .gif" name="foto1" value="">
+            </li>
+            <li id="ListaAgregarFotosEditNoticia1" class="fotoUpload">
+              <label for="AgregarFotosEditNoticia1">Agregar Fotos +</label>
+              <input type="file" onclick="deleteOldSelection(this)" onchange="showNextFileUploads(this)" id="AgregarFotosEditNoticia1" accept=".png, .jpeg, .jpg, .gif" name="foto2" value="">
+            </li>
+            <li id="ListaAgregarFotosEditNoticia2" class="fotoUpload">
+              <label for="AgregarFotosEditNoticia2">Agregar Fotos +</label>
+              <input type="file" onclick="deleteOldSelection(this)" onchange="showNextFileUploads(this)" id="AgregarFotosEditNoticia2" accept=".png, .jpeg, .jpg, .gif" name="foto3" value="">
+            </li>
+            <li id="ListaAgregarFotosEditNoticia3" class="fotoUpload">
+              <label for="AgregarFotosEditNoticia3">Agregar Fotos +</label>
+              <input type="file" onclick="deleteOldSelection(this)" onchange="showNextFileUploads(this)" id="AgregarFotosEditNoticia3" accept=".png, .jpeg, .jpg, .gif" name="foto4" value="">
+            </li>
+          </ul>
+          <ul class="EditFotosNoticia" id="EditFotosNoticia">
+            ${eliminarfotosmenu}
+          </ul>
+          <ul>
+            <li class="audioUpload active" id="ListaAgregarAudiosEditNoticia">
+              <label class="uploadlabel" for="AgregarAudios">Agregar Audios o Videos</label>
+              <input class="uploadinput" type="file" onchange="showNextFileUploads(this)" id="AgregarAudios" name="audio1" value="">
+            </li>
+            <li class="audioUpload" id="ListaAgregarAudiosEditNoticia1" class="ListaAgregarAudiosEditNoticia">
+              <label class="uploadlabel" for="AgregarAudios1">Agregar Audios o Videos</label>
+              <input class="uploadinput" type="file" onchange="showNextFileUploads(this)" id="AgregarAudios1" name="audio2" value="">
+            </li>
+            <li class="audioUpload" id="ListaAgregarAudiosEditNoticia2" class="ListaAgregarAudiosEditNoticia">
+              <label class="uploadlabel" for="AgregarAudios2">Agregar Audios o Videos</label>
+              <input class="uploadinput" type="file" onchange="showNextFileUploads(this)" id="AgregarAudios2" name="audio3" value="">
+            </li>
+          </ul>
+          <ul id="EditAudiosYVideos">
+            ${eliminaraudios}
+          </ul>
+          <button type="submit" class="submitEditNoticia">Guardar cambios y volver a la Noticia</button>
+        </form>
+      </div>
+      <div class="footer">
+      </div>
+    </body>
+    <script src="/public/static/scripts/eligirtags.js">
+    </script>
+  </html>
+`
+return raw;
+}

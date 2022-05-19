@@ -139,10 +139,83 @@ router.get('/',async (req,res)=>{
   }
 });
 
+router.get('/noticia', async (req,res)=>{
+      try{
+        console.log('noticia get');
+        let data = await datacontroler.editarNoticia(false,req.user._id)
+        console.log('noticia data:',(data!=false));
+        let result = templates.buildForm('noticia',data)
+        console.log('send result');
+        res.send(result)
+      }catch(e){
+        console.log(e)
+        res.status(400).send('an error occured')
+      }
+});
 router.get('/noticia/:id',async (req,res)=>{
   //edit noticia
+  console.log('noticia:',req.params.id);
+  try {
+    let data = await datacontroler.editarNoticia(req.params.id, req.user._id)
+    if(!data)return res.status(400).send('did not work')
+    let page = templates.buildForm('noticia',data);
+    res.send(page);
+  } catch (e) {
+      console.log('editar noticia',e);
+      res.status(400).send('an error occured')
+  }
 })
-router.post('/noticia/:id',async (req,res)=>{
+router.post('/noticia', fileUpload(), async (req,res)=>{
   //edit noticia
+  console.log('noticia llegado')
+  // console.log(req.body, req.files);
+  let content = {
+    title: req.body.title,
+    subtitle: req.body.subtitle,
+    author: req.body.autor,
+    body: req.body.body,
+    resumen: req.body.resumen,
+    tipo: req.body.tipo,
+    columna: req.body.columna,
+    tags: req.body.tags,
+    pubdate: req.body.fecha,
+    isnew: (req.body.isnew=='true'),
+    id: req.body.id,
+    // deleteimages: req.body.deleteimages,
+    // deleteaudios: req.body.deleteaudios,
+  }
+  console.log('content is new?',content.isnew);
+    //images
+    if(req.files){
+      let cimages=[]
+      let caudios=[]
+      let cimagetitles=[]
+      for(let x=1;x<=4;x++){
+        if(req.files['foto'+x]){
+          cimages.push({
+            filename:req.files['foto'+x].name,
+            data:req.files['foto'+x].data,
+          })
+          if(x==1)cimagetitles.push(req.body.fototext);
+          else cimagetitles.push('')
+        }
+        if(req.files['audio'+x])caudios.push({
+          filename:req.files['audio'+x].name,
+          data:req.files['audio'+x].data,
+          mimetype: req.files['audio'+x].mimetype,
+        })
+      }
+      if(cimages.length>0)content.images=cimages;
+      if(caudios.length>0)content.audios=caudios;
+      content.imagetitles=cimagetitles;
+    }
+  console.log('content created');
+  let save = await datacontroler.datainput.noticia(content, req.user);
+  console.log('saved content:',save);
+  if(!save)return res.send('not okay :(')
+  res.redirect('/user');
+  // res.send('okay? '+save)
 })
+
+
 module.exports = router;

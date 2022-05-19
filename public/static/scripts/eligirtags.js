@@ -43,15 +43,15 @@ const tagcontroler = {
     else b.innerText = "añadir tag";
   },
   init: function(){
-    let rawc = document.getElementById('alltags');
-    let raw = rawc.innerHTML;
     let dialog = document.getElementById('addTagDialog');
-    let tags = raw.split('\n');
+    let tags = alltags.value.split(',');
+    let oldtags = tagsContainer.value.split(',');
     for (let x=tags.length-1;x>=0;x--){
       let newb = this.createButton(tags[x]);
       dialog.appendChild(newb);
+      if(oldtags.indexOf(tags[x])>-1)newb.click()
     }
-    rawc.parentElement.removeChild(rawc);
+
   },
   newTag: function(){
     let newtag = prompt('escribe nuevo tag');
