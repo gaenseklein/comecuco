@@ -3,13 +3,20 @@ const Noticia = require('./model/Noticia.js');
 
 const tags = {
     tags: [],
+    allTags: function(){
+      return this.tags.join(',')
+    },
     init: function(){
       let oldraw = fs.readFileSync('./private/tags.dt', 'utf8');
-      if(!oldraw)return;
+      if(!oldraw){
+        console.log('could not load old tags',oldraw);
+        return;
+      }
       let oldlines = oldraw.split('\n');
       for (let x=0;x<oldlines.length;x++){
         this.tags[x]=oldlines[x];
       }
+      console.log('initialised tags:',this.tags.length);
     },
     cambiaTag: async function(oldtag,valor){
       let tagnr = this.tags.indexOf(oldtag);
@@ -17,7 +24,7 @@ const tags = {
       this.tags[tagnr]=valor;
       let raw=this.tags.join('\n');
       try {
-        fs.writeFileSync('tags.dt',raw,'utf8');
+        fs.writeFileSync('./private/tags.dt',raw,'utf8');
         let noticias = Noticia.find({tags:valor});
         for (let x=0;x<noticias.length;x++){
           let not=noticias[x];
@@ -46,7 +53,7 @@ const tags = {
       }
       console.log('added '+count+' tags');
       if(count>0){
-        fs.writeFileSync('tags.dt',this.tags.join('\n'),'utf8')
+        fs.writeFileSync('./private/tags.dt',this.tags.join('\n'),'utf8')
         console.log('saved tags to disk');
       }
     },

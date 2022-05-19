@@ -44,6 +44,12 @@ module.exports = function(dataobj){
       </div>
     </li>`
   }
+  let pdate = new Date(data.pubdate)
+  let pm = pdate.getMonth()+1;
+  let pd = pdate.getDate();
+  if(pm<10)pm='0'+pm
+  if(pd<10)pd='0'+pd
+  let pubdate = pdate.getFullYear()+'-'+pm+'-'+pd
   let raw=`<!DOCTYPE html>
   <html lang="es" dir="ltr">
     <head>
@@ -128,7 +134,7 @@ module.exports = function(dataobj){
             </li>
             <li>
               <label for="EditFechaNoticia">Fecha de la Noticia</label>
-              <input id="EditFechaNoticia" type="date" name="fecha" value="${new Date(data.pubdate).toLocaleDateString('es')}">
+              <input id="EditFechaNoticia" type="date" name="fecha" value="${pubdate}">
             </li>
             <li>
               <label for="EditContenidoNoticia">Contenido</label>

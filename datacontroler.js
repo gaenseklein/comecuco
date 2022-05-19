@@ -248,7 +248,8 @@ const datacontroler = {
       let user = await User.findOne({_id:userid})
       if(!user)return false;
       let columnas = await Columna.find({author:user.name})
-      let alltags = Tags.tags.join(',')
+      let alltags = Tags.allTags()
+      console.log('alltags before sending back',alltags);
       if(!id){
         console.log('nueva noticia');
         let nuevanoticia = {

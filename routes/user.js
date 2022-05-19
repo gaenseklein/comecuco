@@ -158,6 +158,7 @@ router.get('/noticia/:id',async (req,res)=>{
   try {
     let data = await datacontroler.editarNoticia(req.params.id, req.user._id)
     if(!data)return res.status(400).send('did not work')
+    console.log('alltags:',data.alltags);
     let page = templates.buildForm('noticia',data);
     res.send(page);
   } catch (e) {
