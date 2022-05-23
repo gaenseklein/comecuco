@@ -223,7 +223,7 @@ div.cajaDial{
 div.dial{
   display: grid;
   position: relative;
-  top: 21vw;
+  top: 10vw;
   left: 4.5vw;
   grid-template-areas:
     "leftdial dial rightdial"
@@ -288,6 +288,34 @@ div.cajavideo{
   z-index: 2;
   width: 20vw;
   height: 11vw;
+}
+
+/*videopreview para youtube videos */
+#videopreview {
+  position: relative;
+  left: 14.5vw;
+  top: 5vw;
+  width: 20vw;
+  height: 11vw;
+}
+
+#videopreview iframe{
+  max-width:100%;
+  max-height:100%;
+}
+
+#noHayRadio{
+  display: none;
+}
+#noHayRadio.nohaysenal{
+  font-family: KeepCalm;
+  display:block;
+  color:red;
+  font-size: 3vw;
+  /* agregado para posicionar*/
+  text-align: center;
+  position: relative;
+  top: 25%;
 }
 
 iframe{
@@ -392,9 +420,10 @@ input[type=range]::-moz-range-thumb {
 
 .testbutton {
   font-size: large;
-  padding: 1.2vw 1.2vw;
+  padding: 0.4vw 1vw;
   border-radius: 10px;
 }
+
 
 
 @media screen and (orientation: portrait) {
@@ -474,7 +503,7 @@ input[type=range]::-moz-range-thumb {
   }
 
   div.dial{
-    top: 40vw;
+    top: 18vw;
     left: 9.5vw;
     grid-template-columns: 10vw 62vw 10vw;
     grid-row-gap: 2.5vw;
@@ -516,28 +545,16 @@ input[type=range]::-moz-range-thumb {
     padding: 1.2vw 1.2vw;
     border-radius: 10px;
   }
-}
 
-/*videopreview para youtube videos */
-#videopreview {
-  position: absolute;
-  left: 14.5vw;
-  top: 5vw;
-  width: 20vw;
-  height: 11vw;
-}
+  #videopreview {
+    position: relative;
+    left: 30.5vw;
+    top: 10vw;
+    width: 38vw;
+    height: 23vw;
+  }
 
-#videopreview iframe{
-  max-width:100%;
-  max-height:100%;
+  #noHayRadio.nohaysenal{
+    font-size: 5vw;
+  }
 }
-
-#noHayRadio{
-  display: none;
-}
-#noHayRadio.nohaysenal{
-  display:block;
-  color:red;
-  font-size: xx-large;
-}
-
