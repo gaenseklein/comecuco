@@ -209,7 +209,7 @@ h5{
   max-height: 90%;
 }
 .logo img{
-  max-height:7em;
+  max-height:8vw;
 }
 
 div.cajaDial{
@@ -282,7 +282,7 @@ div.espectro li.activo audio{
 }
 
 div.cajavideo{
-  position: absolute;
+  position: relative;
   top: -16vw;
   left: 10.2vw;
   z-index: 2;
@@ -311,7 +311,11 @@ ul#botoneraDeMemorias{
   grid-area: pregrabado;
   display: flex;
   width: 28vw;
-  justify-content: space-evenly;
+  justify-content: center;
+}
+
+#M1{
+  margin-right: 2vw;
 }
 
 /*desde aca codigo para la barra de volumen*/
@@ -386,6 +390,12 @@ input[type=range]::-moz-range-thumb {
   background: #CFA329;
 }
 
+.testbutton {
+  font-size: large;
+  padding: 1.2vw 1.2vw;
+  border-radius: 10px;
+}
+
 
 @media screen and (orientation: portrait) {
 
@@ -446,6 +456,10 @@ input[type=range]::-moz-range-thumb {
     max-height: 90%;
   }
 
+  .logo img{
+    max-height:23vw;
+  }
+
   div.cajaDial{
     width: 100vw;
     height: 69vw;
@@ -497,15 +511,12 @@ input[type=range]::-moz-range-thumb {
     width: 48vw;
   }
 
-  ul#botoneraDeMemorias li{
-  }
-}
-
   .testbutton {
-    font-size: large;
+    font-size: 3vw;
     padding: 1.2vw 1.2vw;
     border-radius: 10px;
   }
+}
 
 /*videopreview para youtube videos */
 #videopreview {
@@ -529,3 +540,4 @@ input[type=range]::-moz-range-thumb {
   color:red;
   font-size: xx-large;
 }
+
