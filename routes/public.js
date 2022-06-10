@@ -42,7 +42,8 @@ router.get('/columna/:id', async (req,res)=>{
   try {
     let data = await datacontroler.columna(req.params.id);
     let response='hello';
-    //response = templates.buildPage('frontpage',data);
+    console.log('columna con data:',data);
+    response = templates.buildPage('columna',data);
     res.send(response);
   } catch (e) {
     console.warn(e);

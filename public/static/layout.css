@@ -1889,7 +1889,7 @@ input#search {
           display: inline;
         }
 
-        input.submitusuario{
+        input[type="submit"]{
           margin-right: 5vw;
           margin-top: 2em;
           font-size: x-large;
@@ -1924,6 +1924,7 @@ input#search {
         textarea{
           resize: vertical;
         }
+
 
   @media screen and (orientation: portrait){
         .menusubusuario{
@@ -2305,6 +2306,10 @@ input#search {
           font-size: large;
         }
     }
+/* a partir de aca subpagina de editar columna*/
+.editColumna .EditNoticia{
+  text-align: right;  
+}
 
 /* a partir de aca subpagina de dash*/
 

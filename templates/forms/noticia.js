@@ -1,5 +1,6 @@
 module.exports = function(dataobj){
   let data = dataobj.noticia
+  let resumen = data.resumen || ''
   let x=0;
   let checked = {
     noticia: (data.tipo==='noticia') ? 'checked': '',
@@ -107,9 +108,9 @@ module.exports = function(dataobj){
                 value="${data.title}"></p>
             </li>
             <li>
-              <label for="EditSubTituloNoticia">Subtítulo</label>
-              <p><textarea id="EditSubTituloNoticia" type="text" name="subtitle" rows="2" cols="60" maxlength="100"
-              spellcheck="true">${data.subtitle}</textarea></p>
+              <label for="EditSubTituloNoticia">Resumen</label>
+              <p><textarea id="EditSubTituloNoticia" type="text" name="resumen" rows="2" cols="60" maxlength="100"
+              spellcheck="true">${resumen}</textarea></p>
             </li>
             <li>
               <label for="addTags">Tags</label>

@@ -10,13 +10,16 @@ const Schema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  subtitle: {
+  descripcion: {
     type: String,
     maxLength:255,
   },
   author: {
     type: String,
     maxLength:255,
+  },
+  authorId: {
+    type: mongoose.ObjectId
   },
   pubdate: {
     type: Date,

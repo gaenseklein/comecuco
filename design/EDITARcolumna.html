@@ -4,8 +4,9 @@
     <meta charset="utf-8">
     <title>EDITAR Columna</title>
     <link rel="stylesheet" href="../public/static/layout.css">
+    <script type="text/javascript" src="../public/static/scripts/urlcleaner.js"></script>
   </head>
-  <body class="subpagusuario">
+  <body class="subpagusuario editColumna">
     <div class="logo">
       <p class="encabezado"><a href="frontpage.html">
         COMECUCO</a>
@@ -30,6 +31,11 @@
               value="La Vida en los Barrios"></input></p>
           </li>
           <li>
+            <label for="EditURLColumna">URL de la columna</label>
+            <p><input id="EditURLColumna" type="text" name="url" size="45" maxlength="40" spellcheck="true"
+              value="${url}" placeholder="mi-columna" required pattern="[A-Za-z\-]{8,}" onkeyup="cleanurl(this,URLColumnaPreview,'columnas/')"><span id="URLColumnaPreview">https://comecuco.org/columnas/mi-columna</span></p>
+          </li>
+          <li>
             <label for="EditAutorColumna">Autor de la Columna</label>
             <select id="EditAutorColumna" class="" name="autor">
               <option value="Radio Cuyum">Radio Cuyum</option>
@@ -50,6 +56,9 @@
               <input type="file" onclick="deleteOldSelection(this)" onchange="showNextFileUploads(this)" id="AgregarFotosEditNoticia" accept=".png, .jpeg, .jpg, .gif" name="foto1" value="">
             </li>
           </ul>
+          <input type="submit" value="guardar">
+        </form>
+      </div>
     <div class="footer">
     </div>
   </body>

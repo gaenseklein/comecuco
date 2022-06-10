@@ -217,6 +217,63 @@ router.post('/noticia', fileUpload(), async (req,res)=>{
   res.redirect('/user');
   // res.send('okay? '+save)
 })
-
+router.get('/columna', async (req,res)=>{
+      try{
+        console.log('nueva columna');
+        let result = templates.buildForm('columna', {new:true, autor: req.user.name, autorId: req.user._id})
+        res.send(result)
+      }catch(e){
+        console.log(e)
+        res.status(400).send('an error occured')
+      }
+});
+router.get('/columna/:id', async (req,res)=>{
+      try{
+        console.log('getting columna',req.params.id);
+        let data = await datacontroler.columnaById(req.params.id)
+        if(!data){
+          res.send('columna not found')
+          return;
+        }
+        let searchobj = {
+          autor: req.user.name,
+          autorId: req.user._id,
+          title: data.title,
+          descripcion: data.descripcion,
+          selectedAutor: data.author,
+          id: data._id,
+          url: data.url,
+        }
+        console.log('obj',searchobj,data);
+        let result = templates.buildForm('columna', searchobj)
+        res.send(result)
+      }catch(e){
+        console.log(e)
+        res.status(400).send('an error occured')
+      }
+});
+router.post('/columna', fileUpload(), async (req,res)=>{
+      try{
+        let updobj = {
+          title: req.body.title,
+          url: req.body.url,
+          author: req.body.autor,
+          descripcion:req.body.descripcion,
+          authorId: req.user._id,
+        }
+        console.log('something went terrible wrong',req.body);
+        if(req.body.id && req.body.id.length>0)updobj.id = req.body.id
+        console.log('posting columna',updobj);
+        let savedColumna = await datacontroler.datainput.columna(updobj)
+        if(!savedColumna){
+          return res.send('something went wrong...')
+        }
+        let result = 'columna guardado'
+        res.send(result)
+      }catch(e){
+        console.log(e)
+        res.status(400).send('an error occured')
+      }
+});
 
 module.exports = router;

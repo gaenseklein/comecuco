@@ -30,11 +30,20 @@ const datacontroler = {
 
       for (let x=nuevosarticulos.length-1;x>=0;x--){
         for (let y=destacadas.length-1;y>=0;y--){
-          if(nuevosarticulos[x]._id==destacadas[y]._id){
+          // let id1 = nuevosarticulos[x]._id+''
+          // let id2 = destacadas[y]._id+''
+          // console.log('id1==id2',(id1==id2));
+          // ids are not treated as strings! change to string to compare!
+          if(nuevosarticulos[x]._id+''==destacadas[y]._id+''){
+            // console.log('splice',x,nuevosarticulos[x]);
             nuevosarticulos.splice(x,1);
+          }else{
+            // console.log('no splice',x,y,nuevosarticulos[x]._id,destacadas[y]._id);
+            // console.log('test:',(nuevosarticulos[x]._id==destacadas[y]._id));
           }
         }
       }
+      // console.log('nuevos vs destacadas:',nuevosarticulos, destacadas);
       let masleidosids = Masleidos.ultimos(5);
       let masleidos = [];
       if(masleidosids.length>0){
@@ -52,7 +61,7 @@ const datacontroler = {
       //expresso-giramundo?
       query = {
         tipo: 'noticia',
-        autor: 'comecuco',
+        author: 'comecuco',
       }
       searchoptions.limit = 2;
       let produccionesColectivas = await Noticia.find(query, null, searchoptions);
@@ -144,11 +153,35 @@ const datacontroler = {
   },
   columna: async function(url){
     try {
-      let columna = await Columna.find({url:url});
+      console.log('find columna',url);
+      let columna = await Columna.findOne({url:url});
+      console.log('found columna',columna);
       if(!columna || !columna.capitulos)return false;
-      let capitulos = await Noticia.find({$in:{_id:columna.capitulos}});
-      let result = {columna:columna,capitulos:capitulos};
+      let capitulos = await Noticia.find({_id:{$in:columna.capitulos}});
+      let medio
+      if(columna.author=='comecuco'){
+        medio = {
+            name:'comecuco',
+            icon:'/public/static/logos/comecuco.png',
+        }
+      }else{
+        medio = await User.findOne({_id:columna.authorId})
+      }
+      let result = {columna:columna,capitulos:capitulos, medio:medio};
       return result;
+    } catch (e) {
+      console.log(e);
+      return false;
+    }
+  },
+  columnaById: async function(id){
+    try {
+      let columna = await Columna.findOne({_id:id});
+      if(!columna)return false;
+      // let capitulos = await Noticia.find({$in:{_id:columna.capitulos}});
+      // let result = {columna:columna,capitulos:capitulos};
+      // return result;
+      return columna;
     } catch (e) {
       console.log(e);
       return false;
@@ -205,6 +238,7 @@ const datacontroler = {
       const token = jwt.sign({
         _id:user._id,
         url:user.url,
+        name: user.name,
         ttl: process.env.TOKENTTL,
         }, process.env.TOKEN_SECRET);
       return token;
@@ -294,6 +328,7 @@ const datacontroler = {
         console.log('new filename',filename);
         let ext = filename.substring(filename.lastIndexOf('.')+1);
         if(allowedExt.indexOf(ext)==-1)return false;
+        ext='.'+ext;
         if(!fs.existsSync(path+filename))return filename;
         let filen=filename.substring(0,filename.length-ext.length);
         let n=0;
@@ -406,7 +441,7 @@ const datacontroler = {
           fs.writeFileSync(audiopath+audioname,content.audios[x].data);
           newaudios.push({
             url:audiopath.substring(1)+audioname,
-            description: content.audiodescription[x],
+            description: content.audios[x].description,
             //id? we dont save audio in db
           });
         }
@@ -668,10 +703,37 @@ const datacontroler = {
         }
       }
     },
-    columna: async function(columna){
+    columna: async function(data){
+      let updateobj = {}
+      updateobj.title = data.title
+      updateobj.url = data.url
+      updateobj.author = data.author
+      updateobj.authorId = data.authorId
+      updateobj.lastUpdated = Date.now()
+      updateobj.descripcion = data.descripcion
+      try {
+
+        if(!data.id){
+          //crear nueva columna:
+          updateobj.pubdate = Date.now()
+          let col = new Columna(updateobj)
+          let saved = await col.save()
+          if(!saved)return false
+          console.log('saved new columna', saved);
+          return true
+        }else{
+          let resp = await Columna.findOneAndUpdate({_id:data.id},updateobj)
+          if(!resp)return false
+          console.log('updated columna',resp);
+          return true
+        }
+      } catch (e) {
+        console.log('saving columna went wrong',e,updateobj);
+      }
+
 
     },
-  },
+  },//end datainput
   dataexport: {
     user: async function(){
       let user = await User.find();

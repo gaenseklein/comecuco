@@ -3,10 +3,12 @@ const raw = {
   frontpage: require('./templates/frontpage.js'),
   noticia: require('./templates/noticia.js'),
   dash: require('./templates/dash.js'),
+  columna: require('./templates/columna.js'),
   form:{
     usuario: require('./templates/forms/usuario.js'),
     iniciar: require('./templates/forms/iniciosesion.js'),
     noticia: require('./templates/forms/noticia.js'),
+    columna: require('./templates/forms/columna.js'),
   },
 }
 

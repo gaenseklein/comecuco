@@ -88,8 +88,8 @@ module.exports = function(data){
     <section class="subirContainer">
 
       <a href="/user/noticia" title="subir noticia, capitulo de columna y mas">subir noticia</a>
-      <a href="EDITARcolumna.html">empezar nueva columna</a>
-      <a href="editpaginausuario.html">cambiar pagina de medio</a>
+      <a href="/user/columna">empezar nueva columna</a>
+      <a href="/user/cambia">cambiar pagina de medio</a>
     </section>
     <div class="noticiasSubidas">
       <h2>mis ultimas noticias subidas</h2>
