@@ -46,6 +46,9 @@ const counterSchema = new mongoose.Schema({
   tipo: {
     type: String //noticia, capitulo, resumensemanal
   },
+  numero: { //usado en resumen semanal
+    type: String,
+  },
   columna:{
     type: mongoose.ObjectId
   },

@@ -51,6 +51,7 @@ module.exports = function(dataobj){
   if(pm<10)pm='0'+pm
   if(pd<10)pd='0'+pd
   let pubdate = pdate.getFullYear()+'-'+pm+'-'+pd
+  let rscnumero = data.numero || ''
   let raw=`<!DOCTYPE html>
   <html lang="es" dir="ltr">
     <head>
@@ -99,6 +100,10 @@ module.exports = function(dataobj){
                     <select class="columnaSelect" name="columna">
                       ${columnaoptions}
                     </select>
+                </div>
+                <div id="rscnumero">
+                  <label for="RSC">Emisión Nº</label>
+                  <input type="text" name="numero" value="${rscnumero}">
                 </div>
               </div>
             </li>

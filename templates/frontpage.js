@@ -226,7 +226,7 @@ const template = function(data){
             <input id="search" type="text" name="txt" value="">
             <input type="submit" id="searchSubmit" name="" value="">
             <label for="searchSubmit">
-              <img src="lupe.png" alt="search">
+              <img src="/public/static/lupe.png" alt="search">
             </label>
           </form>
         </div>

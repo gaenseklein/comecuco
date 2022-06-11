@@ -182,6 +182,7 @@ router.post('/noticia', fileUpload(), async (req,res)=>{
     pubdate: req.body.fecha,
     isnew: (req.body.isnew=='true'),
     id: req.body.id,
+    numero: req.body.numero,
     // deleteimages: req.body.deleteimages,
     // deleteaudios: req.body.deleteaudios,
   }

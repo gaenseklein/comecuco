@@ -4,6 +4,7 @@ const raw = {
   noticia: require('./templates/noticia.js'),
   dash: require('./templates/dash.js'),
   columna: require('./templates/columna.js'),
+  resumensemanal: require('./templates/resumensemanal.js'),
   form:{
     usuario: require('./templates/forms/usuario.js'),
     iniciar: require('./templates/forms/iniciosesion.js'),

@@ -52,9 +52,9 @@ router.get('/columna/:id', async (req,res)=>{
 });
 router.get('/resumensemanal', async (req,res)=>{
   try {
-    let data = await datacontroler.frontpage();
-    let response='hello';
-    //response = templates.buildPage('frontpage',data);
+    let data = await datacontroler.resumensemanal();
+    // let response='hello';
+    response = templates.buildPage('resumensemanal',data);
     res.send(response);
   } catch (e) {
     console.warn(e);

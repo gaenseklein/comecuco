@@ -2125,6 +2125,16 @@ input#search {
         #radioCapitulo:checked ~ .columnaWrapper{
           display:block;
         }
+        #rscnumero {
+          display: none;
+          margin-top: 1em;
+        }
+        #radioSemanal:checked ~ #rscnumero{
+          display: block;
+        }
+        #rscnumero label{
+          display: inline;
+        }
 
         .tagWrapper{
           display: grid;
@@ -2308,7 +2318,7 @@ input#search {
     }
 /* a partir de aca subpagina de editar columna*/
 .editColumna .EditNoticia{
-  text-align: right;  
+  text-align: right;
 }
 
 /* a partir de aca subpagina de dash*/

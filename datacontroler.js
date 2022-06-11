@@ -214,7 +214,13 @@ const datacontroler = {
       let qopt={sort : {pubdate:-1}, limit:100};
       if(pagenr)qopt.skip=pagenr*100;
       let resumenes = await Noticia.find(query,null,qopt);
-      return resumenes;
+      // let returnobj = {
+      //   actual: resumenes.splice(0,1),
+      //   lista: resumenes
+      // }
+      // console.log(resumenes, returnobj);
+      // return returnobj;
+      return resumenes
     } catch (e) {
       console.log(e);
       return false;
@@ -445,6 +451,10 @@ const datacontroler = {
             //id? we dont save audio in db
           });
         }
+      }
+      if(content.tipo=='resumensemanal'){
+        updateobj.numero = content.numero
+        if(!content.numero)updateobj.numero = await Noticia.count({tipo:'resumensemanal'}) + 1
       }
       console.log('content is new?',content.isnew);
       if(content.isnew ){
