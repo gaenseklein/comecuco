@@ -67,10 +67,10 @@ const datacontroler = {
       let produccionesColectivas = await Noticia.find(query, null, searchoptions);
 
 
-      let columnas = await Columna.find();
-      columnas = columnas.sort(function(a,b){return a.lastUpdated - b.lastUpdated})
+      // let columnas = await Columna.find();
+      // columnas = columnas.sort(function(a,b){return b.lastUpdated - a.lastUpdated})
       //solo columnas con ultima subida no mas viejo que 2 meses?
-
+      let columnas = await this.columnas();
       query={
         ultimaSubida:{'$gt':fechaminima}
       };
@@ -187,10 +187,37 @@ const datacontroler = {
       return false;
     }
   },
-  columnas: async function(){
+  columnas: async function(all){
     try {
       let columnas = await Columna.find();
+      // console.log(columnas);
       columnas.sort(function(a,b){return b.lastUpdated - a.lastUpdated})
+      if(!all){
+        for(let x=columnas.length-1;x>=0;x--){
+          if(!columnas[x].capitulos || columnas[x].capitulos.length==0){
+            columnas.splice(x,1)
+          }
+        }
+      }else{
+        let medios = await User.find();
+        for(let x=0;x<columnas.length;x++){
+          if(columnas[x].author=='comecuco'){
+            columnas[x].fullmedio = {
+              name:'comecuco',
+              icon: '/public/static/logos/comecuco.png',
+              url: '/'
+            }
+            continue;
+          }
+          for(let m=0;m<medios.length;m++){
+            if(columnas[x].authorId+''==medios[m]._id+''){
+              columnas[x].fullmedio = medios[m]
+              break;
+            } 
+          }
+        }
+      }
+      // console.log(columnas);
       return columnas;
     } catch (e) {
       console.log(e);

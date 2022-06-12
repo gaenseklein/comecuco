@@ -306,7 +306,7 @@ const template = function(data){
               <ul>
                 ${columnamenu}
                 <li class="ultimoli">
-                  <a href="/todaslascolumnas" class="finalscroll">
+                  <a href="/columnas" class="finalscroll">
                     <h3>Ver todas las Columnas</h3>
                   </a>
                 </li>

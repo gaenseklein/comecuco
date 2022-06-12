@@ -29,9 +29,9 @@ router.get('/quienessomos', async (req,res)=>{
 });
 router.get('/columnas', async (req,res)=>{
   try {
-    let data = await datacontroler.columnas();
+    let data = await datacontroler.columnas(true);
     let response='hello';
-    //response = templates.buildPage('frontpage',data);
+    response = templates.buildPage('todascolumnas',data);
     res.send(response);
   } catch (e) {
     console.warn(e);
