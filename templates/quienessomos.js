@@ -6,7 +6,16 @@ const template = function(data){
               </li>`;
     }
     fotos.replace('<li>','<li class="activo">');
-
+    let medioslist = ''
+    for(let x=0;x<data.medios.length;x++){
+      medioslist += `<li>
+        <img src="${data.medios[x].icon}" alt="${data.medios[x].name}">
+        <a href="${data.medios[x].url}">
+          <h4>${data.medios[x].name}</h4>
+        </a>
+        <p>${data.medios[x].description}</p>
+      </li>`
+    }
     let raw = `
     <!DOCTYPE html>
     <html lang="es" dir="ltr">
@@ -67,71 +76,15 @@ const template = function(data){
           </div>
           <div class="datosdelmedio">
             <a href="#">MAIL</a>
-            <div class="listaredes">REDES
-              <ul class="navredes">
-				          <li><a href="#">FACEBOOK</a></li>
-				          <li><a href="#">INSTAGRAM</a></li>
-                  <li><a href="#">TWITER</a></li>
-				          <li><a href="#">TELEGRAM</a></li>
-                </ul>
-            </div>
           </div>
         </div>
         <div class="titulonoticiasdelmedio">
           <h3>INTEGRANTES DEL COMECUCO</h3>
         </div>
         <div class="integrantesCOMECUCO">
-          <img src="mapaRadioxRadio.png" class="mapaCOMECUCO" alt="Mapa del COMECUCO">
+          <img src="/public/static/mapaRadioxRadio.png" class="mapaCOMECUCO" alt="Mapa del COMECUCO">
           <ul class="logosIntegrantesCOMECUCO">
-            <li>
-              <img src="../public/static/logos/mosquitera.png" alt="radio la mosquitera">
-              <a href="#">
-                <h4>LA MOSQUITERA</h4>
-              </a>
-              <p>Por la 89.5, desde El Bermejo, Guaymallén</p>
-            </li>
-            <li>
-              <img src="../public/static/logos/tierracampesina.jpg" alt="radio tierra Campesina">
-              <a href="#">
-                <h4>TIERRA CAMPESINA</h4>
-              </a>
-              <p>Por la 89.5, desde El Bermejo, Guaymallén</p>
-            </li>
-            <li>
-              <img src="../public/static/logos/cuyum.jpg" alt="radio cuyum">
-              <a href="#">
-                <h4>CUYUM</h4>
-              </a>
-              <p>Por la 89.5, desde El Bermejo, Guaymallén</p>
-            </li>
-            <li>
-              <img src="../public/static/logos/pujante.jpg" alt="radio la Pujante">
-              <a href="#">
-                <h4>LA PUJANTE</h4>
-              </a>
-              <p>Por la 89.5, desde El Bermejo, Guaymallén</p>
-            </li>
-            <li>
-              <img src="../public/static/logos/rsd.jpg" alt="Radio Sin Dueño">
-              <a href="#">
-                <h4>RADIO SIN DUEÑO</h4>
-              </a>
-              <p>Por la 89.5, desde El Bermejo, Guaymallén</p>
-            </li>
-            <li>
-              <img src="../public/static/logos/lenera.jpg" alt="radio la leñera">
-              <a href="medio.html">
-                <h4>LA LEÑERA</h4>
-              </a>
-              <p>Por la 89.5, desde El Bermejo, Guaymallén</p>
-            </li>
-            <li>
-              <img src="../public/static/logos/giramundo.png" alt="TV giramundo">
-              <a href="#">
-                <h4>GIRAMUNDO TV</h4>
-              </a>
-              <p>Por la 89.5, desde El Bermejo, Guaymallén</p>
-            </li>
+          ${medioslist}            
           </ul>
          </div>
         </div>

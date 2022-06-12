@@ -2479,6 +2479,7 @@ body.dashboard{
     grid-template-areas: "logo nombre"
                         "logo descripcion";
     grid-template-rows: 2em auto;
+    grid-template-columns: 1fr 1fr;
   }
 
   ul.logosIntegrantesCOMECUCO img{
