@@ -34,7 +34,7 @@ module.exports = function(dataobj){
   else checkedauthor='selected';
   for(x=0;x<data.audios.length;x++){
     eliminaraudios+=`<li>
-      <input type="checkbox" id="eliminaraudio${x}">
+      <input type="checkbox" id="eliminaraudio${x}" name="eliminaraudios" value="${data.audios[x].url}">
       <label for="eliminaraudio${x}">Eliminar</label>
       <div class="Editaudiosyvideos">
         <p class=tituloAudio>${data.audios[x].description}</p>
