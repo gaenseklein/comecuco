@@ -37,11 +37,11 @@ const template = function(data){
         if(pa==x)pactivo='activo'
         pactivosstring+=`<div class="puntito ${pactivo}"></div>`
       }
-
+      let cesubtitle = ce.subtitle || '&nbsp;'
 
       let clt=`<li ${cltactivo}>
       <div class="subtitle">
-      ${ce.subtitle}
+      ${cesubtitle}
       </div>
       <h3>
       <a href="noticia/${ce._id}">${ce.title}</a>
@@ -213,7 +213,7 @@ const template = function(data){
         </div>
         <div class="topMenu">
             <ul>
-              <li><a href="todaslasnoticias.html">Todas las noticias</a></li>
+              <li><a href="/todaslasnoticias">Todas las noticias</a></li>
               <li><a href="/quienessomos">Quienes Somos</a></li>
             </ul>
         </div>

@@ -75,6 +75,21 @@ router.get('/noticia/:id', async (req,res)=>{
     res.status(400).send('oops, something went wrong');
   }
 });
+router.get('/todaslasnoticias', async (req,res)=>{
+      try{
+        let result = ''
+        let data = await datacontroler.noticias()
+        if(!data){
+          res.status(404).send('oops, not found')
+          return;
+        }
+        result = templates.buildPage('todaslasnoticias', data)
+        res.send(result)
+      }catch(e){
+        console.log(e)
+        res.status(400).send('an error occured')
+      }
+});
 router.get('/medio/:url', async (req,res)=>{
   try {
     let data = await datacontroler.medio(req.params.url);

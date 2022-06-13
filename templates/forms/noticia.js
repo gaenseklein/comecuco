@@ -113,10 +113,16 @@ module.exports = function(dataobj){
                 value="${data.title}"></p>
             </li>
             <li>
-              <label for="EditSubTituloNoticia">Resumen</label>
-              <p><textarea id="EditSubTituloNoticia" type="text" name="resumen" rows="2" cols="60" maxlength="100"
+              <label for="EditSubTituloNoticia">Subtítulo</label>
+              <p><input id="EditSubTituloNoticia" type="text" name="subtitle" size="45" maxlength="40" spellcheck="true"
+                value="${data.subtitle || ''}"></p>
+            </li>
+            <li>
+              <label for="EditResumen">Resumen</label>
+              <p><textarea id="EditResumen" type="text" name="resumen" rows="2" cols="60" maxlength="100"
               spellcheck="true">${resumen}</textarea></p>
             </li>
+
             <li>
               <label for="addTags">Tags</label>
               <div class="tagWrapper">
