@@ -2561,3 +2561,23 @@ body.dashboard{
 .ManualDeEstilo li{
   margin-bottom: 1em;
 }
+
+
+/*a partir de aca subpagina de Resultado de Busqueda*/
+
+ body.resultadoBusqueda{
+   display: grid;
+   /*widescreen size:*/
+   grid-template-areas:
+     "logo logo logo topMenu"
+     "clima clima buscador buscador"
+     "titulo titulo titulo titulo"
+     "noticia noticia noticia noticia"
+     "footer footer footer footer";
+ }
+
+ .resultadobuscador{
+   grid-area: titulo;
+   font-family: keepcalm;
+   font-size: 2vw;
+ }
