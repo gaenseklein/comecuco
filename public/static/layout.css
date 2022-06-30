@@ -2449,6 +2449,19 @@ body.dashboard{
     }
   }
 
+.dashboard .userlistmenu ul{
+  width:100%;
+}
+.dashboard .userlistmenu li{
+  display: grid;
+  width:100%;
+  grid-template-columns:1fr 1fr 1fr 1fr;
+}
+
+.dashboard .userlistmenu li::first-child{
+  font-weight: bold;
+}
+
 /*a partir de aca QUIENES SOMOS*/
 
 .logoredCOMECUCO{

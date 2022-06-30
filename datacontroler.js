@@ -213,7 +213,7 @@ const datacontroler = {
             if(columnas[x].authorId+''==medios[m]._id+''){
               columnas[x].fullmedio = medios[m]
               break;
-            } 
+            }
           }
         }
       }
@@ -293,7 +293,7 @@ const datacontroler = {
       let query={idDeAutor:user._id};
       let qopt={sort : {pubdate:-1}, limit:20};
       let noticias = await Noticia.find(query,null,qopt)
-      query={autor:'comecuco'}
+      query={author:'comecuco'}
       let comecucos = await Noticia.find(query,null,qopt)
       let columnas = await Columna.find({author:user.name})
       let destacadas = Destacada.calendarioseis() //meses,destacadas
@@ -348,6 +348,15 @@ const datacontroler = {
     } catch (e) {
       console.log('editar noticia error',e);
       return false;
+    }
+  },
+  userlist: async function(){
+    try {
+      let users = await User.find()
+      console.log('userlist:',users);
+      return users
+    } catch (e) {
+      console.log(e)
     }
   },
   datainput: {

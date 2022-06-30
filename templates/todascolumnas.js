@@ -14,10 +14,10 @@ const template = function(data){
       desde = desde.toLowerCase()
       hasta = hasta.toLowerCase()
       lista+=`<li>
-        <div class="contenedorlogo"><a href="${data[x].url}">${img}</a>
+        <div class="contenedorlogo"><a href="/columna/${data[x].url}">${img}</a>
           <img class="logoautor" src="${data[x].fullmedio.icon}" alt="${data[x].fullmedio.name}">
         </div>
-        <h3><a href="${data[x].url}">
+        <h3><a href="/columna/${data[x].url}">
           "${data[x].title}"
         </a></h3>
         <div class="producido">Columna producida por: ${data[x].fullmedio.name}

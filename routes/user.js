@@ -295,4 +295,19 @@ router.post('/columna', fileUpload(), async (req,res)=>{
       }
 });
 
+router.get('/list', async (req,res)=>{
+    console.log('userlist');
+      try{
+        let data = await datacontroler.userlist()
+        console.log('user:',data);
+        if(!data)return res.status(404).send('oops')
+        let result = templates.buildPage('userlist',data)
+
+        res.send(result)
+      }catch(e){
+        console.log(e)
+        res.status(400).send('an error occured')
+      }
+});
+
 module.exports = router;

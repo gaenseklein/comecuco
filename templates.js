@@ -7,6 +7,7 @@ const raw = {
   resumensemanal: require('./templates/resumensemanal.js'),
   todascolumnas: require('./templates/todascolumnas.js'),
   todaslasnoticias: require('./templates/todaslasnoticias.js'),
+  userlist: require('./templates/userlist.js'),
   form:{
     usuario: require('./templates/forms/usuario.js'),
     iniciar: require('./templates/forms/iniciosesion.js'),
