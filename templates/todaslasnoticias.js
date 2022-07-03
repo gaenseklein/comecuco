@@ -1,4 +1,7 @@
-const template = function(data){
+const template = function(notes){
+    let data = notes.data
+    let pagenr = notes.pagenr || 0
+    pagenr = pagenr*1
     let lista = ''
     for(let x=0;x<data.length;x++){
       let noticia = data[x]
@@ -24,6 +27,15 @@ const template = function(data){
           </div>
         </li>
       `
+    }
+    let pager = ''
+    if(pagenr>0 || data.length>=20){
+      pager+=`  <div class="pagAntYSig">`
+      sigp = pagenr+1
+      if(pagenr>1)pager+=`<a href="/todaslasnoticias/${pagenr}" class="paginaAnterior">« Anterior</a>`
+      else if(pagenr==1)pager+=`<a href="/todaslasnoticias" class="paginaAnterior">« Anterior</a>`
+      if(data.length>=20)pager+=`<a href="/todaslasnoticias/${sigp}" class="paginaPosterior">Siguiente »</a>`
+      pager+=`</div>`
     }
     let raw = `
     <!DOCTYPE html>
@@ -85,6 +97,7 @@ const template = function(data){
           <ul class="últimas">
           ${lista}
           </ul>
+          ${pager}
         </div>
 
         <div class="footer">

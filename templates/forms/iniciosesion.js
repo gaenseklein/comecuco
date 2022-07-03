@@ -9,7 +9,7 @@ const template = function(){
   </head>
   <body class="subpaginainiciosesion">
     <div class="logo">
-      <p class="encabezado"><a href="frontpage.html">
+      <p class="encabezado"><a href="/">
         COMECUCO</a>
       </p>
       <div class="subtitle">

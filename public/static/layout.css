@@ -897,7 +897,7 @@ input#search {
     justify-content: center;
   }
 
-  div.pagAntYSig button{
+  div.pagAntYSig a{
     margin: auto 4vw;
     font-family: keepcalm;
   }

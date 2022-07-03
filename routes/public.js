@@ -83,7 +83,23 @@ router.get('/todaslasnoticias', async (req,res)=>{
           res.status(404).send('oops, not found')
           return;
         }
-        result = templates.buildPage('todaslasnoticias', data)
+
+        result = templates.buildPage('todaslasnoticias', {data:data})
+        res.send(result)
+      }catch(e){
+        console.log(e)
+        res.status(400).send('an error occured')
+      }
+});
+router.get('/todaslasnoticias/:pagenr', async (req,res)=>{
+      try{
+        let result = ''
+        let data = await datacontroler.noticias(req.params.pagenr)
+        if(!data){
+          res.status(404).send('oops, not found')
+          return;
+        }
+        result = templates.buildPage('todaslasnoticias', {data:data, pagenr:req.params.pagenr})
         res.send(result)
       }catch(e){
         console.log(e)
