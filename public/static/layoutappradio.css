@@ -558,3 +558,23 @@ input[type=range]::-moz-range-thumb {
     font-size: 5vw;
   }
 }
+
+/*para esfuerzar interaccion del usuario con la pagina*/
+#iniciarApp{
+  position: absolute;
+  top: 0;
+  left:0;
+  width:98%;
+  height:98%;
+  border:none;
+  padding:0;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  background: black;
+  color: white;
+  z-index: 10000;
+}
+#iniciarApp.oculta{
+  display: none;
+}

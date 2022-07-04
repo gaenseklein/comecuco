@@ -118,4 +118,34 @@ router.get('/medio/:url', async (req,res)=>{
   }
 });
 
+router.get('/envivo', async (req,res)=>{
+      try{
+        let data = await datacontroler.quienessomos()
+        let result = templates.buildPage('app',data.medios)
+        res.send(result)
+      }catch(e){
+        console.log(e)
+        res.status(400).send('an error occured')
+      }
+});
+router.get('/envivo/:radioid', async (req,res)=>{
+      try{
+        let result = templates.buildPage('app',null)
+        res.send(result)
+      }catch(e){
+        console.log(e)
+        res.status(400).send('an error occured')
+      }
+});
+router.get('/app/redes', async (req,res)=>{
+      try{
+        let data = await datacontroler.quienessomos()
+        let result = templates.buildPage('appRadiostations',data.medios)
+        res.send(result)
+      }catch(e){
+        console.log(e)
+        res.status(400).send('an error occured')
+      }
+});
+
 module.exports = router;
