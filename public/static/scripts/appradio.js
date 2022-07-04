@@ -110,6 +110,7 @@ var radioapp={
         noHayRadio.classList.add('nohaysenal')
       }
     }else{
+      noHayRadio.classList.remove('nohaysenal')
       if(miembroact.tipo=='video'){
         let iframe = document.createElement('iframe');
         iframe.width="256"

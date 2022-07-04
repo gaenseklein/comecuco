@@ -44,7 +44,7 @@ module.exports = function(data){
   //construye miembros
   for(let x=0;x<data.length;x++){
     if(data[x].mountpoint){
-      comecuco.miembros.push({
+      comecuco.miembros.unshift({
         tipo:'radio',
         nombre: data[x].name,
         mountpoint: data[x].mountpoint
