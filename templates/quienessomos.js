@@ -57,7 +57,7 @@ const template = function(data){
           </div>
         </div>
         <div class="clima">
-            EL CLIMA EN MENDOZA 13° HORA
+            <span id="climatext">EL CLIMA EN MENDOZA 13°</span> HORA
             <div id="hora"></div>
         </div>
         <div class="paginamedio">
