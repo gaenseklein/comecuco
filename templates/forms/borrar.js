@@ -40,7 +40,7 @@ module.exports = function(dataobj){
             </div>
             <div>
             <label for="contrasena">entra tu contraseña para asegurar que lo quieres borrar</label>
-            <input type="password" id="contrasena">
+            <input type="password" name="pwd" id="contrasena">
             </div>
             <div>
                 <a href="/user">cancelar</a>

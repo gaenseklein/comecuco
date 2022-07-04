@@ -253,6 +253,21 @@ const datacontroler = {
       return false;
     }
   },
+  checkPassword: async function(username, password){
+    try {
+      console.log('check pw for:',username,password);
+      let user = await User.findOne({name:username})
+      if(!user)return false
+      console.log('comparing pw', username, password, user.password);
+      let val = await bcrypt.compare(password, user.password);
+      console.log(val);
+      if(!val)return false
+      return true
+    } catch (e) {
+      console.log('checkpw went wrong',e);
+      return false
+    }
+  },
   iniciarSession: async function(username, password){
     try {
       let user = await User.findOne({name:username});
@@ -776,9 +791,56 @@ const datacontroler = {
       } catch (e) {
         console.log('saving columna went wrong',e,updateobj);
       }
-
-
     },
+    borrarNoticia: async function(nid){
+      try {
+        let noticia = await Noticia.findOne({_id:nid});
+        if(!noticia)return false
+        console.log('del noticia:',noticia);
+        // return true; //only for testing
+        //mover los imagenes:
+        let deldir = './private/deleted/'+noticia._id
+        if(!fs.existsSync(deldir))fs.mkdirSync(deldir,{recursive:true});
+        if(noticia.images && noticia.images.length>0){
+          for (var i = 0; i < noticia.images.length; i++) {
+            if(!fs.existsSync('.'+noticia.images[i].url)){
+              console.log('image not found',noticia.images[i].url);
+              continue;
+            }
+            let imgpath = noticia.images[i].url.substring(1)
+            let delpath = './private/deleted/'+noticia._id+imgpath.substring(imgpath.lastIndexOf('/'))
+            imgpath='./'+imgpath
+            console.log('mv',imgpath,delpath);
+            fs.renameSync(imgpath,delpath)
+          }
+        }
+        if(noticia.audios && noticia.audios.length>0){
+          for (var i = 0; i < noticia.audios.length; i++) {
+            if(!fs.existsSync('.'+noticia.audios[i].url)){
+              console.log('audio not found',noticia.audios[i].url);
+              continue;
+            }
+            let aupath = noticia.audios[i].url.substring(1)
+            let delpath = './private/deleted/'+noticia._id+aupath.substring(aupath.lastIndexOf('/'))
+            aupath = './'+aupath
+            fs.renameSync(aupath,delpath)
+            console.log('mv',aupath,delpath);
+          }
+        }
+        //hacer una copia a deleted
+        let copia = JSON.stringify(noticia)
+        let copiapath = './private/deleted/'+noticia._id+'.json'
+        fs.writeFileSync(copiapath,copia,'utf-8')
+        console.log('write copy to:',copiapath);
+        //borrar de la base de datos
+        let resp = await Noticia.deleteOne({_id:noticia._id})
+        console.log('deleted from db',resp);
+        return true
+      } catch (e) {
+        console.log('borrar no funciono',e)
+      }
+    },
+
   },//end datainput
   dataexport: {
     user: async function(){

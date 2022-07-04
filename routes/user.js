@@ -323,4 +323,28 @@ router.get('/borrar/noticia/:nid', async (req,res)=>{
       }
 });
 
+router.post('/borrar/noticia/:nid', async (req,res)=>{
+  console.log('borrar',req.body);
+      if(req.body.confirm!='on'){
+        res.status(400).send('tienes que chequear que lo quieres borrar de verdad')
+        return
+      }
+      if(req.body.nid!=req.params.nid || !req.user){
+        res.status(400).send('has intentado algo prohibido')
+        return
+      }
+
+      let pwcorrect = await datacontroler.checkPassword(req.user.name,req.body.pwd)
+      if(!pwcorrect)return res.status(400).send('access denied, wrong password')
+      console.log('pw correct?',pwcorrect)
+      try{
+        let data = await datacontroler.datainput.borrarNoticia(req.params.nid)
+        let result = 'done'
+        res.send(result)
+      }catch(e){
+        console.log(e)
+        res.status(400).send('an error occured')
+      }
+});
+
 module.exports = router;
