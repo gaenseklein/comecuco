@@ -13,6 +13,7 @@ const raw = {
     iniciar: require('./templates/forms/iniciosesion.js'),
     noticia: require('./templates/forms/noticia.js'),
     columna: require('./templates/forms/columna.js'),
+    borrar: require('./templates/forms/borrar.js'),
   },
 }
 

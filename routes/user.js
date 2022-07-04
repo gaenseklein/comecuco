@@ -310,4 +310,17 @@ router.get('/list', async (req,res)=>{
       }
 });
 
+router.get('/borrar/noticia/:nid', async (req,res)=>{
+      try{
+        let data = await datacontroler.noticia(req.params.nid)
+        if(!data)return res.status(404).send('article not found')
+        let result = templates.buildForm('borrar',data)
+
+        res.send(result)
+      }catch(e){
+        console.log(e)
+        res.status(400).send('an error occured')
+      }
+});
+
 module.exports = router;

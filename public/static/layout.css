@@ -74,6 +74,7 @@ h2,
 h2{
     font-family: patagonian;
     font-size: medium;
+    text-transform: uppercase;
 }
 
 h3{
