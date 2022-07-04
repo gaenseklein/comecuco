@@ -30,6 +30,7 @@ function addSocialRed(r,u,passive){
 }
 
 function initSocialRed(inp){
+  if(inp.value.length==0)return;
   let inpparsed = inp.value.split(' ');
   for (let x=0;x<inpparsed.length;x+=2){
     addSocialRed(inpparsed[x],inpparsed[x+1],true);
