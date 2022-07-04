@@ -336,9 +336,10 @@ const template = function(data){
         }
         calecita();
       </script>
-      <script src='/public/static/scripts/mediosenvivo.js'></script>
+      
       <script src='/public/static/scripts/playbutton.js'></script>
       <script src='/public/static/scripts/verticalscrolllist.js'></script>
+      <script src='/public/static/scripts/weather.js'></script>
     </html>
     `;
     return raw;

@@ -83,6 +83,7 @@ const template = function(data){
         </div>
         <div class="footer">
         </div>
+        <script src='/public/static/scripts/weather.js'></script>
       </body>
     </html>
 

@@ -84,7 +84,7 @@ const template = function(data){
         <div class="integrantesCOMECUCO">
           <img src="/public/static/mapaRadioxRadio.png" class="mapaCOMECUCO" alt="Mapa del COMECUCO">
           <ul class="logosIntegrantesCOMECUCO">
-          ${medioslist}            
+          ${medioslist}
           </ul>
          </div>
         </div>
@@ -93,6 +93,7 @@ const template = function(data){
         </div>
       </body>
       <script src='../public/static/scripts/calecita.js'></script>
+      <script src='/public/static/scripts/weather.js'></script>
     </html>
     `;
     return raw;

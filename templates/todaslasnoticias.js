@@ -102,6 +102,7 @@ const template = function(notes){
 
         <div class="footer">
         </div>
+        <script src='/public/static/scripts/weather.js'></script>
       </body>
     </html>
     `;

@@ -114,6 +114,7 @@ const template = function(data){
             ${lista}
           </ul>
         </div>
+        <script src='/public/static/scripts/weather.js'></script>
       </body>
     </html>
     `;
