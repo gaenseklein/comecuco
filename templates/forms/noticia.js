@@ -52,6 +52,8 @@ module.exports = function(dataobj){
   if(pd<10)pd='0'+pd
   let pubdate = pdate.getFullYear()+'-'+pm+'-'+pd
   let rscnumero = data.numero || ''
+  let videolink = ''
+  if(data.videolink && data.videolink.url)videolink = data.videolink.url
   let raw=`<!DOCTYPE html>
   <html lang="es" dir="ltr">
     <head>
@@ -196,6 +198,12 @@ module.exports = function(dataobj){
           </ul>
           <ul id="EditAudiosYVideos">
             ${eliminaraudios}
+          </ul>
+          <ul class="videourl">
+            <li>
+            <label for="videolink" title="eg https://youtu.be/MVxfjY-2K5c o https://www.youtube.com/watch?v=MVxfjY-2K5c">Agregar link a youtube</label>
+            <input type="text" name="videolink" id="videolink" value="${videolink}">
+            </li>
           </ul>
           <button type="submit" class="submitEditNoticia">Guardar cambios y volver a la Noticia</button>
         </form>

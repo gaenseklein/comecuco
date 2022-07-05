@@ -183,6 +183,7 @@ router.post('/noticia', fileUpload(), async (req,res)=>{
     isnew: (req.body.isnew=='true'),
     id: req.body.id,
     numero: req.body.numero,
+    videolink: req.body.videolink,
     // deleteimages: req.body.deleteimages,
     // deleteaudios: req.body.deleteaudios,
   }

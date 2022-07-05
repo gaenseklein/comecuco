@@ -15,6 +15,13 @@ const template = function(data){
         <a href="${noticia.audios[x].url}" download>&#9196;</a>
       </div>`
     }
+    if(noticia.videolink && noticia.videolink.iframe && noticia.videolink.iframe.length > 0){
+      audiosyvideos+= `<div class="videowrapper">
+      <iframe class="" src="${noticia.videolink.iframe}?width%3D640%26amp%3Bheight%3D360%26amp%3Btheme%3Ddark%26amp%3Bautoplay%3D0%26amp%3Bvq%3Dlarge%26amp%3Brel%3D0%26amp%3Bshowinfo%3D1%26amp%3Bmodestbranding%3D1%26amp%3Biv_load_policy%3D1%26amp%3Bcontrols%3D1%26amp%3Bautohide%3D2%26amp%3Bwmode%3Dopaque" allowfullscreen="" width="640" height="360" frameborder="0">
+      </iframe>
+      </div>
+      `
+    }
     let raw = `
     <!DOCTYPE html>
     <html lang="es" dir="ltr">

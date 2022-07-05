@@ -253,6 +253,22 @@ const datacontroler = {
       return false;
     }
   },
+  appRadiostations: async function(){
+    try {
+      let medios = await User.find();
+      medios.sort(function(a,b){return a.name-b.name});
+      // let imagenes = fs.readdirSync('public/static/quienessomos');
+      let ultimogiramundo = await Noticia.findOne({author:'giramundo'})
+      return {
+        medios:medios,
+
+        // images: imagenes,
+      };
+    } catch (e) {
+      console.log(e);
+      return false;
+    }
+  },
   checkPassword: async function(username, password){
     try {
       console.log('check pw for:',username,password);
@@ -348,6 +364,7 @@ const datacontroler = {
             images:[],
             audios:[],
             body:'',
+            videolink:'',
           }
         }
         // console.log(nuevanoticia);
@@ -506,6 +523,25 @@ const datacontroler = {
       if(content.tipo=='resumensemanal'){
         updateobj.numero = content.numero
         if(!content.numero)updateobj.numero = await Noticia.count({tipo:'resumensemanal'}) + 1
+      }
+      //videolink to youtube
+      if(content.videolink && content.videolink!='' && content.videolink.indexOf('iframe')==-1){
+        //we dont support iframe-mode
+        let idstart = content.videolink.indexOf('=')+1
+        if(idstart==0){
+          //videolink es de la forma https://youtu.be/MVxfjY-2K5c
+          idstart = content.videolink.indexOf('youtu.be/')
+          if(idstart>-1)idstart+='youtu.be/'.length
+        }
+        if(idstart>-1){
+          let ytid = content.videolink.substring(idstart)
+          if(ytid.indexOf('&')>-1)ytid = ytid.substring(0,ytid.indexOf('&'))
+          if(ytid.indexOf('?')>-1)ytid = ytid.substring(0,ytid.indexOf('?'))
+          updateobj.videolink = {
+            url:content.videolink,
+            iframe : 'https://www.youtube.com/embed/'+ytid
+          }
+        }
       }
       console.log('content is new?',content.isnew);
       if(content.isnew ){

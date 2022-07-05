@@ -40,6 +40,10 @@ const counterSchema = new mongoose.Schema({
     url: String,
     description: String,
   }],
+  videolink:{
+    url: String,
+    iframe: String,
+  },
   tags: [
     String
   ],
