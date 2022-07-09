@@ -1,4 +1,6 @@
 module.exports = function(data){
+  let medios = data.medios
+
   let redes = [ //contiene todas redes, cada red es un objeto
     //si miembro tiene un mountpoint se toma base + mountpoint para src del audio
     //si no usa el src directo del miembro:
@@ -38,16 +40,22 @@ module.exports = function(data){
     //si no usa el src directo del miembro:
     base: 'https://comecuco.org:9000/',
     miembros: [
-      {tipo: 'video', nombre: 'giramundo tv', youtube:true, src:'https://www.youtube.com/embed/i4rlKGYUPTo'},
+      // {tipo: 'video', nombre: 'giramundo tv', youtube:true, src:'https://www.youtube.com/embed/i4rlKGYUPTo'},
     ],
   } //fin red comecuco
+  //giramundo-tv youtube actual
+  if(data.giramundo && data.giramundo.videolink){
+    comecuco.miembros = [
+      {tipo: 'video', nombre: 'giramundo tv', youtube:true, src:data.giramundo.videolink.iframe},
+    ]
+  }
   //construye miembros
-  for(let x=0;x<data.length;x++){
-    if(data[x].mountpoint){
+  for(let x=0;x<medios.length;x++){
+    if(medios[x].mountpoint){
       comecuco.miembros.unshift({
         tipo:'radio',
-        nombre: data[x].name,
-        mountpoint: data[x].mountpoint
+        nombre: medios[x].name,
+        mountpoint: medios[x].mountpoint
       });
     }
   }

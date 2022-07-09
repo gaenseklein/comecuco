@@ -109,8 +109,7 @@ router.get('/todaslasnoticias/:pagenr', async (req,res)=>{
 router.get('/medio/:url', async (req,res)=>{
   try {
     let data = await datacontroler.medio(req.params.url);
-    let response='hello';
-    //response = templates.buildPage('frontpage',data);
+    let response=templates.buildPage('medio',data);
     res.send(response);
   } catch (e) {
     console.warn(e);
@@ -139,8 +138,11 @@ router.get('/envivo/:radioid', async (req,res)=>{
 });
 router.get('/app/redes', async (req,res)=>{
       try{
-        let data = await datacontroler.quienessomos()
-        let result = templates.buildPage('appRadiostations',data.medios)
+        // let data = await datacontroler.quienessomos()
+        // let result = templates.buildPage('appRadiostations',data.medios)
+
+        let data = await datacontroler.appRadiostations()
+        let result = templates.buildPage('appRadiostations',data)
         res.send(result)
       }catch(e){
         console.log(e)

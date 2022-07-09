@@ -127,7 +127,7 @@ const datacontroler = {
         return false;
       }
       if(onlyUser)return medio;
-      let query = {idDeAutor:medio._id};
+      let query = {idDeAutor:medio._id, tipo:'noticia'};
       let queryoptions = {sort : {pubdate:-1}, limit: 50};
       if(pagenr)queryoptions.skip=pagenr*50;
       let noticias = await Noticia.find(query,null,queryoptions);
@@ -261,7 +261,7 @@ const datacontroler = {
       let ultimogiramundo = await Noticia.findOne({author:'giramundo'})
       return {
         medios:medios,
-
+        giramundo: ultimogiramundo,
         // images: imagenes,
       };
     } catch (e) {

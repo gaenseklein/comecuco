@@ -2,6 +2,7 @@ const raw = {
   quienessomos: require('./templates/quienessomos.js'),
   frontpage: require('./templates/frontpage.js'),
   noticia: require('./templates/noticia.js'),
+  medio: require('./templates/medio.js'),
   dash: require('./templates/dash.js'),
   columna: require('./templates/columna.js'),
   resumensemanal: require('./templates/resumensemanal.js'),
