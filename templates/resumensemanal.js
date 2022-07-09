@@ -1,3 +1,5 @@
+const fs = require('fs')
+
 const template = function(data){
     let numeroactual = data[0].numero
     let fechaactual = new Date(data[0].pubdate).toLocaleDateString('es')
@@ -45,7 +47,9 @@ const template = function(data){
         </div>
       </li>`
     }
-
+    //add resumenes del archivo:
+    let archive = fs.readFileSync('./templates/resumenes.archive','utf-8')
+    lista+=archive
     let raw = `
     <!DOCTYPE html>
     <html lang="es" dir="ltr">
