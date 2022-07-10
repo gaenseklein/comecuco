@@ -8,6 +8,7 @@ const Tags = require('./tags.js');
 const sharp = require('sharp');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const fetch = require('node-fetch');
 
 const datacontroler = {
   frontpage: async function(){
@@ -541,8 +542,30 @@ const datacontroler = {
             url:content.videolink,
             iframe : 'https://www.youtube.com/embed/'+ytid
           }
+          //check for image:
+          if(newimages.length==0 && content.isnew){
+            let previmg = await fetch(`https://img.youtube.com/vi/${ytid}/hqdefault.jpg`)
+            let imgpath = './public/files/images/'+cdate.getFullYear()+'/'+cdate.getMonth();
+            if(!fs.existsSync(imgpath))fs.mkdirSync(imgpath,{recursive:true});
+            imgpath+='/';
+            imgpath+=ytid+'.jpg'
+            try {
+              let res = await fetch(`https://img.youtube.com/vi/${ytid}/hqdefault.jpg`)
+                if(res.ok){
+                  let previmg = await res.buffer()
+                  fs.writeFileSync(imgpath,previmg)
+                  newimages.push({
+                    url:imgpath.substring(1),
+                    title: 'prevista youtube',
+                  });
+                  console.log('downloaded youtube-preview-image');
+                }
+            } catch (e) {
+              console.log('could not download previewimage from youtube',e);
+            }
+          }
         }
-      }
+      }//end of videolink to youtube
       console.log('content is new?',content.isnew);
       if(content.isnew ){
         updateobj.audios=newaudios;
