@@ -31,8 +31,9 @@ const template = function(notes){
     let pager = ''
     if(pagenr>0 || data.length>=20){
       pager+=`  <div class="pagAntYSig">`
-      sigp = pagenr+1
-      if(pagenr>1)pager+=`<a href="/todaslasnoticias/${pagenr}" class="paginaAnterior">« Anterior</a>`
+      let sigp = pagenr+1
+      let prevp = pagenr-1
+      if(pagenr>1)pager+=`<a href="/todaslasnoticias/${prevp}" class="paginaAnterior">« Anterior</a>`
       else if(pagenr==1)pager+=`<a href="/todaslasnoticias" class="paginaAnterior">« Anterior</a>`
       if(data.length>=20)pager+=`<a href="/todaslasnoticias/${sigp}" class="paginaPosterior">Siguiente »</a>`
       pager+=`</div>`
