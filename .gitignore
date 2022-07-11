@@ -9,3 +9,5 @@ public/files
 public/old
 public/weather.json
 public/tiempo.json
+archivo/archive
+archivo/api*
