@@ -46,6 +46,7 @@ var archivo = {
     return {
       data:pg,
       pagenr:pagenr,
+      archivo:true,
     }
   },
 }

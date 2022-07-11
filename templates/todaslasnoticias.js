@@ -29,15 +29,15 @@ const template = function(notes){
       `
     }
     let pager = ''
-    if(pagenr>0 || data.length>=20){
       pager+=`  <div class="pagAntYSig">`
       let sigp = pagenr+1
       let prevp = pagenr-1
       if(pagenr>1)pager+=`<a href="/todaslasnoticias/${prevp}" class="paginaAnterior">« Anterior</a>`
       else if(pagenr==1)pager+=`<a href="/todaslasnoticias" class="paginaAnterior">« Anterior</a>`
       if(data.length>=20)pager+=`<a href="/todaslasnoticias/${sigp}" class="paginaPosterior">Siguiente »</a>`
+      else if(!data.archivo)pager+=`<a href="/archivo" class="paginaPosterior">Ver mas en el Archivo</a>`
       pager+=`</div>`
-    }
+    
     let raw = `
     <!DOCTYPE html>
     <html lang="es" dir="ltr">

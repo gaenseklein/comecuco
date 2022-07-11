@@ -591,6 +591,8 @@ const datacontroler = {
             let savedcol = await columna.save();
             console.log('updated columna',savedcol);
           }
+          //tenemos que actualizar el usuario.ultimaSubida
+          let upd = await User.updateOne({_id:user._id},{ultimaSubida:Date.now()})
           return savednoticia;
         } catch (e) {
           console.log(e);
