@@ -905,10 +905,48 @@ const datacontroler = {
   },//end datainput
   dataexport: {
     user: async function(){
-      let user = await User.find();
-      return user;
-    }
-  }
+      try {
+        let user = await User.find();
+        return user;
+      } catch (e) {
+        console.log(e)
+        return false
+      }
+    },
+    noticias: async function(){
+      try {
+        let noticias = await Noticia.find();
+        return noticias;
+      } catch (e) {
+        console.log(e)
+        return false;
+      }
+    },
+    columnas: async function(){
+      try {
+        let columnas = await Columna.find();
+        return columnas;
+      } catch (e) {
+        console.log(e)
+        return false;
+      }
+    },
+    todo: async function(){
+      let user = await this.user()
+      let noticias = await this.noticias()
+      let columnas = await this.columnas()
+      let tags = fs.readFileSync('./private/tags.dt','utf-8')
+      let destacadas = fs.readFileSync('./private/destacadas.dt','utf-8')
+      return {
+        user: user,
+        noticias:noticias,
+        columnas:columnas,
+        tags: tags,
+        destacadas: destacadas,
+      }
+    },
+
+  },//end dataexport
 }
 
 async function saveImage(path, data, width, height){

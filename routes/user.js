@@ -348,4 +348,16 @@ router.post('/borrar/noticia/:nid', async (req,res)=>{
       }
 });
 
+router.get('/exportAll', async (req,res)=>{
+      try{
+        let data = await datacontroler.dataexport.todo()
+        if(!data)return res.status(400).send('oops something went wrong')
+        let result = JSON.stringify(data)
+        res.send(result)
+      }catch(e){
+        console.log(e)
+        res.status(400).send('an error occured')
+      }
+});
+
 module.exports = router;

@@ -135,6 +135,7 @@ module.exports = function(data){
       <a href="/user/nuevo">nuevo usuario/medio</a>
       <a href="/user/list">sobrevista usuarios</a>
       <a href="/user/tags">editar tags</a>
+      <a href="/user/exportAll" download="comecuco.json">export database</a>
     </div>
     <div class="footer">
     </div>
