@@ -266,7 +266,7 @@ flex-wrap: wrap;
     grid-template-areas:
         "img title"
         "img fecha";
-    grid-template-columns: auto 1fr;
+    grid-template-columns: 14ch 1fr;
     grid-template-rows: auto 1fr;
     grid-column-gap: 1ch;
     text-decoration: none;
@@ -276,6 +276,7 @@ flex-wrap: wrap;
 
 .loMasLeido a img {
     grid-area: img;
+    width: 100%;
 }
 
 .loMasLeido li {

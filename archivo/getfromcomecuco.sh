@@ -2,7 +2,7 @@
 
 a=1
 
-while [ $a -lt 37 ]
+while [ $a -lt 40 ]
 do
    echo $a
    wget http://comecuco.org/api-noticia?page=$a

@@ -66,7 +66,7 @@ const masleidos = {
     },
     eliminaViejos: function(){
       let eliminados = [];
-      for(let x=this.valores.length;x>=0;x--){
+      for(let x=this.valores.length-1;x>=0;x--){
         if(Date.now()-this.valores[x].pubdate>this.maximoEdadEnMs){
           eliminados.push(this.valores.splice(x,1));
         }

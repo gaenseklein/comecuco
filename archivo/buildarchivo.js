@@ -199,7 +199,7 @@ function logNid(nid){
 }
 
 parseFromHtml('api-noticia')
-for(let p=1;p<37;p++){
+for(let p=1;p<40;p++){
   parseFromHtml('api-noticia?page='+p)
 }
 parseFromHtml('api-audio')

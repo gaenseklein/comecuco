@@ -100,6 +100,7 @@ const datacontroler = {
       if(!not)return false;
       let autor = await User.findOne({_id:not.idDeAutor})
       if(!autor)return false;
+      Masleidos.subir(id,not.pubdate)
       return {noticia:not, autor:autor};
     } catch (e) {
       console.log(e);
@@ -947,6 +948,34 @@ const datacontroler = {
     },
 
   },//end dataexport
+  // masleidos: {
+  //   lista:{}, //[id]:{count,pubdate}
+  //   subir: function(noticia){
+  //     if(lista[noticia._id])lista[noticia._id].count++
+  //     this.eliminarViejos()
+  //   },
+  //   eliminarViejos: function(){
+  //     let maxAge = Date.now()-(90*24*60*60*1000)
+  //     let ids = Object.keys(this.lista)
+  //     for(let x=ids.length-1;x>=0;x--){
+  //       if(this.lista[ids[x]].pubdate<maxAge){
+  //         delete this.lista[ids[x]]
+  //       }
+  //     }
+  //   },
+  //   listaDeIds: function(){
+  //     let lista = []
+  //     let ids = Object.keys(this.lista)
+  //     for(let x=0;x<ids.length;x++){
+  //       lista.push({
+  //         id:ids[x],
+  //         count: this.lista[ids[x]].count
+  //       })
+  //     }
+  //     lista.sort(function(a,b){return b.count - a.count})
+  //     return lista
+  //   },
+  // }, //end masleidos
 }
 
 async function saveImage(path, data, width, height){
