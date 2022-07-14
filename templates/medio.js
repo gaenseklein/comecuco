@@ -65,7 +65,7 @@ const template = function(data){
 
         listaarchivo+=`<li>
         ${notimg}
-        <h3><a href="/archivo/${archivo[x]._id}">
+        <h3><a href="/node/${archivo[x]._id}">
         ${archivo[x].title}
         </a></h3>
         <div class="fecha">
