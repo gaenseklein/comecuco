@@ -103,6 +103,7 @@ router.post('/cambia/', fileUpload(), async (req,res)=>{
       mountpoint: req.body.mountpoint,
       redes: req.body.redes,
     };
+    if(req.body.drupalid)user.drupalid=req.body.drupalid
     if(req.body.password && req.body.password.length>0){
       user.password=req.body.password
     }

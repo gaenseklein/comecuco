@@ -2,6 +2,11 @@ const template = function(data){
     //data: {medio, noticias}
     let medio = data.medio
     let noticias = data.noticias
+    let archivo = []
+    if(data.archivo)archivo=data.archivo.data
+    console.log(medio, data.archivo);
+    console.log(archivo);
+    // console.log(medio,noticias.length,archivo.length)
     let x=0;
     let fotosdelmedio = ''
     for(x=0;x<medio.images.length;x++){
@@ -40,6 +45,28 @@ const template = function(data){
         ${notimg}
         <h3><a href="/noticia/${noticias[x]._id}">
         ${noticias[x].title}
+        </a></h3>
+        <div class="fecha">
+        ${notfecha}
+        </div>
+        </li>`
+      }
+    }
+    let listaarchivo = ''
+    console.log('archivo?',archivo);
+    if(archivo && archivo.length>0){
+      console.log('archivo found');
+      for(x=0;x<archivo.length;x++){
+        let notimg = ''
+        let notfecha = new Date(archivo[x].pubdate).toLocaleDateString('es')
+        if(archivo[x].images && archivo[x].images[0]){
+          notimg = `<img src="${archivo[x].images[0].url}" alt="${archivo[x].images[0].title}">`
+        }
+
+        listaarchivo+=`<li>
+        ${notimg}
+        <h3><a href="/archivo/${archivo[x]._id}">
+        ${archivo[x].title}
         </a></h3>
         <div class="fecha">
         ${notfecha}
@@ -117,6 +144,7 @@ const template = function(data){
         <div class="noticiasdelmedio">
           <ul>
             ${listanoticias}
+            ${listaarchivo}
           </ul>
         </div>
 

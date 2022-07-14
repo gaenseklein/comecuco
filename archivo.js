@@ -49,6 +49,21 @@ var archivo = {
       archivo:true,
     }
   },
+  userpage: function(uid, pagenr){
+    let fn = './archivo/archive/user'+uid+'page'+pagenr+'.json'
+    if(!fs.existsSync(fn))return false
+    let raw = fs.readFileSync(fn,'utf-8')
+    let pg = JSON.parse(raw)
+    for(let n=0;n<pg.length;n++){
+      pg[n].author=this.uidToAuthor(pg[n].author)
+      pg[n]._id=pg[n].nid
+    }
+    return {
+      data:pg,
+      pagenr:pagenr,
+      archivo:true
+    }
+  },
 }
 
 module.exports = archivo;

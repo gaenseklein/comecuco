@@ -6,6 +6,10 @@ var resumenesCorto = []
 
 var parseFromHtml = function(filename){
     let i=0
+    if(!fs.existsSync(filename)){
+      console.log('file does not exist',filename);
+      return
+    }
     let raw = fs.readFileSync(filename, 'utf-8')
     let start = raw.indexOf('##############BEGIN')
     let bglength = '##############BEGIN'.length+1
@@ -144,6 +148,7 @@ function translateToNode(){
       title:n.title,
       subtitle:n.subtitulo,
       author:n.uid,
+      uid: n.uid,
       pubdate:n.postdate,
       body:n.body,
       images:images,
@@ -171,6 +176,7 @@ function translateToNode(){
   allinone.sort(function(a,b){return b.nid - a.nid})
   let pages=[]
   let i=0
+  let userpages = {}
   for(i=0;i<allinone.length;i++){
     let node = JSON.stringify(allinone[i])
     let path = './archive/nodes/'+allinone[i].nid+'.json'
@@ -180,13 +186,38 @@ function translateToNode(){
     }else{
       pages[pages.length-1].push(allinone[i])
     }
+    if(!userpages[allinone[i].uid])userpages[allinone[i].uid]=[allinone[i]]
+    else userpages[allinone[i].uid].push(allinone[i]);
   }
   fs.writeFileSync('./archive/pages.json',JSON.stringify(pages),'utf-8')
   for(i=0;i<pages.length;i++){
     fs.writeFileSync('./archive/page'+i+'.json',JSON.stringify(pages[i]),'utf-8')
   }
+  let uids = Object.keys(userpages)
+  console.log(userpages,'created userpages-object',uids);
+  for(i=0;i<uids.length;i++){
+    let upages = []
+    let up=0
+    let ii=0
+    for(ii=0;ii<userpages[uids[i]].length;ii++){
+      if(upages.length%20==0 && ii>0)up++
+      if(!upages[up])upages[up]=[userpages[uids[i]][ii]]
+      else upages[up].push(userpages[uids[i]][ii])
+    }
+    console.log('created upages:',upages.length,uids[i]);
+    for(ii=0;ii<upages.length;ii++){
+      if(!upages[ii]){
+        console.log('???',upages[ii],i,upages.length);
+        continue
+      }
+      fs.writeFileSync('./archive/user'+uids[i]+'page'+ii+'.json',JSON.stringify(upages[ii]),'utf-8')
+      console.log('created pages for user '+uids[i]+':',upages[ii].length);
+    }
+
+  }
   console.log(pages[0])
   console.log('created pages',pages.length);
+
 }
 
 function logNid(nid){

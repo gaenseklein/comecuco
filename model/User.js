@@ -67,6 +67,9 @@ const userSchema = new mongoose.Schema({
   imagetitles:[
     String
   ],
+  drupalid: {
+    type: String,
+  }
 });
 
 module.exports = mongoose.model('User',userSchema);

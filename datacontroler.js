@@ -725,6 +725,7 @@ const datacontroler = {
           openstreetmap: user.openstreetmap,
           mountpoint: user.mountpoint,
         }
+        if(user.drupalid)newUser.drupalid=user.drupalid
         //missing: redes, icon, password, url, images
         newUser.url = cleanurl(user.url);
         newUser.redes = this.userParseRedes(user.redes);
@@ -810,6 +811,12 @@ const datacontroler = {
               olduser.icon=iconurl;
             }
           }
+          if(user.drupalid){
+            updateobj.drupalid=user.drupalid
+            olduser.drupalid = user.drupalid
+            console.log('drupalid added');
+          }
+
           if(user.password){
             //should we check for old password?
             //its not in the form so maybe add later on

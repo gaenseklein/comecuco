@@ -110,6 +110,9 @@ router.get('/todaslasnoticias/:pagenr', async (req,res)=>{
 router.get('/medio/:url', async (req,res)=>{
   try {
     let data = await datacontroler.medio(req.params.url);
+    if(data.medio.drupalid){
+      data.archivo = archivo.userpage(data.medio.drupalid,0)
+    }
     let response=templates.buildPage('medio',data);
     res.send(response);
   } catch (e) {
