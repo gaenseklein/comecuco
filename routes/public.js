@@ -214,5 +214,52 @@ router.get('/archivo/', async (req,res)=>{
         res.status(400).send('an error occured')
       }
 });
+router.get('/archivo/medio/:uid/:pagenr', async (req,res)=>{
+      try{
+        let data = archivo.userpage(req.params.uid,req.params.pagenr)
+        if(!data)return res.status(404).send('oops, not found')
+        let result = templates.buildPage('todaslasnoticias',data)
+        //change all /todaslasnoticias from pager:
+        let pos = result.indexOf('/todaslasnoticias')
+        while(pos>-1){
+          result = result.substring(0,pos)+'/archivo/medio/'+req.params.uid+result.substring(pos+'/todaslasnoticias'.length)
+          pos = result.indexOf('/todaslasnoticias')
+        }
+        //change all links to archived-links:
+        pos = result.indexOf('/noticia/')
+        while(pos>-1){
+          result = result.substring(0,pos+1)+'node'+result.substring(pos+'/noticia'.length)
+          pos = result.indexOf('/noticia/')
+        }
 
+        res.send(result)
+      }catch(e){
+        console.log(e)
+        res.status(400).send('an error occured')
+      }
+});
+router.get('/archivo/medio/:uid', async (req,res)=>{
+      try{
+        let data = archivo.userpage(req.params.uid,0)
+        if(!data)return res.status(404).send('oops, not found')
+        let result = templates.buildPage('todaslasnoticias',data)
+        //change all /todaslasnoticias from pager:
+        let pos = result.indexOf('/todaslasnoticias')
+        while(pos>-1){
+          result = result.substring(0,pos)+'/archivo/medio/'+req.params.uid+result.substring(pos+'/todaslasnoticias'.length)
+          pos = result.indexOf('/todaslasnoticias')
+        }
+        //change all links to archived-links:
+        pos = result.indexOf('/noticia/')
+        while(pos>-1){
+          result = result.substring(0,pos+1)+'node'+result.substring(pos+'/noticia'.length)
+          pos = result.indexOf('/noticia/')
+        }
+
+        res.send(result)
+      }catch(e){
+        console.log(e)
+        res.status(400).send('an error occured')
+      }
+});
 module.exports = router;

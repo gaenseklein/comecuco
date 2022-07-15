@@ -200,7 +200,7 @@ function translateToNode(){
     let up=0
     let ii=0
     for(ii=0;ii<userpages[uids[i]].length;ii++){
-      if(upages.length%20==0 && ii>0)up++
+      if(ii%20==0 && ii>0)up++
       if(!upages[up])upages[up]=[userpages[uids[i]][ii]]
       else upages[up].push(userpages[uids[i]][ii])
     }

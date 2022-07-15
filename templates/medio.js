@@ -53,8 +53,10 @@ const template = function(data){
       }
     }
     let listaarchivo = ''
+    let linkalarchivo = ''
     console.log('archivo?',archivo);
     if(archivo && archivo.length>0){
+      linkalarchivo='<a href="/archivo/medio/'+medio.drupalid+'">ver al archivo</a>'
       console.log('archivo found');
       for(x=0;x<archivo.length;x++){
         let notimg = ''
@@ -146,6 +148,9 @@ const template = function(data){
             ${listanoticias}
             ${listaarchivo}
           </ul>
+        </div>
+        <div id="veralarchivo">
+          ${linkalarchivo}
         </div>
 
         <div class="footer">
