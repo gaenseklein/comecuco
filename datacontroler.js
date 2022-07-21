@@ -730,10 +730,12 @@ const datacontroler = {
         newUser.url = cleanurl(user.url);
         newUser.redes = this.userParseRedes(user.redes);
         //icon:
+        let iconurl = './public/static/logos/'+newUser.url+'.png';
         if(user.icon){
-          let iconurl = './public/static/logos/'+newUser.url+'.png';
           let savedimg = await saveImage(iconurl, user.icon.data, 320, 240)
           if(savedimg)newUser.icon=iconurl.substring(1);
+        }else{
+          newUser.icon=iconurl.substring(1)
         }
         newUser.password = await this.userHashPassword(user.password);
         //images

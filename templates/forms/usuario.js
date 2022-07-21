@@ -50,7 +50,7 @@ const template = function(data){
           <li>
             <label for="NombreUsuario">Nombre del Medio</label>
             <input id="NombreUsuario" type="text" name="name" value="${data.name}" size="40">
-            <input id="drupalid" name="drupalid" value="" type="text" size="5" style="display:none;">
+            <input id="drupalid" name="drupalid" value="" type="text" size="5">
           </li>
           <li>
             <label for="UrlUsuario">URL del Medio</label>
