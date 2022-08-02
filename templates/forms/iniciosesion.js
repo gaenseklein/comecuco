@@ -25,7 +25,7 @@ const template = function(){
         <input type="text" name="name" width="15" id="username">
         <div class="input-group">
           <label for="password">Contraseña</label>
-          <input type="password" maxlength="15" name="password" id="password" required>
+          <input type="password" name="password" id="password" required>
           <button id="verpassword" type="button">👁</button>
         </div>
         <input type="submit" class="submit" value="Iniciar Sesión">
