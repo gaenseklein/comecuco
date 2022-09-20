@@ -27,6 +27,7 @@ body{
   grid-template-areas:
     "logo logo topMenu topMenu"
     "clima clima buscador buscador"
+    "loMasLeido calecita calecita banner"
     "loMasLeido calecita calecita blockRight"
     "loMasLeido calecita calecita blockRight"
     "loMasLeido mediosMenu mediosMenu mediosMenu"
@@ -155,6 +156,7 @@ h3 a{
   grid-area: calecita;
   margin-top: 4px;
   padding-left: 2ch;
+  padding-right: 2em;
 }
 
 .calecita .subtitle{
@@ -164,6 +166,11 @@ h3 a{
 .calecita .autor{
   font-family: KeepCalm;
   padding-bottom: 1em;
+}
+
+.banner {
+	grid-area: banner;
+  margin-top: 5px;
 }
 
 .cajaBlockRight{
@@ -366,6 +373,11 @@ flex-wrap: wrap;
     text-align: right;
     line-height: 2em;
     margin: 0;
+}
+
+img.publiGobNacional{
+    padding-top: 1em;
+    margin-left: -2em;
 }
 
 .blockRight {
