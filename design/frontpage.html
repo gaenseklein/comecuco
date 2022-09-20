@@ -134,10 +134,12 @@ asi tenemos maximo flexibilidad para ser responsive/mobil
           </div>
           <a href="#"><img class="caruselpreviewimage" src="caruselpreview.png" alt=""></a>
           <div class="puntitos">
+            <button class="boton izquierda" onclick="calecitaprevya()">«</button>
             <div class="puntito activo"></div>
             <div class="puntito"></div>
             <div class="puntito"></div>
             <div class="puntito"></div>
+            <button class="boton derecha" onclick="calecitanextya()">»</button>
           </div>
         </li>
         <li>
@@ -154,10 +156,12 @@ asi tenemos maximo flexibilidad para ser responsive/mobil
           </div>
           <a href="#"><img class="caruselpreviewimage" src="caruselpreview.png" alt=""></a>
           <div class="puntitos">
+            <button class="boton izquierda" onclick="calecitaprevya()">«</button>
             <div class="puntito"></div>
             <div class="puntito activo"></div>
             <div class="puntito"></div>
             <div class="puntito"></div>
+            <button class="boton derecha" onclick="calecitanextya()">»</button>
           </div>
         </li><li>
           <div class="subtitle">
@@ -173,10 +177,12 @@ asi tenemos maximo flexibilidad para ser responsive/mobil
           </div>
           <a href="#"><img class="caruselpreviewimage" src="caruselpreview.png" alt=""></a>
           <div class="puntitos">
+            <button class="boton izquierda" onclick="calecitaprevya()">«</button>
             <div class="puntito"></div>
             <div class="puntito"></div>
             <div class="puntito activo"></div>
             <div class="puntito"></div>
+            <button class="boton derecha" onclick="calecitanextya()">»</button>
           </div>
         </li><li>
           <div class="subtitle">
@@ -192,10 +198,12 @@ asi tenemos maximo flexibilidad para ser responsive/mobil
           </div>
           <a href="#"><img class="caruselpreviewimage" src="caruselpreview.png" alt=""></a>
           <div class="puntitos">
+            <button class="boton izquierda" onclick="calecitaprevya()">«</button>
             <div class="puntito"></div>
             <div class="puntito"></div>
             <div class="puntito"></div>
             <div class="puntito activo"></div>
+            <button class="boton derecha" onclick="calecitanextya()">»</button>
           </div>
         </li>
       </ul>
@@ -449,21 +457,8 @@ asi tenemos maximo flexibilidad para ser responsive/mobil
 
     </div>
   </body>
-  <script type="text/javascript">
-    var calecitaactivo=0;
-    var calecitatiempo=3000;
-    var calecitatimer;
-    function calecita(){
-      let lis = document.querySelectorAll('.calecita li');
-      let oldli=document.querySelector('.calecita li.activo');
-      if(oldli)oldli.classList.remove('activo');
-      if(lis[calecitaactivo])lis[calecitaactivo].classList.add('activo');
-      calecitaactivo++;
-      if(calecitaactivo>3)calecitaactivo=0;
-      calecitatimer=setTimeout(calecita, calecitatiempo);
-    }
-    calecita();
-  </script>
+
+  <script src='../public/static/scripts/calecita.js'></script>
   <script src='../public/static/scripts/mediosenvivo.js'></script>
   <script src='../public/static/scripts/playbutton.js'></script>
   <script src='../public/static/scripts/verticalscrolllist.js'></script>
