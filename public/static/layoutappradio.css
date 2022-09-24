@@ -342,8 +342,8 @@ ul#botoneraDeMemorias{
   justify-content: center;
 }
 
-#M1{
-  margin-right: 2vw;
+#M1, #playPause{
+  margin-right: 1vw;
 }
 
 /*desde aca codigo para la barra de volumen*/
@@ -422,6 +422,34 @@ input[type=range]::-moz-range-thumb {
   font-size: large;
   padding: 0.4vw 1vw;
   border-radius: 10px;
+}
+
+.testbutton p#pause{
+	font-size: xx-large;
+	line-height: 0.5;
+  transform: rotate(-90deg);
+}
+
+.testbutton p#play{
+	font-size: xx-large;
+	line-height: 0.5;
+  display: none;
+}
+
+.testbutton #play:onclick : #play{
+  display: none;
+}
+
+.testbutton #play:onclick ~ #pause{
+  display: block;
+}
+
+.testbutton #pause:onclick ~ #pause{
+  display: none;
+}
+
+.testbutton #pause:onclick ~ #play{
+  display: block;
 }
 
 

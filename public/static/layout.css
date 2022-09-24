@@ -769,7 +769,7 @@ input#search {
      "topMenu topMenu topMenu"
      "clima clima clima"
      "buscador buscador buscador"
-     "blockRight blockRight blockRight"
+     "banner blockRight blockRight"
      "calecita calecita calecita"
      "mediosMenu mediosMenu mediosMenu"
      "loMasLeido loMasLeido loMasLeido"
@@ -2433,6 +2433,7 @@ body.dashboard{
   max-height: 14em;
   overflow-y: auto;
   padding-left:1ch;
+  display: grid;
 }
 
 .dashboard .calendariodestacadas li {

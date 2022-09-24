@@ -11,7 +11,7 @@ const template = function(data){
       for (var i = 0; i < data[0].audios.length; i++) {
         let src = data[0].audios[i].url
         inneraudios += `<audio src="${src}" controls=""></audio>
-        <a href="${src}" type="audio/mpeg;">&#9196;</a>`
+        <a href="${src}" type="audio/mpeg;" download>&#9196;</a>`
       }
       audiosyvideosactual = `<div class="audiosyvideos" id="controlesResumenSemanal">
       <div class="cuadrocontrol">
@@ -26,7 +26,7 @@ const template = function(data){
       let actaudios = ''
       for(let aa=0;aa<act.audios.length;aa++){
         actaudios+=`<audio src="${act.audios[aa].url}" controls=""></audio>
-        <a href="${act.audios[aa].url}" type="audio/mpeg;">&#9196;</a>`
+        <a href="${act.audios[aa].url}" type="audio/mpeg;" download>&#9196;</a>`
       }
       let actaudio=''
       if(act.audios.length>0)actaudio = `<div class="audiosyvideos" id="controlesResumenSemanal1">
