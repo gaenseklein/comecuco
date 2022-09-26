@@ -7,7 +7,7 @@ const destacada = {
         oldraw = fs.readFileSync('./private/destacadas.dt', 'utf8');
       } catch (e) {
         console.log('no encontre viejos destacadas, empieza de nuevo');
-      } 
+      }
       if(!oldraw){
         oldraw="\n\n\n\n\n\n\n\n\n\n\n"
       }
@@ -15,6 +15,7 @@ const destacada = {
       for (let x=0;x<12;x++){
         this.destacadas[x]=oldlines[x];
       }
+      console.log('initialized destacadas',this.destacadas)
     },
     actual: function(){
       let mes = new Date().getMonth();
