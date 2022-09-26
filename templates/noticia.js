@@ -9,7 +9,13 @@ const template = function(data){
 
     let audiosyvideos='';
     for(let x=0;x<noticia.audios.length;x++){
-      audiosyvideos += `<p class="audiodescription">${noticia.audios[x].description}</p>
+      let adesc = noticia.audios[x].description
+      if(!adesc || adesc=='undefined' || adesc.length==0){
+        adesc = noticia.audios[x].url
+        adesc = adesc.substring(adesc.lastIndexOf('/')+1)
+        if(adesc.indexOf('.')>-1)adesc=adesc.substring(0,adesc.lastIndexOf('.'))
+      }
+      audiosyvideos += `<p class="audiodescription">${adesc}</p>
       <div class="cuadrocontrol">
         <audio src="${noticia.audios[x].url}" controls=""></audio>
         <a href="${noticia.audios[x].url}" download>&#9196;</a>
