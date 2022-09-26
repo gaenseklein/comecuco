@@ -68,9 +68,8 @@ const template = function(data){
         </div>
 
         <div class="lanoticia">
+            <h4 class="subtitulo">${noticia.subtitle}</h4>
             <h3 class="titulopagina">${noticia.title}</h3>
-            <h4 class="subtitulo">${noticia.subtitle}
-            </h4>
             <div class="fotonoticia">
               ${fotoprimero}
             </div>
