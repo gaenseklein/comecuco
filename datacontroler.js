@@ -397,7 +397,7 @@ const datacontroler = {
     chooseNewName: function(path,fname){
         let filename = fname.toLowerCase();
         let allowed = 'abcdefghijklmnopqrstuvwxyz0123456789.-';
-        let allowedExt='png,jpg,mp3,ogg,gif';
+        let allowedExt='png,jpg,mp3,ogg,gif,jpeg';
         for (let x=0;x<filename.length;x++){
           if(allowed.indexOf(filename[x])==-1)filename[x]='-';
         }
