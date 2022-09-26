@@ -361,4 +361,15 @@ router.get('/exportAll', async (req,res)=>{
       }
 });
 
+router.get('/manualdeestilo', async (req,res)=>{
+      try{
+        let result = templates.buildPage('manualdeestilo')
+        console.log('got manualdeestilo',result)
+        res.send(result)
+      }catch(e){
+        console.log(e)
+        res.status(400).send('an error occured')
+      }
+});
+
 module.exports = router;

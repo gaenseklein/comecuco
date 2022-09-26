@@ -11,6 +11,7 @@ const raw = {
   userlist: require('./templates/userlist.js'),
   app: require('./templates/app.js'),
   appRadiostations: require('./templates/appRadiostations.js'),
+  manualdeestilo: require('./templates/manualdeestilo.js'),
   form:{
     usuario: require('./templates/forms/usuario.js'),
     iniciar: require('./templates/forms/iniciosesion.js'),

@@ -76,7 +76,7 @@ module.exports = function(dataobj){
       <div class="topMenu" id="topMenuUsuario">
         <ul>
           <li><a href="/user">Volver</a></li>
-          <li><a href="manualdeestilo.html">Manual de Estilo</a></li>
+          <li><a href="/user/manualdeestilo">Manual de Estilo</a></li>
         </ul>
       </div>
     </div>
