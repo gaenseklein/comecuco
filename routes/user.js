@@ -131,7 +131,7 @@ router.get('/',async (req,res)=>{
   //dashboard:
   try {
     let data = await datacontroler.dashboard(req.user)
-    if(data)console.log('data fetched',data);
+    // if(data)console.log('data fetched',data);
     let page = templates.buildPage('dash',data)
     res.send(page)
   } catch (e) {
@@ -365,6 +365,16 @@ router.get('/manualdeestilo', async (req,res)=>{
       try{
         let result = templates.buildPage('manualdeestilo')
         console.log('got manualdeestilo',result)
+        res.send(result)
+      }catch(e){
+        console.log(e)
+        res.status(400).send('an error occured')
+      }
+});
+
+router.get('/tags', async (req,res)=>{
+      try{
+        let result = templates.buildForm('tags',{})
         res.send(result)
       }catch(e){
         console.log(e)

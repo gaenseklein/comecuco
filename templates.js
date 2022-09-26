@@ -18,6 +18,7 @@ const raw = {
     noticia: require('./templates/forms/noticia.js'),
     columna: require('./templates/forms/columna.js'),
     borrar: require('./templates/forms/borrar.js'),
+    tags: require('./templates/forms/tags.js'),
   },
 }
 

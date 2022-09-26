@@ -17,6 +17,9 @@ const tags = {
         this.tags[x]=oldlines[x];
       }
       console.log('initialised tags:',this.tags.length);
+      //write copy:
+      let d = new Date().toLocaleDateString('de')
+      fs.writeFileSync('./private/tags-'+d+'.copy',oldraw,'utf8')
     },
     cambiaTag: async function(oldtag,valor){
       let tagnr = this.tags.indexOf(oldtag);
@@ -68,9 +71,11 @@ const tags = {
           } catch (e) {
             console.log(e)
           }
-          break;
+          // break;
+          return true
         }
       }
+      return false
     },
 };
 
