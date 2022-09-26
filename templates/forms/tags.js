@@ -27,7 +27,7 @@ module.exports = function(data){
       </div>
     </div>
     <h1>editar tags</h1>
-
+    <button onclick="tagadmin.nuevo()">añadir nuevo tag</button>
     </body>
     <script src="/public/static/scripts/tagadmin.js"></script>
   </html>
