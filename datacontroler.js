@@ -566,6 +566,9 @@ const datacontroler = {
             }
           }
         }
+      }else{//end of videolink to youtube
+        //no hay videolink pero quiza hay que borrar viejo?
+        //updateobj.videolink = null
       }//end of videolink to youtube
       console.log('content is new?',content.isnew);
       if(content.isnew ){
@@ -671,6 +674,11 @@ const datacontroler = {
           let keys = Object.keys(updateobj);
           for (x=0;x<keys.length;x++){
             oldnoticia[keys[x]]=updateobj[keys[x]];
+          }
+          if(oldnoticia.videolink && (content.videolink=='' || !content.videolink)){
+            console.log('delete videolink', oldnoticia.videolink, content.videolink);
+            // delete oldnoticia.videolink
+            oldnoticia.videolink = undefined
           }
           let savednoticia = await oldnoticia.save();
           console.log('updated noticia',savednoticia);
