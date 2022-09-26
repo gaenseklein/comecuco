@@ -430,29 +430,6 @@ input[type=range]::-moz-range-thumb {
   transform: rotate(-90deg);
 }
 
-.testbutton p#play{
-	font-size: xx-large;
-	line-height: 0.5;
-  display: none;
-}
-
-.testbutton #play:onclick : #play{
-  display: none;
-}
-
-.testbutton #play:onclick ~ #pause{
-  display: block;
-}
-
-.testbutton #pause:onclick ~ #pause{
-  display: none;
-}
-
-.testbutton #pause:onclick ~ #play{
-  display: block;
-}
-
-
 
 @media screen and (orientation: portrait) {
 

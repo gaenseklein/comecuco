@@ -51,12 +51,18 @@ var radioapp={
     this.radioplayer=document.getElementById('radioplayer')
     this.cambiaRadioAId(0)
   },
+  playRadio: function(){
+    let displayPause=document.getElementById('pause');
+    displayPause.textContent = "═";
+    displayPause.style.transform= "rotate(-90deg)";
+  },
   cambiaRadio: function(izquierda){
     if(izquierda)this.radioActual--;
     else this.radioActual++;
     if(this.radioActual>=this.redActual.miembros.length)this.radioActual=0
     if(this.radioActual<0)this.radioActual=this.redActual.miembros.length-1
     this.cambiaRadioAId(this.radioActual)
+    this.playRadio()
   },
   cambiaRadioAId: async function(index){
     let miembroact = this.redActual.miembros[index]
@@ -87,6 +93,7 @@ var radioapp={
         videopreview.appendChild(iframe);
       }
       this.radioplayer.pause()
+      this.playRadio()
     }
 
     COMECUCOactivo.innerHTML=`<h5>${miembroact.nombre}</h5>`
@@ -110,9 +117,28 @@ var radioapp={
       }
     }
     this.cambiaRadioAId(0)
+    this.playRadio()
   },
   cambiaVolumen: function(volumen){
     this.radioplayer.volume=volumen;
   },
+
+  paraOsigue: function(){
+    let displayPause=document.getElementById('pause');
+
+    if (displayPause.textContent=="═") {
+      displayPause.textContent = "‣";
+      displayPause.style.transform= "none";
+      this.radioplayer.pause()
+      return
+    }
+
+    if(displayPause.textContent=="‣"){
+    displayPause.textContent = "═";
+    displayPause.style.transform= "rotate(-90deg)";
+    this.radioplayer.play()
+    }
+  },
 }
+
 radioapp.init();
