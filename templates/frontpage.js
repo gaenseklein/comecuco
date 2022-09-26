@@ -3,6 +3,15 @@ const template = function(data){
     let x=0;
     const calecitaLength=5
     const maxColumnas=5
+    //anadir imagen por defecto a todos datos sin imagen
+    for(x=0;x<data.articulos.length;x++){
+        if(!data.articulos[x].images || data.articulos[x].images.length==0){
+          data.articulos[x].images = [{
+            url: '/public/static/logos/comecuco.png',
+            title: 'imagen de defecto'
+          }]
+        }
+    }
     for(x=0;x<data.masleidos.length;x++){
       let ml = data.masleidos[x];
       let mlimg = '';
@@ -336,7 +345,7 @@ const template = function(data){
         }
         calecita();
       </script>
-      
+
       <script src='/public/static/scripts/playbutton.js'></script>
       <script src='/public/static/scripts/verticalscrolllist.js'></script>
       <script src='/public/static/scripts/weather.js'></script>
