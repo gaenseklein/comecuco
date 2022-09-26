@@ -28,6 +28,14 @@ const template = function(data){
       </div>
       `
     }
+    let imageblock = ''
+    if(noticia.images.length>1){
+      let images = ''
+      for(x=1;x<noticia.images.length;x++){
+        images+=`<img src="${noticia.images[x].url}" alt="${noticia.images[x].title}" class="blockfoto">`
+      }
+      imageblock=`<div class="imageblock">${images}</div>`
+    }
     let raw = `
     <!DOCTYPE html>
     <html lang="es" dir="ltr">
@@ -88,6 +96,7 @@ const template = function(data){
             <div class="audiosyvideos">
               ${audiosyvideos}
             </div>
+            ${imageblock}
         </div>
         <div class="footer">
         </div>
