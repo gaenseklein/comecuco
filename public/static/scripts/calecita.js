@@ -14,17 +14,20 @@
 
 
   function calecitanextya(){
+    clearTimeout(calecitatimer);
     let lis = document.querySelectorAll('.calecita li');
     let oldli=document.querySelector('.calecita li.activo');
-    let valorlisNext=0+calecitaactivo;
+    let valorlisNext=calecitaactivo+1;
     if(valorlisNext>3)valorlisNext=0;
     if(oldli)oldli.classList.remove('activo');
     if(lis[valorlisNext])lis[valorlisNext].classList.add('activo');
     calecitaactivo=valorlisNext++;
     if(calecitaactivo>3)calecitaactivo=0;
+    calecitatimer=setTimeout(calecita, 5000);
   }
 
-  function calecitaprevya(){
+function calecitaprevya(){
+    clearTimeout(calecitatimer);
     let lis = document.querySelectorAll('.calecita li');
     let oldli=document.querySelector('.calecita li.activo');
     let valorlisPrev=0+calecitaactivo-1;
@@ -33,4 +36,5 @@
     if(lis[valorlisPrev])lis[valorlisPrev].classList.add('activo');
     calecitaactivo=valorlisPrev--;
     if(calecitaactivo<0)calecitaactivo=3;
+    calecitatimer=setTimeout(calecita, 5000);
   }
