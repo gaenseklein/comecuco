@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>EDITAR PUBLICIDAD</title>
+    <link rel="stylesheet" href="../public/static/layout.css">
+    <script src="../public/static/scripts/fileuploadstepper.js"></script>
+
+  </head>
+  <body onload="startTime()" class="subpagusuario">
+  <div class="menusubusuario">
+    <div class="logo" id="logoUsuario">
+      <p class="encabezado"><a href="frontpage.html">
+          COMECUCO</a>
+      </p>
+      <div class="subtitle">
+        somos el colectivo de medios comunitarios de cuyo
+      </div>
+    </div>
+    <div class="topMenu" id="topMenuUsuario">
+      <ul>
+        <li><a href="dash.html">Volver</a></li>
+    </ul>
+    </div>
+  </div>
+
+    <div class="EditNoticia">
+      <h1>EDITAR o SUBIR PUBLICIDAD</h1>
+      <form method="post" enctype="multipart/form-data">
+        <ul id="sumafotos">
+          <li id="agregarFotoPublicidad" class="fotoPublic">
+            <label for="agregarFotosEditNoticia">Agregar Imagen</label>
+            <input type="file" onclick="deleteOldSelection(this)" onchange="showNextFileUploads(this)" id="fotoPublicidad" accept=".png, .jpeg, .jpg, .gif" name="foto1" value="">
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <label for="EditDescrpciónPublicidad">Descripción Alternativa</label>
+            <p><textarea id="EditDescrpciónPublicidad" type="text" name="descripcion" rows="2" cols="60"
+            spellcheck="true">Publicidad del Gobierno de la Provincia de Buenos Aires</textarea></p>
+          </li>
+          <li>
+            <label for="URLpublicidad">URL de la Publicidad</label>
+            <p><input id="URLpublicidad" type="url" name="URLpublicidad" size="45"
+              spellcheck="true" value=""></input></p>
+            </li>
+          <li>
+            <label for="EditFechaInicioPublicidad">Fecha Inicio</label>
+            <input id="EditFechaInicioPublicidad" type="date" name="fecha" value="16/JUL/2020">
+          </li>
+          <li>
+            <label for="EditFechaFinalPublicidad">Fecha Final</label>
+            <input id="EditFechaFinalPublicidad" type="date" name="fecha" value="17/JUL/2020">
+          </li>
+        </ul>
+
+        <ul>
+          <li class="audioUpload active" id="AgregarAudioPublicidad">
+            <label class="uploadlabel" for="AgregarAudio">Agregar Audio o Video</label>
+            <input class="uploadinput" type="file" onclick="deleteOldSelection(this)" onchange="showNextFileUploads(this)" id="AgregarAudio" name="audio1" value="">
+          </li>
+        </ul>
+
+        <button type="button" class="submitEditPublicidad">Guardar cambios y volver</button>
+      </form>
+    </div>
+    <div class="footer">
+    </div>
+  </body>
+</html>
