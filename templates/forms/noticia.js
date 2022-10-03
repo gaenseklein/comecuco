@@ -30,7 +30,9 @@ module.exports = function(dataobj){
   let eliminaraudios = ''
   let checkedauthor=''
   let checkedauthorcomecuco='';
+  let checkedauthorcolectiva='';
   if(data.author=='comecuco')checkedauthorcomecuco='selected';
+  if(data.author=='colectiva')checkedauthorcolectiva='selected';
   else checkedauthor='selected';
   for(x=0;x<data.audios.length;x++){
     eliminaraudios+=`<li>
@@ -144,6 +146,7 @@ module.exports = function(dataobj){
               <select id="EditAutorNoticia" class="" name="autor">
                 <option value="${dataobj.user.name}" ${checkedauthor}>${dataobj.user.name}</option>
                 <option value="comecuco" ${checkedauthorcomecuco}>COMECUCO</option>
+                <option value="colectiva" ${checkedauthorcolectiva}>COMECUCO Producción Colectiva</option>
               </select>
             </li>
             <li>
