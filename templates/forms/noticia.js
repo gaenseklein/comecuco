@@ -114,7 +114,7 @@ module.exports = function(dataobj){
             <li>
               <label for="EditTituloNoticia">Título</label>
               <p><input id="EditTituloNoticia" type="text" name="title" size="45" maxlength="40" spellcheck="true"
-                value="${data.title}"></p>
+                value="${data.title}" required></p>
             </li>
             <li>
               <label for="EditSubTituloNoticia">Subtítulo</label>
@@ -156,7 +156,7 @@ module.exports = function(dataobj){
             <li>
               <label for="EditContenidoNoticia">Contenido</label>
               <p><textarea id="EditContenidoNoticia" type="text" name="body" rows="20" cols="100"
-              spellcheck="true">${data.body}</textarea></p>
+              spellcheck="true" required>${data.body}</textarea></p>
             </li>
             <li>
               <label for="EditEpigrafeFoto">Epígrafe de la primer imagen</label>

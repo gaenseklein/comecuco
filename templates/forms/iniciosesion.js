@@ -22,7 +22,7 @@ const template = function(){
       <img class="logocomecuco" src="/public/static/logos/comecuco.png" alt="Logo del COMECUCO">
       <form class="forminiciosesion" action="/iniciar" method="post">
         <label for="username">nombre de usuario</label>
-        <input type="text" name="name" width="15" id="username">
+        <input type="text" name="name" width="15" id="username" required>
         <div class="input-group">
           <label for="password">Contraseña</label>
           <input type="password" name="password" id="password" required>
