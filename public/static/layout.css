@@ -2224,6 +2224,17 @@ input#search {
           display: none;
         }
 
+        .botonFinal{
+          display: block;
+          margin-left: auto;
+          margin-right: 10%;
+          margin-bottom: 2em;
+        }
+
+        #botonELIMINAR{
+          color: red;
+        }
+
     @media screen and (orientation: portrait){
        li#ListaAgregarFotosEditNoticia,
        li#ListaAgregarAudiosEditNoticia{
@@ -2355,9 +2366,20 @@ input#search {
         }
     }
 /* a partir de aca subpagina de editar columna*/
-.editColumna .EditNoticia{
-  text-align: right;
-}
+      .editColumna .EditNoticia{
+        text-align: right;
+      }
+
+      input.botonFinalEdit{
+        margin-right: 10%;
+        font-size: smaller;
+        margin-bottom: 2em;
+      }
+
+      #EditAutorColumna{
+        width: max-content;
+      }
+
 
 /* a partir de aca subpagina de dash*/
 

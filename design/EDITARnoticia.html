@@ -61,6 +61,10 @@
             spellcheck="true">En la segunda quincena de julio, el cuerpo celeste se podra observar durante la puesta del sol.</textarea></p>
           </li>
           <li>
+            <label for="enPaginaPrincipal">Publicar en Página Principal</label>
+            <input type="checkbox" id="enPaginaPrincipal"name="publicar" value="Página Principal"></input>
+          </li>
+          <li>
             <label for="addTags">Tags</label>
             <div class="tagWrapper">
               <div id="tagdisplay">
@@ -81,6 +85,7 @@ que se yo</div>
             <select id="EditAutorNoticia" class="" name="autor">
               <option value="Radio Cuyum">Radio Cuyum</option>
               <option value="comecuco">COMECUCO</option>
+              <option value="colectiva">COMECUCO Producción Colectiva</option>
             </select>
           </li>
           <li>
@@ -159,7 +164,8 @@ que se yo</div>
             </div>
           </li>
         </ul>
-        <button type="button" class="submitEditNoticia">Guardar cambios y volver a la Noticia</button>
+        <button type="button" class="submitEditNoticia botonFinal">Guardar cambios y volver a la Noticia</button>
+        <button type="button" class="EliminarNoticia botonFinal" id="botonELIMINAR">ELIMINAR la Noticia</button>
       </form>
     </div>
     <div class="footer">

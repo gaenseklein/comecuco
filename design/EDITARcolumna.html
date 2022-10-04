@@ -7,17 +7,19 @@
     <script type="text/javascript" src="../public/static/scripts/urlcleaner.js"></script>
   </head>
   <body class="subpagusuario editColumna">
-    <div class="logo">
-      <p class="encabezado"><a href="frontpage.html">
-        COMECUCO</a>
-      </p>
-      <div class="subtitle">
-        somos el colectivo de medios comunitarios de cuyo
+    <div class="menusubusuario">
+      <div class="logo" id="logoUsuario">
+        <p class="encabezado"><a href="frontpage.html">
+          COMECUCO</a>
+        </p>
+        <div class="subtitle">
+          somos el colectivo de medios comunitarios de cuyo
+        </div>
       </div>
-      <div class="topMenu">
+      <div class="topMenu" id="topMenuUsuario">
         <ul>
           <li><a href="dash.html">Volver</a></li>
-          <li><a href="manualdeestilo.html">Manual de Estilo</a></li>
+          <li><a href="manualdeestilo.html">Manual de Uso y Estilo</a></li>
         </ul>
       </div>
     </div>
@@ -31,7 +33,7 @@
               value="La Vida en los Barrios"></input></p>
           </li>
           <li>
-            <label for="EditURLColumna">URL de la columna</label>
+            <label for="EditURLColumna">URL de la Columna</label>
             <p><input id="EditURLColumna" type="text" name="url" size="45" maxlength="40" spellcheck="true"
               value="${url}" placeholder="mi-columna" required pattern="[A-Za-z\-]{8,}" onkeyup="cleanurl(this,URLColumnaPreview,'columnas/')"><span id="URLColumnaPreview">https://comecuco.org/columnas/mi-columna</span></p>
           </li>
@@ -56,7 +58,8 @@
               <input type="file" onclick="deleteOldSelection(this)" onchange="showNextFileUploads(this)" id="AgregarFotosEditNoticia" accept=".png, .jpeg, .jpg, .gif" name="foto1" value="">
             </li>
           </ul>
-          <input type="submit" value="guardar">
+          <input type="submit" class="botonFinal botonFinalEdit" value="Guardar">
+            <button type="button" class="EliminarNoticia botonFinal" id="botonELIMINAR">ELIMINAR la Columna</button>
         </form>
       </div>
     <div class="footer">

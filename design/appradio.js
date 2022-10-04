@@ -51,18 +51,20 @@ var radioapp={
     this.radioplayer=document.getElementById('radioplayer')
     this.cambiaRadioAId(0)
   },
-  playRadio: function(){
+  simboloDisplayPause: function(){
     let displayPause=document.getElementById('pause');
     displayPause.textContent = "═";
     displayPause.style.transform= "rotate(-90deg)";
   },
   cambiaRadio: function(izquierda){
+    let displayplayPause=document.getElementById('playPause');
+    displayplayPause.style.display="block";
     if(izquierda)this.radioActual--;
     else this.radioActual++;
     if(this.radioActual>=this.redActual.miembros.length)this.radioActual=0
     if(this.radioActual<0)this.radioActual=this.redActual.miembros.length-1
     this.cambiaRadioAId(this.radioActual)
-    this.playRadio()
+    this.simboloDisplayPause()
   },
   cambiaRadioAId: async function(index){
     let miembroact = this.redActual.miembros[index]
@@ -85,6 +87,8 @@ var radioapp={
       }
     }else{
       if(miembroact.tipo=='video'){
+        let displayplayPause=document.getElementById('playPause');
+        displayplayPause.style.display="none";
         let iframe = document.createElement('iframe');
         iframe.width="256"
         iframe.height="144"
@@ -93,7 +97,7 @@ var radioapp={
         videopreview.appendChild(iframe);
       }
       this.radioplayer.pause()
-      this.playRadio()
+      this.simboloDisplayPause()
     }
 
     COMECUCOactivo.innerHTML=`<h5>${miembroact.nombre}</h5>`
@@ -117,7 +121,7 @@ var radioapp={
       }
     }
     this.cambiaRadioAId(0)
-    this.playRadio()
+    this.simboloDisplayPause()
   },
   cambiaVolumen: function(volumen){
     this.radioplayer.volume=volumen;
@@ -125,19 +129,43 @@ var radioapp={
 
   paraOsigue: function(){
     let displayPause=document.getElementById('pause');
-
     if (displayPause.textContent=="═") {
       displayPause.textContent = "‣";
       displayPause.style.transform= "none";
       this.radioplayer.pause()
       return
     }
-
     if(displayPause.textContent=="‣"){
     displayPause.textContent = "═";
     displayPause.style.transform= "rotate(-90deg)";
     this.radioplayer.play()
     }
+  },
+
+  grabarMemoria1: function(){
+    let memoria1=document.getElementById('m1Text');
+    let radioMemorizada1= document.getElementById("COMECUCOactivo");
+    memoria1.value= radioMemorizada1.textContent;
+    if (memoria1.value.length>11){
+      memoria1.value="muchiiiiiiiissssiiisimo";
+      }
+  },
+
+  grabarMemoria2: function(){
+    let memoria2=document.getElementById('m2Text');
+    let radioMemorizada2= document.getElementById("COMECUCOactivo");
+    memoria2.value= radioMemorizada2.textContent;
+  },
+
+  playMemoria1: function(){
+    let radio1Memorizada=document.getElementById('m1Text');
+    let radioSintonizada=document.getElementById("COMECUCOactivo");
+    nombreRadio=radio1Memorizada.value;
+    let miembroMemorizado = this.redes.miembros["nombreRadio"];
+    this.radioActual = miembroMemorizado;
+    this.cambiaRadioAId(this.radioActual);
+    console.log(miembroMemorizado);
+
   },
 }
 
