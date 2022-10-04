@@ -171,6 +171,7 @@ h3 a{
 .banner {
 	grid-area: banner;
   margin-top: 5px;
+  text-align: center;
 }
 
 .cajaBlockRight{
@@ -376,8 +377,10 @@ flex-wrap: wrap;
 }
 
 img.publiGobNacional{
-    padding-top: 1em;
-    margin-left: -2em;
+    /*padding-top: 1em;
+    margin-left: -2em;*/
+    width:90%;
+    
 }
 
 .blockRight {
