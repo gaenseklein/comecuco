@@ -31,7 +31,7 @@ const template = function(data){
       if(capaudios!='')reproductor = 'class="reproductor"'
       capitulos += `<li>
       ${img}
-      <h3>Cap ${x}: "${cap.title}"</h3>
+      <h3>Cap ${x+1}: "${cap.title}"</h3>
       <div class="fechadeemisión">Emitido el ${capday} de ${capmonth} de ${capyear}
       </div>
       <div class="resumen">
