@@ -83,12 +83,20 @@ var radioapp={
       if(found)break;
     }
   },
+  simboloDisplayPause: function(){
+    let displayPause=document.getElementById('pause');
+    displayPause.textContent = "═";
+    displayPause.style.transform= "rotate(-90deg)";
+  },
   cambiaRadio: function(izquierda){
+    let displayplayPause=document.getElementById('playPause');
+    displayplayPause.style.display="block";
     if(izquierda)this.radioActual--;
     else this.radioActual++;
     if(this.radioActual>=this.redActual.miembros.length)this.radioActual=0
     if(this.radioActual<0)this.radioActual=this.redActual.miembros.length-1
     this.cambiaRadioAId(this.radioActual)
+    this.simboloDisplayPause()
   },
   cambiaRadioAId: async function(index){
     let miembroact = this.redActual.miembros[index]
@@ -110,8 +118,9 @@ var radioapp={
         noHayRadio.classList.add('nohaysenal')
       }
     }else{
-      noHayRadio.classList.remove('nohaysenal')
       if(miembroact.tipo=='video'){
+        let displayplayPause=document.getElementById('playPause');
+        displayplayPause.style.display="none";
         let iframe = document.createElement('iframe');
         iframe.width="256"
         iframe.height="144"
@@ -120,6 +129,7 @@ var radioapp={
         videopreview.appendChild(iframe);
       }
       this.radioplayer.pause()
+      this.simboloDisplayPause()
     }
 
     COMECUCOactivo.innerHTML=`<h5>${miembroact.nombre}</h5>`
@@ -143,9 +153,57 @@ var radioapp={
       }
     }
     this.cambiaRadioAId(0)
+    this.simboloDisplayPause()
   },
   cambiaVolumen: function(volumen){
     this.radioplayer.volume=volumen;
+  },
+
+  paraOsigue: function(){
+    let displayPause=document.getElementById('pause');
+    if (displayPause.textContent=="═") {
+      displayPause.textContent = "‣";
+      displayPause.style.transform= "none";
+      this.radioplayer.pause()
+      return
+    }
+    if(displayPause.textContent=="‣"){
+    displayPause.textContent = "═";
+    displayPause.style.transform= "rotate(-90deg)";
+    this.radioplayer.play()
+    }
+  },
+  grabarMemoria: function(mem2){
+    let memoria = {
+      index: this.radioActual,
+      red: this.redActual.nombre,
+      radionombre: this.redActual.miembros[this.radioActual].nombre,
+    }
+    console.log('grabbed mem',memoria,mem2);
+    if(mem2){
+      this.memoria2 = memoria
+      M2.firstChild.innerText = memoria.radionombre
+    }else{
+      this.memoria1 = memoria
+      console.log('saving',M1.firstChild);
+      M1.firstChild.innerText = memoria.radionombre
+    }
+  },
+  playMemoria: function(mem2){
+    let memoria = mem2 ? this.memoria2 : this.memoria1
+    if(!memoria)return //no hay memoria todavia
+    if(this.redActual.nombre != memoria.red){
+      //tenemos que cambiar la red
+      let redbotones = document.querySelectorAll('input[name=redes]')
+      for(let x=0;x<redbotones.length;x++){
+        if(redbotones[x].id.toLowerCase()==memoria.red){
+          redbotones[x].checked = true
+          break;
+        }
+      }
+      this.cambiaRed()
+    }
+    this.cambiaRadioAId(memoria.index)
   },
 }
 radioapp.init();

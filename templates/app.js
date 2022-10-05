@@ -61,18 +61,21 @@ module.exports = function(data){
            <span id="valor"></span>
           </div>
           <ul id="botoneraDeMemorias">
-            <li>
-              <button type="button" name="button" id="cargaM1" class="testbutton"><h6>&#128308;</h6></button>
-            </li>
-            <li>
-              <button type="button" name="button" id="M1" class="testbutton"><h6>Memoria1</h6></button>
-            </li>
-            <li>
-              <button type="button" name="button" id="cargaM2" class="testbutton"><h6>&#128308;</h6></button>
-            </li>
-            <li>
-              <button type="button" name="button" id="M2" class="testbutton"><h6>Memoria2</h6></button>
-            </li>
+          <li>
+            <button type="button" name="button" id="cargaM1" class="testbutton" onclick="radioapp.grabarMemoria(false)"><h6>&#128308;</h6></button>
+          </li>
+          <li>
+            <button type="button" name="button" id="M1" class="testbutton" onclick="radioapp.playMemoria(false)"><h6> Memoria 1</h6></button>
+          </li>
+          <li>
+            <button type="button" name="button" id="playPause" class="testbutton" onclick="radioapp.paraOsigue()"><p id="pause">═</p></button>
+          </li>
+          <li>
+            <button type="button" name="button" id="cargaM2" class="testbutton" onclick="radioapp.grabarMemoria(true)"><h6>&#128308;</h6></button>
+          </li>
+          <li>
+            <button type="button" name="button" id="M2" class="testbutton" onclick="radioapp.playMemoria(true)"><h6>Memoria 2</h6></button>
+          </li>
           </ul>
         </div>
       </div>
