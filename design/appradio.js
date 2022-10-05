@@ -156,6 +156,38 @@ var radioapp={
     let radioMemorizada2= document.getElementById("COMECUCOactivo");
     memoria2.value= radioMemorizada2.textContent;
   },
+  grabarMemoria: function(mem2){
+    let memoria = {
+      index: this.radioActual,
+      red: this.redActual.nombre,
+      radionombre: this.redActual.miembros[this.radioActual].nombre,
+    }
+    console.log('grabbed mem',memoria,mem2);
+    if(mem2){
+      this.memoria2 = memoria
+      M2.firstChild.innerText = memoria.radionombre
+    }else{
+      this.memoria1 = memoria
+      console.log('saving',M1.firstChild);
+      M1.firstChild.innerText = memoria.radionombre
+    }
+  },
+  playMemoria: function(mem2){
+    let memoria = mem2 ? this.memoria2 : this.memoria1
+    if(!memoria)return //no hay memoria todavia
+    if(this.redActual.nombre != memoria.red){
+      //tenemos que cambiar la red
+      let redbotones = document.querySelectorAll('input[name=redes]')
+      for(let x=0;x<redbotones.length;x++){
+        if(redbotones[x].id.toLowerCase()==memoria.red){
+          redbotones[x].checked = true
+          break;
+        }
+      }
+      this.cambiaRed()
+    }
+    this.cambiaRadioAId(memoria.index)
+  },
 
   playMemoria1: function(){
     let radio1Memorizada=document.getElementById('m1Text');
