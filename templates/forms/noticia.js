@@ -208,7 +208,8 @@ module.exports = function(dataobj){
             <input type="text" name="videolink" id="videolink" value="${videolink}">
             </li>
           </ul>
-          <button type="submit" class="submitEditNoticia">Guardar cambios y volver a la Noticia</button>
+          <button type="submit" class="submitEditNoticia botonFinal">Guardar cambios</button>
+          <button type="button" class="EliminarNoticia botonFinal" id="botonELIMINAR" onclick="if(confirm('lo quieres borrar este noticia?'))location.href='/user/borrar/noticia/${data._id}'">ELIMINAR la Noticia</button>          
         </form>
       </div>
       <div class="footer">

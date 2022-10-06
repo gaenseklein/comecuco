@@ -2246,7 +2246,10 @@ input#search {
           display: block;
           margin-left: auto;
           margin-right: 10%;
+          margin-top: 1em;
           margin-bottom: 2em;
+          font-size: x-large;
+          
         }
 
         #botonELIMINAR{
