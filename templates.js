@@ -19,6 +19,7 @@ const raw = {
     columna: require('./templates/forms/columna.js'),
     borrar: require('./templates/forms/borrar.js'),
     tags: require('./templates/forms/tags.js'),
+    publicidad: require('./templates/forms/publicidad.js'),
   },
 }
 

@@ -50,6 +50,35 @@ module.exports = function(data){
     destacadamenu+=tmpl
   }
 
+  let publicidades = 'no hay publicidades todavia'
+  if(data.publicidades && data.publicidades.length>0){
+    let publis = ''
+    let now = new Date()
+    for(x=0;x<data.publicidades.length;x++){
+      let p = data.publicidades[x]
+      let pinicio = new Date(p.inicio)
+      let pfin = new Date(p.fin)
+      console.log('p inicio fin',p.inicio,p.fin, pinicio,pfin, now);
+      let pimg = ''
+      if(p.image)pimg=`<img src="${p.image}">`
+      let pclass = ''
+      if(pfin>now && pinicio<now)pclass='actual'
+      if(pinicio>now)pclass='futuro'
+      if(pfin<now)pclass='pasado'
+      let iniciostring = new Date(p.inicio).toLocaleDateString('es')
+      let finstring = new Date(p.fin).toLocaleDateString('es')
+      publis+=`<li class="publicidadwrapper ${pclass}">
+      <a class="publicidadelement" href="/user/publicidad/${p._id}">
+        <span class="title">${p.descripcion}</span>
+        <span class="inicio">${iniciostring}</span>
+        <span class="fin">${finstring}</span>
+        ${pimg}
+      </a>
+      </li>`
+    }
+    publicidades=`<ul>${publis}</ul>`
+  }
+
   let raw = `
   <!DOCTYPE html>
   <html lang="es" dir="ltr">
@@ -136,6 +165,13 @@ module.exports = function(data){
       <a href="/user/list">sobrevista usuarios</a>
       <a href="/user/tags">editar tags</a>
       <a href="/user/exportAll" download="comecuco.json">export database</a>
+    </div>
+    <div class="publicidades">
+    <h2>publicidades</h2>
+        ${publicidades}
+        <p>
+          <a href="/user/publicidad">crear nueva publicidad</a>
+        </p>
     </div>
     <div class="footer">
     </div>

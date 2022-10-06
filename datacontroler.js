@@ -2,6 +2,7 @@ const Noticia = require('./model/Noticia.js');
 const fs = require('fs');
 const User = require('./model/User.js');
 const Columna = require('./model/Columna.js');
+const Publicidad = require('./model/Publicidad.js')
 const Destacada = require('./destacada.js');
 const Masleidos = require('./masleidos.js')
 const Tags = require('./tags.js');
@@ -78,6 +79,8 @@ const datacontroler = {
       searchoptions={sort: {ultimaSubida:-1}};
       let medios = await User.find(query, null, searchoptions);
 
+      let publicidades = await this.publicidad({})
+
       let newfrontpage = {
         articulos:nuevosarticulos,
         destacadas:destacadas,
@@ -86,6 +89,7 @@ const datacontroler = {
         colectivas:produccionesColectivas,
         columnas:columnas,
         medios: medios,
+        publicidades:publicidades,
       }
 
       return newfrontpage;
@@ -330,12 +334,14 @@ const datacontroler = {
       let comecucos = await Noticia.find(query,null,qopt)
       let columnas = await Columna.find({author:user.name})
       let destacadas = Destacada.calendarioseis() //meses,destacadas
+      let publicidades = await this.publicidad({all:true})
       return {
         user:user,
         noticias:noticias,
         conjuntos:comecucos,
         columnas: columnas,
         destacadas:destacadas,
+        publicidades: publicidades,
       }
     } catch (e) {
       console.warn('dashboard went wrong',e)
@@ -391,6 +397,29 @@ const datacontroler = {
       return users
     } catch (e) {
       console.log(e)
+    }
+  },
+  //comerciales:
+  publicidad: async function(opciones){
+    let now = Date.now()
+    let query = {
+      inicio:{'$lt':now},
+      fin:{'$gt':now}
+    }
+    let qopt={sort : {pubdate:-1}, limit:20};
+    if(opciones.id){
+      query = {_id:opciones.id}
+    }else if(opciones.all){
+      query={}
+    }
+    try {
+      console.log('query publicidad',query);
+      let publicidades = await Publicidad.find(query,null,qopt)
+      if(opciones.id)return publicidades[0]
+      return publicidades
+    } catch (e) {
+      console.log('error on reading publicidades',e);
+      return false
     }
   },
   datainput: {
@@ -919,6 +948,78 @@ const datacontroler = {
         console.log('borrar no funciono',e)
       }
     },
+    publicidad: async function(data){
+      let imgpath = './public/files/images/comerciales/'
+      if(data.isnew){
+        let publicidad = {
+          descripcion: data.descripcion,
+          pubdate: Date.now(),
+          inicio: data.inicio,
+          fin: data.fin
+        }
+        if(data.url)publicidad.url=data.url
+        if(!data.image)return false //we always want an image for a new commercial
+
+        let imgname = data.image.filename;
+        imgname = this.chooseNewName(imgpath, imgname)
+        imgurl = imgpath.substring(1)+imgname
+        if(!imgname){
+          console.log('imagename not allowed?',imgname,data.image.filename);
+          return false //we always want an image for a new commercial
+        }
+        let savedimg = await saveImage(imgpath+imgname, data.image.data, 640, 480);
+        if(!savedimg)return false
+        publicidad.image = imgurl
+        try {
+          let newpub = new Publicidad(publicidad)
+          let savedpub = await newpub.save()
+          console.log('saved new publicidad',savedpub);
+          return savedpub
+        } catch (e) {
+          console.log('could not save new publicidad',e);
+          return false
+        }
+
+      }else{
+        try {
+          let oldpub = await Publicidad.findOne({_id:data.id})
+          if(!oldpub)return false
+          console.log('loaded old pub',oldpub);
+          let keys = ['descripcion','inicio','fin','url']
+          for(let k=0;k<keys.length;k++){
+            let key = keys[k]
+            oldpub[key]=data[key]
+          }
+
+          if(data.image){
+            let imgname = data.image.filename;
+            imgname = this.chooseNewName(imgpath, imgname)
+            imgurl = imgpath.substring(1)+imgname
+            if(!imgname){
+              console.log('imagename not allowed?',imgname,data.image.filename);
+              return false //we always want an image for a new commercial
+            }
+            console.log('saving image',imgpath+imgname);
+            let savedimg = await saveImage(imgpath+imgname, data.image.data, 640, 480);
+            if(!savedimg)return false
+            //remove old image
+            if(oldpub.image){
+              let delname = oldpub.image.substring(oldpub.image.lastIndexOf('/')+1)
+              let delpath = './private/deleted/comercial-'+oldpub._id+'-'+delname
+              console.log('moved comercial-image to deleted:',oldpub.image,delpath);
+              fs.renameSync('.'+oldpub.image,delpath)
+            }
+            oldpub.image = imgurl
+          }
+          let savedpub = await oldpub.save()
+          console.log('updated publicidad',savedpub);
+          return savedpub
+        } catch (e) {
+          console.log('could not update publicidad',e)
+          return false;
+        }
+      }
+    },
 
   },//end datainput
   dataexport: {
@@ -998,6 +1099,14 @@ const datacontroler = {
 async function saveImage(path, data, width, height){
   console.log('save image',path,width,height);
   try {
+    let ending = path.substring(path.lastIndexOf('.')+1)
+    // console.log('ending:',ending);
+    if(ending=='gif'){
+      //dont resize
+      console.log('writing gif');
+      fs.writeFileSync(path,data)
+      return true
+    }
     let savedImageToDisk = await sharp(data)
     .resize({
       width:width,

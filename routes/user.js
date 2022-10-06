@@ -382,4 +382,82 @@ router.get('/tags', async (req,res)=>{
       }
 });
 
+router.get('/publicidad', async (req,res)=>{
+      try{
+        let result = templates.buildForm('publicidad',{})
+        res.send(result)
+      }catch(e){
+        console.log(e)
+        res.status(400).send('an error occured')
+      }
+});
+router.get('/publicidad/:id', async (req,res)=>{
+      try{
+        let data = await datacontroler.publicidad({id:req.params.id})
+        console.log('cambia publicidad',data);
+        let result = templates.buildForm('publicidad',data)
+        res.send(result)
+      }catch(e){
+        console.log(e)
+        res.status(400).send('an error occured')
+      }
+});
+router.post('/publicidad', fileUpload(), async (req,res)=>{
+      try{
+        let content = {
+          descripcion: req.body.descripcion,
+          inicio: new Date(req.body.inicio+'T06:00:00'),
+          fin: new Date(req.body.fin+'T23:00:00'),
+          isnew: true,
+        }
+        if(req.body.url)content.url= req.body.url
+        if(req.files && req.files.image){
+          content.image = {
+            filename: req.files.image.name,
+            data: req.files.image.data,
+            mimetype: req.files.image.mimetype
+          }
+        }
+        console.log(req.body.inicio,new Date(req.body.inico));
+        console.log('dates wrong:',req.body.inicio, req.body.fin,content.inicio,content.fin);
+        let result = await datacontroler.datainput.publicidad(content)
+        if(!result)return res.status(400).send('ooops, algo no funciono bien')
+        res.redirect('/user')
+      }catch(e){
+        console.log(e)
+        res.status(400).send('an error occured')
+      }
+});
+router.post('/publicidad/:id', fileUpload(), async (req,res)=>{
+      try{
+        console.log('got body',req.body, req.body.inicio);
+        let initial = req.body.inicio+'T06:00:00'
+        console.log('initial',initial);
+        let content = {
+          descripcion: req.body.descripcion,
+          url: req.body.url,
+          inicio: new Date(req.body.inicio+'T06:00:00'),
+          fin: new Date(req.body.fin+'T23:00:00'),
+          isnew: false,
+          id:req.params.id,
+        }
+        if(req.files && req.files.image){
+          content.image = {
+            filename: req.files.image.name,
+            data: req.files.image.data,
+            mimetype: req.files.image.mimetype
+          }
+        }
+
+        console.log('try to save content:',content);
+        let result = await datacontroler.datainput.publicidad(content)
+        console.log('saved publicidad',result);
+        if(!result)return res.status(400).send('ooops, algo no funciono bien')
+        res.redirect('/user')
+      }catch(e){
+        console.log(e)
+        res.status(400).send('an error occured')
+      }
+});
+
 module.exports = router;

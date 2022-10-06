@@ -180,6 +180,22 @@ const template = function(data){
         </div>
       </li>`
     }
+
+    let publicidades = ''
+    console.log('hay publicidad',data.publicidades);
+    if(data.publicidades && data.publicidades.length>0){
+      let publis = ''
+      for(x=0;x<data.publicidades.length;x++){
+        let p = data.publicidades[x]
+        if(!p.image)continue
+        let phtml =`<img class="publiGobNacional" src="${p.image}" alt="${p.descripcion}">`
+        if(p.url){
+          phtml = `<a href="${p.url}">`+phtml+'</a>'
+        }
+        publis+=phtml
+      }
+      publicidades=publis
+    }
     let raw = `
     <!DOCTYPE html>
     <html lang="es" dir="ltr">
@@ -249,6 +265,9 @@ const template = function(data){
           <ul>
             ${calecita}
           </ul>
+        </div>
+        <div class="banner">
+          ${publicidades}
         </div>
         <div class="cajaBlockRight">
           <div class="blockRight mediosEnVivo">
