@@ -2168,6 +2168,10 @@ input#search {
         .tipoWrapper{
           text-align: left;
         }
+        .tipoWrapper div.noticiaWrapper label {
+            margin-left: -19ch;
+            margin-right: 1ch;
+        }
         .columnaWrapper{
           display:none;
 
@@ -2177,10 +2181,12 @@ input#search {
             margin-top: 10px;
             min-width: 30ch;
         }
-        #radioCapitulo:checked ~ .columnaWrapper{
+        #radioCapitulo:checked ~ .columnaWrapper,
+        #radioNoticia:checked ~ .noticiaWrapper{
           display:block;
         }
-        #rscnumero {
+        #rscnumero,
+        .noticiaWrapper {
           display: none;
           margin-top: 1em;
         }
@@ -2249,7 +2255,7 @@ input#search {
           margin-top: 1em;
           margin-bottom: 2em;
           font-size: x-large;
-          
+
         }
 
         #botonELIMINAR{
@@ -2448,7 +2454,8 @@ body.dashboard{
 .dashboard .noticiasComecuco li,
 .dashboard .listaColumnas li {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    grid-gap: 1ch;
     margin-bottom: 1ch;
     background: #f4f4f4;
 }

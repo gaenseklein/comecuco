@@ -5,7 +5,8 @@ module.exports = function(dataobj){
   let checked = {
     noticia: (data.tipo==='noticia') ? 'checked': '',
     capitulo: (data.tipo==='capitulo') ? 'checked': '',
-    resumensemanal: (data.tipo==='resumensemanal') ? 'checked': ''
+    resumensemanal: (data.tipo==='resumensemanal') ? 'checked': '',
+    frontpage: data.frontpage ? 'checked': '',
   }
   if(dataobj.new){
     checked.noticia='checked'
@@ -99,7 +100,10 @@ module.exports = function(dataobj){
                 <label for="radioCapitulo" class="radiolabel">Capitulo de una columna</label>
                 <input id="radioSemanal" type="radio" name="tipo" value="resumensemanal" ${checked.resumensemanal} onclick="document.getElementById('EditAutorNoticia').value='comecuco'">
                 <label for="radioSemanal" class="radiolabel">Resumen semanal</label>
-
+                <div class="noticiaWrapper">
+                  <label for="enPaginaPrincipal">Publicar en Página Principal</label>
+                  <input type="checkbox" id="enPaginaPrincipal" name="frontpage" ${checked.frontpage}>
+                </div>
                 <div class="columnaWrapper">
                     <select class="columnaSelect" name="columna">
                       ${columnaoptions}
@@ -126,7 +130,6 @@ module.exports = function(dataobj){
               <p><textarea id="EditResumen" type="text" name="resumen" rows="2" cols="60" maxlength="100"
               spellcheck="true">${resumen}</textarea></p>
             </li>
-
             <li>
               <label for="addTags">Tags</label>
               <div class="tagWrapper">
@@ -209,7 +212,7 @@ module.exports = function(dataobj){
             </li>
           </ul>
           <button type="submit" class="submitEditNoticia botonFinal">Guardar cambios</button>
-          <button type="button" class="EliminarNoticia botonFinal" id="botonELIMINAR" onclick="if(confirm('lo quieres borrar este noticia?'))location.href='/user/borrar/noticia/${data._id}'">ELIMINAR la Noticia</button>          
+          <button type="button" class="EliminarNoticia botonFinal" id="botonELIMINAR" onclick="if(confirm('lo quieres borrar este noticia?'))location.href='/user/borrar/noticia/${data._id}'">ELIMINAR la Noticia</button>
         </form>
       </div>
       <div class="footer">

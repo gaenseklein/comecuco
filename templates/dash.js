@@ -2,10 +2,12 @@ module.exports = function(data){
   let x=0;
   let noticiasmenu = ''
   for(x=0;x<data.noticias.length;x++){
+    let nfp = data.noticias[x].frontpage ? 'si':'no'
     noticiasmenu+=`<li>
       <a href="/user/noticia/${data.noticias[x]._id}">${data.noticias[x].title}</a>
       <span>${data.noticias[x].tipo}</span>
       <span>${new Date(data.noticias[x].pubdate).toLocaleDateString('es')}</span>
+      <span>${nfp}</span>
     </li>`
   }
   let columnasmenu=''
@@ -127,6 +129,7 @@ module.exports = function(data){
           <span>titulo</span>
           <span>tipo</span>
           <span>fecha</span>
+          <span>pagina principal</span>
         </li>
         ${noticiasmenu}
       </ul>

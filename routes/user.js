@@ -185,6 +185,7 @@ router.post('/noticia', fileUpload(), async (req,res)=>{
     id: req.body.id,
     numero: req.body.numero,
     videolink: req.body.videolink,
+    frontpage: req.body.frontpage,
     // deleteimages: req.body.deleteimages,
     // deleteaudios: req.body.deleteaudios,
   }

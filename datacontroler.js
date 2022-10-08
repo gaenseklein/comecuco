@@ -17,7 +17,7 @@ const datacontroler = {
     // if(this.cache.frontpage)return this.cache.frontpage;
     try {
 
-      let query={tipo: 'noticia'};
+      let query={tipo: 'noticia', frontpage: true};
       let searchoptions = {sort : {pubdate:-1}, limit: 12};
       let nuevosarticulos = await Noticia.find(query, null, searchoptions);
       let destacada = Destacada.actual();
@@ -373,6 +373,7 @@ const datacontroler = {
             audios:[],
             body:'',
             videolink:'',
+            frontpage: true,
           }
         }
         // console.log(nuevanoticia);
@@ -449,7 +450,7 @@ const datacontroler = {
     //lets presume its already checked
     noticia: async function(content, user){
       console.log('writing noticia');
-      let simplefields = ['title','subtitle','author','body','resumen','tipo'];
+      let simplefields = ['title','subtitle','author','body','resumen','tipo', 'frontpage'];
       let updateobj = {};
       let cdate = new Date();
       for (let x=0;x<simplefields.length;x++){

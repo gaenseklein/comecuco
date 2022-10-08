@@ -56,6 +56,10 @@ const counterSchema = new mongoose.Schema({
   columna:{
     type: mongoose.ObjectId
   },
+  frontpage:{
+    type: Boolean,
+    default: true,
+  },  
 });
 
 module.exports = mongoose.model('Noticia',counterSchema);
