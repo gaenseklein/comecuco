@@ -34,7 +34,7 @@ var radioapp={
       ],
     },
     {
-      nombre: 'radios libres',
+      nombre: 'radios-libres',
       miembros:[
         {tipo: 'radio', nombre:'radios libres', src:'radio.farco.org'},
         {tipo: 'radio', nombre:'radios libres 2', src:'radio.farco.org'},
@@ -48,19 +48,18 @@ var radioapp={
   radioplayer:null,
   init: function(){
     this.redActual=this.redes[0]
-    //let logoRedActual=document.getElementById('COMECUCO') ESTO ES PARA INICIAR CON LOGO COMECUCO
-    //logoRedActual.style.radio="checked";
+    let logoRedActual=document.getElementById('COMECUCO') //ESTO ES PARA INICIAR CON LOGO COMECUCO
+    logoRedActual.checked=true;
     this.radioplayer=document.getElementById('radioplayer')
     this.cambiaRadioAId(0)
   },
+
   simboloDisplayPause: function(){
     let displayPause=document.getElementById('pause');
     displayPause.textContent = "═";
     displayPause.style.transform= "rotate(-90deg)";
   },
   cambiaRadio: function(izquierda){
-    let displayplayPause=document.getElementById('playPause');
-    displayplayPause.style.display="block";
     if(izquierda)this.radioActual--;
     else this.radioActual++;
     if(this.radioActual>=this.redActual.miembros.length)this.radioActual=0
@@ -72,6 +71,8 @@ var radioapp={
     let miembroact = this.redActual.miembros[index]
     this.radioActual = index
     if(miembroact.tipo=='radio'){
+      let displayplayPause=document.getElementById('playPause');
+      displayplayPause.style.display="block";
       let videoframe = document.getElementById('videoiframe')
       if(videoframe)videoframe.parentElement.removeChild(videoframe)
       let src=miembroact.src
