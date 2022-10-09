@@ -48,6 +48,8 @@ var radioapp={
   radioplayer:null,
   init: function(){
     this.redActual=this.redes[0]
+    //let logoRedActual=document.getElementById('COMECUCO') ESTO ES PARA INICIAR CON LOGO COMECUCO
+    //logoRedActual.style.radio="checked";
     this.radioplayer=document.getElementById('radioplayer')
     this.cambiaRadioAId(0)
   },
@@ -142,20 +144,43 @@ var radioapp={
     }
   },
 
-  grabarMemoria1: function(){
-    let memoria1=document.getElementById('m1Text');
-    let radioMemorizada1= document.getElementById("COMECUCOactivo");
-    memoria1.value= radioMemorizada1.textContent;
-    if (memoria1.value.length>11){
-      memoria1.value="muchiiiiiiiissssiiisimo";
+  /* esto es por si queremos que el nombre de la radio en la memoria haga scroll,
+  usando un input en el html
+
+  espacioX: 0,
+
+  textoScroll: function(){
+    if (memoria1.value.length<=11) {
+      memoria1.style.textIndent=0;
+      return
+    }
+    let cantidadDeCaracteres=(memoria1.value.length-(memoria1.value.length*2))*1.5;
+      if(this.espacioX>cantidadDeCaracteres) {
+        let f=this.espacioX+"ch"
+        memoria1.style.textIndent=f;
       }
+        if (this.espacioX<cantidadDeCaracteres){
+          this.espacioX=+10;
+        }
+       else {this.espacioX=this.espacioX-1;
+         }
+        textomovimiento();
   },
 
-  grabarMemoria2: function(){
-    let memoria2=document.getElementById('m2Text');
-    let radioMemorizada2= document.getElementById("COMECUCOactivo");
-    memoria2.value= radioMemorizada2.textContent;
-  },
+  textomovimiento: async function(){
+      let espera= await sleep(400);
+  radioapp.textoScroll()
+},
+
+  textomovimiento2: async function(){
+      let espera= await sleep(400);
+  radioapp.textoScroll2()
+},
+
+    sleep: function(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    }*/
+
   grabarMemoria: function(mem2){
     let memoria = {
       index: this.radioActual,
@@ -187,17 +212,6 @@ var radioapp={
       this.cambiaRed()
     }
     this.cambiaRadioAId(memoria.index)
-  },
-
-  playMemoria1: function(){
-    let radio1Memorizada=document.getElementById('m1Text');
-    let radioSintonizada=document.getElementById("COMECUCOactivo");
-    nombreRadio=radio1Memorizada.value;
-    let miembroMemorizado = this.redes.miembros["nombreRadio"];
-    this.radioActual = miembroMemorizado;
-    this.cambiaRadioAId(this.radioActual);
-    console.log(miembroMemorizado);
-
   },
 }
 

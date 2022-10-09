@@ -2047,6 +2047,10 @@ input#search {
           resize: none;
         }
 
+        #enPaginaPrincipal{
+          width: 3em;
+        }
+
         textarea#EditContenidoNoticia{
           resize: vertical;
         }
