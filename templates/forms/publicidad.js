@@ -11,6 +11,8 @@ module.exports = function(data){
   let descripcion = data.descripcion || ''
   let imgrequired = ''
   if(id=='')imgrequired = 'required'
+  let borrarbutton = ''
+  if(id!='')borrarbutton = `<button type="button" class="EliminarNoticia botonFinal" id="botonELIMINAR" onclick="if(confirm('estas seguro de eliminar la publicidad?'))location.href='/user/borrar/publicidad/${id}'">ELIMINAR la Publicidad</button>`
   console.log('datos:',data._id,id,previmg,url,fin,inicio,descripcion);
   let raw=`<!DOCTYPE html>
   <html lang="es" dir="ltr">
@@ -67,6 +69,7 @@ module.exports = function(data){
           </ul>
 
           <button type="submit" class="submitEditPublicidad">Guardar cambios y volver</button>
+          ${borrarbutton}
         </form>
       </div>
     </body>

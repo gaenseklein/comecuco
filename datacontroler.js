@@ -1021,6 +1021,19 @@ const datacontroler = {
         }
       }
     },
+    borrarPublicidad: async function(id){
+      try {
+        let publicidad = await Publicidad.findOne({_id:id})
+        if(!publicidad)return false
+        console.log('del publicidad',publicidad);
+        let resp = await Publicidad.deleteOne({_id:publicidad._id})
+        console.log('deleted publicidad from db',resp);
+        return true
+      } catch (e) {
+        console.log('borrar publicidad no funciono',e);
+        return false
+      }
+    },
 
   },//end datainput
   dataexport: {

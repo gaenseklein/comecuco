@@ -461,5 +461,15 @@ router.post('/publicidad/:id', fileUpload(), async (req,res)=>{
         res.status(400).send('an error occured')
       }
 });
+router.get('/borrar/publicidad/:nid', async (req,res)=>{
+      try{
+        let result = await datacontroler.datainput.borrarPublicidad(req.params.nid)
+        if(result)return res.redirect('/user')
+        res.status(400).send('oops, something went wrong')
+      }catch(e){
+        console.log(e)
+        res.status(400).send('an error occured')
+      }
+});
 
 module.exports = router;
