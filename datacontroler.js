@@ -63,7 +63,7 @@ const datacontroler = {
       //expresso-giramundo?
       query = {
         tipo: 'noticia',
-        author: 'comecuco',
+        author: 'colectiva',
       }
       searchoptions.limit = 2;
       let produccionesColectivas = await Noticia.find(query, null, searchoptions);
@@ -330,7 +330,7 @@ const datacontroler = {
       let query={idDeAutor:user._id};
       let qopt={sort : {pubdate:-1}, limit:20};
       let noticias = await Noticia.find(query,null,qopt)
-      query={author:'comecuco'}
+      query={author: {'$in':['comecuco', 'colectiva']}}
       let comecucos = await Noticia.find(query,null,qopt)
       let columnas = await Columna.find({author:user.name})
       let destacadas = Destacada.calendarioseis() //meses,destacadas

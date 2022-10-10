@@ -170,6 +170,7 @@ router.get('/noticia/:id',async (req,res)=>{
 router.post('/noticia', fileUpload(), async (req,res)=>{
   //edit noticia
   console.log('noticia llegado')
+  console.log('frontpage:',req.body.frontpage);
   // console.log(req.body, req.files);
   let content = {
     title: req.body.title,
@@ -185,7 +186,7 @@ router.post('/noticia', fileUpload(), async (req,res)=>{
     id: req.body.id,
     numero: req.body.numero,
     videolink: req.body.videolink,
-    frontpage: req.body.frontpage,
+    frontpage: (req.body.frontpage=='on'),
     // deleteimages: req.body.deleteimages,
     // deleteaudios: req.body.deleteaudios,
   }
