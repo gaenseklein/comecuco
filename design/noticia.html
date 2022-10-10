@@ -65,7 +65,21 @@
           </div>
         </div>
     </div>
+    <div id="redesSocialesContainer">
+    <h4>comparte en redes sociales</h4>
+    <div id="redesSocialesWrapper"></div>
+    </div>
     <div class="footer">
     </div>
+    <script src='../public/static/scripts/rssharelink.js'></script>
+    <script type="text/javascript">
+      //cambia url de los imagenes para ser del filesystem
+      let links = document.querySelectorAll('.redesSocialesLink img')
+      for(let x=0;x<links.length;x++){
+        let oldsrc = links[x].src
+        let newsrc = oldsrc.substring(oldsrc.lastIndexOf('/'))
+        links[x].src="../public/static/rslogos"+newsrc
+      }
+    </script>
   </body>
 </html>

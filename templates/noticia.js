@@ -98,9 +98,14 @@ const template = function(data){
             </div>
             ${imageblock}
         </div>
+        <div id="redesSocialesContainer">
+        <h4>comparte en redes sociales</h4>
+        <div id="redesSocialesWrapper"></div>
+        </div>
         <div class="footer">
         </div>
         <script src='/public/static/scripts/weather.js'></script>
+        <script src='/public/static/scripts/rssharelink.js'></script>
       </body>
     </html>
     `;
