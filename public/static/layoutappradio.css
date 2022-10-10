@@ -431,17 +431,14 @@ input[type=range]::-moz-range-thumb {
 }
 
 #M1, #M2{
-  font-size: revert;
-  max-height: 2.5ch;
+  height: 1.5em;
   overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: pre;
 }
 
 #m1Text, #m2Text{
   width: 10ch;
-  background-color: rgba(252, 216, 139, 0.44);
-  border: none;
-  font-weight: bolder;
-  color: black;
   text-indent: 0ch;
 }
 
