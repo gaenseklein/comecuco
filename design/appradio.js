@@ -52,8 +52,39 @@ var radioapp={
     logoRedActual.checked=true;
     this.radioplayer=document.getElementById('radioplayer')
     this.cambiaRadioAId(0)
+    this.getRedFromComecuco()
   },
+  getRedFromComecuco: async function(){
+    let resp = await fetch('/app/redes')
+    if(resp.ok){
+      let red = await resp.json()
+      this.redes = red
+      this.redActual = this.redes[0]
+      this.cambiaRadioAId(0)
+    }
+    if(location.pathname!='/envivo' && location.pathname!='/envivo/' && location.pathname.substring(0,'/envivo'.length)=='/envivo'){
+      let n = location.pathname.substring('/envivo'.length)
+      if(n[0]=='/')n=n.substring(1)
+      this.buscaRadioPorNombre(n)
+    }
 
+  },
+  buscaRadioPorNombre: function(nombre){
+    let found = false;
+    for(let red = 0;red < this.redes.length; red++){
+      for(let x=0;x<this.redes[red].miembros.length;x++){
+        let m = this.redes[red].miembros[x]
+        if(m.nombre==nombre || m.nombre.substring(0,m.nombre.indexOf(' '))==nombre|| m.mountpoint == nombre){
+          found=true;
+          this.redActual = this.redes[red]
+          this.cambiaRadioAId(x)
+          // alert('bienvenido al mundo de radios libres.')
+          // this.radioplayer.play()
+        }
+      }
+      if(found)break;
+    }
+  },
   simboloDisplayPause: function(){
     let displayPause=document.getElementById('pause');
     displayPause.textContent = "═";
@@ -146,7 +177,6 @@ var radioapp={
     this.radioplayer.play()
     }
   },
-
   grabarMemoria: function(mem2){
     let memoria = {
       index: this.radioActual,
@@ -171,7 +201,22 @@ var radioapp={
       this.textoScroll()
     }
   },
-
+  playMemoria: function(mem2){
+    let memoria = mem2 ? this.memoria2 : this.memoria1
+    if(!memoria)return //no hay memoria todavia
+    if(this.redActual.nombre != memoria.red){
+      //tenemos que cambiar la red
+      let redbotones = document.querySelectorAll('input[name=redes]')
+      for(let x=0;x<redbotones.length;x++){
+        if(redbotones[x].id.toLowerCase()==memoria.red){
+          redbotones[x].checked = true
+          break;
+        }
+      }
+      this.cambiaRed()
+    }
+    this.cambiaRadioAId(memoria.index)
+  },
   espacioX: 0,
   espacioX2: 0,
 
@@ -228,24 +273,5 @@ var radioapp={
     sleep: function(ms) {
       return new Promise(resolve => setTimeout(resolve, ms));
     },
-
-
-  playMemoria: function(mem2){
-    let memoria = mem2 ? this.memoria2 : this.memoria1
-    if(!memoria)return //no hay memoria todavia
-    if(this.redActual.nombre != memoria.red){
-      //tenemos que cambiar la red
-      let redbotones = document.querySelectorAll('input[name=redes]')
-      for(let x=0;x<redbotones.length;x++){
-        if(redbotones[x].id.toLowerCase()==memoria.red){
-          redbotones[x].checked = true
-          break;
-        }
-      }
-      this.cambiaRed()
-    }
-    this.cambiaRadioAId(memoria.index)
-  },
 }
-
 radioapp.init();
