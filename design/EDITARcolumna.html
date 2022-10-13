@@ -29,7 +29,7 @@
         <ul>
           <li>
             <label for="EditTituloColumna">Título de la Columna</label>
-            <p><input id="EditTituloColumna" type="text" name="title" size="45" maxlength="40" spellcheck="true"
+            <p><input id="EditTituloColumna" type="text" name="title" size="45" spellcheck="true"
               value="La Vida en los Barrios"></input></p>
           </li>
           <li>
@@ -52,14 +52,8 @@
             <p><textarea id="EditDescripciónColumna" type="text" name="body" rows="10" cols="100"
             spellcheck="true">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus aliquam dolor, eu lacinia lorem placerat vulputate.</p><p>Duis felis orci, pulvinar id metus ut, rutrum luctus orci. Cras porttitor imperdiet nunc, at ultricies tellus laoreet sit amet. Sed auctor cursus massa at porta. Integer ligula ipsum, tristique sit amet orci vel, viverra egestas ligula. Curabitur vehicula tellus neque, ac ornare ex malesuada et. In vitae convallis lacus. Aliquam erat volutpat. Suspendisse ac imperdiet turpis.</p></textarea></p>
           </li>
-          <ul id="sumafotos">
-            <li id="ListaAgregarFotosEditNoticia" class="fotoUpload active">
-              <label for="AgregarFotosEditNoticia">Cargar Foto de la Columna</label>
-              <input type="file" onclick="deleteOldSelection(this)" onchange="showNextFileUploads(this)" id="AgregarFotosEditNoticia" accept=".png, .jpeg, .jpg, .gif" name="foto1" value="">
-            </li>
-          </ul>
           <input type="submit" class="botonFinal botonFinalEdit" value="Guardar">
-            <button type="button" class="EliminarNoticia botonFinal" id="botonELIMINAR">ELIMINAR la Columna</button>
+          <button type="button" class="EliminarNoticia botonFinal" id="botonELIMINAR">ELIMINAR la Columna</button>
         </form>
       </div>
     <div class="footer">

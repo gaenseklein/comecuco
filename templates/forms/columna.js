@@ -20,17 +20,18 @@ module.exports = function(dataobj){
       <script src="/public/static/scripts/urlcleaner.js"></script>
     </head>
     <body class="subpagusuario editColumna">
-      <div class="logo">
+    <div class="menusubusuario">
+      <div class="logo" id="logoUsuario">
         <p class="encabezado"><a href="/">
           COMECUCO</a>
         </p>
         <div class="subtitle">
           somos el colectivo de medios comunitarios de cuyo
         </div>
-        <div class="topMenu">
+        <div class="topMenu" id="topMenuUsuario">
           <ul>
             <li><a href="/user">Volver</a></li>
-            <li><a href="manualdeestilo.html">Manual de Estilo</a></li>
+            <li><a href="manualdeestilo.html">Manual de Uso y Estilo</a></li>
           </ul>
         </div>
       </div>
@@ -41,11 +42,11 @@ module.exports = function(dataobj){
           <ul>
             <li>
               <label for="EditTituloColumna">Título de la Columna</label>
-              <p><input id="EditTituloColumna" type="text" name="title" size="45" maxlength="40" spellcheck="true"
+              <p><input id="EditTituloColumna" type="text" name="title" size="45" spellcheck="true"
                 value="${title}" required></input></p>
             </li>
             <li>
-              <label for="EditURLColumna">URL de la columna</label>
+              <label for="EditURLColumna">URL de la Columna</label>
               <p><input id="EditURLColumna" type="text" name="url" size="45" maxlength="40" spellcheck="true"
                 value="${url}" placeholder="mi-columna" required pattern="[A-Za-z\-]{4,}" onkeyup="cleanurl(this,URLColumnaPreview,'columnas/')"><span id="URLColumnaPreview">https://www.comecuco.org/columna/${micolumna}</span></p>
             </li>
@@ -61,15 +62,8 @@ module.exports = function(dataobj){
               <p><textarea id="EditDescripciónColumna" type="text" name="descripcion" rows="10" cols="100"
               spellcheck="true" required placeholder="entra una descripcion de la columna">${descripcion}</textarea></p>
             </li>
-            <!--
-            <ul id="sumafotos">
-              <li id="ListaAgregarFotosEditNoticia" class="fotoUpload active">
-                <label for="AgregarFotosEditNoticia">Cargar Foto de la Columna</label>
-                <input type="file" onclick="deleteOldSelection(this)" onchange="showNextFileUploads(this)" id="AgregarFotosEditNoticia" accept=".png, .jpeg, .jpg, .gif" name="foto1" value="">
-              </li>
-            </ul>
-            -->
-            <input type="submit" value="guardar">
+            <input type="submit" class="botonFinal botonFinalEdit" value="Guardar">
+            <button type="button" class="EliminarNoticia botonFinal" id="botonELIMINAR">ELIMINAR la Columna</button>
           </form>
         </div>
       <div class="footer">
