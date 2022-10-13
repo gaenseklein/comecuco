@@ -79,7 +79,7 @@ module.exports = function(dataobj){
       <div class="topMenu" id="topMenuUsuario">
         <ul>
           <li><a href="/user">Volver</a></li>
-          <li><a href="/user/manualdeestilo">Manual de Estilo</a></li>
+          <li><a href="/user/manualdeestilo">Manual de Uso y Estilo</a></li>
         </ul>
       </div>
     </div>
@@ -99,7 +99,7 @@ module.exports = function(dataobj){
                 <input id="radioCapitulo" type="radio" name="tipo" value="capitulo" ${checked.capitulo}>
                 <label for="radioCapitulo" class="radiolabel">Capitulo de una columna</label>
                 <input id="radioSemanal" type="radio" name="tipo" value="resumensemanal" ${checked.resumensemanal} onclick="document.getElementById('EditAutorNoticia').value='comecuco'">
-                <label for="radioSemanal" class="radiolabel">Resumen semanal</label>
+                <label for="radioSemanal" class="radiolabel">Resumen Semanal</label>
                 <div class="noticiaWrapper">
                   <label for="enPaginaPrincipal">Publicar en Página Principal</label>
                   <input type="checkbox" id="enPaginaPrincipal" name="frontpage" ${checked.frontpage}>
@@ -117,17 +117,17 @@ module.exports = function(dataobj){
             </li>
             <li>
               <label for="EditTituloNoticia">Título</label>
-              <p><input id="EditTituloNoticia" type="text" name="title" size="45" maxlength="40" spellcheck="true"
+              <p><input id="EditTituloNoticia" type="text" name="title" size="45" spellcheck="true"
                 value="${data.title}" required></p>
             </li>
             <li>
               <label for="EditSubTituloNoticia">Subtítulo</label>
-              <p><input id="EditSubTituloNoticia" type="text" name="subtitle" size="45" maxlength="40" spellcheck="true"
+              <p><input id="EditSubTituloNoticia" type="text" name="subtitle" size="45" spellcheck="true"
                 value="${data.subtitle || ''}"></p>
             </li>
             <li>
               <label for="EditResumen">Resumen</label>
-              <p><textarea id="EditResumen" type="text" name="resumen" rows="2" cols="60" maxlength="100"
+              <p><textarea id="EditResumen" type="text" name="resumen" rows="2" cols="60"
               spellcheck="true">${resumen}</textarea></p>
             </li>
             <li>
@@ -163,7 +163,7 @@ module.exports = function(dataobj){
             </li>
             <li>
               <label for="EditEpigrafeFoto">Epígrafe de la primer imagen</label>
-              <p><input id="EditEpigrafeFoto" type="text" name="fototext" size="45" maxlength="50"
+              <p><input id="EditEpigrafeFoto" type="text" name="fototext" size="45"
                 spellcheck="true" value="${imagetitle}"></p>
               </li>
           </ul>
@@ -211,8 +211,8 @@ module.exports = function(dataobj){
             <input type="text" name="videolink" id="videolink" value="${videolink}">
             </li>
           </ul>
-          <button type="submit" class="submitEditNoticia botonFinal">Guardar cambios</button>
-          <button type="button" class="EliminarNoticia botonFinal" id="botonELIMINAR" onclick="if(confirm('lo quieres borrar este noticia?'))location.href='/user/borrar/noticia/${data._id}'">ELIMINAR la Noticia</button>
+          <button type="submit" class="submitEditNoticia botonFinal">Guardar cambios y volver</button>
+          <button type="button" class="EliminarNoticia botonFinal" id="botonELIMINAR" onclick="if(confirm('Quieres borrar esta noticia?'))location.href='/user/borrar/noticia/${data._id}'">ELIMINAR la Noticia</button>
         </form>
       </div>
       <div class="footer">

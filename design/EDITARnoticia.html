@@ -7,7 +7,7 @@
     <script src="../public/static/scripts/fileuploadstepper.js"></script>
 
   </head>
-  <body onload="startTime()" class="subpagusuario">
+  <body class="subpagusuario">
   <div class="menusubusuario">
     <div class="logo" id="logoUsuario">
       <p class="encabezado"><a href="frontpage.html">
@@ -27,7 +27,7 @@
 
     <div class="EditNoticia">
       <h1>EDITAR o SUBIR NOTICIA</h1>
-      <form method="post" enctype="multipart/form-data">
+      <form method="post" action="/user/noticia" enctype="multipart/form-data">
         <ul>
           <li>
             <label>Tipo</label>
@@ -38,8 +38,11 @@
               <input id="radioCapitulo" type="radio" name="tipo" value="capitulo">
               <label for="radioCapitulo" class="radiolabel">Capitulo de una columna</label>
               <input id="radioSemanal" type="radio" name="tipo" value="resumensemanal" onclick="document.getElementById('EditAutorNoticia').value='comecuco'">
-              <label for="radioSemanal" class="radiolabel">Resumen semanal</label>
-
+              <label for="radioSemanal" class="radiolabel">Resumen Semanal</label>
+              <div class="noticiaWrapper">
+                <label for="enPaginaPrincipal">Publicar en Página Principal</label>
+                <input type="checkbox" id="enPaginaPrincipal" name="frontpage" ${checked.frontpage}>
+              </div>
               <div class="columnaWrapper">
                   <select class="columnaSelect" name="columna">
                     <option value="$idcolumna1">$titulo columna1</option>
@@ -52,17 +55,13 @@
           </li>
           <li>
             <label for="EditTituloNoticia">Título</label>
-            <p><input id="EditTituloNoticia" type="text" name="title" size="45" maxlength="400" spellcheck="true"
+            <p><input id="EditTituloNoticia" type="text" name="title" size="45" spellcheck="true"
               value="Las mejores fotos del paso del cometa Neowise por la Tierra"></input></p>
           </li>
           <li>
             <label for="EditSubTituloNoticia">Subtítulo</label>
-            <p><textarea id="EditSubTituloNoticia" type="text" name="subtitle" rows="2" cols="60" maxlength="100"
+            <p><textarea id="EditSubTituloNoticia" type="text" name="subtitle" rows="2" cols="60"
             spellcheck="true">En la segunda quincena de julio, el cuerpo celeste se podra observar durante la puesta del sol.</textarea></p>
-          </li>
-          <li>
-            <label for="enPaginaPrincipal">Publicar en Página Principal</label>
-            <input type="checkbox" id="enPaginaPrincipal"name="publicar" value="Página Principal"></input>
           </li>
           <li>
             <label for="addTags">Tags</label>
@@ -99,7 +98,7 @@ que se yo</div>
           </li>
           <li>
             <label for="EditEpigrafeFoto">Epígrafe de la primer imagen</label>
-            <p><input id="EditEpigrafeFoto" type="text" name="fototext" size="45" maxlength="50"
+            <p><input id="EditEpigrafeFoto" type="text" name="fototext" size="45"
               spellcheck="true" value="El cometa pasando veloz"></input></p>
             </li>
         </ul>
@@ -164,7 +163,7 @@ que se yo</div>
             </div>
           </li>
         </ul>
-        <button type="button" class="submitEditNoticia botonFinal">Guardar cambios y volver a la Noticia</button>
+        <button type="submit" class="submitEditNoticia botonFinal">Guardar cambios y volver</button>
         <button type="button" class="EliminarNoticia botonFinal" id="botonELIMINAR">ELIMINAR la Noticia</button>
       </form>
     </div>
