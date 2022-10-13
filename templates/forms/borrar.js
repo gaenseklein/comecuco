@@ -9,7 +9,7 @@ module.exports = function(dataobj){
   <html lang="es" dir="ltr">
     <head>
       <meta charset="utf-8">
-      <title>EDITAR Columna</title>
+      <title>Eliminar Noticia</title>
       <link rel="stylesheet" href="/public/static/layout.css">
       <script src="/public/static/scripts/urlcleaner.js"></script>
     </head>
@@ -24,31 +24,31 @@ module.exports = function(dataobj){
         <div class="topMenu">
           <ul>
             <li><a href="/user">Volver</a></li>
-            <li><a href="manualdeestilo.html">Manual de Estilo</a></li>
+            <li><a href="manualdeestilo.html">Manual de Uso y Estilo</a></li>
           </ul>
         </div>
       </div>
 
       <div class="">
-        <h1>borrar articulo ${title}</h1>
-        <h2>estas seguro que quieres borrar este articulo?</h2>
+        <h1>Eliminar Artículo ${title}</h1>
+        <h2>Quieres eliminar este Artículo?</h2>
         <form id="borrararticuloform" action="/user/borrar/noticia/${nid}" method="post">
             <input type="hidden" name="nid" value="${nid}">
             <div>
             <input type="checkbox" name="confirm" id="confirmdelete">
-            <label for="confirmdelete">si, estoy seguro</label>
+            <label for="confirmdelete">Sí, eliminar Artículo</label>
             </div>
             <div>
-            <label for="contrasena">entra tu contraseña para asegurar que lo quieres borrar</label>
+            <label for="contrasena">Ingresa tu contraseña</label>
             <input type="password" name="pwd" id="contrasena">
             </div>
             <div>
-                <a href="/user">cancelar</a>
-                <input type="submit" value="borrar este articulo">
+                <a href="/user">Cancelar</a>
+                <input type="submit" value="Eliminar este Artículo">
             </div>
         </form>
         <hr>
-        <h2>prevista del articulo</h2>
+        <h2>Prevista del Artículo</h2>
         <div class="previstawrapper">
             <img src="${previmg}">
             <h3>${title}</h3>
