@@ -48,6 +48,8 @@ var radioapp={
   radioplayer:null,
   init: function(){
     this.redActual=this.redes[0]
+    let logoRedActual=document.getElementById('COMECUCO') //ESTO ES PARA INICIAR CON LOGO COMECUCO
+    logoRedActual.checked=true;
     this.radioplayer=document.getElementById('radioplayer')
     this.cambiaRadioAId(0)
     this.getRedFromComecuco()
@@ -89,8 +91,8 @@ var radioapp={
     displayPause.style.transform= "rotate(-90deg)";
   },
   cambiaRadio: function(izquierda){
-    let displayplayPause=document.getElementById('playPause');
-    displayplayPause.style.display="block";
+    document.getElementById('m1Text').classList.remove('enMovimiento1');
+    document.getElementById('m2Text').classList.remove('enMovimiento2');
     if(izquierda)this.radioActual--;
     else this.radioActual++;
     if(this.radioActual>=this.redActual.miembros.length)this.radioActual=0
@@ -102,6 +104,8 @@ var radioapp={
     let miembroact = this.redActual.miembros[index]
     this.radioActual = index
     if(miembroact.tipo=='radio'){
+      let displayplayPause=document.getElementById('playPause');
+      displayplayPause.style.display="block";
       let videoframe = document.getElementById('videoiframe')
       if(videoframe)videoframe.parentElement.removeChild(videoframe)
       let src=miembroact.src
@@ -183,10 +187,18 @@ var radioapp={
     if(mem2){
       this.memoria2 = memoria
       M2.firstChild.innerText = memoria.radionombre
+      if (document.getElementById('m2Text').classList=="enMovimiento2"){
+        return
+      }
+      this.textoScroll2();
     }else{
       this.memoria1 = memoria
       console.log('saving',M1.firstChild);
       M1.firstChild.innerText = memoria.radionombre
+      if (document.getElementById('m1Text').classList=="enMovimiento1"){
+        return
+      }
+      this.textoScroll()
     }
   },
   playMemoria: function(mem2){
@@ -205,5 +217,61 @@ var radioapp={
     }
     this.cambiaRadioAId(memoria.index)
   },
+  espacioX: 0,
+  espacioX2: 0,
+
+  textoScroll: function(){
+    let textoEnM1=document.getElementById('m1Text');
+    if (textoEnM1.innerText.length<=14) {
+      textoEnM1.style.textIndent="0ch";
+      return
+    }
+    let cantidadDeCaracteres=(textoEnM1.innerText.length-(textoEnM1.innerText.length*2))*1.5;
+    document.getElementById('m1Text').classList.add('enMovimiento1');
+    if(this.espacioX>cantidadDeCaracteres) {
+      let f=this.espacioX+"ch"
+      textoEnM1.style.textIndent=f;
+    }
+      if (this.espacioX<cantidadDeCaracteres){
+        this.espacioX=+10;
+      }
+     else {this.espacioX=this.espacioX-0.5;
+       }
+      this.textomovimiento();
+  },
+
+  textoScroll2: function(){
+    let textoEnM2=document.getElementById('m2Text');
+    if (textoEnM2.innerText.length<=14) {
+      textoEnM2.style.textIndent="0ch";
+      return
+    }
+   let cantidadDeCaracteres=(textoEnM2.innerText.length-(textoEnM2.innerText.length*2))*1.5;
+   document.getElementById('m2Text').classList.add('enMovimiento2');
+      if(this.espacioX2>cantidadDeCaracteres) {
+        let f=this.espacioX2+"ch"
+        textoEnM2.style.textIndent=f;
+      }
+        if (this.espacioX2<cantidadDeCaracteres){
+          this.espacioX2=+10;
+        }
+       else {this.espacioX2=this.espacioX2-0.5;
+         }
+        this.textomovimiento2();
+  },
+
+  textomovimiento: async function(){
+      let espera= await this.sleep(150);
+      this.textoScroll()
+},
+
+  textomovimiento2: async function(){
+      let espera= await this.sleep(150);
+      this.textoScroll2()
+},
+
+    sleep: function(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    },
 }
 radioapp.init();
