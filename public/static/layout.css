@@ -358,6 +358,14 @@ flex-wrap: wrap;
     display: inline-block;
 }
 
+#climatext span{
+  display: none;
+}
+
+#climatext span.activo{
+  display: inline;
+}
+
 #hora {
       display: inline-block;
 }
