@@ -84,6 +84,9 @@ const template = function(data){
           </div>
           <div class="topMenu" id="topMenuUsuario">
             <ul>
+              <li><a href="/">Ir a Inicio</a></li>
+            </ul>
+            <ul>
               <li><a href="/columnas">Volver</a></li>
             </ul>
           </div>
