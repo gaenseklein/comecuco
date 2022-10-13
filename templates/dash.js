@@ -103,10 +103,11 @@ module.exports = function(data){
       <div class="topMenu" id="topMenuUsuario">
         <ul>
           <li><a href="/iniciar/logout">Cerrar Sesión</a></li>
+          <li><a href="/user/manualdeestilo">Manual de Uso y Estilo</a></li>
         </ul>
       </div>
     </div>
-    <h1 class="bienvenido">Bienvenido ${data.user.name}</h1>
+    <h1 class="bienvenido">Bienvenide ${data.user.name}</h1>
     <!-- dash-board:
   - lista con sus ultimos subidas (noticias)
   - lista de comecuco/trabajos conjuntos
@@ -118,18 +119,18 @@ module.exports = function(data){
    -->
     <section class="subirContainer">
 
-      <a href="/user/noticia" title="subir noticia, capitulo de columna y mas">subir noticia</a>
-      <a href="/user/columna">empezar nueva columna</a>
-      <a href="/user/cambia">cambiar pagina de medio</a>
+      <a href="/user/noticia" title="subir noticia, capitulo de columna y mas">Subir Noticia</a>
+      <a href="/user/columna">Empezar Nueva Columna</a>
+      <a href="/user/cambia">Editar Presentación del Medio</a>
     </section>
     <div class="noticiasSubidas">
-      <h2>mis ultimas noticias subidas</h2>
+      <h2>Mis últimas noticias subidas</h2>
       <ul>
         <li>
-          <span>titulo</span>
-          <span>tipo</span>
-          <span>fecha</span>
-          <span>pagina principal</span>
+          <span>Título</span>
+          <span>Tipo</span>
+          <span>Fecha</span>
+          <span>Página Principal</span>
         </li>
         ${noticiasmenu}
       </ul>
@@ -138,42 +139,42 @@ module.exports = function(data){
       <h2>Columnas</h2>
       <ul>
         <li>
-          <span>titulo</span>
-          <span>capitulos total</span>
-          <span>ultima subida</span>
+          <span>Título</span>
+          <span>Nº de Capítulos</span>
+          <span>Última subida</span>
         </li>
         ${columnasmenu}
       </ul>
     </div>
     <div class="noticiasComecuco">
-      <h2>noticias de Comecuco</h2>
+      <h2>Noticias de Comecuco</h2>
       <ul>
         <li>
-          <span>titulo</span>
-          <span>tipo</span>
-          <span>fecha</span>
+          <span>Título</span>
+          <span>Tipo</span>
+          <span>Fecha</span>
         </li>
         ${comecucomenu}
       </ul>
     </div>
     <div class="calendariodestacadas">
-      <h2>calendario de destacadas</h2>
+      <h2>Calendario de Destacadas</h2>
       <ul>
         ${destacadamenu}
       </ul>
     </div>
     <div class="adicional">
-      <h2>operaciones adicionales</h2>
-      <a href="/user/nuevo">nuevo usuario/medio</a>
-      <a href="/user/list">sobrevista usuarios</a>
-      <a href="/user/tags">editar tags</a>
-      <a href="/user/exportAll" download="comecuco.json">export database</a>
+      <h2>Operaciones Adicionales</h2>
+      <a href="/user/nuevo">Agregar Nuevo Usuario/Medio</a>
+      <a href="/user/list">Sobrevista de Usuarios</a>
+      <a href="/user/tags">Editar Tags</a>
+      <a href="/user/exportAll" download="comecuco.json">Export Database</a>
     </div>
     <div class="publicidades">
-    <h2>publicidades</h2>
+    <h2>Publicidades</h2>
         ${publicidades}
         <p>
-          <a href="/user/publicidad">crear nueva publicidad</a>
+          <a href="/user/publicidad">Crear Nueva Publicidad</a>
         </p>
     </div>
     <div class="footer">
