@@ -20,7 +20,7 @@ const template = function(data){
 <html lang="es" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>EDIT USUARIO LA LEÑERA</title>
+    <title>EDITAR USUARIO</title>
     <link rel="stylesheet" href="/public/static/layout.css">
     <script src="/public/static/scripts/urlcleaner.js"></script>
 
@@ -92,7 +92,7 @@ const template = function(data){
           <li>
             <label>Redes</label>
             <div class="redesWrapper">
-              <button type="button" name="button" onclick="addSocialRed()">añadir nueva red</button>
+              <button type="button" name="button" onclick="addSocialRed()">Añadir nueva red</button>
               <div id="redesPreview">
                 <!--<button type="button" name="button" class="redesButton" onclick="removeSocialRed()" value="facebook https://facebook.com/lalenera">facebook : https://facebook.com/lalenera x</button>-->
               </div>
@@ -108,13 +108,13 @@ const template = function(data){
           </li>
           <li id="AgregarFotosUsuario">
             <label for="AgregarFotos">Agregar Fotos</label>
-            <input type="file" id="AgregarFotos" name="foto" value="">
+            <input type="file" id="AgregarFotos" name="f" value="">
           </li>
         </ul>
         <ul class="fotosdeusuario" id="fotosdeusuario">
           ${eliminarfotos}
         </ul>
-        <input type="submit" class="submitusuario" value="Guardar cambios para Usuario">
+        <input type="submit" class="submitusuario botonFinalEdit" value="Guardar cambios para Usuario">
       </form>
     </div>
   </body>

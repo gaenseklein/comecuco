@@ -2,7 +2,7 @@
 <html lang="es" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>EDIT USUARIO LA LEÑERA</title>
+    <title>EDITAR USUARIO</title>
     <link rel="stylesheet" href="../public/static/layout.css">
     <script src="../public/static/scripts/urlcleaner.js"></script>
 
@@ -27,10 +27,12 @@
     <div class="CajaEditUsuario">
       <img class="logomedio" src="../public/static/logos/lenera.jpg" alt="Logo Radio La Leñera">
       <form class="FormEditUsuario" action="index.html" method="post" enctype="multipart/form-data">
-        <ul id="datosdelusuario">
+          <input type="hidden" name="uid" value="${data._id}">
+          <ul id="datosdelusuario">
           <li>
             <label for="NombreUsuario">Nombre del Medio</label>
             <input id="NombreUsuario" type="text" name="" value="RADIO LA LEÑERA" size="40">
+            <input id="drupalid" name="drupalid" value="" type="text" size="5">
           </li>
           <li>
             <label for="UrlUsuario">URL del Medio</label>
@@ -43,21 +45,21 @@
             <label>Logo</label>
             <div class="">
               <label for="newlogoupload" class="logopreview"><img src="../public/static/logos/lenera.jpg"></label>
-              <input type="file" id="newlogoupload" name="" value="">
+              <input type="file" id="newlogoupload" name="icon" value="">
             </div>
           </li>
           <li>
             <label for="DescripcionUsuario">Descripción</label>
-            <p><textarea id="DescripcionUsuario" type="text" name="comment" rows="10" cols="60"
+            <p><textarea id="DescripcionUsuario" type="text" name="description" rows="10" cols="60"
             spellcheck="true">Radio Comunitaria La Leñera FM 97.9 transmite desde el año 2003, y está ubicada en Las Vegas, Potrerillos, a 70 km de la Ciudad de Mendoza. Tenemos una programación muy variada, pero siempre buscando aportar a la construcción de la identidad del lugar. Somos parte de FARCO (Foro Argentino de Radios Comunitarias) y del CoMeCuCo (Colectivo de Medios Comunitarios de Cuyo)</textarea></p>
           </li>
           <li>
             <label for="EmailUsuario">Email (para uso interno del COMECUCO y para entrar a la pagina)</label>
-            <input id="EmailUsuario" type="email" name="" value="" size="40">
+            <input id="EmailUsuario" type="email" name="email" value="" size="40">
           </li>
           <li class="itempassword">
             <label for="password">Nueva Contraseña</label>
-            <input id="password" type="password" name="" value="" size="40">
+            <input id="password" type="password" name="password" value="" size="40">
             <button id="verpassword" type="button">👁</button>
           </li>
           <li class="itempassword2">
@@ -72,7 +74,7 @@
           <li>
             <label>Redes</label>
             <div class="redesWrapper">
-              <button type="button" name="button" onclick="addSocialRed()">añadir nueva red</button>
+              <button type="button" name="button" onclick="addSocialRed()">Añadir nueva red</button>
               <div id="redesPreview">
                 <!--<button type="button" name="button" class="redesButton" onclick="removeSocialRed()" value="facebook https://facebook.com/lalenera">facebook : https://facebook.com/lalenera x</button>-->
               </div>
@@ -82,7 +84,7 @@
           <li>
             <label for="StreamingUsuario">Streaming</label>
             <div class="">
-              <input id="StreamingUsuario" type="text" name="" value="stream" size="10" onkeyup="cleanurl(this,this.nextElementSibling,'envivo/')">
+              <input id="StreamingUsuario" type="text" name="mountpoint" value="stream" size="10" onkeyup="cleanurl(this,this.nextElementSibling,'envivo/')">
               <span>https://comecuco.org/envivo/stream</span>
             </div>
           </li>
@@ -94,7 +96,7 @@
         <ul class="fotosdeusuario" id="fotosdeusuario">
           <li>
             <div>
-              <input type="checkbox" id="eliminarfoto">
+              <input type="checkbox" id="eliminarfoto" name="eliminarfotos" value="">
               <label for="eliminarfoto">Eliminar</label>
               <img class="fotosdelmedio" id="fotosdelmedio" src="caruselpreview.png" alt="">
             </div>
