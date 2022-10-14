@@ -35,6 +35,7 @@ module.exports = function(data){
       <div class="topMenu" id="topMenuUsuario">
         <ul>
           <li><a href="/user">Volver</a></li>
+          <li><a href="/user/manualdeestilo">Manual de Uso y Estilo</a></li>
       </ul>
       </div>
     </div>
@@ -51,7 +52,7 @@ module.exports = function(data){
             <li>
               <label for="EditDescrpciónPublicidad">Descripción Alternativa</label>
               <p><textarea id="EditDescrpciónPublicidad" type="text" name="descripcion" rows="2" cols="60"
-              spellcheck="true" required placeholder="Publicidad del Gobierno de la Provincia de Buenos Aires">${descripcion}</textarea></p>
+              spellcheck="true" required placeholder="Publicidad del Mercado Campesino">${descripcion}</textarea></p>
             </li>
             <li>
               <label for="URLpublicidad">URL de la Publicidad (opcional)</label>
@@ -68,8 +69,9 @@ module.exports = function(data){
             </li>
           </ul>
 
-          <button type="submit" class="submitEditPublicidad">Guardar cambios y volver</button>
-          ${borrarbutton}
+          <button type="submit" class="submitEditPublicidad botonFinal">Guardar cambios y volver</button>
+          <button type="button" class="EliminarNoticia botonFinal" id="botonELIMINAR">ELIMINAR la Publicidad</button>
+      ${borrarbutton}
         </form>
       </div>
     </body>
