@@ -8,7 +8,7 @@ raw = `
     <link rel="stylesheet" href="/public/static/layout.css">
 
   </head>
-  <body onload="startTime()" class="subpagusuario">
+  <body class="subpagusuario">
     <div class="menusubusuario">
       <div class="logo" id="logoUsuario">
         <p class="encabezado"><a href="/">
