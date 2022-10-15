@@ -1677,6 +1677,11 @@ input#search {
         margin-left: 2em;
       }
 
+      #botonFinalInicio{
+        margin-right: 0;
+        margin-bottom: 0;
+      }
+
       .input-group{
         position: relative;
       }
