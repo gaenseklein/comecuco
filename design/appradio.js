@@ -99,6 +99,7 @@ var radioapp={
     if(this.radioActual<0)this.radioActual=this.redActual.miembros.length-1
     this.cambiaRadioAId(this.radioActual)
     this.simboloDisplayPause()
+    this.radioScroll()
   },
   cambiaRadioAId: async function(index){
     let miembroact = this.redActual.miembros[index]
@@ -136,7 +137,7 @@ var radioapp={
       this.simboloDisplayPause()
     }
 
-    COMECUCOactivo.innerHTML=`<h5>${miembroact.nombre}</h5>`
+    COMECUCOactivo.innerHTML=`<h5 id="radioTexto">${miembroact.nombre}</h5>`
   },
   cambiaRed: function(){
     if(Banda.checked)return;
@@ -259,5 +260,32 @@ var radioapp={
     sleep: function(ms) {
       return new Promise(resolve => setTimeout(resolve, ms));
     },
+
+    radioScroll: function(){
+      var textoRadio=document.getElementById('radioTexto');
+
+      if (textoRadio.innerText.length<=25) {
+        textoRadio.style.textIndent="0ch";
+        return
+      }
+      let cantidadDeCaracteres=(textoRadio.innerText.length-(textoRadio.innerText.length*2))*1.5;
+      textoRadio.classList.add('enMovimiento');
+
+      if(this.espacioX>cantidadDeCaracteres) {
+        let f=this.espacioX+"ch"
+        textoRadio.style.textIndent=f;
+      }
+        if (this.espacioX<cantidadDeCaracteres){
+          this.espacioX=+10;
+        }
+       else {this.espacioX=this.espacioX-0.3;
+         }
+      this.textoRadioMovimiento();
+    },
+
+    textoRadioMovimiento: async function(){
+        let espera= await this.sleep(350);
+        this.radioScroll()
+      },
 }
 radioapp.init();

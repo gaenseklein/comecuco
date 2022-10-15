@@ -115,7 +115,8 @@ width: 100%;
   border: 1px solid;
   z-index: 5;
   align-items: center;
-  display: flex;
+  /*display: flex;   activarlo para que funcione bien*/
+  display: none;   /*desactivarlo para que funcione bien*/
   padding-left: 0.5vw;
   padding-right: 0.5vw;
   border-radius: 5px;
@@ -266,6 +267,9 @@ div.espectro{
     border: 1px solid;
     border-radius: 5px;
     align-content: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: pre;
 }
 
 div.espectro li{
@@ -430,7 +434,7 @@ input[type=range]::-moz-range-thumb {
   transform: rotate(-90deg);
 }
 
-#M1, #M2{
+#M1, #M2 {
   height: 1.5em;
   overflow: hidden;
   text-overflow: ellipsis;
