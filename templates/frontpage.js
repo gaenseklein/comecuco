@@ -60,9 +60,9 @@ const template = function(data){
       </div>
       <a href="noticia/${ce._id}">${pimage}</a>
       <div class="puntitos">
-      <button class="boton izquierda" onclick="calecitaprevya()">«</button>
+      <button class="boton izquierda" onclick="calecitacontrol(false)">«</button>
       ${pactivosstring}
-      <button class="boton derecha" onclick="calecitanextya()">»</button>
+      <button class="boton derecha" onclick="calecitacontrol(true)">»</button>
       </div>
       </li>`
       calecita+=clt
@@ -354,7 +354,7 @@ const template = function(data){
 
         </div>
       </body>
-      <script type="text/javascript">
+    <script type="text/javascript">
         var calecitaactivo=0;
         var calecitatiempo=3000;
         var calecitatimer;
@@ -368,10 +368,25 @@ const template = function(data){
           calecitatimer=setTimeout(calecita, calecitatiempo);
         }
         calecita();
+
+        function calecitacontrol(right){
+          clearTimeout(calecitatimer);
+          let lis = document.querySelectorAll('.calecita li');
+          let oldli=document.querySelector('.calecita li.activo');
+          if (right){var valorlisNew=calecitaactivo+1;
+              if(valorlisNew>=lis.length)valorlisNew=0;
+          }else {var valorlisNew=calecitaactivo-1;
+              if(valorlisNew<0)valorlisNew=lis.length-1;
+            };
+          if(oldli)oldli.classList.remove('activo');
+          if(lis[valorlisNew])lis[valorlisNew].classList.add('activo');
+          calecitaactivo=valorlisNew;
+          calecitatimer=setTimeout(calecita, 5000);
+        }
       </script>
 
-      <script src='/public/static/scripts/calecita.js'></script>
-      <script src='/public/static/scripts/playbutton.js'></script>
+      <!-- <script src='/public/static/scripts/calecita.js'></script>
+      <script src='/public/static/scripts/playbutton.js'></script>  -->
       <script src='/public/static/scripts/verticalscrolllist.js'></script>
       <script src='/public/static/scripts/weather.js'></script>
     </html>

@@ -7,34 +7,23 @@
     if(oldli)oldli.classList.remove('activo');
     if(lis[calecitaactivo])lis[calecitaactivo].classList.add('activo');
     calecitaactivo++;
-    if(calecitaactivo>3)calecitaactivo=0;
+    if(calecitaactivo>=lis.length)calecitaactivo=0;
     calecitatimer=setTimeout(calecita, calecitatiempo);
   }
   calecita();
 
 
-  function calecitanextya(){
+  function calecitacontrol(right){
     clearTimeout(calecitatimer);
     let lis = document.querySelectorAll('.calecita li');
     let oldli=document.querySelector('.calecita li.activo');
-    let valorlisNext=calecitaactivo+1;
-    if(valorlisNext>3)valorlisNext=0;
+    if (right){var valorlisNew=calecitaactivo+1;
+        if(valorlisNew>=lis.length)valorlisNew=0;
+    }else {var valorlisNew=calecitaactivo-1;
+        if(valorlisNew<0)valorlisNew=lis.length-1;
+      };
     if(oldli)oldli.classList.remove('activo');
-    if(lis[valorlisNext])lis[valorlisNext].classList.add('activo');
-    calecitaactivo=valorlisNext++;
-    if(calecitaactivo>3)calecitaactivo=0;
-    calecitatimer=setTimeout(calecita, 5000);
-  }
-
-function calecitaprevya(){
-    clearTimeout(calecitatimer);
-    let lis = document.querySelectorAll('.calecita li');
-    let oldli=document.querySelector('.calecita li.activo');
-    let valorlisPrev=0+calecitaactivo-1;
-    if(valorlisPrev<0)valorlisPrev=3;
-    if(oldli)oldli.classList.remove('activo');
-    if(lis[valorlisPrev])lis[valorlisPrev].classList.add('activo');
-    calecitaactivo=valorlisPrev--;
-    if(calecitaactivo<0)calecitaactivo=3;
+    if(lis[valorlisNew])lis[valorlisNew].classList.add('activo');
+    calecitaactivo=valorlisNew;
     calecitatimer=setTimeout(calecita, 5000);
   }
