@@ -60,7 +60,9 @@ const template = function(data){
       </div>
       <a href="noticia/${ce._id}">${pimage}</a>
       <div class="puntitos">
+      <button class="boton izquierda" onclick="calecitaprevya()">«</button>
       ${pactivosstring}
+      <button class="boton derecha" onclick="calecitanextya()">»</button>
       </div>
       </li>`
       calecita+=clt
@@ -304,6 +306,9 @@ const template = function(data){
           <ul class="chiquitas">
             ${chiquitasmenu}
           </ul>
+          <a href="/todaslasnoticias" class="verNoticias">
+            <h3>Ver todas las Noticias</h3>
+          </a>
         </div>
         <div class="produccionesColectivas">
           <h2>PRODUCCIONES COLECTIVAS</h2>
@@ -365,6 +370,7 @@ const template = function(data){
         calecita();
       </script>
 
+      <script src='/public/static/scripts/calecita.js'></script>
       <script src='/public/static/scripts/playbutton.js'></script>
       <script src='/public/static/scripts/verticalscrolllist.js'></script>
       <script src='/public/static/scripts/weather.js'></script>
