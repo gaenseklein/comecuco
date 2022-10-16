@@ -41,7 +41,7 @@ const template = function(data){
     <html lang="es" dir="ltr">
       <head>
         <meta charset="utf-8">
-        <title>Noticia COMECUCO - ${noticia.title}</title>
+        <title>COMECUCO - ${noticia.title}</title>
         <link rel="stylesheet" href="/public/static/layout.css">
         <script type="text/javascript">
           function startTime()
@@ -99,7 +99,7 @@ const template = function(data){
             ${imageblock}
         </div>
         <div id="redesSocialesContainer">
-        <h4>comparte en redes sociales</h4>
+        <h4>Comparte en tus redes sociales</h4>
         <div id="redesSocialesWrapper"></div>
         </div>
         <div class="footer">

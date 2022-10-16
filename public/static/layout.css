@@ -1043,8 +1043,10 @@ input#search {
     text-align: justify;
     font-weight: lighter;
     text-indent: 2ch;
-    line-height: 1.5em;
-    white-space: break-spaces;
+    line-height: 2em;
+    /*white-space: break-spaces;*/
+    white-space: pre-wrap;
+    padding-bottom: 2em;
   }
 
 .audiosyvideos, .Editaudiosyvideos{
@@ -1077,6 +1079,10 @@ input#search {
     font-size: 32px;
     position: absolute;
     top: 0;
+    }
+
+    #redesSocialesContainer h4{
+      font-family: keepCalm;
     }
 
   @media screen and (max-width: 924px) {
