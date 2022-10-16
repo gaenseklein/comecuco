@@ -1964,9 +1964,8 @@ input#search {
         }
 
         input[type="submit"]{
-          margin-right: 5vw;
           margin-top: 2em;
-          font-size: x-large;
+          font-size: large;
         }
 
         div.noticiasdelmedio li div.paraEditarNoticia{
