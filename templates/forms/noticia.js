@@ -67,22 +67,22 @@ module.exports = function(dataobj){
 
     </head>
     <body class="subpagusuario">
-    <div class="menusubusuario">
-      <div class="logo" id="logoUsuario">
-        <p class="encabezado"><a href="/">
-            COMECUCO</a>
-        </p>
-        <div class="subtitle">
-          somos el colectivo de medios comunitarios de cuyo
+      <div class="menusubusuario">
+        <div class="logo" id="logoUsuario">
+          <p class="encabezado"><a href="/">
+              COMECUCO</a>
+          </p>
+          <div class="subtitle">
+            somos el colectivo de medios comunitarios de cuyo
+          </div>
+        </div>
+        <div class="topMenu" id="topMenuUsuario">
+          <ul>
+            <li><a href="/user">Volver</a></li>
+            <li><a href="/user/manualdeestilo">Manual de Uso y Estilo</a></li>
+          </ul>
         </div>
       </div>
-      <div class="topMenu" id="topMenuUsuario">
-        <ul>
-          <li><a href="/user">Volver</a></li>
-          <li><a href="/user/manualdeestilo">Manual de Uso y Estilo</a></li>
-        </ul>
-      </div>
-    </div>
 
       <div class="EditNoticia">
         <h1>EDITAR o SUBIR NOTICIA</h1>
