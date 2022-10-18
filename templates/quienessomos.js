@@ -48,7 +48,8 @@ const template = function(data){
         </script>
       </head>
       <body onload="startTime()" class="subpaginamedio">
-        <div class="logo">
+      <div class="menusubusuario">
+        <div class="logo" id="logoUsuario">
           <p class="encabezado"><a href="/">
             COMECUCO</a>
           </p>
@@ -56,7 +57,13 @@ const template = function(data){
             somos el colectivo de medios comunitarios de cuyo
           </div>
         </div>
-        <div class="clima">
+        <div class="topMenu" id="topMenuUsuario">
+          <ul>
+            <li><a href="frontpage.html">Volver a Inicio</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="clima">
             <span id="climatext">EL CLIMA EN MENDOZA 13°</span> HORA
             <div id="hora"></div>
         </div>

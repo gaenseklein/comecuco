@@ -1405,10 +1405,10 @@ input#search {
         grid-row: 2/3;
         line-height: 1.5em;
         text-align: right;
-        margin-right: 5em;
+        margin-right: 8em;
         z-index: 3;
-        margin-top: 2em;
-        white-space: break-spaces;
+        margin-top: 5em;
+        white-space: pre-line;
       }
 
       .paginamedio .fondoblanco{
@@ -1445,7 +1445,7 @@ input#search {
       }
 
       .paginamedio .calecita img.fotosdelmedio{
-        margin-top: 1em;
+        margin-top: 6em;
         margin-bottom: 1em;
         height: 100%;
         width: 100%;
@@ -2502,10 +2502,10 @@ body.dashboard{
     font-weight: bold;
 }
 
-.dashboard .logo{
+.dashboard .logo, #logoUsuario{
   grid-area:logoUsuario;
 }
-.dashboard .topMenu{
+.dashboard .topMenu, #topMenuUsuario{
   grid-area:topMenuUsuario;
 }
 .dashboard h2{
@@ -2646,7 +2646,8 @@ body.dashboard{
     grid-template-areas: "logo nombre"
                         "logo descripcion";
     grid-template-rows: 2em auto;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 2fr;
+    padding-top: 2em;
   }
 
   ul.logosIntegrantesCOMECUCO img{
@@ -2663,14 +2664,16 @@ body.dashboard{
   }
 
   ul.logosIntegrantesCOMECUCO h4{
-    margin: 0.5em auto 0 0.5em;
-    font-family: keepcalm;
+    margin: 0.5em auto 0.5em 0;
+    font-family: Patagonian;
+    text-transform: uppercase;
+    font-size: 1.5em;
   }
 
   ul.logosIntegrantesCOMECUCO p{
     grid-area: descripcion;
     font-family: keepcalm;
-    margin: 0 auto 0.5em 0.5em;
+    margin: 1em auto 0.5em 0.5em;
     white-space: break-spaces;
   }
 
