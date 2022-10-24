@@ -188,7 +188,7 @@ var radioapp={
     console.log('grabbed mem',memoria,mem2);
     if(mem2){
       this.memoria2 = memoria;
-      M2.firstChild.innerText = memoria.radionombre;
+      M2.firstElementChild.innerText = memoria.radionombre;
       if (document.getElementById('m2Text').classList=="enMovimiento"){
         return
       }
@@ -196,8 +196,8 @@ var radioapp={
       this.scrollTexto('m2Text',14)
     }else{
       this.memoria1 = memoria
-      console.log('saving',M1.firstChild);
-      M1.firstChild.innerText = memoria.radionombre;
+      console.log('saving',M1.firstElementChild);
+      M1.firstElementChild.innerText = memoria.radionombre;
       if (document.getElementById('m1Text').classList=="enMovimiento"){
         return
       }
