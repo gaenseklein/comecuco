@@ -438,12 +438,18 @@ input[type=range]::-moz-range-thumb {
   height: 1.5em;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: pre;
+  width:8ch;
+
 }
 
 #m1Text, #m2Text{
   width: 10ch;
   text-indent: 0ch;
+}
+
+#m1Text.enMovimiento, #m2Text.enMovimiento{
+  text-align: left;
+  width:30ch;
 }
 
 

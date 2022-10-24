@@ -99,6 +99,7 @@ var radioapp={
     if(this.radioActual<0)this.radioActual=this.redActual.miembros.length-1
     this.cambiaRadioAId(this.radioActual)
     this.simboloDisplayPause()
+    this.scrollTexto('radioTexto',25)
   },
   cambiaRadioAId: async function(index){
     let miembroact = this.redActual.miembros[index]
@@ -134,9 +135,10 @@ var radioapp={
       }
       this.radioplayer.pause()
       this.simboloDisplayPause()
+
     }
 
-    COMECUCOactivo.innerHTML=`<h5>${miembroact.nombre}</h5>`
+    COMECUCOactivo.innerHTML=`<h5 id="radioTexto">${miembroact.nombre}</h5>`
   },
   cambiaRed: function(){
     if(Banda.checked)return;
@@ -186,19 +188,19 @@ var radioapp={
     console.log('grabbed mem',memoria,mem2);
     if(mem2){
       this.memoria2 = memoria
-      M2.firstChild.innerText = memoria.radionombre
+      M2.firstElementChild.innerText = memoria.radionombre
       if (document.getElementById('m2Text').classList=="enMovimiento"){
         return
       }
-      this.textoScroll(true);
+      this.scrollTexto('m2Text',12)
     }else{
       this.memoria1 = memoria
-      console.log('saving',M1.firstChild);
-      M1.firstChild.innerText = memoria.radionombre
+      console.log('saving',M1.firstElementChild);
+      M1.firstElementChild.innerText = memoria.radionombre
       if (document.getElementById('m1Text').classList=="enMovimiento"){
         return
       }
-      this.textoScroll(false)
+      this.scrollTexto('m1Text',12)
     }
   },
   playMemoria: function(mem2){
@@ -218,7 +220,7 @@ var radioapp={
     this.cambiaRadioAId(memoria.index)
   },
   espacioX: 0,
-
+/*
   textoScroll: function(mov){
     if (mov){var textoEnMem=document.getElementById('m2Text');
   }else {var textoEnMem=document.getElementById('m1Text')
@@ -249,15 +251,73 @@ var radioapp={
   textomovimiento: async function(){
       let espera= await this.sleep(150);
       this.textoScroll(false)
-},
+    },
 
   textomovimiento2: async function(){
       let espera= await this.sleep(150);
       this.textoScroll(true)
-},
+  },
 
-    sleep: function(ms) {
+  sleep: function(ms) {
       return new Promise(resolve => setTimeout(resolve, ms));
+  },
+
+  radioScroll: function(){
+    var textoRadio=document.getElementById('radioTexto');
+
+    if (textoRadio.innerText.length<=25) {
+      textoRadio.style.textIndent="0ch";
+      return
+    }
+    let cantidadDeCaracteres=(textoRadio.innerText.length-(textoRadio.innerText.length*2))*1.5;
+    textoRadio.classList.add('enMovimiento');
+
+    if(this.espacioX>cantidadDeCaracteres) {
+      let f=this.espacioX+"ch"
+      textoRadio.style.textIndent=f;
+    }
+      if (this.espacioX<cantidadDeCaracteres){
+        this.espacioX=+10;
+      }
+     else {this.espacioX=this.espacioX-0.3;
+       }
+    this.textoRadioMovimiento();
+  },
+
+  textoRadioMovimiento: async function(){
+      let espera= await this.sleep(350);
+      this.radioScroll()
     },
+  */
+  scrollTexto: function(idDelElemento, maxletras){
+    let textoRadio = document.getElementById(idDelElemento)
+    if(!textoRadio){
+      console.warn('no encontre elemento con id',idDelElemento)
+      return //algo fue mal
+    }
+    if (textoRadio.innerText.length<=maxletras) {
+      //texto no necesita scroll
+      textoRadio.style.textIndent="0ch";
+      textoRadio.classList.remove('enMovimiento')
+      return
+    }
+    let maximoDistancia=textoRadio.innerText.length*-1 //-1.5 si usas textalign center
+    textoRadio.classList.add('enMovimiento');
+    if(textoRadio.espacioX==undefined){
+      //lo quieremos empezar
+      textoRadio.espacioX=maxletras
+    }
+    if(textoRadio.espacioX < maximoDistancia){
+      //lo empezamos de cero
+      textoRadio.espacioX = undefined //asi solo tienemos cambiar la linea mas arriba si quieremos otro valor de empieza
+    }else{
+      //continuamos el scroll
+      textoRadio.espacioX=textoRadio.espacioX-0.3
+      textoRadio.style.textIndent= textoRadio.espacioX + 'ch'
+    }
+    setTimeout(function(){
+        radioapp.scrollTexto(idDelElemento, maxletras)
+      },350)
+  },
 }
 radioapp.init();

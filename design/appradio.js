@@ -99,7 +99,8 @@ var radioapp={
     if(this.radioActual<0)this.radioActual=this.redActual.miembros.length-1
     this.cambiaRadioAId(this.radioActual)
     this.simboloDisplayPause()
-    this.radioScroll()
+    // this.radioScroll()
+    this.scrollTexto('radioTexto',25)
   },
   cambiaRadioAId: async function(index){
     let miembroact = this.redActual.miembros[index]
@@ -191,7 +192,8 @@ var radioapp={
       if (document.getElementById('m2Text').classList=="enMovimiento"){
         return
       }
-      this.textoScroll(true);
+      // this.textoScroll(true);
+      this.scrollTexto('m2Text',14)
     }else{
       this.memoria1 = memoria
       console.log('saving',M1.firstChild);
@@ -199,7 +201,8 @@ var radioapp={
       if (document.getElementById('m1Text').classList=="enMovimiento"){
         return
       }
-      this.textoScroll(false)
+      // this.textoScroll(false)
+      this.scrollTexto('m1Text',14)
     }
   },
   playMemoria: function(mem2){
@@ -219,7 +222,7 @@ var radioapp={
     this.cambiaRadioAId(memoria.index)
   },
   espacioX: 0,
-
+/*
   textoScroll: function(mov){
     if (mov){var textoEnMem=document.getElementById('m2Text');
   }else {var textoEnMem=document.getElementById('m1Text')
@@ -261,17 +264,22 @@ var radioapp={
       return new Promise(resolve => setTimeout(resolve, ms));
     },
 
-    radioScroll: function(){
-      var textoRadio=document.getElementById('radioTexto');
+    radioScroll: function(idDelElemento, maxletras){
+      var textoRadio=document.getElementById(idDelElemento);
 
-      if (textoRadio.innerText.length<=25) {
+      if (textoRadio.innerText.length<=maxletras) {
         textoRadio.style.textIndent="0ch";
         return
       }
-      let cantidadDeCaracteres=(textoRadio.innerText.length-(textoRadio.innerText.length*2))*1.5;
+      //let cantidadDeCaracteres=(textoRadio.innerText.length-(textoRadio.innerText.length*2))*1.5;
+      //porque tan complicado? llegas a:
+      let cantidadDeCaracteres = textoRadio.innerText.length * -1.5
       textoRadio.classList.add('enMovimiento');
-
+      if(textoRadio.espacioX==undefined){
+        textoRadio.espacioX=0
+      }
       if(this.espacioX>cantidadDeCaracteres) {
+        //preguntas lo mismo al revez abajo - usa un if solo
         let f=this.espacioX+"ch"
         textoRadio.style.textIndent=f;
       }
@@ -286,6 +294,37 @@ var radioapp={
     textoRadioMovimiento: async function(){
         let espera= await this.sleep(350);
         this.radioScroll()
-      },
+      },*/
+  scrollTimer: {},
+  scrollTexto: function(idDelElemento, maxletras){
+    let textoRadio = document.getElementById(idDelElemento)
+    if(!textoRadio){
+      console.warn('no encontre elemento con id',idDelElemento)
+      return //algo fue mal
+    }
+    if (textoRadio.innerText.length<=maxletras) {
+      //texto no necesita scroll
+      textoRadio.style.textIndent="0ch";
+      textoRadio.classList.remove('enMovimiento')
+      return
+    }
+    let maximoDistancia=textoRadio.innerText.length*-1.5;
+    textoRadio.classList.add('enMovimiento');
+    if(textoRadio.espacioX==undefined){
+      //lo quieremos empezar
+      textoRadio.espacioX=maxletras
+    }
+    if(textoRadio.espacioX < maximoDistancia){
+      //lo empezamos de cero
+      textoRadio.espacioX = undefined //asi solo tienemos cambiar la linea mas arriba si quieremos otro valor de empieza
+    }else{
+      //continuamos el scroll
+      textoRadio.espacioX=textoRadio.espacioX-0.3
+      textoRadio.style.textIndent= textoRadio.espacioX + 'ch'
+    }
+    setTimeout(function(){
+        radioapp.scrollTexto(idDelElemento, maxletras)
+      },350)
+  },
 }
 radioapp.init();
