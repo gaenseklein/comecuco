@@ -2,9 +2,11 @@ const template = function(data){
     let fotos = "";
     let noticia = data.noticia;
     let fotoprimero = ''
+    let fotoprimerourl = ''
     if(noticia.images.length>0){
       fotoprimero = `<img src="${noticia.images[0].url}" alt="${noticia.images[0].title}" class="foto1">
       <p class="textofoto">${noticia.images[0].title}</p>`
+      fotoprimerourl=noticia.images[0].url
     }
 
     let audiosyvideos='';
@@ -36,6 +38,12 @@ const template = function(data){
       }
       imageblock=`<div class="imageblock">${images}</div>`
     }
+    let opengraph = `
+    <meta property="og:title" content="${noticia.title}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="${fotoprimerourl}" />
+    <meta property="og:url" content="https://comecuco.org/noticia/${noticia._id}" />
+    `
     let raw = `
     <!DOCTYPE html>
     <html lang="es" dir="ltr">
@@ -43,6 +51,7 @@ const template = function(data){
         <meta charset="utf-8">
         <title>COMECUCO - ${noticia.title}</title>
         <link rel="stylesheet" href="/public/static/layout.css">
+        ${opengraph}
         <script type="text/javascript">
           function startTime()
           {
