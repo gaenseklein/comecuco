@@ -2,9 +2,7 @@
 const datacontroler = require('../datacontroler.js');
 const templates = require('../templates.js');
 const fileUpload = require('express-fileupload');
-
 const router = require('express').Router();
-
 router.get('/exportuser', async (req,res)=>{
       try{
         let result = await datacontroler.dataexport.user()

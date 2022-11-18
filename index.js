@@ -6,6 +6,7 @@ const dotenv = require('dotenv');
 const fs = require('fs');
 
 //Import routes
+
 const adminRoute = require('./routes/admin');
 const fpRoute = require('./routes/public');
 const notesRoute = require('./routes/notes');
@@ -14,6 +15,7 @@ const loginRoute = require('./routes/login');
 const auth = require('./routes/auth');
 const api = require('./routes/api');
 //initializa dotenv:
+
 dotenv.config();
 
 //implementa destacada:
@@ -22,7 +24,6 @@ destacada.init();
 //implementa tags:
 const tags = require('./tags.js');
 tags.init();
-
 
 //Connect to DB
 mongoose.connect(process.env.DB_CONNECT,
@@ -40,7 +41,7 @@ app.use('/',fpRoute);
 // app.use('/noticia',notesRoute);
 app.use('/iniciar',express.urlencoded({extended:false}),loginRoute);
 app.use('/user',auth, express.urlencoded({extended:true}),userRoute);
-// app.use('/user', express.urlencoded({extended:true}),userRoute);
+//app.use('/user', express.urlencoded({extended:true}),userRoute);
 app.use('/api', auth, express.json({limit: '50mb'}),api);
 app.use('/admin',auth,adminRoute)
 
