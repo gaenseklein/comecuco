@@ -696,6 +696,7 @@ input#search {
   justify-items: center;
   align-items: center;
   /*top: -125px;*/
+  overflow: hidden;
 }
 
 .columnas-ul-wrapper{
@@ -711,12 +712,14 @@ input#search {
 .columnas ul {
   width: max-content;
   position: relative;
+  height: 300px;
 }
 
 .columnas li {
   display: inline-block;
   margin-right: 2ch;
   width: 25vw;
+  height: 90%;
 }
 
 .columnas a{
@@ -744,7 +747,8 @@ input#search {
 }
 
 .columnas img{
-  width:100%;
+  max-width: 90%;
+  max-height: 90%;
 }
 
 .scrollbutton.izquierda,
@@ -1309,6 +1313,11 @@ input#search {
     .capitulo div.resumen{
       grid-row: 3/5;
       white-space: break-spaces;
+      font-family: keepCalm;
+    }
+
+    div.fechadeemisión {
+      font-family: keepCalm;
     }
 
     .reproductor a{
@@ -2463,6 +2472,7 @@ body.dashboard{
   margin:0;
   font-family: keepCalm;
   font-size: 2em;
+  margin-top: 1em;
 }
 .dashboard .menusubusuario{
   grid-area: header;
@@ -2521,8 +2531,13 @@ body.dashboard{
 .dashboard > div h2 {
     margin-top: 0;
     font-family: keepCalm;
-    font-size: 1em;
     padding-top: 4px;
+}
+
+.publicidades p a {
+    font-family: keepCalm;
+    font-size: 0.7em;
+    padding-left: 0.5em;
 }
 .dashboard > div{
   box-shadow: 3px 3px 15px -3px;
@@ -2543,7 +2558,6 @@ body.dashboard{
     padding-top:0.5ch;
     padding-bottom:0.5ch;
     padding-right: 2ch;
-
 }
 
 .dashboard li.pasado{
@@ -2568,8 +2582,10 @@ body.dashboard{
     text-align:center;
     font-family: keepCalm;
     font-size: 1em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
 }
-.dashboard .adicional{
+.dashboard .adicional {
   grid-area:adicional;
   display: grid;
   font-family: keepCalm;
@@ -2578,6 +2594,7 @@ body.dashboard{
 .dashboard .adicional a{
   padding-top: 0.5em;
   padding-bottom: 0.5em;
+  padding-left: 0.5em;
 }
 .dashboard .footer{
   grid-area:footer;
@@ -2741,6 +2758,16 @@ body.dashboard{
   margin-bottom: 1em;
 }
 
+.tablaTags{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+@media screen and (orientation: portrait) {
+  .tablaTags{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 
 /*a partir de aca subpagina de Resultado de Busqueda*/
 
