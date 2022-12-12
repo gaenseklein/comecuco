@@ -30,7 +30,7 @@ body{
     "loMasLeido calecita calecita banner"
     "loMasLeido calecita calecita blockRight"
     "loMasLeido calecita calecita blockRight"
-    "loMasLeido mediosMenu mediosMenu mediosMenu"
+    "mediosMenu mediosMenu mediosMenu mediosMenu"
     "destacadas destacadas destacadas destacadas"
     "actualidad actualidad actualidad actualidad"
     "produccionesColectivas produccionesColectivas produccionesColectivas produccionesColectivas"
@@ -295,6 +295,7 @@ flex-wrap: wrap;
     font-weight: bold;
     margin: 0;
     line-height: 1em;
+    font-family: keepCalm;
 }
 
 .loMasLeido .fecha {
@@ -599,7 +600,7 @@ input#search {
 }
 
 .chiquitas h3 a {
-    font-size: medium;
+    font-size: 0.8em;
 }
 
 .chiquitas h3 {
@@ -616,6 +617,7 @@ input#search {
     grid-area:titulo;
     margin-top:0.1em;
     margin-bottom:0.3em;
+    margin-left: 0.5em;
 }
 
 .chiquitas img{
@@ -625,6 +627,7 @@ input#search {
 
 .chiquitas .fecha{
     grid-area:fecha;
+    margin-left: 0.5em;
 }
 
 .chiquitas a{
@@ -713,6 +716,7 @@ input#search {
   width: max-content;
   position: relative;
   height: 300px;
+  display: inline-flex;
 }
 
 .columnas li {
@@ -720,6 +724,7 @@ input#search {
   margin-right: 2ch;
   width: 25vw;
   height: 90%;
+  align-self: center;
 }
 
 .columnas a{
@@ -729,7 +734,7 @@ input#search {
 }
 
 .columnas .ultimoli{
-  position: absolute;
+  /*position: absolute;*/
   top: 0;
   bottom: 0;
   height: 40%;
@@ -747,8 +752,8 @@ input#search {
 }
 
 .columnas img{
-  max-width: 90%;
-  max-height: 90%;
+  max-width: 70%;
+  max-height: 70%;
 }
 
 .scrollbutton.izquierda,

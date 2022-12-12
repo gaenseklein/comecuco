@@ -183,10 +183,10 @@ const template = function(data){
       </li>`
     }
 
-    let publicidades = ''
+    let publicidades = ["", ""]
     console.log('hay publicidad',data.publicidades);
     if(data.publicidades && data.publicidades.length>0){
-      let publis = ''
+      //let publis = ''
       for(x=0;x<data.publicidades.length;x++){
         let p = data.publicidades[x]
         if(!p.image)continue
@@ -194,10 +194,11 @@ const template = function(data){
         if(p.url){
           phtml = `<a href="${p.url}">`+phtml+'</a>'
         }
-        publis+=phtml
+        //publis+=phtml
+        publicidades[x]=phtml
       }
-      publicidades=publis
     }
+
     let raw = `
     <!DOCTYPE html>
     <html lang="es" dir="ltr">
@@ -258,6 +259,9 @@ const template = function(data){
           </form>
         </div>
         <div class="loMasLeido">
+        <div class="banner">
+        ${publicidades[1]}
+        </div>
           <h2>LO MAS LEIDO</h2>
           <ul>
             ${loMasLeido}
@@ -269,7 +273,7 @@ const template = function(data){
           </ul>
         </div>
         <div class="banner">
-          ${publicidades}
+          ${publicidades[0]}
         </div>
         <div class="cajaBlockRight">
           <div class="blockRight mediosEnVivo">
