@@ -2650,18 +2650,27 @@ body.dashboard{
   position: absolute;
   right: 11vw;
   top: 3vh;
+  z-index: 3;
 }
 
 
   .integrantesCOMECUCO{
     display: grid;
-    grid-template-columns: 3fr 1fr;
+    grid-template-columns: 2fr 1fr;
     margin: 3vw;
   }
 
-  .integrantesCOMECUCO img.mapaCOMECUCO{
+  .integrantesCOMECUCO iframe.mapaCOMECUCO{
     grid-column: 2/3;
     grid-row: 1/2;
+    padding-bottom: 3em;
+  }
+
+  .integrantesCOMECUCO p.mapaCompletoCOMECUCO{
+    grid-column: 2/3;
+    grid-row: 1/2;
+    align-self: end;
+    font-family: KeepCalm;
   }
 
   .integrantesCOMECUCO ul.logosIntegrantesCOMECUCO{

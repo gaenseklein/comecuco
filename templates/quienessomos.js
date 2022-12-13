@@ -89,7 +89,8 @@ const template = function(data){
           <h3>INTEGRANTES DEL COMECUCO</h3>
         </div>
         <div class="integrantesCOMECUCO">
-          <img src="/public/static/mapaRadioxRadio.png" class="mapaCOMECUCO" alt="Mapa del COMECUCO">
+          <iframe class="mapaCOMECUCO" alt="Mapa del COMECUCO" width="100%" height="600px" frameborder="0" allowfullscreen src="//umap.openstreetmap.fr/fr/map/mapa-comecuco_845768?scaleControl=false&miniMap=false&scrollWheelZoom=true&zoomControl=false&allowEdit=false&moreControl=false&searchControl=false&tilelayersControl=false&embedControl=null&datalayersControl=false&onLoadPanel=undefined&captionBar=false&fullscreenControl=false&locateControl=false&measureControl=false&editinosmControl=false#7/-33.096/-67.401"></iframe>
+          <p class="mapaCompletoCOMECUCO"><a href="//umap.openstreetmap.fr/fr/map/mapa-comecuco_845768" target="_blank">Ver Mapa completo</a></p>
           <ul class="logosIntegrantesCOMECUCO">
           ${medioslist}
           </ul>
