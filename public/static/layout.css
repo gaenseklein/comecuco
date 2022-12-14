@@ -119,6 +119,7 @@ h3 a{
 .topMenu{
   grid-area:topMenu;
   width: 100%;
+  padding-top: 4vh;
 }
 
 .clima{
@@ -349,6 +350,11 @@ flex-wrap: wrap;
 
 /*unsorted*/
 
+#climaTodasLasNoticias{
+  display: grid;
+  grid-template-areas: "clima buscador"; 
+}
+
 .clima {
     color: white;
     font-family: 'patagonian';
@@ -356,7 +362,7 @@ flex-wrap: wrap;
     padding-top: 0.8em;
     padding-bottom: 0.8em;
     font-size: large;
-    display: inline-block;
+    grid-area: clima;
 }
 
 #climatext span{
@@ -384,7 +390,6 @@ flex-wrap: wrap;
 }
 
 .topMenu ul {
-    padding-top: 1.4em;
     text-align: right;
     line-height: 2em;
     margin: 0;
@@ -885,13 +890,7 @@ input#search {
 /*a partir de aca subpagina de TODAS LAS NOTICIAS*/
 
  body.todaslasnoticias{
-   display: grid;
-   /*widescreen size:*/
-   grid-template-areas:
-     "logo logo logo topMenu"
-     "clima clima buscador buscador"
-     "noticia noticia noticia noticia"
-     "footer footer footer footer";
+   display: block;
  }
 
  .topMenu #sinmenu{

@@ -222,6 +222,8 @@ const template = function(data){
         <div class="topMenu">
             <ul>
               <li><a href="/todaslasnoticias">Todas las noticias</a></li>
+            </ul>
+            <ul>
               <li><a href="/quienessomos">Quienes Somos</a></li>
             </ul>
         </div>
