@@ -145,6 +145,7 @@ h3 a{
   margin-left:2ch;
   margin-right:1ch;
   margin-top: 5px;
+  overflow: hidden;
 }
 .loMasLeido ul{
   display: flex;
@@ -352,7 +353,7 @@ flex-wrap: wrap;
 
 #climaTodasLasNoticias{
   display: grid;
-  grid-template-areas: "clima buscador"; 
+  grid-template-areas: "clima buscador";
 }
 
 .clima {

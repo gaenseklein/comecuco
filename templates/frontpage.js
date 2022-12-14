@@ -207,7 +207,7 @@ const template = function(data){
         <title>COMECUCO</title>
         <link rel="stylesheet" href="/public/static/layout.css">
       </head>
-      <body onload="startTime()">
+      <body>
         <div class="logo">
           <h1>
             COMECUCO
