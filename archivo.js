@@ -2,8 +2,8 @@ const fs = require('fs')
 
 var archivo = {
   uids:[
-    {name: "aguaribay", uid: 68, icon:"/public/static/logos/aguaribay.jpg"},
-    {name: "FM El Nevado", uid: 23, icon:"/public/static/logos/nevado.jpg"},
+    {name: "Aguaribay", uid: 68, icon:"/public/static/logos/aguaribay.jpg"},
+    //{name: "FM El Nevado", uid: 23, icon:"/public/static/logos/nevado.jpg"},
     {name: "El Algarrobal", uid: 12, icon:"/public/static/logos/comecuco.png"},
     {name: "La Paquita", uid: 11, icon:"/public/static/logos/paquita.jpg"},
     {name: "Radio La Pujante", uid: 10, icon:"/public/static/logos/pujante.jpg"},
