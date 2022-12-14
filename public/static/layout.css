@@ -2596,6 +2596,7 @@ body.dashboard{
   font-family: keepCalm;
   font-size: 0.7em;
 }
+
 .dashboard .adicional a{
   padding-top: 0.5em;
   padding-bottom: 0.5em;
@@ -2604,6 +2605,21 @@ body.dashboard{
 .dashboard .footer{
   grid-area:footer;
 }
+
+body.userlist ul.userlistmenu {
+	font-family: KeepCalm;
+	grid-area: subir;
+}
+
+body.userlist ul.userlistmenu li.encabezadoUserListMenu{
+	font-size: 1.3em;
+  margin-bottom: 0.5em;
+}
+
+body.userlist ul.userlistmenu li{
+  margin-bottom: 0.4em;
+}
+
 
   @media screen and (orientation: portrait) {
 

@@ -35,17 +35,18 @@ module.exports = function(data){
       </div>
       <div class="topMenu" id="topMenuUsuario">
         <ul>
+          <li><a href="/user">Volver</a></li>
           <li><a href="/iniciar/logout">Cerrar Sesión</a></li>
         </ul>
       </div>
     </div>
-    <h1 class="bienvenido">Lista de usuarios de comecuco</h1>
+    <h1 class="bienvenido">Lista de usuarios de COMECUCO</h1>
     <ul class="userlistmenu">
-      <li>
-        <span>nombre</span>
-        <span>ultimo login</span>
-        <span>ultima subida</span>
-        <span>acción</span>
+      <li class="encabezadoUserListMenu">
+        <span>NOMBRE</span>
+        <span>ULTIMO LOGIN</span>
+        <span>ULTIMA SUBIDA</span>
+        <span>ACCION</span>
       </li>
       ${userlist}
     </ul>
