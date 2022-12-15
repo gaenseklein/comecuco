@@ -223,8 +223,7 @@ const template = function(data){
             </ul>
         </div>
         <div class="clima">
-            <span id="climatext">EL CLIMA EN MENDOZA 13°</span> HORA
-            <div id="hora"></div>
+            <span id="climatext">EL CLIMA EN MENDOZA 13°</span>            
         </div>
         <div class="buscador">
           <form class="buscador" action="/search" method="post">

@@ -38,6 +38,7 @@ function inithorademendoza(){
   let climatext = document.getElementById('climatext')
   if(!clima || !climatext){
     console.log('no hay div.clima o #climatext');
+    return;
   }
   let mendozahora = document.createElement('div')
   mendozahora.id='mendozahora'
