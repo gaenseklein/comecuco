@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const Schema = new mongoose.Schema({
+const schema = new mongoose.Schema({
   title:{
     type: String,
     required: true,
@@ -40,4 +40,6 @@ const Schema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model('Columna',Schema);
+schema.index({'$**': 'text'}, {default_language: "spanish" });
+
+module.exports = mongoose.model('Columna',schema);

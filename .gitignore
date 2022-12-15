@@ -5,9 +5,17 @@ local
 package-lock.json
 private/deleted/*
 private/*.dt
+private/*.data
+private/*.copy
 public/files
 public/old
 public/weather.json
 public/tiempo.json
 archivo/archive
 archivo/api*
+archivo/viejo
+archivo/userpages
+archivo/medios
+archivo/index.html
+comecuco.service
+archivo/todosjuntos.json

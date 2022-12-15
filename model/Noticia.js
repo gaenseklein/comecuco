@@ -59,7 +59,9 @@ const counterSchema = new mongoose.Schema({
   frontpage:{
     type: Boolean,
     default: true,
-  },  
+  },
 });
+
+counterSchema.index({'$**': 'text'}, {default_language: "spanish" });
 
 module.exports = mongoose.model('Noticia',counterSchema);

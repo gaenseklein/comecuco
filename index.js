@@ -12,6 +12,7 @@ const fpRoute = require('./routes/public');
 const notesRoute = require('./routes/notes');
 const userRoute = require('./routes/user');
 const loginRoute = require('./routes/login');
+const searchRoute = require('./routes/search');
 const auth = require('./routes/auth');
 const api = require('./routes/api');
 //initializa dotenv:
@@ -25,6 +26,7 @@ destacada.init();
 const tags = require('./tags.js');
 tags.init();
 
+mongoose.set('useCreateIndex', true);
 //Connect to DB
 mongoose.connect(process.env.DB_CONNECT,
   {useNewUrlParser:true,
@@ -39,6 +41,7 @@ app.use(express.json({limit: '50mb'}));
 // app.use('/admin',adminRoute);
 app.use('/',fpRoute);
 // app.use('/noticia',notesRoute);
+app.use('/search',express.urlencoded({extended:false}),searchRoute);
 app.use('/iniciar',express.urlencoded({extended:false}),loginRoute);
 app.use('/user',auth, express.urlencoded({extended:true}),userRoute);
 //app.use('/user', express.urlencoded({extended:true}),userRoute);

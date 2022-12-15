@@ -8,6 +8,7 @@ const raw = {
   resumensemanal: require('./templates/resumensemanal.js'),
   todascolumnas: require('./templates/todascolumnas.js'),
   todaslasnoticias: require('./templates/todaslasnoticias.js'),
+  search: require('./templates/search.js'),
   userlist: require('./templates/userlist.js'),
   app: require('./templates/app.js'),
   appRadiostations: require('./templates/appRadiostations.js'),

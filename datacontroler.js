@@ -10,6 +10,7 @@ const sharp = require('sharp');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const fetch = require('node-fetch');
+const Archive = require('./archivo.js');
 
 const datacontroler = {
   frontpage: async function(){
@@ -1078,8 +1079,21 @@ const datacontroler = {
         destacadas: destacadas,
       }
     },
-
   },//end dataexport
+  //search
+  search: async function(words){
+    try {
+      let noticias = await Noticia.find({$text:{$search:words}})
+      let columnas = await Columna.find({$text:{$search:words}})
+      //strip empty columnas:
+      for(let i=columnas.length-1;i>0;i--)if(!columnas[i].capitulos || columnas[i].capitulos.length==0)columnas.splice(i,1)
+      console.log('search for ',words,'result:',noticias);
+      let archivo = Archive.search(words)
+      return {noticias:noticias, columnas:columnas,archivo:archivo,words:words}
+    } catch (e) {
+      console.log('search went wrong',e);
+    }
+  },
   // masleidos: {
   //   lista:{}, //[id]:{count,pubdate}
   //   subir: function(noticia){

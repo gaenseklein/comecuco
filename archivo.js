@@ -64,6 +64,36 @@ var archivo = {
       archivo:true
     }
   },
+  search: function(joinedWords){
+      if(!this.searchlines){
+        let searchfile = fs.readFileSync('./archivo/todosjuntos.json','utf8')
+        this.searchlines = searchfile.split('\n');
+      }
+      let resultlines = []
+      let lines = this.searchlines
+      let word;
+
+      let words = joinedWords.split(' ')
+      for(let i=0;i<lines.length;i++){
+        for(let w=0;w<words.length;w++){
+          word = words[w]
+          if(lines[i].indexOf(word)>-1){
+            resultlines.push(lines[i])
+            break;
+          }
+        }
+      }
+      let resultraw = resultlines.join('\n')
+      resultraw = resultraw.substring(0,resultraw.length-1) //delete last comma
+      resultraw = `[${resultraw}]`
+      try {
+        let result = JSON.parse(resultraw)
+        return result
+      } catch (e) {
+          console.log('could not find in archive',joinedWords,e);
+          return false
+      }
+  },
 }
 
 module.exports = archivo;
