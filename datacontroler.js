@@ -16,11 +16,13 @@ const datacontroler = {
   frontpage: async function(){
     //exporta un objeto que contiene todos datos para frontpage
     // if(this.cache.frontpage)return this.cache.frontpage;
+    let nuevosarticulos;
+    let destacadas;
     try {
 
       let query={tipo: 'noticia', frontpage: true};
       let searchoptions = {sort : {pubdate:-1}, limit: 12};
-      let nuevosarticulos = await Noticia.find(query, null, searchoptions);
+      nuevosarticulos = await Noticia.find(query, null, searchoptions);
       let destacada = Destacada.actual();
       let fechaminima = Date.now()-(31*24*60*60*1000);
       let destacadaquery={
@@ -29,10 +31,13 @@ const datacontroler = {
         tipo: 'noticia',
       };
       searchoptions.limit = 3;
-      let destacadas = await Noticia.find(destacadaquery, null, searchoptions);
+      destacadas = await Noticia.find(destacadaquery, null, searchoptions);
 
       for (let x=nuevosarticulos.length-1;x>=0;x--){
         for (let y=destacadas.length-1;y>=0;y--){
+          // if(!nuevosarticulos[x] || !destacadas[y] || !nuevosarticulos[x]._id || !destacadas[y]._id){
+          //   console.log('id not found:',x,nuevosarticulos[x],destacadas[y])
+          // }
           // let id1 = nuevosarticulos[x]._id+''
           // let id2 = destacadas[y]._id+''
           // console.log('id1==id2',(id1==id2));
@@ -40,6 +45,7 @@ const datacontroler = {
           if(nuevosarticulos[x]._id+''==destacadas[y]._id+''){
             // console.log('splice',x,nuevosarticulos[x]);
             nuevosarticulos.splice(x,1);
+            break;
           }else{
             // console.log('no splice',x,y,nuevosarticulos[x]._id,destacadas[y]._id);
             // console.log('test:',(nuevosarticulos[x]._id==destacadas[y]._id));
@@ -96,6 +102,7 @@ const datacontroler = {
       return newfrontpage;
     } catch (e) {
       console.log('error in fp',e);
+      console.log(nuevosarticulos,destacadas);
       return false;
     }
   },
