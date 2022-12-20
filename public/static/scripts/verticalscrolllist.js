@@ -32,6 +32,7 @@ function scrollListInit(wrapperId){
   let listelements = targetspace.querySelectorAll('li');
   let sizebetween = 20;
   let maxItems = 3;
+  if(targetspace.clientWidth < 300)maxItems = 1;
   if(maxItems>listelements.length)maxItems=listelements.length;
   let elementwidth= targetspace.offsetWidth / maxItems- sizebetween;
   for (let x=0;x<listelements.length;x++){
