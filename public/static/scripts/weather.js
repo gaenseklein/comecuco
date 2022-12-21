@@ -27,7 +27,7 @@ async function weatherforecast(){
        acttemp+='° '
      }
      let span = document.createElement('span')
-     span.innerText = `EL CLIMA EN ${name} ${acttemp} `
+     span.innerText = `LA TEMPERATURA EN ${name} ${acttemp} `
      if(x==0)span.classList.add('activo')
      node.appendChild(span)
   }

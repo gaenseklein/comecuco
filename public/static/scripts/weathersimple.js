@@ -19,6 +19,6 @@ async function weatherforecast(){
     acttemp+='° '
   }
   let node = document.getElementById('climatext')
-  if(node)node.innerText = `EL CLIMA EN MENDOZA ${acttemp} `
+  if(node)node.innerText = `LA TEMPERATURA EN MENDOZA ${acttemp} `
 }
 weatherforecast()

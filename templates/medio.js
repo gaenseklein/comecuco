@@ -81,7 +81,7 @@ const template = function(data){
     <html lang="es" dir="ltr">
       <head>
         <meta charset="utf-8">
-        <title>LA LEÑERA</title>
+        <title>${medio.name}</title>
         <link rel="stylesheet" href="/public/static/layout.css">
         <script type="text/javascript">
           function startTime()
