@@ -90,9 +90,10 @@ const template = function(data){
       if(!resumen){
         let espaciopos=dest.body.indexOf(' ',15);
         if(espaciopos>-1)resumen=dest.body.substring(0,espaciopos);
-        else resumen=dest.body.substring(0,15)
+        else resumen=dest.body.substring(0,400)
         resumen+='...'
       }
+      //en vez de verse todos los tag estaría bien que sólo aparezca el tag del mes
       let destacadatemplate=`<li>
       ${dimg}
       <h3><a href="/noticia/${dest._id}">
