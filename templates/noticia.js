@@ -54,21 +54,23 @@ const template = function(data){
         ${opengraph}
       </head>
       <body class="unanoticia">
-        <div class="logo">
-          <p class="encabezado"><a href="/">
-            COMECUCO</a>
-          </p>
-          <div class="subtitle">
-            somos el colectivo de medios comunitarios de cuyo
+        <div class="menusubusuario">
+          <div id="logoUsuario" class="logo">
+            <p class="encabezado"><a href="/">
+              COMECUCO</a>
+            </p>
+            <div class="subtitle">
+              somos el colectivo de medios comunitarios de cuyo
+            </div>
           </div>
-        </div>
-        <div class="topMenu" id="topMenuUsuario">
-          <ul>
-            <li><a href="/">Ir a Inicio</a></li>
-          </ul>
-          <ul>
-            <li><a href="/todaslasnoticias">Volver</a></li>
-          </ul>
+          <div class="topMenu" id="topMenuUsuario">
+            <ul>
+              <li><a href="/">Ir a Inicio</a></li>
+            </ul>
+            <ul>
+              <li><a href="/todaslasnoticias">Volver</a></li>
+            </ul>
+          </div>
         </div>
         <div class="clima">
           <span id="climatext">EL CLIMA EN MENDOZA 13°</span>
