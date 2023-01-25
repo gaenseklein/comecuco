@@ -13,6 +13,7 @@ const raw = {
   app: require('./templates/app.js'),
   appRadiostations: require('./templates/appRadiostations.js'),
   manualdeestilo: require('./templates/manualdeestilo.js'),
+  rssnoticias: require('./templates/rssnoticias.js'),
   form:{
     usuario: require('./templates/forms/usuario.js'),
     iniciar: require('./templates/forms/iniciosesion.js'),

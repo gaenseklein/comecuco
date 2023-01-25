@@ -262,4 +262,19 @@ router.get('/archivo/medio/:uid', async (req,res)=>{
         res.status(400).send('an error occured')
       }
 });
+router.get('/rss/noticias.xml', async (req,res)=>{
+      try{
+        let data = await datacontroler.noticias();
+        if(!data){
+          res.status(400).send('oops');
+          return;
+        }
+        let result = templates.buildPage('rssnoticias',data);
+        
+        res.send(result)
+      }catch(e){
+        console.log(e)
+        res.status(400).send('an error occured')
+      }
+});
 module.exports = router;
