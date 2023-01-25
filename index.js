@@ -52,4 +52,4 @@ app.use('/admin',auth,adminRoute)
 app.use('/public', express.static('./public'));
 
 //start listening server
-app.listen(3033,() => console.log('server up and running'));
+app.listen(3033,() => console.log('server up and running at port',3033));

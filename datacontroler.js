@@ -24,7 +24,15 @@ const datacontroler = {
       let searchoptions = {sort : {pubdate:-1}, limit: 12};
       nuevosarticulos = await Noticia.find(query, null, searchoptions);
       let destacada = Destacada.actual();
-      let fechaminima = Date.now()-(31*24*60*60*1000);
+      console.log('destacada',destacada);
+      for(let i=0;i<Tags.tags.length;i++){
+        if(Tags.tags[i].toLowerCase()==destacada.toLowerCase()){
+          destacada=Tags.tags[i];
+          break;
+        }
+      }
+      console.log('destacada:',destacada);
+      let fechaminima = Date.now()-(3*31*24*60*60*1000);
       let destacadaquery={
         pubdate:{'$gt':fechaminima},
         tags: destacada,
@@ -91,6 +99,7 @@ const datacontroler = {
       let newfrontpage = {
         articulos:nuevosarticulos,
         destacadas:destacadas,
+        destacadaActual: destacada,
         masleidos:masleidos,
         resumen:resumensemanal,
         colectivas:produccionesColectivas,
@@ -113,6 +122,7 @@ const datacontroler = {
       let autor = await User.findOne({_id:not.idDeAutor})
       if(!autor)return false;
       Masleidos.subir(id,not.pubdate)
+      console.log(not);
       return {noticia:not, autor:autor};
     } catch (e) {
       console.log(e);

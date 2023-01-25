@@ -94,6 +94,7 @@ const template = function(data){
         resumen+='...'
       }
       //en vez de verse todos los tag estaría bien que sólo aparezca el tag del mes
+      let destacadaActual = data.destacadaActual || '';
       let destacadatemplate=`<li>
       ${dimg}
       <h3><a href="/noticia/${dest._id}">
@@ -103,7 +104,7 @@ const template = function(data){
       ${resumen}
       </div>
       <div class="tag">
-      ${dest.tags.join(' ')}
+       ${destacadaActual}
       </div>
       </li>`
       destacadasmenu+=destacadatemplate
@@ -224,7 +225,7 @@ const template = function(data){
             </ul>
         </div>
         <div class="clima">
-            <span id="climatext">EL CLIMA EN MENDOZA 13°</span>            
+            <span id="climatext">EL CLIMA EN MENDOZA 13°</span>
         </div>
         <div class="buscador">
           <form class="buscador" action="/search" method="post">
