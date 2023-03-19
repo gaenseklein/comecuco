@@ -279,10 +279,10 @@ const datacontroler = {
   },
   appRadiostations: async function(){
     try {
-      let medios = await User.find();
+      let medios = await User.find(); //pide que busque en el servidor en el modelo User , y busca todos los usuarios y devuelve una lista
       medios.sort(function(a,b){return a.name-b.name});
       // let imagenes = fs.readdirSync('public/static/quienessomos');
-      let ultimogiramundo = await Noticia.findOne({author:'giramundo'})
+      let ultimogiramundo = await Noticia.findOne({author:'giramundo'}) //findOne busca y devuelve la primer noticia de giramundo
       return {
         medios:medios,
         giramundo: ultimogiramundo,

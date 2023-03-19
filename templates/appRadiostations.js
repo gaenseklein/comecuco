@@ -51,7 +51,7 @@ module.exports = function(data){
   }
   //construye miembros
   for(let x=0;x<medios.length;x++){
-    if(medios[x].mountpoint){
+    if(medios[x].mountpoint){ //si tiene un mounpoint lo agrega a la lista miembros
       comecuco.miembros.unshift({
         tipo:'radio',
         nombre: medios[x].name,

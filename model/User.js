@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose'); //este es el objeto que se conecta a la base de datos
 
 const userSchema = new mongoose.Schema({
   name:{
@@ -72,4 +72,4 @@ const userSchema = new mongoose.Schema({
   }
 });
 
-module.exports = mongoose.model('User',userSchema);
+module.exports = mongoose.model('User',userSchema); //construye un objeto model.User con el esquema de userSchema

@@ -140,24 +140,24 @@ router.get('/envivo/:radioid', async (req,res)=>{
         res.status(400).send('an error occured')
       }
 });
-router.get('/app/redes', async (req,res)=>{
+router.get('/app/redes', async (req,res)=>{ //funcion que usa un req(lo que el usuario le pide al servidor) y envia un res(respuesta al servidor)
       try{
         // let data = await datacontroler.quienessomos()
         // let result = templates.buildPage('appRadiostations',data.medios)
 
         let data = await datacontroler.appRadiostations()
-        let result = templates.buildPage('appRadiostations',data)
-        res.send(result)
+        let result = templates.buildPage('appRadiostations',data) //construye un objeto appRadiostations con la data
+        res.send(result) // aca envia la respuesta al usuario
       }catch(e){
         console.log(e)
-        res.status(400).send('an error occured')
+        res.status(400).send('an error occured') //esta linea si se lo manda al usuario y el codigo 400 indica que algo pasó mal
       }
 });
 
 router.get('/node/:nid', async (req,res)=>{
       try{
         let data = archivo.node(req.params.nid)
-        if(!data)return res.status(404).send('oops, not found')
+        if(!data)return res.status(404).send('oops, not found') //aca el codigo 404 indica que algo no existe
         console.log('archive node',data);
         let result = templates.buildPage('noticia',data)
         res.send(result)
@@ -270,7 +270,7 @@ router.get('/rss/noticias.xml', async (req,res)=>{
           return;
         }
         let result = templates.buildPage('rssnoticias',data);
-        
+
         res.send(result)
       }catch(e){
         console.log(e)
