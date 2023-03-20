@@ -6,7 +6,7 @@ var radioapp={
       //si no usa el src directo del miembro:
       base: 'https://comecuco.org:9000/',
       miembros: [
-        {tipo: 'radio', nombre: 'la lenera', mountpoint:"lalenera"},
+        {tipo: 'radio', nombre: 'La Leñera', mountpoint:"LaLeñera"},
         {tipo: 'radio', nombre: 'radio cuyum', mountpoint:"Cuyum"},
         {tipo: 'radio', nombre: 'radio sin dueno', mountpoint:"RadiosinDueno"},
         {tipo: 'radio', nombre: 'tierra campesina', mountpoint:"TierraCampesina"},
@@ -50,12 +50,12 @@ var radioapp={
     this.redActual=this.redes[0]
     let logoRedActual=document.getElementById('COMECUCO') //ESTO ES PARA INICIAR CON LOGO COMECUCO
     logoRedActual.checked=true;
-    this.radioplayer=document.getElementById('radioplayer')
+    //this.radioplayer=document.getElementById('iraLeñera')
     this.cambiaRadioAId(0)
     this.getRedFromComecuco()
   },
   getRedFromComecuco: async function(){
-    let resp = await fetch('/app/redes')
+    let resp = await fetch('/app/redes') //aca no entiendo donde está '/app/redes'
     if(resp.ok){
       let red = await resp.json()
       this.redes = red
@@ -77,7 +77,9 @@ var radioapp={
         if(m.nombre==nombre || m.nombre.substring(0,m.nombre.indexOf(' '))==nombre|| m.mountpoint == nombre){
           found=true;
           this.redActual = this.redes[red]
-          this.cambiaRadioAId(x)
+          this.radioplayer=document.getElementById(nombre);
+          this.radioplayer.play();
+          //this.cambiaRadioAId(x)
           // alert('bienvenido al mundo de radios libres.')
           // this.radioplayer.play()
         }
@@ -101,9 +103,26 @@ var radioapp={
     this.simboloDisplayPause()
     this.scrollTexto('radioTexto',25)
   },
+
+  stopRadioplayers:function(){
+    let todosLosRadioplayers= document.getElementsByClassName('radioplayer');
+    console.log(todosLosRadioplayers);
+    for (var i = 0; i < todosLosRadioplayers.length; i++) {
+      cadaRadioplayer=todosLosRadioplayers[i];
+      cadaRadioplayer.pause();
+    }
+  },
+
   cambiaRadioAId: async function(index){
+    this.stopRadioplayers();
+    console.log(index);
     let miembroact = this.redActual.miembros[index]
-    this.radioActual = index
+    console.log(miembroact);
+    let idRadioActual=miembroact.nombre
+    console.log(idRadioActual);
+    this.radioplayer=document.getElementById(idRadioActual);
+    console.log(this.radioplayer);
+    //this.radioActual = index
     if(miembroact.tipo=='radio'){
       let displayplayPause=document.getElementById('playPause');
       displayplayPause.style.display="block";
@@ -117,8 +136,9 @@ var radioapp={
         noHayRadio.classList.add('nohaysenal')
       }
       try {
-        this.radioplayer.src=src
-        this.radioplayer.load()
+        this.radioplayer.play();
+        // this.radioplayer.src=src
+        // this.radioplayer.load()
       } catch (e) {
         noHayRadio.classList.add('nohaysenal')
       }
@@ -133,7 +153,7 @@ var radioapp={
         iframe.src=miembroact.src;
         videopreview.appendChild(iframe);
       }
-      this.radioplayer.pause()
+    //  this.radioplayer.pause()
       this.simboloDisplayPause()
 
     }

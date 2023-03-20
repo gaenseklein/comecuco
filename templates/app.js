@@ -1,4 +1,24 @@
 module.exports = function(data){
+console.log("data del template",data); // esto se ve en la Terminal del servidor
+
+  let listaaudioplayer = ""
+  let audioplayertemplate = ""
+    for(x=0;x<data.length;x++){
+      if (data[x].mountpoint==="") {
+        continue
+      } else {
+        let audioplayer=data[x];
+        console.log("prueba1",audioplayer);
+        let indice=x;
+        let audioId=data[x].name;
+        let baseSrcComecuco="https://comecuco.org:9000/";
+        let radioplayerSrc=baseSrcComecuco+data[x].mountpoint;
+        let audioplayertemplate = `
+        <audio id="${audioId}" class="radioplayer" name="${indice}" src="${radioplayerSrc}" preload="auto"></audio>
+        `
+        listaaudioplayer+=audioplayertemplate;
+        }
+    };
 
   let raw = `
   <!DOCTYPE html>
@@ -45,8 +65,15 @@ module.exports = function(data){
       </div>
      <div class="cajaDial">
         <div id="videopreview">
-          <audio id="radioplayer" src="https://comecuco.org:9000/Cuyum" autoplay>
-          </audio>
+        ${listaaudioplayer}
+
+          <!--<audio id="radioplayerLaBulla" class="radioplayer" src="https://comecuco.org:9000/radiolabulla" preload="auto"></audio>
+          <audio id="radioplayer1" class="radioplayer" src="https://comecuco.org:9000/lamosquitera" preload="auto"></audio>
+          <audio id="radioplayer2" class="radioplayer" src="https://comecuco.org:9000/RadiosinDueño" preload="auto"></audio>
+          <audio id="radioplayer3" class="radioplayer" src="https://comecuco.org:9000/LaPujante" preload="auto"></audio>
+          <audio id="radioplayer4" class="radioplayer" src="https://comecuco.org:9000/TierraCampesina" preload="auto"></audio>
+          <audio id="radioplayer5" class="radioplayer" src="https://comecuco.org:9000/Cuyum" preload="auto"></audio>
+          <audio id="radioplayer6" class="radioplayer" src="https://comecuco.org:9000/LaLeñera" preload="auto"></audio>-->
           <div id="noHayRadio" class="">&#x26d4;&#xfe0e; <br> Sin señal</div>
           <!--<iframe width="256" height="144" src="https://www.youtube.com/embed/i4rlKGYUPTo" title="YouTube video player" frameborder="0" allow="autoplay" allowfullscreen></iframe>-->
         </div>
