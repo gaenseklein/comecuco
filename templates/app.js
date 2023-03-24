@@ -28,6 +28,9 @@ console.log("data del template",data); // esto se ve en la Terminal del servidor
       <link rel="stylesheet" href="/public/static/layoutappradio.css">
     </head>
     <body class="bodyappradio">
+      <div id="relojDeCarga">
+       <img id="gifCargando"  src="/public/static/cargando.gif" alt="cargando Radio">
+      </div>
       <button id="iniciarApp" onclick="radioapp.radioplayer.play(); this.classList.add('oculta')">Bienvenido. Haga un clic para empezar con el radio</button>
       <div class="contenedorEncabezado">
         <div class="titulo">

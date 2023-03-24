@@ -58,6 +58,12 @@ var radioapp={
     }
   },
 
+  gifCargando: async function(){
+    setTimeout(function(){
+        relojDeCarga.style.display="none";
+      },12000)
+  },
+
   init: function(){
     this.redActual=this.redes[0]
     let logoRedActual=document.getElementById('COMECUCO') //ESTO ES PARA INICIAR CON LOGO COMECUCO
@@ -338,4 +344,5 @@ var radioapp={
   },
 }
 radioapp.evaluarCarga()
+radioapp.gifCargando()
 radioapp.init();

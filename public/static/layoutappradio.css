@@ -591,6 +591,24 @@ input[type=range]::-moz-range-thumb {
 }
 
 /*para forzar interaccion del usuario con la pagina*/
+
+#relojDeCarga {
+    position: absolute;
+    top: 1vh;
+    left: 1vw;
+    width: 98vw;
+    height: 98vh;
+    z-index: 10001;
+    background: black;
+    display: grid;
+}
+
+#gifCargando {
+  height: 15%;
+  padding-left: 37vw;
+  align-self: center;
+}
+
 #iniciarApp{
   position: absolute;
   top: 1vh;
