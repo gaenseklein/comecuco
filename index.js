@@ -1,9 +1,9 @@
 //dependencias
-const express = require('express');
+const express = require('express'); //biblioteca que construye un servidor
 const app = express();
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
-const fs = require('fs');
+const fs = require('fs'); //sistema de archivos, es pate de node js
 
 //Import routes
 

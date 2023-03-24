@@ -346,8 +346,13 @@ ul#botoneraDeMemorias{
   justify-content: center;
 }
 
-#M1, #playPause{
+#memoriahtml{
   margin-right: 1vw;
+}
+
+#playPause{
+  margin-right: 1vw;
+  margin-left: 12vw;
 }
 
 /*desde aca codigo para la barra de volumen*/
@@ -434,20 +439,19 @@ input[type=range]::-moz-range-thumb {
   transform: rotate(-90deg);
 }
 
-#M1, #M2 {
+#memoriahtml{
   height: 1.5em;
   overflow: hidden;
   text-overflow: ellipsis;
   width:8ch;
-
 }
 
-#m1Text, #m2Text{
+#memoriaText{
   width: 10ch;
   text-indent: 0ch;
 }
 
-#m1Text.enMovimiento, #m2Text.enMovimiento{
+#memoriaText.enMovimiento{
   text-align: left;
   width:30ch;
 }
@@ -586,13 +590,13 @@ input[type=range]::-moz-range-thumb {
   }
 }
 
-/*para esfuerzar interaccion del usuario con la pagina*/
+/*para forzar interaccion del usuario con la pagina*/
 #iniciarApp{
   position: absolute;
-  top: 0;
-  left:0;
-  width:98%;
-  height:98%;
+  top: 1vh;
+  left: 1vw;
+  width: 98vw;
+  height: 98vh;
   border:none;
   padding:0;
   display: grid;
@@ -601,6 +605,7 @@ input[type=range]::-moz-range-thumb {
   background: black;
   color: white;
   z-index: 10000;
+  font-size: 1em;
 }
 #iniciarApp.oculta{
   display: none;

@@ -39,9 +39,9 @@ router.get('/columnas', async (req,res)=>{
     res.status(400).send('oops, something went wrong');
   }
 });
-router.get('/columna/:id', async (req,res)=>{
+router.get('/columna/:id', async (req,res)=>{ //el : marca que viene un parámetro, en este caso el id seria un parametro
   try {
-    let data = await datacontroler.columna(req.params.id);
+    let data = await datacontroler.columna(req.params.id); // acá busca ese parametro requerido
     let response='hello';
     console.log('columna con data:',data);
     response = templates.buildPage('columna',data);
@@ -145,7 +145,7 @@ router.get('/app/redes', async (req,res)=>{ //funcion que usa un req(lo que el u
         // let data = await datacontroler.quienessomos()
         // let result = templates.buildPage('appRadiostations',data.medios)
 
-        let data = await datacontroler.appRadiostations()
+        let data = await datacontroler.appRadiostations() //toma los datos
         let result = templates.buildPage('appRadiostations',data) //construye un objeto appRadiostations con la data
         res.send(result) // aca envia la respuesta al usuario
       }catch(e){

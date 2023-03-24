@@ -9,12 +9,11 @@ console.log("data del template",data); // esto se ve en la Terminal del servidor
       } else {
         let audioplayer=data[x];
         console.log("prueba1",audioplayer);
-        let indice=x;
         let audioId=data[x].name;
         let baseSrcComecuco="https://comecuco.org:9000/";
         let radioplayerSrc=baseSrcComecuco+data[x].mountpoint;
         let audioplayertemplate = `
-        <audio id="${audioId}" class="radioplayer" name="${indice}" src="${radioplayerSrc}" preload="auto"></audio>
+        <audio id="${audioId}" class="radioplayer" src="${radioplayerSrc}" preload="auto"></audio>
         `
         listaaudioplayer+=audioplayertemplate;
         }
@@ -88,29 +87,19 @@ console.log("data del template",data); // esto se ve en la Terminal del servidor
            <span id="valor"></span>
           </div>
           <ul id="botoneraDeMemorias">
-            <li>
-              <button type="button" name="button" id="cargaM1" class="testbutton" onclick="radioapp.grabarMemoria(false)">
-                <h6>&#128308;</h6>
-              </button>
-            </li>
-            <li>
-              <button type="button" name="button" id="M1" class="testbutton" onclick="radioapp.playMemoria(false)">
-                <h6 id="m1Text">Memoria 1</h6>
-              </button>
-            </li>
+          <li>
+            <button type="button" name="button" id="cargaMemoria" class="testbutton" onclick="radioapp.grabarMemoria()">
+              <h6>&#128308;</h6>
+            </button>
+          </li>
+          <li>
+            <button type="button" name="button" id="memoriahtml" class="testbutton" onclick="radioapp.playMemoria()">
+              <h6 id="memoriaText">Memoria</h6>
+            </button>
+          </li>
             <li>
               <button type="button" name="button" id="playPause" class="testbutton" onclick="radioapp.paraOsigue()">
                 <p id="pause">═</p>
-              </button>
-            </li>
-            <li>
-              <button type="button" name="button" id="cargaM2" class="testbutton" onclick="radioapp.grabarMemoria(true)">
-                <h6>&#128308;</h6>
-              </button>
-            </li>
-            <li>
-              <button type="button" name="button" id="M2" class="testbutton" onclick="radioapp.playMemoria(true)">
-                <h6 id="m2Text">Memoria 2</h6>
               </button>
             </li>
           </ul>

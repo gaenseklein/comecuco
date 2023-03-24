@@ -46,6 +46,18 @@ var radioapp={
   redActual: {},
   radioActual: 0,
   radioplayer:null,
+
+  evaluarCarga:function(){
+    let listaRadioPlayer=document.getElementsByClassName("radioplayer");
+    for (var i = 0; i < listaRadioPlayer.length; i++) {
+      let radioCarga=listaRadioPlayer[i];
+        radioCarga.onerror = function(){
+        console.log('error on radioplayer',radioCarga);
+        radioCarga.classList.add('nohaysenal');
+      }
+    }
+  },
+
   init: function(){
     this.redActual=this.redes[0]
     let logoRedActual=document.getElementById('COMECUCO') //ESTO ES PARA INICIAR CON LOGO COMECUCO
@@ -55,7 +67,7 @@ var radioapp={
     this.getRedFromComecuco()
   },
   getRedFromComecuco: async function(){
-    let resp = await fetch('/app/redes') //aca no entiendo donde está '/app/redes'
+    let resp = await fetch('/app/redes') // al empezar en / significa que toma como origen el mismo servidor, osea podria decir comecuco.org
     if(resp.ok){
       let red = await resp.json()
       this.redes = red
@@ -93,8 +105,7 @@ var radioapp={
     displayPause.style.transform= "rotate(-90deg)";
   },
   cambiaRadio: function(izquierda){
-    document.getElementById('m1Text').classList.remove('enMovimiento');
-    document.getElementById('m2Text').classList.remove('enMovimiento');
+    document.getElementById('memoriaText').classList.remove('enMovimiento');
     if(izquierda)this.radioActual--;
     else this.radioActual++;
     if(this.radioActual>=this.redActual.miembros.length)this.radioActual=0
@@ -128,13 +139,11 @@ var radioapp={
       displayplayPause.style.display="block";
       let videoframe = document.getElementById('videoiframe')
       if(videoframe)videoframe.parentElement.removeChild(videoframe)
-      let src=miembroact.src
-      if(miembroact.mountpoint)src=this.redActual.base + miembroact.mountpoint
-      noHayRadio.classList.remove('nohaysenal')
-      this.radioplayer.onerror = function(e){
-        console.log('error on radioplayer',e);
-        noHayRadio.classList.add('nohaysenal')
-      }
+      //let src=miembroact.src
+      noHayRadio.classList.remove('nohaysenal');
+      if(this.radioplayer.classList.contains('nohaysenal')){
+      noHayRadio.classList.add('nohaysenal')}
+
       try {
         this.radioplayer.play();
         // this.radioplayer.src=src
@@ -154,10 +163,8 @@ var radioapp={
         videopreview.appendChild(iframe);
       }
     //  this.radioplayer.pause()
-      this.simboloDisplayPause()
-
     }
-
+    this.simboloDisplayPause()
     COMECUCOactivo.innerHTML=`<h5 id="radioTexto">${miembroact.nombre}</h5>`
   },
   cambiaRed: function(){
@@ -199,32 +206,22 @@ var radioapp={
     this.radioplayer.play()
     }
   },
-  grabarMemoria: function(mem2){
+  grabarMemoria: function(){
     let memoria = {
       index: this.radioActual,
       red: this.redActual.nombre,
       radionombre: this.redActual.miembros[this.radioActual].nombre,
     }
-    console.log('grabbed mem',memoria,mem2);
-    if(mem2){
-      this.memoria2 = memoria
-      M2.firstElementChild.innerText = memoria.radionombre
-      if (document.getElementById('m2Text').classList=="enMovimiento"){
-        return
+    console.log('grabbed mem',memoria);
+    this.memoria = memoria
+    memoriahtml.firstElementChild.innerText = memoria.radionombre
+    if (document.getElementById('memoriaText').classList=="enMovimiento"){
+      return
       }
-      this.scrollTexto('m2Text',12)
-    }else{
-      this.memoria1 = memoria
-      console.log('saving',M1.firstElementChild);
-      M1.firstElementChild.innerText = memoria.radionombre
-      if (document.getElementById('m1Text').classList=="enMovimiento"){
-        return
-      }
-      this.scrollTexto('m1Text',12)
-    }
+      this.scrollTexto('memoriaText',12)
   },
-  playMemoria: function(mem2){
-    let memoria = mem2 ? this.memoria2 : this.memoria1
+  playMemoria: function(){
+    let memoria = this.memoria
     if(!memoria)return //no hay memoria todavia
     if(this.redActual.nombre != memoria.red){
       //tenemos que cambiar la red
@@ -239,7 +236,7 @@ var radioapp={
     }
     this.cambiaRadioAId(memoria.index)
   },
-  espacioX: 0,
+//  espacioX: 0,
 /*
   textoScroll: function(mov){
     if (mov){var textoEnMem=document.getElementById('m2Text');
@@ -340,4 +337,5 @@ var radioapp={
       },350)
   },
 }
+radioapp.evaluarCarga()
 radioapp.init();

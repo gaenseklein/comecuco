@@ -24,4 +24,4 @@ const auth = async function(req,res,next){
   return;
 }
 
-module.exports = auth;
+module.exports = auth; //el codigo esta hecho en módulos, y aca se define que exporte ese modulo para llamarlo desde otro lado
