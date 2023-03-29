@@ -13,7 +13,7 @@ console.log("data del template",data); // esto se ve en la Terminal del servidor
         let baseSrcComecuco="https://comecuco.org:9000/";
         let radioplayerSrc=baseSrcComecuco+data[x].mountpoint;
         let audioplayertemplate = `
-        <audio id="${audioId}" class="radioplayer" src="${radioplayerSrc}" preload="auto"></audio>
+        <audio id="${audioId}" class="radioplayer" src="${radioplayerSrc}" preload="auto" onerror="this.classList.add('nohaysenal')"></audio>
         `
         listaaudioplayer+=audioplayertemplate;
         }

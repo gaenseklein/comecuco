@@ -47,17 +47,6 @@ var radioapp={
   radioActual: 0,
   radioplayer:null,
 
-  evaluarCarga:function(){
-    let listaRadioPlayer=document.getElementsByClassName("radioplayer");
-    for (var i = 0; i < listaRadioPlayer.length; i++) {
-      let radioCarga=listaRadioPlayer[i];
-        radioCarga.onerror = function(){
-        console.log('error on radioplayer',radioCarga);
-        radioCarga.classList.add('nohaysenal');
-      }
-    }
-  },
-
   gifCargando: async function(){
     setTimeout(function(){
         relojDeCarga.style.display="none";
@@ -343,6 +332,6 @@ var radioapp={
       },350)
   },
 }
-radioapp.evaluarCarga()
+
 radioapp.gifCargando()
 radioapp.init();

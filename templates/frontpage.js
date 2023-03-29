@@ -338,7 +338,7 @@ const template = function(data){
       </body>
     <script type="text/javascript">
         var calecitaactivo=0;
-        var calecitatiempo=3000;
+        var calecitatiempo=5000;
         var calecitatimer;
         function calecita(){
           let lis = document.querySelectorAll('.calecita li');
@@ -363,12 +363,11 @@ const template = function(data){
           if(oldli)oldli.classList.remove('activo');
           if(lis[valorlisNew])lis[valorlisNew].classList.add('activo');
           calecitaactivo=valorlisNew;
-          calecitatimer=setTimeout(calecita, 5000);
+          calecitatimer=setTimeout(calecita, 7000);
         }
       </script>
 
-      <!-- <script src='/public/static/scripts/calecita.js'></script>
-      <script src='/public/static/scripts/playbutton.js'></script>  -->
+      <!-- <script src='/public/static/scripts/playbutton.js'></script>  -->
       <script src='/public/static/scripts/verticalscrolllist.js'></script>
       <script src='/public/static/scripts/weather.js'></script>
       <script src='/public/static/scripts/horademendoza.js'></script>
