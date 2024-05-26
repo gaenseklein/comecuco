@@ -38,7 +38,7 @@ module.exports = function(data){
     nombre: 'comecuco',
     //si miembro tiene un mountpoint se toma base + mountpoint para src del audio
     //si no usa el src directo del miembro:
-    base: 'https://comecuco.org:9000/',
+    base: 'http://comecuco.org:8000/',
     miembros: [
       // {tipo: 'video', nombre: 'giramundo tv', youtube:true, src:'https://www.youtube.com/embed/i4rlKGYUPTo'},
     ],

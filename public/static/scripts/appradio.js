@@ -4,7 +4,7 @@ var radioapp={
       nombre: 'comecuco',
       //si miembro tiene un mountpoint se toma base + mountpoint para src del audio
       //si no usa el src directo del miembro:
-      base: 'https://comecuco.org:9000/',
+      base: 'http://comecuco.org:8000/',
       miembros: [
         {tipo: 'radio', nombre: 'La Leñera', mountpoint:"LaLeñera"},
         {tipo: 'radio', nombre: 'radio cuyum', mountpoint:"Cuyum"},
@@ -50,10 +50,14 @@ var radioapp={
   gifCargando: async function(){
     setTimeout(function(){
         relojDeCarga.style.display="none";
-      },12000)
+      },2000)
   },
 
   init: function(){
+  	if(location.host!='radio.comecuco.org'){
+  		location.href = "http://radio.comecuco.org/envivo"
+  		return
+  	}
     this.redActual=this.redes[0]
     let logoRedActual=document.getElementById('COMECUCO') //ESTO ES PARA INICIAR CON LOGO COMECUCO
     logoRedActual.checked=true;
@@ -62,7 +66,10 @@ var radioapp={
     this.getRedFromComecuco()
   },
   getRedFromComecuco: async function(){
-    let resp = await fetch('/app/redes') // al empezar en / significa que toma como origen el mismo servidor, osea podria decir comecuco.org
+    let resp = await fetch('/app/redes', {
+    	method: "GET",
+    	mode: "no-cors"
+    }) // al empezar en / significa que toma como origen el mismo servidor, osea podria decir comecuco.org
     if(resp.ok){
       let red = await resp.json()
       this.redes = red

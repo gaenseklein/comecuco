@@ -10,7 +10,7 @@ const template = function(data){
     for(let x=0;x<data.medios.length;x++){
       medioslist += `<li>
         <img src="${data.medios[x].icon}" alt="${data.medios[x].name}">
-        <a href="${data.medios[x].url}">
+        <a href="/medio/${data.medios[x].url}">
           <h4>${data.medios[x].name}</h4>
         </a>
         <p>${data.medios[x].description}</p>

@@ -76,6 +76,10 @@ const template = function(data){
         </li>`
       }
     }
+    audiodelmedio = ""
+    if(medio.mountpoint && medio.mountpoint != ""){
+    	audiodelmedio = `<audio src="https://comecuco.org:9000/${medio.mountpoint}" controls></audio>`
+    }
     let raw = `
     <!DOCTYPE html>
     <html lang="es" dir="ltr">
@@ -116,7 +120,8 @@ const template = function(data){
             </ul>
           </div>
           <div class="datosdelmedio">
-            <a href="/envivo/${medio.mountpoint}" target="_blank">RADIO ONLINE</a>
+            <!-- <a href="/envivo/${medio.mountpoint}" target="_blank">RADIO ONLINE</a>-->
+            ${audiodelmedio}
             <a href="//umap.openstreetmap.fr/fr/map/mapa-comecuco_845768" target="_blank">MAPA</a>
             ${mail}
             ${redes}

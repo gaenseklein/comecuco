@@ -354,6 +354,9 @@ flex-wrap: wrap;
 }
 
 /*unsorted*/
+.subpaginamedio audio {
+  height: 3em;
+}
 
 #climaTodasLasNoticias{
   display: grid;
